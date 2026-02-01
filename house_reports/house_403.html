@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 403</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 20:11:22</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 22:49:40</div>
         </header>
 
         <section>
@@ -289,9 +289,15 @@
             <div class="summary-number">2</div>
             <div class="summary-label">Iterations</div>
         </div>
-        <div class="summary-card">
-            <div class="summary-number">8.2%</div>
-            <div class="summary-label">Power Segmented</div>
+    </div>
+    <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">8.2%</div>
+            <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">0.0 hrs</div>
+            <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
         </div>
     </div>
     
@@ -301,7 +307,7 @@
             <h2>Issues</h2>
             
     <ul class="flags-list">
-        <li class="flag-item"><span class="flag-icon">⚠</span> Low Improvement</li><li class="flag-item"><span class="flag-icon">⚠</span> Low Segmentation</li>
+        <li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Low Improvement</span></li><li class="flag-item" style="background: #fff3cd; border-left-color: #856404;"><span class="flag-icon">📊</span> <span style="color: #856404;">Low Segmentation</span></li>
     </ul>
     
         </section>
@@ -312,31 +318,37 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>Iteration</th>
-                <th>Events</th>
+                <th>Iter</th>
+                <th>Events<br><small>(ON/OFF)</small></th>
                 <th>Matches</th>
+                <th>Unmatched<br><small>(ON/OFF)</small></th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
-                <th>Negative Values</th>
+                <th>Matched Minutes</th>
+                <th>Negative</th>
             </tr>
         </thead>
         <tbody>
             
         <tr>
             <td>0</td>
-            <td>973</td>
+            <td>ON: 486<br>OFF: 486</td>
             <td>421</td>
+            <td>ON: 65<br>OFF: 65</td>
             <td>86.5%</td>
             <td>714.2 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
         <tr>
             <td>1</td>
-            <td>105</td>
+            <td>ON: 52<br>OFF: 52</td>
             <td>12</td>
+            <td>ON: 40<br>OFF: 40</td>
             <td>22.9%</td>
             <td>19.5 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
@@ -350,6 +362,10 @@
         <div class="metric">
             <span class="metric-label">Total Matched Power:</span>
             <span class="metric-value">733.7 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Minutes:</span>
+            <span class="metric-value">0 min (0.0 hrs)</span>
         </div>
     </div>
     
@@ -374,24 +390,38 @@
             </table>
         </div>
     </div>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">ON Events:</span>
-            <span class="metric-value">488</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">OFF Events:</span>
-            <span class="metric-value">485</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Matched ON:</span>
-            <span class="metric-value">0 (86.3%)</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Unmatched ON:</span>
-            <span class="metric-value">0</span>
-        </div>
-    </div>
+
+    <h4 style="margin-top: 20px;">Event Statistics</h4>
+    <table class="data-table small" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td>488</td>
+                <td>485</td>
+            </tr>
+            <tr>
+                <td><strong>Matched</strong></td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+            </tr>
+            <tr>
+                <td><strong>Unmatched</strong></td>
+                <td>488</td>
+                <td>485</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+        Note: ON and OFF event counts may differ due to detection algorithm sensitivity and edge effects.
+        Matching rate = matched / total events of that type.
+    </p>
     
         </section>
 
@@ -399,32 +429,18 @@
             <h2>Segmentation Details</h2>
             
     
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>Total Power</th>
-                <th>Segmented</th>
-                <th>Remaining</th>
-                <th>Ratio</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">Total Power:</span>
-            <span class="metric-value">45343.1 kW</span>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333;">45343.1 kW</div>
+            <div class="summary-label">Total Power Consumed</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Segmented:</span>
-            <span class="metric-value">3729.7 kW (8.2%)</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724;">3729.7 kW</div>
+            <div class="summary-label">Segmented (8.2%)</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Remaining:</span>
-            <span class="metric-value">41613.4 kW</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="summary-number" style="color: #6c757d;">41613.4 kW</div>
+            <div class="summary-label">Remaining (91.8%)</div>
         </div>
     </div>
     
@@ -433,24 +449,9 @@
         <section>
             <h2>Event Patterns</h2>
             
-    <h4>Daily Statistics</h4>
-    <div class="summary-grid">
-        <div class="summary-card">
-            <div class="summary-number">58</div>
-            <div class="summary-label">Total Days</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">16.8</div>
-            <div class="summary-label">Avg Events/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">7.4</div>
-            <div class="summary-label">Avg Matches/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">12.5</div>
-            <div class="summary-label">Avg kW/Day Matched</div>
-        </div>
+    <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; display: inline-block;">
+        <span style="font-size: 1.5em; font-weight: bold; color: #2d3748;">58</span>
+        <span style="color: #666; margin-left: 10px;">Days of Data Analyzed</span>
     </div>
     
         <h4>Recurring Appliance Usage</h4>
@@ -478,10 +479,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 12 sessions (should match Total Sessions: 12)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -492,6 +497,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-10-04</td>
                     <td>13:10</td>
                     <td>13:22</td>
@@ -501,6 +507,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2022-10-07</td>
                     <td>17:29</td>
                     <td>17:38</td>
@@ -510,6 +517,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2022-10-11</td>
                     <td>19:59</td>
                     <td>20:22</td>
@@ -519,6 +527,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2022-10-14</td>
                     <td>13:53</td>
                     <td>14:19</td>
@@ -528,6 +537,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2022-10-16</td>
                     <td>13:21</td>
                     <td>13:34</td>
@@ -537,6 +547,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2022-10-22</td>
                     <td>14:05</td>
                     <td>14:18</td>
@@ -546,6 +557,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2022-10-25</td>
                     <td>19:55</td>
                     <td>20:06</td>
@@ -555,6 +567,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2022-10-31</td>
                     <td>20:33</td>
                     <td>20:46</td>
@@ -564,6 +577,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2022-11-05</td>
                     <td>13:42</td>
                     <td>13:48</td>
@@ -573,6 +587,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2022-11-09</td>
                     <td>22:02</td>
                     <td>22:16</td>
@@ -582,6 +597,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2022-11-11</td>
                     <td>21:47</td>
                     <td>22:21</td>
@@ -591,6 +607,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2022-11-15</td>
                     <td>19:12</td>
                     <td>19:25</td>
@@ -621,10 +638,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w2 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 178 sessions (should match Total Sessions: 178)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -635,6 +656,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-09-28</td>
                     <td>13:16</td>
                     <td>13:19</td>
@@ -644,6 +666,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2022-09-28</td>
                     <td>23:45</td>
                     <td>23:55</td>
@@ -653,6 +676,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2022-09-29</td>
                     <td>11:24</td>
                     <td>11:27</td>
@@ -662,6 +686,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2022-09-29</td>
                     <td>22:38</td>
                     <td>23:14</td>
@@ -671,6 +696,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2022-09-30</td>
                     <td>11:32</td>
                     <td>11:34</td>
@@ -680,6 +706,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2022-09-30</td>
                     <td>18:30</td>
                     <td>18:31</td>
@@ -689,6 +716,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2022-10-01</td>
                     <td>00:29</td>
                     <td>00:31</td>
@@ -698,6 +726,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2022-10-01</td>
                     <td>07:43</td>
                     <td>07:44</td>
@@ -707,6 +736,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2022-10-01</td>
                     <td>13:03</td>
                     <td>13:05</td>
@@ -716,6 +746,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2022-10-01</td>
                     <td>17:38</td>
                     <td>17:47</td>
@@ -725,6 +756,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2022-10-01</td>
                     <td>20:57</td>
                     <td>20:58</td>
@@ -734,6 +766,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2022-10-02</td>
                     <td>00:29</td>
                     <td>00:58</td>
@@ -743,6 +776,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>13</strong></td>
                     <td>2022-10-02</td>
                     <td>10:52</td>
                     <td>11:12</td>
@@ -752,6 +786,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>14</strong></td>
                     <td>2022-10-03</td>
                     <td>00:29</td>
                     <td>00:32</td>
@@ -761,6 +796,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>15</strong></td>
                     <td>2022-10-03</td>
                     <td>10:51</td>
                     <td>10:54</td>
@@ -770,6 +806,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>16</strong></td>
                     <td>2022-10-03</td>
                     <td>17:35</td>
                     <td>17:36</td>
@@ -779,6 +816,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>17</strong></td>
                     <td>2022-10-03</td>
                     <td>23:20</td>
                     <td>23:23</td>
@@ -788,6 +826,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>18</strong></td>
                     <td>2022-10-04</td>
                     <td>11:17</td>
                     <td>11:20</td>
@@ -797,6 +836,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>19</strong></td>
                     <td>2022-10-04</td>
                     <td>13:47</td>
                     <td>13:48</td>
@@ -806,6 +846,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>20</strong></td>
                     <td>2022-10-04</td>
                     <td>16:31</td>
                     <td>16:38</td>
@@ -815,6 +856,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>21</strong></td>
                     <td>2022-10-04</td>
                     <td>19:47</td>
                     <td>19:53</td>
@@ -824,6 +866,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>22</strong></td>
                     <td>2022-10-05</td>
                     <td>00:28</td>
                     <td>00:31</td>
@@ -833,6 +876,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>23</strong></td>
                     <td>2022-10-05</td>
                     <td>07:02</td>
                     <td>07:03</td>
@@ -842,6 +886,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>24</strong></td>
                     <td>2022-10-05</td>
                     <td>13:57</td>
                     <td>13:59</td>
@@ -851,6 +896,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>25</strong></td>
                     <td>2022-10-06</td>
                     <td>08:11</td>
                     <td>08:12</td>
@@ -860,6 +906,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>26</strong></td>
                     <td>2022-10-06</td>
                     <td>10:55</td>
                     <td>10:58</td>
@@ -869,6 +916,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>27</strong></td>
                     <td>2022-10-07</td>
                     <td>00:04</td>
                     <td>00:07</td>
@@ -878,6 +926,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>28</strong></td>
                     <td>2022-10-07</td>
                     <td>10:28</td>
                     <td>10:30</td>
@@ -887,6 +936,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>29</strong></td>
                     <td>2022-10-07</td>
                     <td>15:56</td>
                     <td>16:02</td>
@@ -896,6 +946,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>30</strong></td>
                     <td>2022-10-07</td>
                     <td>17:51</td>
                     <td>17:53</td>
@@ -905,6 +956,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>31</strong></td>
                     <td>2022-10-07</td>
                     <td>19:29</td>
                     <td>19:32</td>
@@ -914,6 +966,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>32</strong></td>
                     <td>2022-10-07</td>
                     <td>22:46</td>
                     <td>23:42</td>
@@ -923,6 +976,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>33</strong></td>
                     <td>2022-10-08</td>
                     <td>09:14</td>
                     <td>09:20</td>
@@ -932,6 +986,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>34</strong></td>
                     <td>2022-10-08</td>
                     <td>12:39</td>
                     <td>12:42</td>
@@ -941,6 +996,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>35</strong></td>
                     <td>2022-10-08</td>
                     <td>17:05</td>
                     <td>17:07</td>
@@ -950,6 +1006,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>36</strong></td>
                     <td>2022-10-09</td>
                     <td>00:20</td>
                     <td>00:22</td>
@@ -959,6 +1016,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>37</strong></td>
                     <td>2022-10-09</td>
                     <td>07:55</td>
                     <td>07:56</td>
@@ -968,6 +1026,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>38</strong></td>
                     <td>2022-10-09</td>
                     <td>10:18</td>
                     <td>10:21</td>
@@ -977,6 +1036,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>39</strong></td>
                     <td>2022-10-09</td>
                     <td>18:22</td>
                     <td>18:23</td>
@@ -986,6 +1046,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>40</strong></td>
                     <td>2022-10-10</td>
                     <td>00:28</td>
                     <td>00:31</td>
@@ -995,6 +1056,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>41</strong></td>
                     <td>2022-10-10</td>
                     <td>22:47</td>
                     <td>22:48</td>
@@ -1004,6 +1066,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>42</strong></td>
                     <td>2022-10-11</td>
                     <td>00:28</td>
                     <td>00:31</td>
@@ -1013,6 +1076,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>43</strong></td>
                     <td>2022-10-11</td>
                     <td>06:45</td>
                     <td>06:46</td>
@@ -1022,6 +1086,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>44</strong></td>
                     <td>2022-10-11</td>
                     <td>13:09</td>
                     <td>13:10</td>
@@ -1031,6 +1096,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>45</strong></td>
                     <td>2022-10-11</td>
                     <td>21:46</td>
                     <td>22:53</td>
@@ -1040,6 +1106,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>46</strong></td>
                     <td>2022-10-12</td>
                     <td>11:08</td>
                     <td>11:11</td>
@@ -1049,6 +1116,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>47</strong></td>
                     <td>2022-10-12</td>
                     <td>16:42</td>
                     <td>17:53</td>
@@ -1058,6 +1126,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>48</strong></td>
                     <td>2022-10-12</td>
                     <td>23:54</td>
                     <td>23:57</td>
@@ -1067,6 +1136,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>49</strong></td>
                     <td>2022-10-13</td>
                     <td>11:59</td>
                     <td>12:01</td>
@@ -1076,12 +1146,1293 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>50</strong></td>
                     <td>2022-10-13</td>
                     <td>21:28</td>
                     <td>21:31</td>
                     <td>3 min</td>
                     <td>1574W</td>
                     <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>51</strong></td>
+                    <td>2022-10-14</td>
+                    <td>00:18</td>
+                    <td>00:21</td>
+                    <td>3 min</td>
+                    <td>2210W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>52</strong></td>
+                    <td>2022-10-14</td>
+                    <td>09:13</td>
+                    <td>09:16</td>
+                    <td>3 min</td>
+                    <td>1640W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>53</strong></td>
+                    <td>2022-10-14</td>
+                    <td>16:14</td>
+                    <td>16:54</td>
+                    <td>40 min</td>
+                    <td>1486W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>54</strong></td>
+                    <td>2022-10-14</td>
+                    <td>20:34</td>
+                    <td>20:36</td>
+                    <td>2 min</td>
+                    <td>1708W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>55</strong></td>
+                    <td>2022-10-15</td>
+                    <td>00:26</td>
+                    <td>00:28</td>
+                    <td>2 min</td>
+                    <td>1652W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>56</strong></td>
+                    <td>2022-10-15</td>
+                    <td>13:22</td>
+                    <td>13:25</td>
+                    <td>3 min</td>
+                    <td>1545W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>57</strong></td>
+                    <td>2022-10-15</td>
+                    <td>21:29</td>
+                    <td>21:30</td>
+                    <td>1 min</td>
+                    <td>1604W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>58</strong></td>
+                    <td>2022-10-16</td>
+                    <td>00:28</td>
+                    <td>01:30</td>
+                    <td>62 min</td>
+                    <td>1677W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>59</strong></td>
+                    <td>2022-10-16</td>
+                    <td>11:36</td>
+                    <td>12:34</td>
+                    <td>58 min</td>
+                    <td>1574W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>60</strong></td>
+                    <td>2022-10-16</td>
+                    <td>16:56</td>
+                    <td>17:02</td>
+                    <td>6 min</td>
+                    <td>1539W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>61</strong></td>
+                    <td>2022-10-16</td>
+                    <td>18:05</td>
+                    <td>18:47</td>
+                    <td>42 min</td>
+                    <td>1499W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>62</strong></td>
+                    <td>2022-10-17</td>
+                    <td>00:27</td>
+                    <td>00:30</td>
+                    <td>3 min</td>
+                    <td>1589W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>63</strong></td>
+                    <td>2022-10-17</td>
+                    <td>13:13</td>
+                    <td>13:16</td>
+                    <td>3 min</td>
+                    <td>1596W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>64</strong></td>
+                    <td>2022-10-17</td>
+                    <td>21:08</td>
+                    <td>21:22</td>
+                    <td>14 min</td>
+                    <td>1537W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>65</strong></td>
+                    <td>2022-10-17</td>
+                    <td>22:59</td>
+                    <td>23:04</td>
+                    <td>5 min</td>
+                    <td>1499W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>66</strong></td>
+                    <td>2022-10-18</td>
+                    <td>00:30</td>
+                    <td>00:32</td>
+                    <td>2 min</td>
+                    <td>1600W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>67</strong></td>
+                    <td>2022-10-18</td>
+                    <td>08:42</td>
+                    <td>09:23</td>
+                    <td>41 min</td>
+                    <td>1558W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>68</strong></td>
+                    <td>2022-10-18</td>
+                    <td>23:18</td>
+                    <td>23:20</td>
+                    <td>2 min</td>
+                    <td>2098W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>69</strong></td>
+                    <td>2022-10-19</td>
+                    <td>09:57</td>
+                    <td>09:59</td>
+                    <td>2 min</td>
+                    <td>1548W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>70</strong></td>
+                    <td>2022-10-19</td>
+                    <td>19:23</td>
+                    <td>19:26</td>
+                    <td>3 min</td>
+                    <td>1719W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>71</strong></td>
+                    <td>2022-10-20</td>
+                    <td>07:50</td>
+                    <td>07:51</td>
+                    <td>1 min</td>
+                    <td>1699W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>72</strong></td>
+                    <td>2022-10-20</td>
+                    <td>10:45</td>
+                    <td>10:48</td>
+                    <td>3 min</td>
+                    <td>1585W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>73</strong></td>
+                    <td>2022-10-21</td>
+                    <td>00:29</td>
+                    <td>00:32</td>
+                    <td>3 min</td>
+                    <td>1519W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>74</strong></td>
+                    <td>2022-10-21</td>
+                    <td>11:19</td>
+                    <td>11:22</td>
+                    <td>3 min</td>
+                    <td>1602W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>75</strong></td>
+                    <td>2022-10-21</td>
+                    <td>16:11</td>
+                    <td>16:13</td>
+                    <td>2 min</td>
+                    <td>1612W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>76</strong></td>
+                    <td>2022-10-21</td>
+                    <td>20:44</td>
+                    <td>20:47</td>
+                    <td>3 min</td>
+                    <td>1657W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>77</strong></td>
+                    <td>2022-10-22</td>
+                    <td>00:08</td>
+                    <td>00:11</td>
+                    <td>3 min</td>
+                    <td>2144W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>78</strong></td>
+                    <td>2022-10-22</td>
+                    <td>08:33</td>
+                    <td>08:36</td>
+                    <td>3 min</td>
+                    <td>3325W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>79</strong></td>
+                    <td>2022-10-22</td>
+                    <td>16:52</td>
+                    <td>17:44</td>
+                    <td>52 min</td>
+                    <td>1552W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>80</strong></td>
+                    <td>2022-10-22</td>
+                    <td>22:07</td>
+                    <td>22:10</td>
+                    <td>3 min</td>
+                    <td>1680W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>81</strong></td>
+                    <td>2022-10-23</td>
+                    <td>23:38</td>
+                    <td>23:48</td>
+                    <td>10 min</td>
+                    <td>1557W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>82</strong></td>
+                    <td>2022-10-24</td>
+                    <td>10:07</td>
+                    <td>10:11</td>
+                    <td>4 min</td>
+                    <td>1592W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>83</strong></td>
+                    <td>2022-10-25</td>
+                    <td>00:12</td>
+                    <td>00:15</td>
+                    <td>3 min</td>
+                    <td>1691W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>84</strong></td>
+                    <td>2022-10-25</td>
+                    <td>10:45</td>
+                    <td>10:47</td>
+                    <td>2 min</td>
+                    <td>1706W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>85</strong></td>
+                    <td>2022-10-25</td>
+                    <td>16:34</td>
+                    <td>16:37</td>
+                    <td>3 min</td>
+                    <td>1627W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>86</strong></td>
+                    <td>2022-10-25</td>
+                    <td>20:58</td>
+                    <td>21:53</td>
+                    <td>55 min</td>
+                    <td>1556W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>87</strong></td>
+                    <td>2022-10-25</td>
+                    <td>23:14</td>
+                    <td>23:17</td>
+                    <td>3 min</td>
+                    <td>1746W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>88</strong></td>
+                    <td>2022-10-26</td>
+                    <td>09:57</td>
+                    <td>10:00</td>
+                    <td>3 min</td>
+                    <td>1605W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>89</strong></td>
+                    <td>2022-10-28</td>
+                    <td>17:42</td>
+                    <td>18:17</td>
+                    <td>35 min</td>
+                    <td>1757W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>90</strong></td>
+                    <td>2022-10-28</td>
+                    <td>23:39</td>
+                    <td>00:31</td>
+                    <td>52 min</td>
+                    <td>1498W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>91</strong></td>
+                    <td>2022-10-29</td>
+                    <td>08:19</td>
+                    <td>08:21</td>
+                    <td>2 min</td>
+                    <td>1581W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>92</strong></td>
+                    <td>2022-10-29</td>
+                    <td>10:52</td>
+                    <td>10:53</td>
+                    <td>1 min</td>
+                    <td>1602W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>93</strong></td>
+                    <td>2022-10-29</td>
+                    <td>13:13</td>
+                    <td>13:25</td>
+                    <td>12 min</td>
+                    <td>1773W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>94</strong></td>
+                    <td>2022-10-29</td>
+                    <td>16:57</td>
+                    <td>17:02</td>
+                    <td>5 min</td>
+                    <td>1499W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>95</strong></td>
+                    <td>2022-10-29</td>
+                    <td>20:26</td>
+                    <td>20:27</td>
+                    <td>1 min</td>
+                    <td>1949W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>96</strong></td>
+                    <td>2022-10-30</td>
+                    <td>00:20</td>
+                    <td>00:22</td>
+                    <td>2 min</td>
+                    <td>1696W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>97</strong></td>
+                    <td>2022-10-30</td>
+                    <td>09:57</td>
+                    <td>10:00</td>
+                    <td>3 min</td>
+                    <td>1588W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>98</strong></td>
+                    <td>2022-10-30</td>
+                    <td>20:42</td>
+                    <td>20:48</td>
+                    <td>6 min</td>
+                    <td>1548W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>99</strong></td>
+                    <td>2022-10-30</td>
+                    <td>23:29</td>
+                    <td>23:31</td>
+                    <td>2 min</td>
+                    <td>1520W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>100</strong></td>
+                    <td>2022-10-31</td>
+                    <td>07:29</td>
+                    <td>07:30</td>
+                    <td>1 min</td>
+                    <td>1623W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>101</strong></td>
+                    <td>2022-10-31</td>
+                    <td>09:45</td>
+                    <td>09:48</td>
+                    <td>3 min</td>
+                    <td>1589W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>102</strong></td>
+                    <td>2022-10-31</td>
+                    <td>20:55</td>
+                    <td>20:57</td>
+                    <td>2 min</td>
+                    <td>1561W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>103</strong></td>
+                    <td>2022-10-31</td>
+                    <td>23:23</td>
+                    <td>23:54</td>
+                    <td>31 min</td>
+                    <td>1593W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>104</strong></td>
+                    <td>2022-11-01</td>
+                    <td>11:13</td>
+                    <td>11:16</td>
+                    <td>3 min</td>
+                    <td>1566W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>105</strong></td>
+                    <td>2022-11-01</td>
+                    <td>19:41</td>
+                    <td>20:11</td>
+                    <td>30 min</td>
+                    <td>1621W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>106</strong></td>
+                    <td>2022-11-01</td>
+                    <td>23:19</td>
+                    <td>23:21</td>
+                    <td>2 min</td>
+                    <td>1562W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>107</strong></td>
+                    <td>2022-11-02</td>
+                    <td>09:53</td>
+                    <td>09:56</td>
+                    <td>3 min</td>
+                    <td>1707W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>108</strong></td>
+                    <td>2022-11-02</td>
+                    <td>22:32</td>
+                    <td>23:31</td>
+                    <td>59 min</td>
+                    <td>1582W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>109</strong></td>
+                    <td>2022-11-03</td>
+                    <td>09:55</td>
+                    <td>09:58</td>
+                    <td>3 min</td>
+                    <td>1600W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>110</strong></td>
+                    <td>2022-11-03</td>
+                    <td>20:06</td>
+                    <td>20:07</td>
+                    <td>1 min</td>
+                    <td>1567W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>111</strong></td>
+                    <td>2022-11-03</td>
+                    <td>21:12</td>
+                    <td>21:14</td>
+                    <td>2 min</td>
+                    <td>1587W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>112</strong></td>
+                    <td>2022-11-03</td>
+                    <td>23:28</td>
+                    <td>23:30</td>
+                    <td>2 min</td>
+                    <td>1632W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>113</strong></td>
+                    <td>2022-11-04</td>
+                    <td>06:12</td>
+                    <td>06:15</td>
+                    <td>3 min</td>
+                    <td>1642W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>114</strong></td>
+                    <td>2022-11-04</td>
+                    <td>11:17</td>
+                    <td>11:20</td>
+                    <td>3 min</td>
+                    <td>1558W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>115</strong></td>
+                    <td>2022-11-04</td>
+                    <td>21:41</td>
+                    <td>21:43</td>
+                    <td>2 min</td>
+                    <td>1657W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>116</strong></td>
+                    <td>2022-11-04</td>
+                    <td>23:29</td>
+                    <td>23:30</td>
+                    <td>1 min</td>
+                    <td>1714W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>117</strong></td>
+                    <td>2022-11-05</td>
+                    <td>07:47</td>
+                    <td>07:48</td>
+                    <td>1 min</td>
+                    <td>1793W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>118</strong></td>
+                    <td>2022-11-05</td>
+                    <td>09:14</td>
+                    <td>09:19</td>
+                    <td>5 min</td>
+                    <td>1594W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>119</strong></td>
+                    <td>2022-11-05</td>
+                    <td>12:39</td>
+                    <td>12:42</td>
+                    <td>3 min</td>
+                    <td>1650W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>120</strong></td>
+                    <td>2022-11-05</td>
+                    <td>16:40</td>
+                    <td>16:45</td>
+                    <td>5 min</td>
+                    <td>1516W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>121</strong></td>
+                    <td>2022-11-05</td>
+                    <td>23:28</td>
+                    <td>23:31</td>
+                    <td>3 min</td>
+                    <td>1710W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>122</strong></td>
+                    <td>2022-11-06</td>
+                    <td>10:07</td>
+                    <td>10:10</td>
+                    <td>3 min</td>
+                    <td>1628W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>123</strong></td>
+                    <td>2022-11-06</td>
+                    <td>16:33</td>
+                    <td>16:34</td>
+                    <td>1 min</td>
+                    <td>1593W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>124</strong></td>
+                    <td>2022-11-06</td>
+                    <td>21:53</td>
+                    <td>23:54</td>
+                    <td>121 min</td>
+                    <td>1445W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>125</strong></td>
+                    <td>2022-11-07</td>
+                    <td>10:00</td>
+                    <td>10:03</td>
+                    <td>3 min</td>
+                    <td>1693W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>126</strong></td>
+                    <td>2022-11-07</td>
+                    <td>19:50</td>
+                    <td>19:51</td>
+                    <td>1 min</td>
+                    <td>1590W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>127</strong></td>
+                    <td>2022-11-07</td>
+                    <td>21:19</td>
+                    <td>21:22</td>
+                    <td>3 min</td>
+                    <td>1648W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>128</strong></td>
+                    <td>2022-11-08</td>
+                    <td>07:19</td>
+                    <td>07:21</td>
+                    <td>2 min</td>
+                    <td>1651W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>129</strong></td>
+                    <td>2022-11-08</td>
+                    <td>09:51</td>
+                    <td>09:54</td>
+                    <td>3 min</td>
+                    <td>1619W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>130</strong></td>
+                    <td>2022-11-08</td>
+                    <td>23:15</td>
+                    <td>23:18</td>
+                    <td>3 min</td>
+                    <td>1672W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>131</strong></td>
+                    <td>2022-11-09</td>
+                    <td>17:39</td>
+                    <td>17:41</td>
+                    <td>2 min</td>
+                    <td>1633W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>132</strong></td>
+                    <td>2022-11-09</td>
+                    <td>23:28</td>
+                    <td>23:31</td>
+                    <td>3 min</td>
+                    <td>1674W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>133</strong></td>
+                    <td>2022-11-10</td>
+                    <td>01:15</td>
+                    <td>01:22</td>
+                    <td>7 min</td>
+                    <td>1619W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>134</strong></td>
+                    <td>2022-11-10</td>
+                    <td>21:09</td>
+                    <td>21:12</td>
+                    <td>3 min</td>
+                    <td>1602W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>135</strong></td>
+                    <td>2022-11-10</td>
+                    <td>22:17</td>
+                    <td>22:23</td>
+                    <td>6 min</td>
+                    <td>1433W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>136</strong></td>
+                    <td>2022-11-11</td>
+                    <td>09:45</td>
+                    <td>09:46</td>
+                    <td>1 min</td>
+                    <td>1694W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>137</strong></td>
+                    <td>2022-11-11</td>
+                    <td>11:15</td>
+                    <td>11:18</td>
+                    <td>3 min</td>
+                    <td>1664W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>138</strong></td>
+                    <td>2022-11-11</td>
+                    <td>19:35</td>
+                    <td>19:37</td>
+                    <td>2 min</td>
+                    <td>1656W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>139</strong></td>
+                    <td>2022-11-12</td>
+                    <td>02:11</td>
+                    <td>02:59</td>
+                    <td>48 min</td>
+                    <td>1707W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>140</strong></td>
+                    <td>2022-11-12</td>
+                    <td>11:39</td>
+                    <td>11:42</td>
+                    <td>3 min</td>
+                    <td>1683W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>141</strong></td>
+                    <td>2022-11-12</td>
+                    <td>15:09</td>
+                    <td>15:11</td>
+                    <td>2 min</td>
+                    <td>1616W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>142</strong></td>
+                    <td>2022-11-12</td>
+                    <td>16:23</td>
+                    <td>16:29</td>
+                    <td>6 min</td>
+                    <td>1528W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>143</strong></td>
+                    <td>2022-11-12</td>
+                    <td>21:21</td>
+                    <td>21:23</td>
+                    <td>2 min</td>
+                    <td>1683W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>144</strong></td>
+                    <td>2022-11-12</td>
+                    <td>23:28</td>
+                    <td>23:29</td>
+                    <td>1 min</td>
+                    <td>1755W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>145</strong></td>
+                    <td>2022-11-13</td>
+                    <td>07:07</td>
+                    <td>07:08</td>
+                    <td>1 min</td>
+                    <td>1665W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>146</strong></td>
+                    <td>2022-11-13</td>
+                    <td>09:54</td>
+                    <td>09:57</td>
+                    <td>3 min</td>
+                    <td>1761W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>147</strong></td>
+                    <td>2022-11-13</td>
+                    <td>16:40</td>
+                    <td>16:43</td>
+                    <td>3 min</td>
+                    <td>1626W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>148</strong></td>
+                    <td>2022-11-13</td>
+                    <td>23:28</td>
+                    <td>23:30</td>
+                    <td>2 min</td>
+                    <td>1674W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>149</strong></td>
+                    <td>2022-11-14</td>
+                    <td>09:53</td>
+                    <td>09:55</td>
+                    <td>2 min</td>
+                    <td>1611W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>150</strong></td>
+                    <td>2022-11-14</td>
+                    <td>23:28</td>
+                    <td>23:30</td>
+                    <td>2 min</td>
+                    <td>1654W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>151</strong></td>
+                    <td>2022-11-15</td>
+                    <td>09:54</td>
+                    <td>09:57</td>
+                    <td>3 min</td>
+                    <td>1671W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>152</strong></td>
+                    <td>2022-11-15</td>
+                    <td>19:37</td>
+                    <td>19:40</td>
+                    <td>3 min</td>
+                    <td>1671W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>153</strong></td>
+                    <td>2022-11-15</td>
+                    <td>21:18</td>
+                    <td>21:32</td>
+                    <td>14 min</td>
+                    <td>1634W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>154</strong></td>
+                    <td>2022-11-15</td>
+                    <td>22:41</td>
+                    <td>23:23</td>
+                    <td>42 min</td>
+                    <td>1695W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>155</strong></td>
+                    <td>2022-11-16</td>
+                    <td>10:03</td>
+                    <td>10:06</td>
+                    <td>3 min</td>
+                    <td>1693W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>156</strong></td>
+                    <td>2022-11-16</td>
+                    <td>16:06</td>
+                    <td>16:07</td>
+                    <td>1 min</td>
+                    <td>1627W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>157</strong></td>
+                    <td>2022-11-16</td>
+                    <td>22:33</td>
+                    <td>23:02</td>
+                    <td>29 min</td>
+                    <td>1643W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>158</strong></td>
+                    <td>2022-11-17</td>
+                    <td>10:02</td>
+                    <td>10:04</td>
+                    <td>2 min</td>
+                    <td>1677W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>159</strong></td>
+                    <td>2022-11-17</td>
+                    <td>22:11</td>
+                    <td>22:12</td>
+                    <td>1 min</td>
+                    <td>1752W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>160</strong></td>
+                    <td>2022-11-17</td>
+                    <td>23:28</td>
+                    <td>23:30</td>
+                    <td>2 min</td>
+                    <td>1662W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>161</strong></td>
+                    <td>2022-11-18</td>
+                    <td>11:41</td>
+                    <td>11:44</td>
+                    <td>3 min</td>
+                    <td>1665W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>162</strong></td>
+                    <td>2022-11-18</td>
+                    <td>14:55</td>
+                    <td>16:16</td>
+                    <td>81 min</td>
+                    <td>1620W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>163</strong></td>
+                    <td>2022-11-18</td>
+                    <td>23:05</td>
+                    <td>23:30</td>
+                    <td>25 min</td>
+                    <td>1618W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>164</strong></td>
+                    <td>2022-11-19</td>
+                    <td>22:04</td>
+                    <td>22:05</td>
+                    <td>1 min</td>
+                    <td>1620W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>165</strong></td>
+                    <td>2022-11-19</td>
+                    <td>23:27</td>
+                    <td>23:30</td>
+                    <td>3 min</td>
+                    <td>1640W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>166</strong></td>
+                    <td>2022-11-20</td>
+                    <td>10:02</td>
+                    <td>10:04</td>
+                    <td>2 min</td>
+                    <td>1745W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>167</strong></td>
+                    <td>2022-11-20</td>
+                    <td>20:41</td>
+                    <td>20:43</td>
+                    <td>2 min</td>
+                    <td>1648W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>168</strong></td>
+                    <td>2022-11-21</td>
+                    <td>09:59</td>
+                    <td>10:02</td>
+                    <td>3 min</td>
+                    <td>1675W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>169</strong></td>
+                    <td>2022-11-21</td>
+                    <td>22:45</td>
+                    <td>23:29</td>
+                    <td>44 min</td>
+                    <td>1685W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>170</strong></td>
+                    <td>2022-11-22</td>
+                    <td>06:49</td>
+                    <td>06:50</td>
+                    <td>1 min</td>
+                    <td>1684W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>171</strong></td>
+                    <td>2022-11-22</td>
+                    <td>10:09</td>
+                    <td>10:11</td>
+                    <td>2 min</td>
+                    <td>1723W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>172</strong></td>
+                    <td>2022-11-22</td>
+                    <td>17:39</td>
+                    <td>17:41</td>
+                    <td>2 min</td>
+                    <td>1606W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>173</strong></td>
+                    <td>2022-11-22</td>
+                    <td>21:05</td>
+                    <td>21:11</td>
+                    <td>6 min</td>
+                    <td>1562W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>174</strong></td>
+                    <td>2022-11-22</td>
+                    <td>23:04</td>
+                    <td>23:07</td>
+                    <td>3 min</td>
+                    <td>1700W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>175</strong></td>
+                    <td>2022-11-23</td>
+                    <td>10:05</td>
+                    <td>10:06</td>
+                    <td>1 min</td>
+                    <td>1713W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>176</strong></td>
+                    <td>2022-11-23</td>
+                    <td>19:18</td>
+                    <td>19:19</td>
+                    <td>1 min</td>
+                    <td>1701W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>177</strong></td>
+                    <td>2022-11-23</td>
+                    <td>22:27</td>
+                    <td>23:30</td>
+                    <td>63 min</td>
+                    <td>1646W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>178</strong></td>
+                    <td>2022-11-24</td>
+                    <td>10:00</td>
+                    <td>10:10</td>
+                    <td>10 min</td>
+                    <td>1683W</td>
+                    <td>2</td>
                 </tr>
                 </tbody>
             </table>
@@ -1106,10 +2457,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 74 sessions (should match Total Sessions: 74)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -1120,6 +2475,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-09-28</td>
                     <td>22:30</td>
                     <td>23:13</td>
@@ -1129,6 +2485,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2022-09-29</td>
                     <td>12:18</td>
                     <td>12:27</td>
@@ -1138,6 +2495,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2022-09-29</td>
                     <td>14:09</td>
                     <td>14:24</td>
@@ -1147,6 +2505,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2022-09-30</td>
                     <td>19:28</td>
                     <td>19:37</td>
@@ -1156,6 +2515,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2022-10-01</td>
                     <td>13:26</td>
                     <td>13:32</td>
@@ -1165,6 +2525,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2022-10-01</td>
                     <td>15:17</td>
                     <td>16:50</td>
@@ -1174,6 +2535,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2022-10-03</td>
                     <td>02:20</td>
                     <td>02:29</td>
@@ -1183,6 +2545,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2022-10-03</td>
                     <td>04:11</td>
                     <td>04:27</td>
@@ -1192,6 +2555,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2022-10-04</td>
                     <td>19:14</td>
                     <td>20:48</td>
@@ -1201,6 +2565,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2022-10-06</td>
                     <td>01:04</td>
                     <td>01:13</td>
@@ -1210,6 +2575,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2022-10-06</td>
                     <td>02:55</td>
                     <td>03:11</td>
@@ -1219,6 +2585,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2022-10-07</td>
                     <td>15:20</td>
                     <td>16:00</td>
@@ -1228,6 +2595,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>13</strong></td>
                     <td>2022-10-07</td>
                     <td>17:11</td>
                     <td>17:20</td>
@@ -1237,6 +2605,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>14</strong></td>
                     <td>2022-10-07</td>
                     <td>19:05</td>
                     <td>19:21</td>
@@ -1246,6 +2615,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>15</strong></td>
                     <td>2022-10-07</td>
                     <td>23:03</td>
                     <td>23:22</td>
@@ -1255,6 +2625,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>16</strong></td>
                     <td>2022-10-08</td>
                     <td>13:09</td>
                     <td>13:19</td>
@@ -1264,6 +2635,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>17</strong></td>
                     <td>2022-10-08</td>
                     <td>15:00</td>
                     <td>15:16</td>
@@ -1273,6 +2645,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>18</strong></td>
                     <td>2022-10-08</td>
                     <td>17:12</td>
                     <td>17:30</td>
@@ -1282,6 +2655,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>19</strong></td>
                     <td>2022-10-09</td>
                     <td>02:22</td>
                     <td>02:32</td>
@@ -1291,6 +2665,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>20</strong></td>
                     <td>2022-10-09</td>
                     <td>04:14</td>
                     <td>04:29</td>
@@ -1300,6 +2675,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>21</strong></td>
                     <td>2022-10-12</td>
                     <td>16:32</td>
                     <td>18:12</td>
@@ -1309,6 +2685,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>22</strong></td>
                     <td>2022-10-12</td>
                     <td>19:53</td>
                     <td>20:09</td>
@@ -1318,6 +2695,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>23</strong></td>
                     <td>2022-10-14</td>
                     <td>01:54</td>
                     <td>02:04</td>
@@ -1327,6 +2705,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>24</strong></td>
                     <td>2022-10-14</td>
                     <td>03:45</td>
                     <td>04:01</td>
@@ -1336,6 +2715,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>25</strong></td>
                     <td>2022-10-14</td>
                     <td>16:52</td>
                     <td>17:21</td>
@@ -1345,6 +2725,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>26</strong></td>
                     <td>2022-10-15</td>
                     <td>00:08</td>
                     <td>00:26</td>
@@ -1354,6 +2735,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>27</strong></td>
                     <td>2022-10-15</td>
                     <td>03:02</td>
                     <td>03:12</td>
@@ -1363,6 +2745,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>28</strong></td>
                     <td>2022-10-15</td>
                     <td>04:57</td>
                     <td>05:13</td>
@@ -1372,6 +2755,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>29</strong></td>
                     <td>2022-10-15</td>
                     <td>13:53</td>
                     <td>14:03</td>
@@ -1381,6 +2765,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>30</strong></td>
                     <td>2022-10-15</td>
                     <td>15:44</td>
                     <td>16:00</td>
@@ -1390,6 +2775,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>31</strong></td>
                     <td>2022-10-16</td>
                     <td>17:16</td>
                     <td>18:42</td>
@@ -1399,6 +2785,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>32</strong></td>
                     <td>2022-10-16</td>
                     <td>20:24</td>
                     <td>20:39</td>
@@ -1408,6 +2795,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>33</strong></td>
                     <td>2022-10-17</td>
                     <td>16:14</td>
                     <td>17:46</td>
@@ -1417,6 +2805,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>34</strong></td>
                     <td>2022-10-17</td>
                     <td>18:48</td>
                     <td>18:54</td>
@@ -1426,6 +2815,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>35</strong></td>
                     <td>2022-10-17</td>
                     <td>20:39</td>
                     <td>20:55</td>
@@ -1435,6 +2825,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>36</strong></td>
                     <td>2022-10-18</td>
                     <td>23:12</td>
                     <td>23:31</td>
@@ -1444,6 +2835,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>37</strong></td>
                     <td>2022-10-20</td>
                     <td>01:20</td>
                     <td>01:29</td>
@@ -1453,6 +2845,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>38</strong></td>
                     <td>2022-10-20</td>
                     <td>03:10</td>
                     <td>03:26</td>
@@ -1462,6 +2855,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>39</strong></td>
                     <td>2022-10-22</td>
                     <td>01:28</td>
                     <td>01:38</td>
@@ -1471,6 +2865,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>40</strong></td>
                     <td>2022-10-22</td>
                     <td>03:23</td>
                     <td>03:39</td>
@@ -1480,6 +2875,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>41</strong></td>
                     <td>2022-10-22</td>
                     <td>16:07</td>
                     <td>16:58</td>
@@ -1489,6 +2885,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>42</strong></td>
                     <td>2022-10-23</td>
                     <td>01:39</td>
                     <td>01:49</td>
@@ -1498,6 +2895,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>43</strong></td>
                     <td>2022-10-23</td>
                     <td>03:30</td>
                     <td>03:46</td>
@@ -1507,6 +2905,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>44</strong></td>
                     <td>2022-10-29</td>
                     <td>17:11</td>
                     <td>17:51</td>
@@ -1516,6 +2915,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>45</strong></td>
                     <td>2022-10-29</td>
                     <td>20:40</td>
                     <td>20:57</td>
@@ -1525,6 +2925,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>46</strong></td>
                     <td>2022-10-31</td>
                     <td>10:45</td>
                     <td>10:54</td>
@@ -1534,6 +2935,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>47</strong></td>
                     <td>2022-10-31</td>
                     <td>12:40</td>
                     <td>12:55</td>
@@ -1543,6 +2945,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>48</strong></td>
                     <td>2022-11-01</td>
                     <td>22:58</td>
                     <td>23:15</td>
@@ -1552,6 +2955,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>49</strong></td>
                     <td>2022-11-03</td>
                     <td>10:36</td>
                     <td>10:45</td>
@@ -1561,11 +2965,252 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>50</strong></td>
                     <td>2022-11-03</td>
                     <td>12:27</td>
                     <td>12:42</td>
                     <td>15 min</td>
                     <td>1918W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>51</strong></td>
+                    <td>2022-11-05</td>
+                    <td>03:18</td>
+                    <td>03:34</td>
+                    <td>16 min</td>
+                    <td>1845W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>52</strong></td>
+                    <td>2022-11-05</td>
+                    <td>16:42</td>
+                    <td>17:36</td>
+                    <td>54 min</td>
+                    <td>1816W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>53</strong></td>
+                    <td>2022-11-06</td>
+                    <td>02:14</td>
+                    <td>02:23</td>
+                    <td>9 min</td>
+                    <td>1886W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>54</strong></td>
+                    <td>2022-11-06</td>
+                    <td>04:05</td>
+                    <td>04:21</td>
+                    <td>16 min</td>
+                    <td>1866W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>55</strong></td>
+                    <td>2022-11-06</td>
+                    <td>21:28</td>
+                    <td>22:11</td>
+                    <td>43 min</td>
+                    <td>1889W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>56</strong></td>
+                    <td>2022-11-07</td>
+                    <td>00:25</td>
+                    <td>01:04</td>
+                    <td>39 min</td>
+                    <td>1808W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>57</strong></td>
+                    <td>2022-11-08</td>
+                    <td>04:29</td>
+                    <td>04:46</td>
+                    <td>17 min</td>
+                    <td>1887W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>58</strong></td>
+                    <td>2022-11-09</td>
+                    <td>11:44</td>
+                    <td>11:50</td>
+                    <td>6 min</td>
+                    <td>1273W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>59</strong></td>
+                    <td>2022-11-09</td>
+                    <td>13:34</td>
+                    <td>13:49</td>
+                    <td>15 min</td>
+                    <td>1894W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>60</strong></td>
+                    <td>2022-11-11</td>
+                    <td>23:30</td>
+                    <td>23:59</td>
+                    <td>29 min</td>
+                    <td>1768W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>61</strong></td>
+                    <td>2022-11-12</td>
+                    <td>01:44</td>
+                    <td>01:59</td>
+                    <td>15 min</td>
+                    <td>1870W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>62</strong></td>
+                    <td>2022-11-12</td>
+                    <td>15:42</td>
+                    <td>18:30</td>
+                    <td>168 min</td>
+                    <td>1760W</td>
+                    <td>13</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>63</strong></td>
+                    <td>2022-11-12</td>
+                    <td>20:11</td>
+                    <td>20:28</td>
+                    <td>17 min</td>
+                    <td>1820W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>64</strong></td>
+                    <td>2022-11-14</td>
+                    <td>02:26</td>
+                    <td>02:32</td>
+                    <td>6 min</td>
+                    <td>1899W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>65</strong></td>
+                    <td>2022-11-14</td>
+                    <td>04:17</td>
+                    <td>04:32</td>
+                    <td>15 min</td>
+                    <td>1868W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>66</strong></td>
+                    <td>2022-11-16</td>
+                    <td>03:43</td>
+                    <td>03:58</td>
+                    <td>15 min</td>
+                    <td>1856W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>67</strong></td>
+                    <td>2022-11-18</td>
+                    <td>03:33</td>
+                    <td>03:49</td>
+                    <td>16 min</td>
+                    <td>1889W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>68</strong></td>
+                    <td>2022-11-18</td>
+                    <td>23:09</td>
+                    <td>00:22</td>
+                    <td>73 min</td>
+                    <td>1751W</td>
+                    <td>10</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>69</strong></td>
+                    <td>2022-11-19</td>
+                    <td>22:38</td>
+                    <td>23:21</td>
+                    <td>43 min</td>
+                    <td>1845W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>70</strong></td>
+                    <td>2022-11-20</td>
+                    <td>01:37</td>
+                    <td>01:47</td>
+                    <td>10 min</td>
+                    <td>1971W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>71</strong></td>
+                    <td>2022-11-20</td>
+                    <td>03:28</td>
+                    <td>03:45</td>
+                    <td>17 min</td>
+                    <td>1896W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>72</strong></td>
+                    <td>2022-11-22</td>
+                    <td>03:28</td>
+                    <td>03:44</td>
+                    <td>16 min</td>
+                    <td>1937W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>73</strong></td>
+                    <td>2022-11-23</td>
+                    <td>23:06</td>
+                    <td>23:48</td>
+                    <td>42 min</td>
+                    <td>1842W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>74</strong></td>
+                    <td>2022-11-24</td>
+                    <td>03:48</td>
+                    <td>04:05</td>
+                    <td>17 min</td>
+                    <td>1890W</td>
                     <td>1</td>
                 </tr>
                 </tbody>
@@ -1590,10 +3235,14 @@
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
         Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
     </p>
+    <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+        Showing all 2 activations (should match Total Activations: 2)
+    </p>
     <div style="max-height: 400px; overflow-y: auto;">
     <table class="data-table small">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Date</th>
                 <th>ON Time</th>
                 <th>OFF Time</th>
@@ -1604,6 +3253,7 @@
         </thead>
         <tbody>
         <tr>
+            <td><strong>1</strong></td>
             <td>2022-10-14</td>
             <td>13:53</td>
             <td>14:19</td>
@@ -1613,6 +3263,7 @@
         </tr>
         
         <tr>
+            <td><strong>2</strong></td>
             <td>2022-11-12</td>
             <td>02:11</td>
             <td>02:59</td>
@@ -1624,40 +3275,42 @@
     </table>
     </div>
     
-    <h4>Device Usage Patterns by Season and Time of Day</h4>
-    <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
-        Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
-    </p>
+    <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+        <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
+        <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">
+            Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
+        </p>
+    </div>
     
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Regular AC</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🌀 Regular AC</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 0 (0%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 264 (100%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 264 (100%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 123 (47%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 123 (47%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 141 (53%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 141 (53%)
                         </span>
                     </div>
                 </div>
@@ -1665,34 +3318,34 @@
         </div>
         
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Water Heater (Boiler)</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🔥 Water Heater (Boiler)</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 0 (0%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 2 (100%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 2 (100%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 1 (50%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 1 (50%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 1 (50%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 1 (50%)
                         </span>
                     </div>
                 </div>
@@ -1729,34 +3382,42 @@
             <tr>
                 <th>Month</th>
                 <th>ON Events</th>
+                <th>OFF Events</th>
                 <th>Matches</th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
+                <th>Matched Minutes</th>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>2022-09</td>
             <td>20</td>
+            <td>19</td>
             <td>18</td>
             <td>92.3%</td>
             <td>30.3 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2022-10</td>
             <td>277</td>
+            <td>276</td>
             <td>237</td>
             <td>85.7%</td>
             <td>399.8 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2022-11</td>
             <td>191</td>
+            <td>190</td>
             <td>166</td>
             <td>87.1%</td>
             <td>284.1 kW</td>
+            <td>0 min</td>
         </tr>
         </tbody>
     </table>

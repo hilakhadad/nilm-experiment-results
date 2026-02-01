@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 315</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 20:11:21</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 22:49:38</div>
         </header>
 
         <section>
@@ -289,9 +289,15 @@
             <div class="summary-number">2</div>
             <div class="summary-label">Iterations</div>
         </div>
-        <div class="summary-card">
-            <div class="summary-number">18.4%</div>
-            <div class="summary-label">Power Segmented</div>
+    </div>
+    <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">18.4%</div>
+            <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">0.0 hrs</div>
+            <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
         </div>
     </div>
     
@@ -301,7 +307,7 @@
             <h2>Issues</h2>
             
     <ul class="flags-list">
-        <li class="flag-item"><span class="flag-icon">⚠</span> Low Improvement</li><li class="flag-item"><span class="flag-icon">⚠</span> Low Segmentation</li><li class="flag-item"><span class="flag-icon">⚠</span> Has Recurring Patterns</li>
+        <li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Low Improvement</span></li><li class="flag-item" style="background: #fff3cd; border-left-color: #856404;"><span class="flag-icon">📊</span> <span style="color: #856404;">Low Segmentation</span></li><li class="flag-item" style="background: #d4edda; border-left-color: #155724;"><span class="flag-icon">🔄</span> <span style="color: #155724;">Recurring Patterns Detected</span></li>
     </ul>
     
         </section>
@@ -312,31 +318,37 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>Iteration</th>
-                <th>Events</th>
+                <th>Iter</th>
+                <th>Events<br><small>(ON/OFF)</small></th>
                 <th>Matches</th>
+                <th>Unmatched<br><small>(ON/OFF)</small></th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
-                <th>Negative Values</th>
+                <th>Matched Minutes</th>
+                <th>Negative</th>
             </tr>
         </thead>
         <tbody>
             
         <tr>
             <td>0</td>
-            <td>1427</td>
+            <td>ON: 713<br>OFF: 713</td>
             <td>490</td>
+            <td>ON: 223<br>OFF: 223</td>
             <td>68.7%</td>
             <td>949.5 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
         <tr>
             <td>1</td>
-            <td>470</td>
+            <td>ON: 235<br>OFF: 235</td>
             <td>28</td>
+            <td>ON: 207<br>OFF: 207</td>
             <td>11.9%</td>
             <td>55.9 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
@@ -350,6 +362,10 @@
         <div class="metric">
             <span class="metric-label">Total Matched Power:</span>
             <span class="metric-value">1005.4 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Minutes:</span>
+            <span class="metric-value">0 min (0.0 hrs)</span>
         </div>
     </div>
     
@@ -374,24 +390,38 @@
             </table>
         </div>
     </div>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">ON Events:</span>
-            <span class="metric-value">729</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">OFF Events:</span>
-            <span class="metric-value">698</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Matched ON:</span>
-            <span class="metric-value">0 (67.2%)</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Unmatched ON:</span>
-            <span class="metric-value">0</span>
-        </div>
-    </div>
+
+    <h4 style="margin-top: 20px;">Event Statistics</h4>
+    <table class="data-table small" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td>729</td>
+                <td>698</td>
+            </tr>
+            <tr>
+                <td><strong>Matched</strong></td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+            </tr>
+            <tr>
+                <td><strong>Unmatched</strong></td>
+                <td>729</td>
+                <td>698</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+        Note: ON and OFF event counts may differ due to detection algorithm sensitivity and edge effects.
+        Matching rate = matched / total events of that type.
+    </p>
     
         </section>
 
@@ -399,32 +429,18 @@
             <h2>Segmentation Details</h2>
             
     
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>Total Power</th>
-                <th>Segmented</th>
-                <th>Remaining</th>
-                <th>Ratio</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">Total Power:</span>
-            <span class="metric-value">75187.9 kW</span>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333;">75187.9 kW</div>
+            <div class="summary-label">Total Power Consumed</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Segmented:</span>
-            <span class="metric-value">13811.5 kW (18.4%)</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724;">13811.5 kW</div>
+            <div class="summary-label">Segmented (18.4%)</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Remaining:</span>
-            <span class="metric-value">61365.8 kW</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="summary-number" style="color: #6c757d;">61365.8 kW</div>
+            <div class="summary-label">Remaining (81.6%)</div>
         </div>
     </div>
     
@@ -433,24 +449,9 @@
         <section>
             <h2>Event Patterns</h2>
             
-    <h4>Daily Statistics</h4>
-    <div class="summary-grid">
-        <div class="summary-card">
-            <div class="summary-number">118</div>
-            <div class="summary-label">Total Days</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">12.1</div>
-            <div class="summary-label">Avg Events/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">4.2</div>
-            <div class="summary-label">Avg Matches/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">8.1</div>
-            <div class="summary-label">Avg kW/Day Matched</div>
-        </div>
+    <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; display: inline-block;">
+        <span style="font-size: 1.5em; font-weight: bold; color: #2d3748;">118</span>
+        <span style="color: #666; margin-left: 10px;">Days of Data Analyzed</span>
     </div>
     
         <h4>Recurring Appliance Usage (Matched ON+OFF Pairs)</h4>
@@ -478,9 +479,11 @@
         <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
             Click on a row to see all dates when this pattern occurred.
         </p>
+        <div style="max-height: 500px; overflow-y: auto;">
         <table class="data-table small">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Start Time</th>
                     <th>Phase</th>
                     <th>Power</th>
@@ -492,6 +495,7 @@
             </thead>
             <tbody>
             <tr class="pattern-row" onclick="toggleDates('dates-0')">
+                <td><strong>1</strong></td>
                 <td>18:00</td>
                 <td>w1</td>
                 <td>2600W</td>
@@ -501,12 +505,13 @@
                 <td class="dates-cell">2022-11-10, 2022-11-13, 2022-11-15...</td>
             </tr>
             <tr id="dates-0" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-11-10, 2022-11-13, 2022-11-15, 2022-11-17, 2022-11-20
                 </td>
             </tr>
             
             <tr class="pattern-row" onclick="toggleDates('dates-1')">
+                <td><strong>2</strong></td>
                 <td>18:00</td>
                 <td>w1</td>
                 <td>2500W</td>
@@ -516,12 +521,13 @@
                 <td class="dates-cell">2022-08-04, 2022-08-07, 2022-08-11...</td>
             </tr>
             <tr id="dates-1" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-08-04, 2022-08-07, 2022-08-11, 2022-08-18
                 </td>
             </tr>
             
             <tr class="pattern-row" onclick="toggleDates('dates-2')">
+                <td><strong>3</strong></td>
                 <td>17:59</td>
                 <td>w1</td>
                 <td>2500W</td>
@@ -531,12 +537,13 @@
                 <td class="dates-cell">2022-09-13, 2022-09-22, 2022-10-02</td>
             </tr>
             <tr id="dates-2" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-09-13, 2022-09-22, 2022-10-02
                 </td>
             </tr>
             
             <tr class="pattern-row" onclick="toggleDates('dates-3')">
+                <td><strong>4</strong></td>
                 <td>18:00</td>
                 <td>w1</td>
                 <td>2500W</td>
@@ -546,12 +553,13 @@
                 <td class="dates-cell">2022-08-30, 2022-09-04, 2022-09-06</td>
             </tr>
             <tr id="dates-3" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-08-30, 2022-09-04, 2022-09-06
                 </td>
             </tr>
             
             <tr class="pattern-row" onclick="toggleDates('dates-4')">
+                <td><strong>5</strong></td>
                 <td>20:00</td>
                 <td>w1</td>
                 <td>2500W</td>
@@ -561,12 +569,13 @@
                 <td class="dates-cell">2022-08-08, 2022-08-10, 2022-08-17</td>
             </tr>
             <tr id="dates-4" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-08-08, 2022-08-10, 2022-08-17
                 </td>
             </tr>
             
             <tr class="pattern-row" onclick="toggleDates('dates-5')">
+                <td><strong>6</strong></td>
                 <td>17:59</td>
                 <td>w1</td>
                 <td>2600W</td>
@@ -576,12 +585,13 @@
                 <td class="dates-cell">2022-09-24, 2022-10-03, 2022-10-05</td>
             </tr>
             <tr id="dates-5" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-09-24, 2022-10-03, 2022-10-05
                 </td>
             </tr>
             
             <tr class="pattern-row" onclick="toggleDates('dates-6')">
+                <td><strong>7</strong></td>
                 <td>18:00</td>
                 <td>w1</td>
                 <td>2600W</td>
@@ -591,12 +601,13 @@
                 <td class="dates-cell">2022-08-27, 2022-09-03, 2022-09-05</td>
             </tr>
             <tr id="dates-6" class="dates-row" style="display:none;">
-                <td colspan="7" class="dates-expanded">
+                <td colspan="8" class="dates-expanded">
                     <strong>All dates:</strong> 2022-08-27, 2022-09-03, 2022-09-05
                 </td>
             </tr>
             </tbody>
         </table>
+        </div>
 
         <div id="plotInstructions" style="display: none; margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 8px; border-left: 4px solid #2196f3;">
             <h5 style="margin: 0 0 10px 0; color: #1976d2;">Generate Pattern Plots</h5>
@@ -658,10 +669,14 @@ python generate_pattern_plots.py --house 315
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 324 sessions (should match Total Sessions: 324)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -672,6 +687,7 @@ python generate_pattern_plots.py --house 315
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-07-27</td>
                     <td>20:20</td>
                     <td>21:00</td>
@@ -681,6 +697,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2022-07-28</td>
                     <td>09:03</td>
                     <td>09:06</td>
@@ -690,6 +707,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2022-07-28</td>
                     <td>20:00</td>
                     <td>20:24</td>
@@ -699,6 +717,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2022-07-28</td>
                     <td>22:59</td>
                     <td>23:42</td>
@@ -708,6 +727,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2022-07-29</td>
                     <td>11:30</td>
                     <td>11:33</td>
@@ -717,6 +737,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2022-07-30</td>
                     <td>12:45</td>
                     <td>12:48</td>
@@ -726,6 +747,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2022-07-31</td>
                     <td>08:45</td>
                     <td>08:58</td>
@@ -735,6 +757,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2022-07-31</td>
                     <td>18:00</td>
                     <td>18:30</td>
@@ -744,6 +767,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2022-07-31</td>
                     <td>20:55</td>
                     <td>20:58</td>
@@ -753,6 +777,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2022-08-01</td>
                     <td>12:26</td>
                     <td>12:28</td>
@@ -762,6 +787,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2022-08-01</td>
                     <td>15:02</td>
                     <td>15:03</td>
@@ -771,6 +797,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2022-08-01</td>
                     <td>20:00</td>
                     <td>21:00</td>
@@ -780,6 +807,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>13</strong></td>
                     <td>2022-08-02</td>
                     <td>09:01</td>
                     <td>09:05</td>
@@ -789,6 +817,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>14</strong></td>
                     <td>2022-08-02</td>
                     <td>18:00</td>
                     <td>18:02</td>
@@ -798,6 +827,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>15</strong></td>
                     <td>2022-08-02</td>
                     <td>23:31</td>
                     <td>23:34</td>
@@ -807,6 +837,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>16</strong></td>
                     <td>2022-08-03</td>
                     <td>08:54</td>
                     <td>08:57</td>
@@ -816,6 +847,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>17</strong></td>
                     <td>2022-08-03</td>
                     <td>21:48</td>
                     <td>21:54</td>
@@ -825,6 +857,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>18</strong></td>
                     <td>2022-08-04</td>
                     <td>09:05</td>
                     <td>09:08</td>
@@ -834,6 +867,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>19</strong></td>
                     <td>2022-08-04</td>
                     <td>18:00</td>
                     <td>18:30</td>
@@ -843,6 +877,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>20</strong></td>
                     <td>2022-08-04</td>
                     <td>21:09</td>
                     <td>21:12</td>
@@ -852,6 +887,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>21</strong></td>
                     <td>2022-08-04</td>
                     <td>23:10</td>
                     <td>23:13</td>
@@ -861,6 +897,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>22</strong></td>
                     <td>2022-08-05</td>
                     <td>01:08</td>
                     <td>01:11</td>
@@ -870,6 +907,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>23</strong></td>
                     <td>2022-08-05</td>
                     <td>11:17</td>
                     <td>12:48</td>
@@ -879,6 +917,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>24</strong></td>
                     <td>2022-08-05</td>
                     <td>21:40</td>
                     <td>22:13</td>
@@ -888,6 +927,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>25</strong></td>
                     <td>2022-08-06</td>
                     <td>14:03</td>
                     <td>14:06</td>
@@ -897,6 +937,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>26</strong></td>
                     <td>2022-08-07</td>
                     <td>08:45</td>
                     <td>09:16</td>
@@ -906,6 +947,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>27</strong></td>
                     <td>2022-08-07</td>
                     <td>12:55</td>
                     <td>13:37</td>
@@ -915,6 +957,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>28</strong></td>
                     <td>2022-08-07</td>
                     <td>14:40</td>
                     <td>14:42</td>
@@ -924,6 +967,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>29</strong></td>
                     <td>2022-08-07</td>
                     <td>18:00</td>
                     <td>18:31</td>
@@ -933,6 +977,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>30</strong></td>
                     <td>2022-08-08</td>
                     <td>09:06</td>
                     <td>09:09</td>
@@ -942,6 +987,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>31</strong></td>
                     <td>2022-08-08</td>
                     <td>12:24</td>
                     <td>12:27</td>
@@ -951,6 +997,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>32</strong></td>
                     <td>2022-08-08</td>
                     <td>20:00</td>
                     <td>21:00</td>
@@ -960,6 +1007,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>33</strong></td>
                     <td>2022-08-09</td>
                     <td>08:41</td>
                     <td>08:44</td>
@@ -969,6 +1017,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>34</strong></td>
                     <td>2022-08-09</td>
                     <td>18:00</td>
                     <td>18:30</td>
@@ -978,6 +1027,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>35</strong></td>
                     <td>2022-08-10</td>
                     <td>09:10</td>
                     <td>09:13</td>
@@ -987,6 +1037,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>36</strong></td>
                     <td>2022-08-10</td>
                     <td>20:00</td>
                     <td>21:00</td>
@@ -996,6 +1047,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>37</strong></td>
                     <td>2022-08-10</td>
                     <td>22:55</td>
                     <td>22:59</td>
@@ -1005,6 +1057,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>38</strong></td>
                     <td>2022-08-11</td>
                     <td>08:58</td>
                     <td>09:00</td>
@@ -1014,6 +1067,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>39</strong></td>
                     <td>2022-08-11</td>
                     <td>18:00</td>
                     <td>18:30</td>
@@ -1023,6 +1077,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>40</strong></td>
                     <td>2022-08-12</td>
                     <td>10:54</td>
                     <td>11:06</td>
@@ -1032,6 +1087,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>41</strong></td>
                     <td>2022-08-12</td>
                     <td>15:00</td>
                     <td>16:00</td>
@@ -1041,6 +1097,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>42</strong></td>
                     <td>2022-08-12</td>
                     <td>21:45</td>
                     <td>21:54</td>
@@ -1050,6 +1107,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>43</strong></td>
                     <td>2022-08-13</td>
                     <td>12:35</td>
                     <td>12:37</td>
@@ -1059,6 +1117,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>44</strong></td>
                     <td>2022-08-13</td>
                     <td>16:40</td>
                     <td>16:42</td>
@@ -1068,6 +1127,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>45</strong></td>
                     <td>2022-08-14</td>
                     <td>08:45</td>
                     <td>08:57</td>
@@ -1077,6 +1137,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>46</strong></td>
                     <td>2022-08-14</td>
                     <td>18:00</td>
                     <td>18:31</td>
@@ -1086,6 +1147,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>47</strong></td>
                     <td>2022-08-14</td>
                     <td>21:19</td>
                     <td>21:22</td>
@@ -1095,6 +1157,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>48</strong></td>
                     <td>2022-08-15</td>
                     <td>09:03</td>
                     <td>09:06</td>
@@ -1104,6 +1167,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>49</strong></td>
                     <td>2022-08-15</td>
                     <td>20:00</td>
                     <td>21:01</td>
@@ -1113,12 +1177,2753 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>50</strong></td>
                     <td>2022-08-16</td>
                     <td>10:09</td>
                     <td>10:13</td>
                     <td>4 min</td>
                     <td>1916W</td>
                     <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>51</strong></td>
+                    <td>2022-08-16</td>
+                    <td>12:38</td>
+                    <td>12:39</td>
+                    <td>1 min</td>
+                    <td>2505W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>52</strong></td>
+                    <td>2022-08-16</td>
+                    <td>14:55</td>
+                    <td>14:58</td>
+                    <td>3 min</td>
+                    <td>1379W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>53</strong></td>
+                    <td>2022-08-16</td>
+                    <td>18:00</td>
+                    <td>18:30</td>
+                    <td>30 min</td>
+                    <td>2605W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>54</strong></td>
+                    <td>2022-08-16</td>
+                    <td>23:35</td>
+                    <td>23:38</td>
+                    <td>3 min</td>
+                    <td>1867W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>55</strong></td>
+                    <td>2022-08-17</td>
+                    <td>10:20</td>
+                    <td>10:24</td>
+                    <td>4 min</td>
+                    <td>1909W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>56</strong></td>
+                    <td>2022-08-17</td>
+                    <td>20:00</td>
+                    <td>21:00</td>
+                    <td>60 min</td>
+                    <td>2525W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>57</strong></td>
+                    <td>2022-08-18</td>
+                    <td>09:18</td>
+                    <td>09:21</td>
+                    <td>3 min</td>
+                    <td>1919W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>58</strong></td>
+                    <td>2022-08-18</td>
+                    <td>11:40</td>
+                    <td>11:50</td>
+                    <td>10 min</td>
+                    <td>1272W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>59</strong></td>
+                    <td>2022-08-18</td>
+                    <td>18:00</td>
+                    <td>18:30</td>
+                    <td>30 min</td>
+                    <td>2478W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>60</strong></td>
+                    <td>2022-08-18</td>
+                    <td>20:00</td>
+                    <td>20:29</td>
+                    <td>29 min</td>
+                    <td>2564W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>61</strong></td>
+                    <td>2022-08-19</td>
+                    <td>17:03</td>
+                    <td>17:04</td>
+                    <td>1 min</td>
+                    <td>1380W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>62</strong></td>
+                    <td>2022-08-20</td>
+                    <td>11:26</td>
+                    <td>11:29</td>
+                    <td>3 min</td>
+                    <td>1916W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>63</strong></td>
+                    <td>2022-08-20</td>
+                    <td>21:50</td>
+                    <td>22:01</td>
+                    <td>11 min</td>
+                    <td>2478W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>64</strong></td>
+                    <td>2022-08-20</td>
+                    <td>23:12</td>
+                    <td>23:21</td>
+                    <td>9 min</td>
+                    <td>1904W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>65</strong></td>
+                    <td>2022-08-21</td>
+                    <td>00:49</td>
+                    <td>01:00</td>
+                    <td>11 min</td>
+                    <td>1890W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>66</strong></td>
+                    <td>2022-08-21</td>
+                    <td>05:19</td>
+                    <td>05:21</td>
+                    <td>2 min</td>
+                    <td>1936W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>67</strong></td>
+                    <td>2022-08-25</td>
+                    <td>17:53</td>
+                    <td>18:29</td>
+                    <td>36 min</td>
+                    <td>2557W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>68</strong></td>
+                    <td>2022-08-25</td>
+                    <td>22:13</td>
+                    <td>22:24</td>
+                    <td>11 min</td>
+                    <td>1713W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>69</strong></td>
+                    <td>2022-08-26</td>
+                    <td>09:52</td>
+                    <td>09:55</td>
+                    <td>3 min</td>
+                    <td>1885W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>70</strong></td>
+                    <td>2022-08-26</td>
+                    <td>16:00</td>
+                    <td>17:30</td>
+                    <td>90 min</td>
+                    <td>2523W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>71</strong></td>
+                    <td>2022-08-27</td>
+                    <td>12:57</td>
+                    <td>13:00</td>
+                    <td>3 min</td>
+                    <td>1908W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>72</strong></td>
+                    <td>2022-08-27</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2608W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>73</strong></td>
+                    <td>2022-08-27</td>
+                    <td>23:02</td>
+                    <td>23:11</td>
+                    <td>9 min</td>
+                    <td>1307W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>74</strong></td>
+                    <td>2022-08-28</td>
+                    <td>00:39</td>
+                    <td>00:50</td>
+                    <td>11 min</td>
+                    <td>1909W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>75</strong></td>
+                    <td>2022-08-28</td>
+                    <td>08:50</td>
+                    <td>08:53</td>
+                    <td>3 min</td>
+                    <td>1909W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>76</strong></td>
+                    <td>2022-08-28</td>
+                    <td>18:00</td>
+                    <td>19:15</td>
+                    <td>75 min</td>
+                    <td>2516W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>77</strong></td>
+                    <td>2022-08-28</td>
+                    <td>21:22</td>
+                    <td>21:26</td>
+                    <td>4 min</td>
+                    <td>2216W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>78</strong></td>
+                    <td>2022-08-29</td>
+                    <td>00:13</td>
+                    <td>00:16</td>
+                    <td>3 min</td>
+                    <td>1359W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>79</strong></td>
+                    <td>2022-08-29</td>
+                    <td>08:52</td>
+                    <td>08:54</td>
+                    <td>2 min</td>
+                    <td>1875W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>80</strong></td>
+                    <td>2022-08-29</td>
+                    <td>12:39</td>
+                    <td>12:42</td>
+                    <td>3 min</td>
+                    <td>1730W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>81</strong></td>
+                    <td>2022-08-29</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2514W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>82</strong></td>
+                    <td>2022-08-29</td>
+                    <td>20:31</td>
+                    <td>20:33</td>
+                    <td>2 min</td>
+                    <td>1858W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>83</strong></td>
+                    <td>2022-08-29</td>
+                    <td>21:43</td>
+                    <td>22:30</td>
+                    <td>47 min</td>
+                    <td>1376W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>84</strong></td>
+                    <td>2022-08-30</td>
+                    <td>08:48</td>
+                    <td>08:51</td>
+                    <td>3 min</td>
+                    <td>1867W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>85</strong></td>
+                    <td>2022-08-30</td>
+                    <td>15:56</td>
+                    <td>16:43</td>
+                    <td>47 min</td>
+                    <td>1368W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>86</strong></td>
+                    <td>2022-08-30</td>
+                    <td>18:00</td>
+                    <td>19:15</td>
+                    <td>75 min</td>
+                    <td>2502W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>87</strong></td>
+                    <td>2022-08-30</td>
+                    <td>23:08</td>
+                    <td>23:11</td>
+                    <td>3 min</td>
+                    <td>1309W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>88</strong></td>
+                    <td>2022-08-31</td>
+                    <td>09:06</td>
+                    <td>09:10</td>
+                    <td>4 min</td>
+                    <td>1898W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>89</strong></td>
+                    <td>2022-08-31</td>
+                    <td>21:28</td>
+                    <td>22:12</td>
+                    <td>44 min</td>
+                    <td>1838W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>90</strong></td>
+                    <td>2022-09-01</td>
+                    <td>09:58</td>
+                    <td>10:21</td>
+                    <td>23 min</td>
+                    <td>1808W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>91</strong></td>
+                    <td>2022-09-02</td>
+                    <td>09:20</td>
+                    <td>09:21</td>
+                    <td>1 min</td>
+                    <td>1443W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>92</strong></td>
+                    <td>2022-09-02</td>
+                    <td>10:28</td>
+                    <td>10:32</td>
+                    <td>4 min</td>
+                    <td>1898W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>93</strong></td>
+                    <td>2022-09-02</td>
+                    <td>11:56</td>
+                    <td>12:44</td>
+                    <td>48 min</td>
+                    <td>1401W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>94</strong></td>
+                    <td>2022-09-02</td>
+                    <td>14:55</td>
+                    <td>17:30</td>
+                    <td>155 min</td>
+                    <td>2591W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>95</strong></td>
+                    <td>2022-09-02</td>
+                    <td>20:52</td>
+                    <td>21:20</td>
+                    <td>28 min</td>
+                    <td>1471W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>96</strong></td>
+                    <td>2022-09-03</td>
+                    <td>12:08</td>
+                    <td>12:11</td>
+                    <td>3 min</td>
+                    <td>1880W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>97</strong></td>
+                    <td>2022-09-03</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2580W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>98</strong></td>
+                    <td>2022-09-03</td>
+                    <td>22:54</td>
+                    <td>23:03</td>
+                    <td>9 min</td>
+                    <td>1591W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>99</strong></td>
+                    <td>2022-09-04</td>
+                    <td>00:35</td>
+                    <td>00:46</td>
+                    <td>11 min</td>
+                    <td>1785W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>100</strong></td>
+                    <td>2022-09-04</td>
+                    <td>08:57</td>
+                    <td>09:00</td>
+                    <td>3 min</td>
+                    <td>1933W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>101</strong></td>
+                    <td>2022-09-04</td>
+                    <td>18:00</td>
+                    <td>19:15</td>
+                    <td>75 min</td>
+                    <td>2540W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>102</strong></td>
+                    <td>2022-09-05</td>
+                    <td>08:43</td>
+                    <td>09:05</td>
+                    <td>22 min</td>
+                    <td>1830W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>103</strong></td>
+                    <td>2022-09-05</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2568W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>104</strong></td>
+                    <td>2022-09-05</td>
+                    <td>21:58</td>
+                    <td>22:11</td>
+                    <td>13 min</td>
+                    <td>1699W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>105</strong></td>
+                    <td>2022-09-06</td>
+                    <td>16:52</td>
+                    <td>16:53</td>
+                    <td>1 min</td>
+                    <td>1393W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>106</strong></td>
+                    <td>2022-09-06</td>
+                    <td>18:00</td>
+                    <td>19:15</td>
+                    <td>75 min</td>
+                    <td>2529W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>107</strong></td>
+                    <td>2022-09-07</td>
+                    <td>08:59</td>
+                    <td>09:02</td>
+                    <td>3 min</td>
+                    <td>1907W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>108</strong></td>
+                    <td>2022-09-07</td>
+                    <td>17:32</td>
+                    <td>18:40</td>
+                    <td>68 min</td>
+                    <td>2227W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>109</strong></td>
+                    <td>2022-09-07</td>
+                    <td>21:20</td>
+                    <td>21:45</td>
+                    <td>25 min</td>
+                    <td>1894W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>110</strong></td>
+                    <td>2022-09-08</td>
+                    <td>08:38</td>
+                    <td>09:01</td>
+                    <td>23 min</td>
+                    <td>1862W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>111</strong></td>
+                    <td>2022-09-08</td>
+                    <td>11:06</td>
+                    <td>11:45</td>
+                    <td>39 min</td>
+                    <td>1849W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>112</strong></td>
+                    <td>2022-09-08</td>
+                    <td>14:45</td>
+                    <td>14:48</td>
+                    <td>3 min</td>
+                    <td>1911W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>113</strong></td>
+                    <td>2022-09-08</td>
+                    <td>16:15</td>
+                    <td>16:18</td>
+                    <td>3 min</td>
+                    <td>1908W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>114</strong></td>
+                    <td>2022-09-08</td>
+                    <td>20:43</td>
+                    <td>20:46</td>
+                    <td>3 min</td>
+                    <td>1863W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>115</strong></td>
+                    <td>2022-09-08</td>
+                    <td>22:34</td>
+                    <td>22:37</td>
+                    <td>3 min</td>
+                    <td>1828W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>116</strong></td>
+                    <td>2022-09-09</td>
+                    <td>09:51</td>
+                    <td>09:54</td>
+                    <td>3 min</td>
+                    <td>1915W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>117</strong></td>
+                    <td>2022-09-09</td>
+                    <td>12:54</td>
+                    <td>12:57</td>
+                    <td>3 min</td>
+                    <td>1899W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>118</strong></td>
+                    <td>2022-09-09</td>
+                    <td>14:23</td>
+                    <td>14:25</td>
+                    <td>2 min</td>
+                    <td>1845W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>119</strong></td>
+                    <td>2022-09-09</td>
+                    <td>16:00</td>
+                    <td>17:31</td>
+                    <td>91 min</td>
+                    <td>2509W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>120</strong></td>
+                    <td>2022-09-10</td>
+                    <td>13:15</td>
+                    <td>13:19</td>
+                    <td>4 min</td>
+                    <td>1833W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>121</strong></td>
+                    <td>2022-09-10</td>
+                    <td>23:40</td>
+                    <td>23:49</td>
+                    <td>9 min</td>
+                    <td>1598W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>122</strong></td>
+                    <td>2022-09-11</td>
+                    <td>01:17</td>
+                    <td>01:28</td>
+                    <td>11 min</td>
+                    <td>1279W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>123</strong></td>
+                    <td>2022-09-11</td>
+                    <td>08:56</td>
+                    <td>08:59</td>
+                    <td>3 min</td>
+                    <td>1936W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>124</strong></td>
+                    <td>2022-09-11</td>
+                    <td>11:29</td>
+                    <td>11:32</td>
+                    <td>3 min</td>
+                    <td>1861W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>125</strong></td>
+                    <td>2022-09-11</td>
+                    <td>17:59</td>
+                    <td>18:06</td>
+                    <td>7 min</td>
+                    <td>2547W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>126</strong></td>
+                    <td>2022-09-11</td>
+                    <td>20:01</td>
+                    <td>20:05</td>
+                    <td>4 min</td>
+                    <td>1838W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>127</strong></td>
+                    <td>2022-09-12</td>
+                    <td>08:48</td>
+                    <td>08:51</td>
+                    <td>3 min</td>
+                    <td>2204W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>128</strong></td>
+                    <td>2022-09-12</td>
+                    <td>19:12</td>
+                    <td>19:15</td>
+                    <td>3 min</td>
+                    <td>1836W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>129</strong></td>
+                    <td>2022-09-13</td>
+                    <td>08:46</td>
+                    <td>08:59</td>
+                    <td>13 min</td>
+                    <td>1694W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>130</strong></td>
+                    <td>2022-09-13</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2513W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>131</strong></td>
+                    <td>2022-09-14</td>
+                    <td>09:04</td>
+                    <td>09:08</td>
+                    <td>4 min</td>
+                    <td>1896W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>132</strong></td>
+                    <td>2022-09-14</td>
+                    <td>16:55</td>
+                    <td>16:57</td>
+                    <td>2 min</td>
+                    <td>1953W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>133</strong></td>
+                    <td>2022-09-14</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>2515W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>134</strong></td>
+                    <td>2022-09-14</td>
+                    <td>21:11</td>
+                    <td>21:17</td>
+                    <td>6 min</td>
+                    <td>1640W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>135</strong></td>
+                    <td>2022-09-15</td>
+                    <td>09:01</td>
+                    <td>09:16</td>
+                    <td>15 min</td>
+                    <td>2933W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>136</strong></td>
+                    <td>2022-09-15</td>
+                    <td>14:27</td>
+                    <td>14:32</td>
+                    <td>5 min</td>
+                    <td>1889W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>137</strong></td>
+                    <td>2022-09-15</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2545W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>138</strong></td>
+                    <td>2022-09-16</td>
+                    <td>09:33</td>
+                    <td>09:37</td>
+                    <td>4 min</td>
+                    <td>1933W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>139</strong></td>
+                    <td>2022-09-16</td>
+                    <td>14:27</td>
+                    <td>15:32</td>
+                    <td>65 min</td>
+                    <td>1798W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>140</strong></td>
+                    <td>2022-09-17</td>
+                    <td>12:03</td>
+                    <td>12:07</td>
+                    <td>4 min</td>
+                    <td>1873W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>141</strong></td>
+                    <td>2022-09-17</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2475W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>142</strong></td>
+                    <td>2022-09-17</td>
+                    <td>21:59</td>
+                    <td>23:03</td>
+                    <td>64 min</td>
+                    <td>1904W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>143</strong></td>
+                    <td>2022-09-18</td>
+                    <td>00:31</td>
+                    <td>00:42</td>
+                    <td>11 min</td>
+                    <td>1942W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>144</strong></td>
+                    <td>2022-09-18</td>
+                    <td>08:57</td>
+                    <td>09:00</td>
+                    <td>3 min</td>
+                    <td>1856W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>145</strong></td>
+                    <td>2022-09-18</td>
+                    <td>11:49</td>
+                    <td>11:52</td>
+                    <td>3 min</td>
+                    <td>1747W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>146</strong></td>
+                    <td>2022-09-18</td>
+                    <td>14:10</td>
+                    <td>14:49</td>
+                    <td>39 min</td>
+                    <td>1626W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>147</strong></td>
+                    <td>2022-09-18</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2541W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>148</strong></td>
+                    <td>2022-09-18</td>
+                    <td>21:15</td>
+                    <td>21:39</td>
+                    <td>24 min</td>
+                    <td>2127W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>149</strong></td>
+                    <td>2022-09-19</td>
+                    <td>08:54</td>
+                    <td>09:07</td>
+                    <td>13 min</td>
+                    <td>2123W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>150</strong></td>
+                    <td>2022-09-19</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>2517W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>151</strong></td>
+                    <td>2022-09-20</td>
+                    <td>08:51</td>
+                    <td>08:54</td>
+                    <td>3 min</td>
+                    <td>1900W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>152</strong></td>
+                    <td>2022-09-20</td>
+                    <td>17:59</td>
+                    <td>18:49</td>
+                    <td>50 min</td>
+                    <td>2550W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>153</strong></td>
+                    <td>2022-09-20</td>
+                    <td>22:24</td>
+                    <td>22:39</td>
+                    <td>15 min</td>
+                    <td>1787W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>154</strong></td>
+                    <td>2022-09-21</td>
+                    <td>08:52</td>
+                    <td>09:11</td>
+                    <td>19 min</td>
+                    <td>1841W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>155</strong></td>
+                    <td>2022-09-21</td>
+                    <td>16:15</td>
+                    <td>16:20</td>
+                    <td>5 min</td>
+                    <td>1928W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>156</strong></td>
+                    <td>2022-09-21</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>2541W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>157</strong></td>
+                    <td>2022-09-22</td>
+                    <td>09:10</td>
+                    <td>09:13</td>
+                    <td>3 min</td>
+                    <td>1916W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>158</strong></td>
+                    <td>2022-09-22</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2492W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>159</strong></td>
+                    <td>2022-09-22</td>
+                    <td>22:11</td>
+                    <td>22:13</td>
+                    <td>2 min</td>
+                    <td>1841W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>160</strong></td>
+                    <td>2022-09-23</td>
+                    <td>09:35</td>
+                    <td>09:38</td>
+                    <td>3 min</td>
+                    <td>1933W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>161</strong></td>
+                    <td>2022-09-23</td>
+                    <td>12:36</td>
+                    <td>14:13</td>
+                    <td>97 min</td>
+                    <td>1517W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>162</strong></td>
+                    <td>2022-09-23</td>
+                    <td>15:59</td>
+                    <td>17:30</td>
+                    <td>91 min</td>
+                    <td>2506W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>163</strong></td>
+                    <td>2022-09-24</td>
+                    <td>11:16</td>
+                    <td>11:19</td>
+                    <td>3 min</td>
+                    <td>1936W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>164</strong></td>
+                    <td>2022-09-24</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>2565W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>165</strong></td>
+                    <td>2022-09-24</td>
+                    <td>22:15</td>
+                    <td>22:56</td>
+                    <td>41 min</td>
+                    <td>1346W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>166</strong></td>
+                    <td>2022-09-25</td>
+                    <td>00:24</td>
+                    <td>00:35</td>
+                    <td>11 min</td>
+                    <td>1899W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>167</strong></td>
+                    <td>2022-09-25</td>
+                    <td>12:36</td>
+                    <td>12:39</td>
+                    <td>3 min</td>
+                    <td>1880W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>168</strong></td>
+                    <td>2022-09-25</td>
+                    <td>17:30</td>
+                    <td>17:38</td>
+                    <td>8 min</td>
+                    <td>1278W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>169</strong></td>
+                    <td>2022-09-26</td>
+                    <td>11:25</td>
+                    <td>11:28</td>
+                    <td>3 min</td>
+                    <td>1906W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>170</strong></td>
+                    <td>2022-09-26</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2563W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>171</strong></td>
+                    <td>2022-09-27</td>
+                    <td>01:28</td>
+                    <td>01:37</td>
+                    <td>9 min</td>
+                    <td>1909W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>172</strong></td>
+                    <td>2022-09-27</td>
+                    <td>03:05</td>
+                    <td>03:15</td>
+                    <td>10 min</td>
+                    <td>1965W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>173</strong></td>
+                    <td>2022-09-27</td>
+                    <td>18:00</td>
+                    <td>18:24</td>
+                    <td>24 min</td>
+                    <td>2570W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>174</strong></td>
+                    <td>2022-09-27</td>
+                    <td>22:26</td>
+                    <td>00:18</td>
+                    <td>112 min</td>
+                    <td>1786W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>175</strong></td>
+                    <td>2022-09-28</td>
+                    <td>08:47</td>
+                    <td>09:05</td>
+                    <td>18 min</td>
+                    <td>1835W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>176</strong></td>
+                    <td>2022-09-30</td>
+                    <td>09:35</td>
+                    <td>09:38</td>
+                    <td>3 min</td>
+                    <td>1953W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>177</strong></td>
+                    <td>2022-09-30</td>
+                    <td>11:36</td>
+                    <td>12:35</td>
+                    <td>59 min</td>
+                    <td>1884W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>178</strong></td>
+                    <td>2022-09-30</td>
+                    <td>20:26</td>
+                    <td>20:36</td>
+                    <td>10 min</td>
+                    <td>1245W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>179</strong></td>
+                    <td>2022-10-01</td>
+                    <td>13:15</td>
+                    <td>13:18</td>
+                    <td>3 min</td>
+                    <td>1892W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>180</strong></td>
+                    <td>2022-10-01</td>
+                    <td>17:49</td>
+                    <td>17:51</td>
+                    <td>2 min</td>
+                    <td>1477W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>181</strong></td>
+                    <td>2022-10-01</td>
+                    <td>22:24</td>
+                    <td>22:33</td>
+                    <td>9 min</td>
+                    <td>1961W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>182</strong></td>
+                    <td>2022-10-02</td>
+                    <td>00:01</td>
+                    <td>00:12</td>
+                    <td>11 min</td>
+                    <td>1928W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>183</strong></td>
+                    <td>2022-10-02</td>
+                    <td>08:59</td>
+                    <td>09:02</td>
+                    <td>3 min</td>
+                    <td>1927W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>184</strong></td>
+                    <td>2022-10-02</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2526W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>185</strong></td>
+                    <td>2022-10-03</td>
+                    <td>08:52</td>
+                    <td>09:08</td>
+                    <td>16 min</td>
+                    <td>2208W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>186</strong></td>
+                    <td>2022-10-03</td>
+                    <td>16:47</td>
+                    <td>18:40</td>
+                    <td>113 min</td>
+                    <td>2128W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>187</strong></td>
+                    <td>2022-10-03</td>
+                    <td>21:44</td>
+                    <td>22:02</td>
+                    <td>18 min</td>
+                    <td>1883W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>188</strong></td>
+                    <td>2022-10-04</td>
+                    <td>11:16</td>
+                    <td>11:19</td>
+                    <td>3 min</td>
+                    <td>1882W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>189</strong></td>
+                    <td>2022-10-04</td>
+                    <td>13:52</td>
+                    <td>14:08</td>
+                    <td>16 min</td>
+                    <td>1886W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>190</strong></td>
+                    <td>2022-10-04</td>
+                    <td>18:00</td>
+                    <td>19:15</td>
+                    <td>75 min</td>
+                    <td>2537W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>191</strong></td>
+                    <td>2022-10-05</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>2586W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>192</strong></td>
+                    <td>2022-10-05</td>
+                    <td>21:59</td>
+                    <td>22:02</td>
+                    <td>3 min</td>
+                    <td>2835W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>193</strong></td>
+                    <td>2022-10-06</td>
+                    <td>10:12</td>
+                    <td>10:15</td>
+                    <td>3 min</td>
+                    <td>1890W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>194</strong></td>
+                    <td>2022-10-06</td>
+                    <td>12:16</td>
+                    <td>12:20</td>
+                    <td>4 min</td>
+                    <td>2001W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>195</strong></td>
+                    <td>2022-10-06</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>1273W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>196</strong></td>
+                    <td>2022-10-07</td>
+                    <td>10:12</td>
+                    <td>10:13</td>
+                    <td>1 min</td>
+                    <td>1390W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>197</strong></td>
+                    <td>2022-10-07</td>
+                    <td>15:59</td>
+                    <td>16:19</td>
+                    <td>20 min</td>
+                    <td>1900W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>198</strong></td>
+                    <td>2022-10-08</td>
+                    <td>11:51</td>
+                    <td>11:54</td>
+                    <td>3 min</td>
+                    <td>1914W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>199</strong></td>
+                    <td>2022-10-08</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>2530W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>200</strong></td>
+                    <td>2022-10-08</td>
+                    <td>23:03</td>
+                    <td>00:43</td>
+                    <td>100 min</td>
+                    <td>1986W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>201</strong></td>
+                    <td>2022-10-09</td>
+                    <td>11:38</td>
+                    <td>11:41</td>
+                    <td>3 min</td>
+                    <td>1931W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>202</strong></td>
+                    <td>2022-10-09</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2538W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>203</strong></td>
+                    <td>2022-10-10</td>
+                    <td>13:04</td>
+                    <td>13:07</td>
+                    <td>3 min</td>
+                    <td>1977W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>204</strong></td>
+                    <td>2022-10-10</td>
+                    <td>17:59</td>
+                    <td>18:40</td>
+                    <td>41 min</td>
+                    <td>1286W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>205</strong></td>
+                    <td>2022-10-10</td>
+                    <td>22:35</td>
+                    <td>22:40</td>
+                    <td>5 min</td>
+                    <td>1961W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>206</strong></td>
+                    <td>2022-10-11</td>
+                    <td>11:30</td>
+                    <td>11:34</td>
+                    <td>4 min</td>
+                    <td>1912W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>207</strong></td>
+                    <td>2022-10-11</td>
+                    <td>17:59</td>
+                    <td>19:15</td>
+                    <td>76 min</td>
+                    <td>2584W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>208</strong></td>
+                    <td>2022-10-11</td>
+                    <td>20:29</td>
+                    <td>20:32</td>
+                    <td>3 min</td>
+                    <td>1767W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>209</strong></td>
+                    <td>2022-10-12</td>
+                    <td>10:24</td>
+                    <td>10:27</td>
+                    <td>3 min</td>
+                    <td>1895W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>210</strong></td>
+                    <td>2022-10-12</td>
+                    <td>18:00</td>
+                    <td>18:40</td>
+                    <td>40 min</td>
+                    <td>2559W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>211</strong></td>
+                    <td>2022-10-12</td>
+                    <td>21:29</td>
+                    <td>21:32</td>
+                    <td>3 min</td>
+                    <td>1763W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>212</strong></td>
+                    <td>2022-10-13</td>
+                    <td>10:05</td>
+                    <td>10:26</td>
+                    <td>21 min</td>
+                    <td>1679W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>213</strong></td>
+                    <td>2022-10-13</td>
+                    <td>18:00</td>
+                    <td>19:15</td>
+                    <td>75 min</td>
+                    <td>2604W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>214</strong></td>
+                    <td>2022-10-14</td>
+                    <td>11:00</td>
+                    <td>11:04</td>
+                    <td>4 min</td>
+                    <td>1941W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>215</strong></td>
+                    <td>2022-10-14</td>
+                    <td>15:59</td>
+                    <td>16:02</td>
+                    <td>3 min</td>
+                    <td>1942W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>216</strong></td>
+                    <td>2022-10-15</td>
+                    <td>12:13</td>
+                    <td>12:16</td>
+                    <td>3 min</td>
+                    <td>1880W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>217</strong></td>
+                    <td>2022-10-15</td>
+                    <td>13:34</td>
+                    <td>13:37</td>
+                    <td>3 min</td>
+                    <td>1888W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>218</strong></td>
+                    <td>2022-10-16</td>
+                    <td>02:41</td>
+                    <td>02:50</td>
+                    <td>9 min</td>
+                    <td>1333W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>219</strong></td>
+                    <td>2022-10-17</td>
+                    <td>19:31</td>
+                    <td>20:53</td>
+                    <td>82 min</td>
+                    <td>2620W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>220</strong></td>
+                    <td>2022-10-18</td>
+                    <td>08:50</td>
+                    <td>08:54</td>
+                    <td>4 min</td>
+                    <td>1894W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>221</strong></td>
+                    <td>2022-10-18</td>
+                    <td>17:59</td>
+                    <td>18:45</td>
+                    <td>46 min</td>
+                    <td>2556W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>222</strong></td>
+                    <td>2022-10-18</td>
+                    <td>20:19</td>
+                    <td>20:22</td>
+                    <td>3 min</td>
+                    <td>1871W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>223</strong></td>
+                    <td>2022-10-19</td>
+                    <td>08:29</td>
+                    <td>09:18</td>
+                    <td>49 min</td>
+                    <td>2250W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>224</strong></td>
+                    <td>2022-10-20</td>
+                    <td>09:16</td>
+                    <td>09:17</td>
+                    <td>1 min</td>
+                    <td>1768W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>225</strong></td>
+                    <td>2022-10-20</td>
+                    <td>19:35</td>
+                    <td>19:38</td>
+                    <td>3 min</td>
+                    <td>1880W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>226</strong></td>
+                    <td>2022-10-21</td>
+                    <td>10:24</td>
+                    <td>10:27</td>
+                    <td>3 min</td>
+                    <td>1880W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>227</strong></td>
+                    <td>2022-10-21</td>
+                    <td>16:00</td>
+                    <td>17:30</td>
+                    <td>90 min</td>
+                    <td>2532W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>228</strong></td>
+                    <td>2022-10-21</td>
+                    <td>22:10</td>
+                    <td>22:13</td>
+                    <td>3 min</td>
+                    <td>1451W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>229</strong></td>
+                    <td>2022-10-22</td>
+                    <td>13:47</td>
+                    <td>13:50</td>
+                    <td>3 min</td>
+                    <td>1889W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>230</strong></td>
+                    <td>2022-10-22</td>
+                    <td>21:59</td>
+                    <td>22:25</td>
+                    <td>26 min</td>
+                    <td>1787W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>231</strong></td>
+                    <td>2022-10-23</td>
+                    <td>09:01</td>
+                    <td>09:04</td>
+                    <td>3 min</td>
+                    <td>1899W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>232</strong></td>
+                    <td>2022-10-23</td>
+                    <td>21:32</td>
+                    <td>22:13</td>
+                    <td>41 min</td>
+                    <td>1758W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>233</strong></td>
+                    <td>2022-10-24</td>
+                    <td>08:29</td>
+                    <td>08:52</td>
+                    <td>23 min</td>
+                    <td>2562W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>234</strong></td>
+                    <td>2022-10-24</td>
+                    <td>21:30</td>
+                    <td>21:52</td>
+                    <td>22 min</td>
+                    <td>1759W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>235</strong></td>
+                    <td>2022-10-25</td>
+                    <td>09:00</td>
+                    <td>09:03</td>
+                    <td>3 min</td>
+                    <td>1951W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>236</strong></td>
+                    <td>2022-10-25</td>
+                    <td>15:56</td>
+                    <td>16:06</td>
+                    <td>10 min</td>
+                    <td>1274W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>237</strong></td>
+                    <td>2022-10-25</td>
+                    <td>21:47</td>
+                    <td>21:48</td>
+                    <td>1 min</td>
+                    <td>2423W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>238</strong></td>
+                    <td>2022-10-26</td>
+                    <td>08:29</td>
+                    <td>09:00</td>
+                    <td>31 min</td>
+                    <td>2703W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>239</strong></td>
+                    <td>2022-10-26</td>
+                    <td>10:04</td>
+                    <td>10:08</td>
+                    <td>4 min</td>
+                    <td>2187W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>240</strong></td>
+                    <td>2022-10-26</td>
+                    <td>21:57</td>
+                    <td>21:58</td>
+                    <td>1 min</td>
+                    <td>2133W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>241</strong></td>
+                    <td>2022-10-27</td>
+                    <td>08:50</td>
+                    <td>09:05</td>
+                    <td>15 min</td>
+                    <td>1935W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>242</strong></td>
+                    <td>2022-10-27</td>
+                    <td>17:59</td>
+                    <td>19:25</td>
+                    <td>86 min</td>
+                    <td>2694W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>243</strong></td>
+                    <td>2022-10-28</td>
+                    <td>14:22</td>
+                    <td>18:01</td>
+                    <td>219 min</td>
+                    <td>1571W</td>
+                    <td>16</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>244</strong></td>
+                    <td>2022-10-29</td>
+                    <td>12:56</td>
+                    <td>13:00</td>
+                    <td>4 min</td>
+                    <td>1963W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>245</strong></td>
+                    <td>2022-10-29</td>
+                    <td>15:39</td>
+                    <td>15:41</td>
+                    <td>2 min</td>
+                    <td>1530W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>246</strong></td>
+                    <td>2022-10-29</td>
+                    <td>21:11</td>
+                    <td>21:59</td>
+                    <td>48 min</td>
+                    <td>1996W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>247</strong></td>
+                    <td>2022-10-29</td>
+                    <td>23:27</td>
+                    <td>23:38</td>
+                    <td>11 min</td>
+                    <td>1998W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>248</strong></td>
+                    <td>2022-10-30</td>
+                    <td>08:45</td>
+                    <td>08:49</td>
+                    <td>4 min</td>
+                    <td>2868W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>249</strong></td>
+                    <td>2022-10-30</td>
+                    <td>15:58</td>
+                    <td>16:01</td>
+                    <td>3 min</td>
+                    <td>1923W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>250</strong></td>
+                    <td>2022-10-30</td>
+                    <td>17:11</td>
+                    <td>18:45</td>
+                    <td>94 min</td>
+                    <td>2215W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>251</strong></td>
+                    <td>2022-10-30</td>
+                    <td>20:41</td>
+                    <td>20:43</td>
+                    <td>2 min</td>
+                    <td>1883W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>252</strong></td>
+                    <td>2022-10-30</td>
+                    <td>21:50</td>
+                    <td>21:53</td>
+                    <td>3 min</td>
+                    <td>1694W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>253</strong></td>
+                    <td>2022-10-31</td>
+                    <td>20:56</td>
+                    <td>21:17</td>
+                    <td>21 min</td>
+                    <td>2702W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>254</strong></td>
+                    <td>2022-11-01</td>
+                    <td>10:59</td>
+                    <td>11:03</td>
+                    <td>4 min</td>
+                    <td>1900W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>255</strong></td>
+                    <td>2022-11-01</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2646W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>256</strong></td>
+                    <td>2022-11-01</td>
+                    <td>21:38</td>
+                    <td>21:45</td>
+                    <td>7 min</td>
+                    <td>1652W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>257</strong></td>
+                    <td>2022-11-02</td>
+                    <td>08:56</td>
+                    <td>09:00</td>
+                    <td>4 min</td>
+                    <td>1922W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>258</strong></td>
+                    <td>2022-11-02</td>
+                    <td>12:31</td>
+                    <td>12:35</td>
+                    <td>4 min</td>
+                    <td>1936W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>259</strong></td>
+                    <td>2022-11-02</td>
+                    <td>19:35</td>
+                    <td>19:39</td>
+                    <td>4 min</td>
+                    <td>1881W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>260</strong></td>
+                    <td>2022-11-03</td>
+                    <td>08:49</td>
+                    <td>08:52</td>
+                    <td>3 min</td>
+                    <td>1920W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>261</strong></td>
+                    <td>2022-11-03</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2619W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>262</strong></td>
+                    <td>2022-11-03</td>
+                    <td>21:53</td>
+                    <td>22:45</td>
+                    <td>52 min</td>
+                    <td>2363W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>263</strong></td>
+                    <td>2022-11-04</td>
+                    <td>09:59</td>
+                    <td>10:02</td>
+                    <td>3 min</td>
+                    <td>1938W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>264</strong></td>
+                    <td>2022-11-04</td>
+                    <td>12:18</td>
+                    <td>12:39</td>
+                    <td>21 min</td>
+                    <td>1423W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>265</strong></td>
+                    <td>2022-11-04</td>
+                    <td>13:44</td>
+                    <td>13:48</td>
+                    <td>4 min</td>
+                    <td>1294W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>266</strong></td>
+                    <td>2022-11-05</td>
+                    <td>12:00</td>
+                    <td>12:03</td>
+                    <td>3 min</td>
+                    <td>1922W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>267</strong></td>
+                    <td>2022-11-05</td>
+                    <td>23:51</td>
+                    <td>23:59</td>
+                    <td>8 min</td>
+                    <td>1939W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>268</strong></td>
+                    <td>2022-11-06</td>
+                    <td>08:37</td>
+                    <td>09:00</td>
+                    <td>23 min</td>
+                    <td>2249W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>269</strong></td>
+                    <td>2022-11-06</td>
+                    <td>16:43</td>
+                    <td>16:46</td>
+                    <td>3 min</td>
+                    <td>1904W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>270</strong></td>
+                    <td>2022-11-06</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2664W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>271</strong></td>
+                    <td>2022-11-06</td>
+                    <td>20:10</td>
+                    <td>20:13</td>
+                    <td>3 min</td>
+                    <td>1884W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>272</strong></td>
+                    <td>2022-11-07</td>
+                    <td>08:30</td>
+                    <td>08:57</td>
+                    <td>27 min</td>
+                    <td>2293W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>273</strong></td>
+                    <td>2022-11-07</td>
+                    <td>21:19</td>
+                    <td>21:23</td>
+                    <td>4 min</td>
+                    <td>1858W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>274</strong></td>
+                    <td>2022-11-08</td>
+                    <td>08:41</td>
+                    <td>08:45</td>
+                    <td>4 min</td>
+                    <td>1916W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>275</strong></td>
+                    <td>2022-11-08</td>
+                    <td>14:48</td>
+                    <td>15:54</td>
+                    <td>66 min</td>
+                    <td>2141W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>276</strong></td>
+                    <td>2022-11-08</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2510W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>277</strong></td>
+                    <td>2022-11-08</td>
+                    <td>22:28</td>
+                    <td>22:30</td>
+                    <td>2 min</td>
+                    <td>1442W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>278</strong></td>
+                    <td>2022-11-09</td>
+                    <td>08:30</td>
+                    <td>09:04</td>
+                    <td>34 min</td>
+                    <td>1915W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>279</strong></td>
+                    <td>2022-11-09</td>
+                    <td>16:54</td>
+                    <td>16:59</td>
+                    <td>5 min</td>
+                    <td>1913W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>280</strong></td>
+                    <td>2022-11-09</td>
+                    <td>21:24</td>
+                    <td>21:28</td>
+                    <td>4 min</td>
+                    <td>1833W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>281</strong></td>
+                    <td>2022-11-10</td>
+                    <td>08:48</td>
+                    <td>08:51</td>
+                    <td>3 min</td>
+                    <td>1927W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>282</strong></td>
+                    <td>2022-11-10</td>
+                    <td>18:00</td>
+                    <td>19:34</td>
+                    <td>94 min</td>
+                    <td>2067W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>283</strong></td>
+                    <td>2022-11-11</td>
+                    <td>09:49</td>
+                    <td>09:52</td>
+                    <td>3 min</td>
+                    <td>1952W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>284</strong></td>
+                    <td>2022-11-11</td>
+                    <td>11:19</td>
+                    <td>11:22</td>
+                    <td>3 min</td>
+                    <td>1853W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>285</strong></td>
+                    <td>2022-11-11</td>
+                    <td>15:03</td>
+                    <td>17:30</td>
+                    <td>147 min</td>
+                    <td>2039W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>286</strong></td>
+                    <td>2022-11-12</td>
+                    <td>11:48</td>
+                    <td>11:51</td>
+                    <td>3 min</td>
+                    <td>1938W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>287</strong></td>
+                    <td>2022-11-12</td>
+                    <td>15:46</td>
+                    <td>15:48</td>
+                    <td>2 min</td>
+                    <td>1527W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>288</strong></td>
+                    <td>2022-11-12</td>
+                    <td>21:29</td>
+                    <td>23:18</td>
+                    <td>109 min</td>
+                    <td>1722W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>289</strong></td>
+                    <td>2022-11-13</td>
+                    <td>08:29</td>
+                    <td>08:48</td>
+                    <td>19 min</td>
+                    <td>1606W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>290</strong></td>
+                    <td>2022-11-13</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2609W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>291</strong></td>
+                    <td>2022-11-14</td>
+                    <td>08:49</td>
+                    <td>08:52</td>
+                    <td>3 min</td>
+                    <td>1930W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>292</strong></td>
+                    <td>2022-11-14</td>
+                    <td>22:38</td>
+                    <td>22:46</td>
+                    <td>8 min</td>
+                    <td>1312W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>293</strong></td>
+                    <td>2022-11-15</td>
+                    <td>08:28</td>
+                    <td>08:31</td>
+                    <td>3 min</td>
+                    <td>1945W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>294</strong></td>
+                    <td>2022-11-15</td>
+                    <td>15:25</td>
+                    <td>15:33</td>
+                    <td>8 min</td>
+                    <td>1303W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>295</strong></td>
+                    <td>2022-11-15</td>
+                    <td>16:39</td>
+                    <td>16:41</td>
+                    <td>2 min</td>
+                    <td>1471W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>296</strong></td>
+                    <td>2022-11-15</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2592W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>297</strong></td>
+                    <td>2022-11-15</td>
+                    <td>20:33</td>
+                    <td>20:40</td>
+                    <td>7 min</td>
+                    <td>3471W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>298</strong></td>
+                    <td>2022-11-16</td>
+                    <td>08:57</td>
+                    <td>09:10</td>
+                    <td>13 min</td>
+                    <td>2037W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>299</strong></td>
+                    <td>2022-11-16</td>
+                    <td>17:31</td>
+                    <td>17:36</td>
+                    <td>5 min</td>
+                    <td>1930W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>300</strong></td>
+                    <td>2022-11-16</td>
+                    <td>23:14</td>
+                    <td>23:18</td>
+                    <td>4 min</td>
+                    <td>1843W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>301</strong></td>
+                    <td>2022-11-17</td>
+                    <td>09:14</td>
+                    <td>09:17</td>
+                    <td>3 min</td>
+                    <td>1949W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>302</strong></td>
+                    <td>2022-11-17</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2587W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>303</strong></td>
+                    <td>2022-11-18</td>
+                    <td>10:06</td>
+                    <td>10:09</td>
+                    <td>3 min</td>
+                    <td>1894W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>304</strong></td>
+                    <td>2022-11-18</td>
+                    <td>15:51</td>
+                    <td>15:54</td>
+                    <td>3 min</td>
+                    <td>1743W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>305</strong></td>
+                    <td>2022-11-19</td>
+                    <td>12:58</td>
+                    <td>13:02</td>
+                    <td>4 min</td>
+                    <td>1907W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>306</strong></td>
+                    <td>2022-11-19</td>
+                    <td>22:04</td>
+                    <td>22:11</td>
+                    <td>7 min</td>
+                    <td>2008W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>307</strong></td>
+                    <td>2022-11-19</td>
+                    <td>23:42</td>
+                    <td>23:54</td>
+                    <td>12 min</td>
+                    <td>1923W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>308</strong></td>
+                    <td>2022-11-20</td>
+                    <td>08:37</td>
+                    <td>09:00</td>
+                    <td>23 min</td>
+                    <td>2268W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>309</strong></td>
+                    <td>2022-11-20</td>
+                    <td>16:39</td>
+                    <td>16:52</td>
+                    <td>13 min</td>
+                    <td>1606W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>310</strong></td>
+                    <td>2022-11-20</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2598W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>311</strong></td>
+                    <td>2022-11-20</td>
+                    <td>21:54</td>
+                    <td>21:56</td>
+                    <td>2 min</td>
+                    <td>1373W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>312</strong></td>
+                    <td>2022-11-21</td>
+                    <td>08:29</td>
+                    <td>09:25</td>
+                    <td>56 min</td>
+                    <td>1659W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>313</strong></td>
+                    <td>2022-11-21</td>
+                    <td>11:27</td>
+                    <td>11:31</td>
+                    <td>4 min</td>
+                    <td>1930W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>314</strong></td>
+                    <td>2022-11-21</td>
+                    <td>21:26</td>
+                    <td>21:28</td>
+                    <td>2 min</td>
+                    <td>1864W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>315</strong></td>
+                    <td>2022-11-21</td>
+                    <td>22:34</td>
+                    <td>22:36</td>
+                    <td>2 min</td>
+                    <td>1203W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>316</strong></td>
+                    <td>2022-11-22</td>
+                    <td>08:38</td>
+                    <td>08:41</td>
+                    <td>3 min</td>
+                    <td>1909W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>317</strong></td>
+                    <td>2022-11-22</td>
+                    <td>11:27</td>
+                    <td>11:44</td>
+                    <td>17 min</td>
+                    <td>2605W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>318</strong></td>
+                    <td>2022-11-22</td>
+                    <td>15:18</td>
+                    <td>16:42</td>
+                    <td>84 min</td>
+                    <td>2003W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>319</strong></td>
+                    <td>2022-11-23</td>
+                    <td>08:30</td>
+                    <td>09:18</td>
+                    <td>48 min</td>
+                    <td>2074W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>320</strong></td>
+                    <td>2022-11-23</td>
+                    <td>16:14</td>
+                    <td>16:17</td>
+                    <td>3 min</td>
+                    <td>1947W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>321</strong></td>
+                    <td>2022-11-23</td>
+                    <td>21:49</td>
+                    <td>21:55</td>
+                    <td>6 min</td>
+                    <td>2112W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>322</strong></td>
+                    <td>2022-11-24</td>
+                    <td>09:11</td>
+                    <td>10:03</td>
+                    <td>52 min</td>
+                    <td>2285W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>323</strong></td>
+                    <td>2022-11-24</td>
+                    <td>18:00</td>
+                    <td>18:45</td>
+                    <td>45 min</td>
+                    <td>2601W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>324</strong></td>
+                    <td>2022-11-24</td>
+                    <td>20:44</td>
+                    <td>21:00</td>
+                    <td>16 min</td>
+                    <td>1712W</td>
+                    <td>2</td>
                 </tr>
                 </tbody>
             </table>
@@ -1143,10 +3948,14 @@ python generate_pattern_plots.py --house 315
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 29 sessions (should match Total Sessions: 29)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -1157,6 +3966,7 @@ python generate_pattern_plots.py --house 315
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-07-28</td>
                     <td>09:45</td>
                     <td>09:57</td>
@@ -1166,6 +3976,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2022-07-30</td>
                     <td>23:34</td>
                     <td>23:44</td>
@@ -1175,6 +3986,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2022-07-31</td>
                     <td>01:11</td>
                     <td>01:22</td>
@@ -1184,6 +3996,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2022-07-31</td>
                     <td>18:59</td>
                     <td>19:02</td>
@@ -1193,6 +4006,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2022-07-31</td>
                     <td>20:32</td>
                     <td>20:44</td>
@@ -1202,6 +4016,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2022-08-01</td>
                     <td>09:40</td>
                     <td>12:13</td>
@@ -1211,6 +4026,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2022-08-02</td>
                     <td>19:55</td>
                     <td>19:59</td>
@@ -1220,6 +4036,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2022-08-04</td>
                     <td>09:51</td>
                     <td>12:12</td>
@@ -1229,6 +4046,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2022-08-05</td>
                     <td>09:53</td>
                     <td>09:58</td>
@@ -1238,6 +4056,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2022-08-05</td>
                     <td>11:35</td>
                     <td>11:46</td>
@@ -1247,6 +4066,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2022-08-05</td>
                     <td>18:29</td>
                     <td>18:31</td>
@@ -1256,6 +4076,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2022-08-05</td>
                     <td>20:29</td>
                     <td>20:30</td>
@@ -1265,6 +4086,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>13</strong></td>
                     <td>2022-08-06</td>
                     <td>15:24</td>
                     <td>20:22</td>
@@ -1274,6 +4096,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>14</strong></td>
                     <td>2022-08-06</td>
                     <td>23:26</td>
                     <td>23:36</td>
@@ -1283,6 +4106,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>15</strong></td>
                     <td>2022-08-07</td>
                     <td>01:03</td>
                     <td>01:15</td>
@@ -1292,6 +4116,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>16</strong></td>
                     <td>2022-08-08</td>
                     <td>09:39</td>
                     <td>09:51</td>
@@ -1301,6 +4126,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>17</strong></td>
                     <td>2022-08-08</td>
                     <td>11:03</td>
                     <td>12:23</td>
@@ -1310,6 +4136,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>18</strong></td>
                     <td>2022-08-08</td>
                     <td>15:37</td>
                     <td>15:50</td>
@@ -1319,6 +4146,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>19</strong></td>
                     <td>2022-08-08</td>
                     <td>19:18</td>
                     <td>19:30</td>
@@ -1328,6 +4156,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>20</strong></td>
                     <td>2022-08-10</td>
                     <td>11:42</td>
                     <td>12:57</td>
@@ -1337,6 +4166,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>21</strong></td>
                     <td>2022-08-10</td>
                     <td>14:02</td>
                     <td>14:36</td>
@@ -1346,6 +4176,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>22</strong></td>
                     <td>2022-08-11</td>
                     <td>14:36</td>
                     <td>19:51</td>
@@ -1355,6 +4186,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>23</strong></td>
                     <td>2022-08-13</td>
                     <td>23:20</td>
                     <td>23:29</td>
@@ -1364,6 +4196,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>24</strong></td>
                     <td>2022-08-14</td>
                     <td>00:57</td>
                     <td>01:07</td>
@@ -1373,6 +4206,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>25</strong></td>
                     <td>2022-08-14</td>
                     <td>18:56</td>
                     <td>18:57</td>
@@ -1382,6 +4216,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>26</strong></td>
                     <td>2022-08-14</td>
                     <td>21:08</td>
                     <td>22:18</td>
@@ -1391,6 +4226,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>27</strong></td>
                     <td>2022-08-15</td>
                     <td>09:44</td>
                     <td>09:56</td>
@@ -1400,6 +4236,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>28</strong></td>
                     <td>2022-08-15</td>
                     <td>15:00</td>
                     <td>18:09</td>
@@ -1409,6 +4246,7 @@ python generate_pattern_plots.py --house 315
                 </tr>
                 
                 <tr>
+                    <td><strong>29</strong></td>
                     <td>2022-08-16</td>
                     <td>10:15</td>
                     <td>10:19</td>
@@ -1438,10 +4276,14 @@ python generate_pattern_plots.py --house 315
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
         Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
     </p>
+    <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+        Showing all 70 activations (should match Total Activations: 70)
+    </p>
     <div style="max-height: 400px; overflow-y: auto;">
     <table class="data-table small">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Date</th>
                 <th>ON Time</th>
                 <th>OFF Time</th>
@@ -1452,6 +4294,7 @@ python generate_pattern_plots.py --house 315
         </thead>
         <tbody>
         <tr>
+            <td><strong>1</strong></td>
             <td>2022-07-27</td>
             <td>20:20</td>
             <td>21:00</td>
@@ -1461,6 +4304,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>2</strong></td>
             <td>2022-07-31</td>
             <td>18:00</td>
             <td>18:30</td>
@@ -1470,6 +4314,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>3</strong></td>
             <td>2022-08-01</td>
             <td>20:00</td>
             <td>21:00</td>
@@ -1479,6 +4324,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>4</strong></td>
             <td>2022-08-04</td>
             <td>18:00</td>
             <td>18:30</td>
@@ -1488,6 +4334,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>5</strong></td>
             <td>2022-08-07</td>
             <td>08:45</td>
             <td>09:16</td>
@@ -1497,6 +4344,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>6</strong></td>
             <td>2022-08-07</td>
             <td>18:00</td>
             <td>18:31</td>
@@ -1506,6 +4354,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>7</strong></td>
             <td>2022-08-08</td>
             <td>20:00</td>
             <td>21:00</td>
@@ -1515,6 +4364,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>8</strong></td>
             <td>2022-08-09</td>
             <td>18:00</td>
             <td>18:30</td>
@@ -1524,6 +4374,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>9</strong></td>
             <td>2022-08-10</td>
             <td>20:00</td>
             <td>21:00</td>
@@ -1533,6 +4384,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>10</strong></td>
             <td>2022-08-11</td>
             <td>18:00</td>
             <td>18:30</td>
@@ -1542,6 +4394,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>11</strong></td>
             <td>2022-08-12</td>
             <td>15:00</td>
             <td>16:00</td>
@@ -1551,6 +4404,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>12</strong></td>
             <td>2022-08-14</td>
             <td>18:00</td>
             <td>18:31</td>
@@ -1560,6 +4414,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>13</strong></td>
             <td>2022-08-15</td>
             <td>20:00</td>
             <td>21:01</td>
@@ -1569,6 +4424,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>14</strong></td>
             <td>2022-08-16</td>
             <td>18:00</td>
             <td>18:30</td>
@@ -1578,6 +4434,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>15</strong></td>
             <td>2022-08-17</td>
             <td>20:00</td>
             <td>21:00</td>
@@ -1587,6 +4444,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>16</strong></td>
             <td>2022-08-18</td>
             <td>18:00</td>
             <td>18:30</td>
@@ -1596,6 +4454,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>17</strong></td>
             <td>2022-08-18</td>
             <td>20:00</td>
             <td>20:29</td>
@@ -1605,6 +4464,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>18</strong></td>
             <td>2022-08-25</td>
             <td>17:53</td>
             <td>18:29</td>
@@ -1614,6 +4474,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>19</strong></td>
             <td>2022-08-26</td>
             <td>16:00</td>
             <td>17:30</td>
@@ -1623,6 +4484,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>20</strong></td>
             <td>2022-08-27</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1632,6 +4494,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>21</strong></td>
             <td>2022-08-28</td>
             <td>18:00</td>
             <td>19:15</td>
@@ -1641,6 +4504,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>22</strong></td>
             <td>2022-08-29</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1650,6 +4514,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>23</strong></td>
             <td>2022-08-30</td>
             <td>18:00</td>
             <td>19:15</td>
@@ -1659,6 +4524,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>24</strong></td>
             <td>2022-09-02</td>
             <td>14:55</td>
             <td>17:30</td>
@@ -1668,6 +4534,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>25</strong></td>
             <td>2022-09-03</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1677,6 +4544,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>26</strong></td>
             <td>2022-09-04</td>
             <td>18:00</td>
             <td>19:15</td>
@@ -1686,6 +4554,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>27</strong></td>
             <td>2022-09-05</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1695,6 +4564,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>28</strong></td>
             <td>2022-09-06</td>
             <td>18:00</td>
             <td>19:15</td>
@@ -1704,6 +4574,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>29</strong></td>
             <td>2022-09-09</td>
             <td>16:00</td>
             <td>17:31</td>
@@ -1713,6 +4584,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>30</strong></td>
             <td>2022-09-13</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1722,6 +4594,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>31</strong></td>
             <td>2022-09-14</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1731,6 +4604,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>32</strong></td>
             <td>2022-09-15</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1740,6 +4614,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>33</strong></td>
             <td>2022-09-17</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1749,6 +4624,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>34</strong></td>
             <td>2022-09-18</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1758,6 +4634,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>35</strong></td>
             <td>2022-09-19</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1767,6 +4644,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>36</strong></td>
             <td>2022-09-20</td>
             <td>17:59</td>
             <td>18:49</td>
@@ -1776,6 +4654,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>37</strong></td>
             <td>2022-09-21</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1785,6 +4664,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>38</strong></td>
             <td>2022-09-22</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1794,6 +4674,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>39</strong></td>
             <td>2022-09-23</td>
             <td>15:59</td>
             <td>17:30</td>
@@ -1803,6 +4684,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>40</strong></td>
             <td>2022-09-24</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1812,6 +4694,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>41</strong></td>
             <td>2022-09-26</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1821,6 +4704,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>42</strong></td>
             <td>2022-10-02</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1830,6 +4714,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>43</strong></td>
             <td>2022-10-03</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1839,6 +4724,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>44</strong></td>
             <td>2022-10-04</td>
             <td>18:00</td>
             <td>19:15</td>
@@ -1848,6 +4734,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>45</strong></td>
             <td>2022-10-05</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1857,6 +4744,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>46</strong></td>
             <td>2022-10-08</td>
             <td>17:59</td>
             <td>18:40</td>
@@ -1866,6 +4754,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>47</strong></td>
             <td>2022-10-09</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1875,6 +4764,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>48</strong></td>
             <td>2022-10-11</td>
             <td>17:59</td>
             <td>19:15</td>
@@ -1884,6 +4774,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>49</strong></td>
             <td>2022-10-12</td>
             <td>18:00</td>
             <td>18:40</td>
@@ -1893,6 +4784,7 @@ python generate_pattern_plots.py --house 315
         </tr>
         
         <tr>
+            <td><strong>50</strong></td>
             <td>2022-10-13</td>
             <td>18:00</td>
             <td>19:15</td>
@@ -1900,44 +4792,246 @@ python generate_pattern_plots.py --house 315
             <td>2604W</td>
             <td>w1</td>
         </tr>
+        
+        <tr>
+            <td><strong>51</strong></td>
+            <td>2022-10-17</td>
+            <td>19:31</td>
+            <td>20:53</td>
+            <td>82 min</td>
+            <td>2620W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>52</strong></td>
+            <td>2022-10-18</td>
+            <td>17:59</td>
+            <td>18:45</td>
+            <td>46 min</td>
+            <td>2556W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>53</strong></td>
+            <td>2022-10-21</td>
+            <td>16:00</td>
+            <td>17:30</td>
+            <td>90 min</td>
+            <td>2532W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>54</strong></td>
+            <td>2022-10-26</td>
+            <td>08:29</td>
+            <td>09:00</td>
+            <td>31 min</td>
+            <td>2703W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>55</strong></td>
+            <td>2022-10-27</td>
+            <td>17:59</td>
+            <td>18:38</td>
+            <td>39 min</td>
+            <td>2760W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>56</strong></td>
+            <td>2022-10-30</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2534W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>57</strong></td>
+            <td>2022-11-01</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2646W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>58</strong></td>
+            <td>2022-11-03</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2619W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>59</strong></td>
+            <td>2022-11-06</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2664W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>60</strong></td>
+            <td>2022-11-08</td>
+            <td>14:48</td>
+            <td>17:49</td>
+            <td>181 min</td>
+            <td>2649W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>61</strong></td>
+            <td>2022-11-08</td>
+            <td>15:14</td>
+            <td>15:54</td>
+            <td>40 min</td>
+            <td>1634W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>62</strong></td>
+            <td>2022-11-08</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2510W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>63</strong></td>
+            <td>2022-11-09</td>
+            <td>08:30</td>
+            <td>09:01</td>
+            <td>31 min</td>
+            <td>2556W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>64</strong></td>
+            <td>2022-11-11</td>
+            <td>16:00</td>
+            <td>17:30</td>
+            <td>90 min</td>
+            <td>2558W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>65</strong></td>
+            <td>2022-11-13</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2609W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>66</strong></td>
+            <td>2022-11-15</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2592W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>67</strong></td>
+            <td>2022-11-17</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2587W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>68</strong></td>
+            <td>2022-11-20</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2598W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>69</strong></td>
+            <td>2022-11-22</td>
+            <td>15:18</td>
+            <td>18:45</td>
+            <td>207 min</td>
+            <td>2603W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>70</strong></td>
+            <td>2022-11-24</td>
+            <td>18:00</td>
+            <td>18:45</td>
+            <td>45 min</td>
+            <td>2601W</td>
+            <td>w1</td>
+        </tr>
         </tbody>
     </table>
     </div>
     
-    <h4>Device Usage Patterns by Season and Time of Day</h4>
-    <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
-        Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
-    </p>
+    <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+        <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
+        <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">
+            Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
+        </p>
+    </div>
     
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Regular AC</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🌀 Regular AC</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 0 (0%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 118 (33%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 118 (33%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 235 (67%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 235 (67%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 208 (59%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 208 (59%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 145 (41%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 145 (41%)
                         </span>
                     </div>
                 </div>
@@ -1945,34 +5039,34 @@ python generate_pattern_plots.py --house 315
         </div>
         
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Water Heater (Boiler)</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🔥 Water Heater (Boiler)</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 0 (0%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 23 (33%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 23 (33%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 47 (67%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 47 (67%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 31 (44%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 31 (44%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 39 (56%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 39 (56%)
                         </span>
                     </div>
                 </div>
@@ -2009,50 +5103,62 @@ python generate_pattern_plots.py --house 315
             <tr>
                 <th>Month</th>
                 <th>ON Events</th>
+                <th>OFF Events</th>
                 <th>Matches</th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
+                <th>Matched Minutes</th>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>2022-07</td>
             <td>32</td>
+            <td>32</td>
             <td>18</td>
             <td>56.2%</td>
             <td>35.1 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2022-08</td>
             <td>214</td>
+            <td>191</td>
             <td>139</td>
             <td>68.6%</td>
             <td>262.9 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2022-09</td>
             <td>171</td>
+            <td>166</td>
             <td>119</td>
             <td>70.6%</td>
             <td>231.3 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2022-10</td>
             <td>175</td>
+            <td>170</td>
             <td>117</td>
             <td>67.8%</td>
             <td>229.3 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2022-11</td>
             <td>137</td>
+            <td>139</td>
             <td>97</td>
             <td>70.3%</td>
             <td>190.9 kW</td>
+            <td>0 min</td>
         </tr>
         </tbody>
     </table>

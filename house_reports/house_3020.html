@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 3020</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 20:11:39</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 22:50:04</div>
         </header>
 
         <section>
@@ -289,9 +289,15 @@
             <div class="summary-number">2</div>
             <div class="summary-label">Iterations</div>
         </div>
-        <div class="summary-card">
-            <div class="summary-number">2.6%</div>
-            <div class="summary-label">Power Segmented</div>
+    </div>
+    <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">2.6%</div>
+            <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">0.0 hrs</div>
+            <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
         </div>
     </div>
     
@@ -301,7 +307,7 @@
             <h2>Issues</h2>
             
     <ul class="flags-list">
-        <li class="flag-item"><span class="flag-icon">⚠</span> Low Matching Rate</li><li class="flag-item"><span class="flag-icon">⚠</span> Low Improvement</li><li class="flag-item"><span class="flag-icon">⚠</span> Low Segmentation</li><li class="flag-item"><span class="flag-icon">⚠</span> Few Matches</li>
+        <li class="flag-item" style="background: #f8d7da; border-left-color: #dc3545;"><span class="flag-icon">📉</span> <span style="color: #dc3545;">Low Matching Rate</span></li><li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Low Improvement</span></li><li class="flag-item" style="background: #fff3cd; border-left-color: #856404;"><span class="flag-icon">📊</span> <span style="color: #856404;">Low Segmentation</span></li><li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Few Matches</span></li>
     </ul>
     
         </section>
@@ -312,31 +318,37 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>Iteration</th>
-                <th>Events</th>
+                <th>Iter</th>
+                <th>Events<br><small>(ON/OFF)</small></th>
                 <th>Matches</th>
+                <th>Unmatched<br><small>(ON/OFF)</small></th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
-                <th>Negative Values</th>
+                <th>Matched Minutes</th>
+                <th>Negative</th>
             </tr>
         </thead>
         <tbody>
             
         <tr>
             <td>0</td>
-            <td>10</td>
+            <td>ON: 5<br>OFF: 5</td>
             <td>2</td>
+            <td>ON: 3<br>OFF: 3</td>
             <td>40.0%</td>
             <td>3.6 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
         <tr>
             <td>1</td>
-            <td>6</td>
+            <td>ON: 3<br>OFF: 3</td>
             <td>1</td>
+            <td>ON: 2<br>OFF: 2</td>
             <td>33.3%</td>
             <td>1.2 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
@@ -350,6 +362,10 @@
         <div class="metric">
             <span class="metric-label">Total Matched Power:</span>
             <span class="metric-value">4.9 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Minutes:</span>
+            <span class="metric-value">0 min (0.0 hrs)</span>
         </div>
     </div>
     
@@ -374,24 +390,38 @@
             </table>
         </div>
     </div>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">ON Events:</span>
-            <span class="metric-value">5</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">OFF Events:</span>
-            <span class="metric-value">5</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Matched ON:</span>
-            <span class="metric-value">0 (40.0%)</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Unmatched ON:</span>
-            <span class="metric-value">0</span>
-        </div>
-    </div>
+
+    <h4 style="margin-top: 20px;">Event Statistics</h4>
+    <table class="data-table small" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td>5</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td><strong>Matched</strong></td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+            </tr>
+            <tr>
+                <td><strong>Unmatched</strong></td>
+                <td>5</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+        Note: ON and OFF event counts may differ due to detection algorithm sensitivity and edge effects.
+        Matching rate = matched / total events of that type.
+    </p>
     
         </section>
 
@@ -399,32 +429,18 @@
             <h2>Segmentation Details</h2>
             
     
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>Total Power</th>
-                <th>Segmented</th>
-                <th>Remaining</th>
-                <th>Ratio</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">Total Power:</span>
-            <span class="metric-value">2279.4 kW</span>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333;">2279.4 kW</div>
+            <div class="summary-label">Total Power Consumed</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Segmented:</span>
-            <span class="metric-value">59.3 kW (2.6%)</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724;">59.3 kW</div>
+            <div class="summary-label">Segmented (2.6%)</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Remaining:</span>
-            <span class="metric-value">2220.2 kW</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="summary-number" style="color: #6c757d;">2220.2 kW</div>
+            <div class="summary-label">Remaining (97.4%)</div>
         </div>
     </div>
     
@@ -433,24 +449,9 @@
         <section>
             <h2>Event Patterns</h2>
             
-    <h4>Daily Statistics</h4>
-    <div class="summary-grid">
-        <div class="summary-card">
-            <div class="summary-number">4</div>
-            <div class="summary-label">Total Days</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">2.5</div>
-            <div class="summary-label">Avg Events/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">1.0</div>
-            <div class="summary-label">Avg Matches/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">1.8</div>
-            <div class="summary-label">Avg kW/Day Matched</div>
-        </div>
+    <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; display: inline-block;">
+        <span style="font-size: 1.5em; font-weight: bold; color: #2d3748;">4</span>
+        <span style="color: #666; margin-left: 10px;">Days of Data Analyzed</span>
     </div>
     
         <h4>Recurring Appliance Usage</h4>
@@ -478,10 +479,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 1 sessions (should match Total Sessions: 1)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -492,6 +497,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-11-04</td>
                     <td>10:00</td>
                     <td>10:18</td>
@@ -522,10 +528,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 1 sessions (should match Total Sessions: 1)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -536,6 +546,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2022-11-05</td>
                     <td>22:00</td>
                     <td>22:16</td>
@@ -550,40 +561,42 @@
         <h4>Water Heater (Boiler)</h4>
         <p>No boiler pattern detected (no isolated long high-power events found).</p>
         
-    <h4>Device Usage Patterns by Season and Time of Day</h4>
-    <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
-        Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
-    </p>
+    <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+        <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
+        <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">
+            Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
+        </p>
+    </div>
     
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Regular AC</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🌀 Regular AC</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 0 (0%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 2 (100%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 2 (100%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 1 (50%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 1 (50%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 1 (50%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 1 (50%)
                         </span>
                     </div>
                 </div>
@@ -620,18 +633,22 @@
             <tr>
                 <th>Month</th>
                 <th>ON Events</th>
+                <th>OFF Events</th>
                 <th>Matches</th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
+                <th>Matched Minutes</th>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>2022-11</td>
             <td>5</td>
+            <td>5</td>
             <td>2</td>
             <td>40.0%</td>
             <td>3.6 kW</td>
+            <td>0 min</td>
         </tr>
         </tbody>
     </table>

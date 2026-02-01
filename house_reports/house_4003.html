@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 4003</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 20:11:39</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 22:50:04</div>
         </header>
 
         <section>
@@ -289,9 +289,15 @@
             <div class="summary-number">2</div>
             <div class="summary-label">Iterations</div>
         </div>
-        <div class="summary-card">
-            <div class="summary-number">1.0%</div>
-            <div class="summary-label">Power Segmented</div>
+    </div>
+    <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">1.0%</div>
+            <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">0.0 hrs</div>
+            <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
         </div>
     </div>
     
@@ -301,7 +307,7 @@
             <h2>Issues</h2>
             
     <ul class="flags-list">
-        <li class="flag-item"><span class="flag-icon">⚠</span> Low Improvement</li><li class="flag-item"><span class="flag-icon">⚠</span> Low Segmentation</li><li class="flag-item"><span class="flag-icon">⚠</span> Has Damaged Phases</li>
+        <li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Low Improvement</span></li><li class="flag-item" style="background: #fff3cd; border-left-color: #856404;"><span class="flag-icon">📊</span> <span style="color: #856404;">Low Segmentation</span></li><li class="flag-item" style="background: #f8d7da; border-left-color: #dc3545;"><span class="flag-icon">🔌</span> <span style="color: #dc3545;">Damaged Phase(s)</span></li>
     </ul>
     
         </section>
@@ -312,31 +318,37 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>Iteration</th>
-                <th>Events</th>
+                <th>Iter</th>
+                <th>Events<br><small>(ON/OFF)</small></th>
                 <th>Matches</th>
+                <th>Unmatched<br><small>(ON/OFF)</small></th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
-                <th>Negative Values</th>
+                <th>Matched Minutes</th>
+                <th>Negative</th>
             </tr>
         </thead>
         <tbody>
             
         <tr>
             <td>0</td>
-            <td>953</td>
+            <td>ON: 476<br>OFF: 476</td>
             <td>355</td>
+            <td>ON: 121<br>OFF: 121</td>
             <td>74.5%</td>
             <td>545.7 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
         <tr>
             <td>1</td>
-            <td>240</td>
+            <td>ON: 120<br>OFF: 120</td>
             <td>1</td>
+            <td>ON: 119<br>OFF: 119</td>
             <td>0.8%</td>
             <td>1.4 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
@@ -350,6 +362,10 @@
         <div class="metric">
             <span class="metric-label">Total Matched Power:</span>
             <span class="metric-value">547.1 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Minutes:</span>
+            <span class="metric-value">0 min (0.0 hrs)</span>
         </div>
     </div>
     
@@ -374,24 +390,38 @@
             </table>
         </div>
     </div>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">ON Events:</span>
-            <span class="metric-value">457</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">OFF Events:</span>
-            <span class="metric-value">496</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Matched ON:</span>
-            <span class="metric-value">0 (77.7%)</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Unmatched ON:</span>
-            <span class="metric-value">0</span>
-        </div>
-    </div>
+
+    <h4 style="margin-top: 20px;">Event Statistics</h4>
+    <table class="data-table small" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td>457</td>
+                <td>496</td>
+            </tr>
+            <tr>
+                <td><strong>Matched</strong></td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+            </tr>
+            <tr>
+                <td><strong>Unmatched</strong></td>
+                <td>457</td>
+                <td>496</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+        Note: ON and OFF event counts may differ due to detection algorithm sensitivity and edge effects.
+        Matching rate = matched / total events of that type.
+    </p>
     
         </section>
 
@@ -399,32 +429,18 @@
             <h2>Segmentation Details</h2>
             
     
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>Total Power</th>
-                <th>Segmented</th>
-                <th>Remaining</th>
-                <th>Ratio</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">Total Power:</span>
-            <span class="metric-value">145289.2 kW</span>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333;">145289.2 kW</div>
+            <div class="summary-label">Total Power Consumed</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Segmented:</span>
-            <span class="metric-value">1491.8 kW (1.0%)</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724;">1491.8 kW</div>
+            <div class="summary-label">Segmented (1.0%)</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Remaining:</span>
-            <span class="metric-value">143797.4 kW</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="summary-number" style="color: #6c757d;">143797.4 kW</div>
+            <div class="summary-label">Remaining (99.0%)</div>
         </div>
     </div>
     
@@ -433,24 +449,9 @@
         <section>
             <h2>Event Patterns</h2>
             
-    <h4>Daily Statistics</h4>
-    <div class="summary-grid">
-        <div class="summary-card">
-            <div class="summary-number">201</div>
-            <div class="summary-label">Total Days</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">4.7</div>
-            <div class="summary-label">Avg Events/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">2.1</div>
-            <div class="summary-label">Avg Matches/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">3.2</div>
-            <div class="summary-label">Avg kW/Day Matched</div>
-        </div>
+    <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; display: inline-block;">
+        <span style="font-size: 1.5em; font-weight: bold; color: #2d3748;">201</span>
+        <span style="color: #666; margin-left: 10px;">Days of Data Analyzed</span>
     </div>
     
         <h4>Recurring Appliance Usage</h4>
@@ -492,90 +493,112 @@
             <tr>
                 <th>Month</th>
                 <th>ON Events</th>
+                <th>OFF Events</th>
                 <th>Matches</th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
+                <th>Matched Minutes</th>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>2020-11</td>
             <td>32</td>
+            <td>28</td>
             <td>24</td>
             <td>80.0%</td>
             <td>40.3 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2020-12</td>
             <td>28</td>
+            <td>30</td>
             <td>23</td>
             <td>79.3%</td>
             <td>36.4 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-01</td>
             <td>11</td>
+            <td>17</td>
             <td>9</td>
             <td>64.3%</td>
             <td>14.2 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-02</td>
             <td>15</td>
+            <td>13</td>
             <td>12</td>
             <td>85.7%</td>
             <td>18.3 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-03</td>
             <td>16</td>
+            <td>16</td>
             <td>11</td>
             <td>68.8%</td>
             <td>15.4 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-04</td>
             <td>22</td>
+            <td>19</td>
             <td>16</td>
             <td>78.0%</td>
             <td>23.4 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-05</td>
             <td>89</td>
+            <td>88</td>
             <td>80</td>
             <td>90.4%</td>
             <td>123.9 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-06</td>
             <td>73</td>
+            <td>85</td>
             <td>68</td>
             <td>86.1%</td>
             <td>105.6 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-07</td>
             <td>107</td>
+            <td>132</td>
             <td>74</td>
             <td>61.9%</td>
             <td>110.7 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-08</td>
             <td>64</td>
+            <td>68</td>
             <td>38</td>
             <td>57.6%</td>
             <td>57.5 kW</td>
+            <td>0 min</td>
         </tr>
         </tbody>
     </table>

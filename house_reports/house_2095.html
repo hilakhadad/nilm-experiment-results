@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 2095</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 20:11:37</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 22:50:02</div>
         </header>
 
         <section>
@@ -289,9 +289,15 @@
             <div class="summary-number">2</div>
             <div class="summary-label">Iterations</div>
         </div>
-        <div class="summary-card">
-            <div class="summary-number">11.6%</div>
-            <div class="summary-label">Power Segmented</div>
+    </div>
+    <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">11.6%</div>
+            <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">0.0 hrs</div>
+            <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
         </div>
     </div>
     
@@ -301,7 +307,7 @@
             <h2>Issues</h2>
             
     <ul class="flags-list">
-        <li class="flag-item"><span class="flag-icon">⚠</span> Low Improvement</li><li class="flag-item"><span class="flag-icon">⚠</span> Low Segmentation</li>
+        <li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Low Improvement</span></li><li class="flag-item" style="background: #fff3cd; border-left-color: #856404;"><span class="flag-icon">📊</span> <span style="color: #856404;">Low Segmentation</span></li>
     </ul>
     
         </section>
@@ -312,31 +318,37 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>Iteration</th>
-                <th>Events</th>
+                <th>Iter</th>
+                <th>Events<br><small>(ON/OFF)</small></th>
                 <th>Matches</th>
+                <th>Unmatched<br><small>(ON/OFF)</small></th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
-                <th>Negative Values</th>
+                <th>Matched Minutes</th>
+                <th>Negative</th>
             </tr>
         </thead>
         <tbody>
             
         <tr>
             <td>0</td>
-            <td>918</td>
+            <td>ON: 459<br>OFF: 459</td>
             <td>373</td>
+            <td>ON: 86<br>OFF: 86</td>
             <td>81.3%</td>
             <td>613.3 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
         <tr>
             <td>1</td>
-            <td>184</td>
+            <td>ON: 92<br>OFF: 92</td>
             <td>13</td>
+            <td>ON: 79<br>OFF: 79</td>
             <td>14.1%</td>
             <td>20.7 kW</td>
+            <td>0 min</td>
             <td>0</td>
         </tr>
         
@@ -350,6 +362,10 @@
         <div class="metric">
             <span class="metric-label">Total Matched Power:</span>
             <span class="metric-value">634.1 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Minutes:</span>
+            <span class="metric-value">0 min (0.0 hrs)</span>
         </div>
     </div>
     
@@ -374,24 +390,38 @@
             </table>
         </div>
     </div>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">ON Events:</span>
-            <span class="metric-value">442</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">OFF Events:</span>
-            <span class="metric-value">476</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Matched ON:</span>
-            <span class="metric-value">0 (84.4%)</span>
-        </div>
-        <div class="metric">
-            <span class="metric-label">Unmatched ON:</span>
-            <span class="metric-value">0</span>
-        </div>
-    </div>
+
+    <h4 style="margin-top: 20px;">Event Statistics</h4>
+    <table class="data-table small" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td>442</td>
+                <td>476</td>
+            </tr>
+            <tr>
+                <td><strong>Matched</strong></td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+            </tr>
+            <tr>
+                <td><strong>Unmatched</strong></td>
+                <td>442</td>
+                <td>476</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+        Note: ON and OFF event counts may differ due to detection algorithm sensitivity and edge effects.
+        Matching rate = matched / total events of that type.
+    </p>
     
         </section>
 
@@ -399,32 +429,18 @@
             <h2>Segmentation Details</h2>
             
     
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>Total Power</th>
-                <th>Segmented</th>
-                <th>Remaining</th>
-                <th>Ratio</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-    <div class="metrics-row">
-        <div class="metric">
-            <span class="metric-label">Total Power:</span>
-            <span class="metric-value">28802.7 kW</span>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333;">28802.7 kW</div>
+            <div class="summary-label">Total Power Consumed</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Segmented:</span>
-            <span class="metric-value">3350.5 kW (11.6%)</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724;">3350.5 kW</div>
+            <div class="summary-label">Segmented (11.6%)</div>
         </div>
-        <div class="metric">
-            <span class="metric-label">Remaining:</span>
-            <span class="metric-value">25441.9 kW</span>
+        <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="summary-number" style="color: #6c757d;">25441.9 kW</div>
+            <div class="summary-label">Remaining (88.4%)</div>
         </div>
     </div>
     
@@ -433,24 +449,9 @@
         <section>
             <h2>Event Patterns</h2>
             
-    <h4>Daily Statistics</h4>
-    <div class="summary-grid">
-        <div class="summary-card">
-            <div class="summary-number">21</div>
-            <div class="summary-label">Total Days</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">43.7</div>
-            <div class="summary-label">Avg Events/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">17.8</div>
-            <div class="summary-label">Avg Matches/Day</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-number">29.2</div>
-            <div class="summary-label">Avg kW/Day Matched</div>
-        </div>
+    <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; display: inline-block;">
+        <span style="font-size: 1.5em; font-weight: bold; color: #2d3748;">21</span>
+        <span style="color: #666; margin-left: 10px;">Days of Data Analyzed</span>
     </div>
     
         <h4>Recurring Appliance Usage</h4>
@@ -478,10 +479,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 29 sessions (should match Total Sessions: 29)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -492,6 +497,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2020-12-31</td>
                     <td>21:30</td>
                     <td>21:36</td>
@@ -501,6 +507,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2021-01-01</td>
                     <td>13:33</td>
                     <td>13:35</td>
@@ -510,6 +517,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2021-01-01</td>
                     <td>16:01</td>
                     <td>18:32</td>
@@ -519,6 +527,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2021-01-03</td>
                     <td>00:02</td>
                     <td>00:17</td>
@@ -528,6 +537,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2021-01-03</td>
                     <td>11:18</td>
                     <td>11:33</td>
@@ -537,6 +547,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2021-01-03</td>
                     <td>15:17</td>
                     <td>17:02</td>
@@ -546,6 +557,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2021-01-03</td>
                     <td>23:43</td>
                     <td>23:44</td>
@@ -555,6 +567,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2021-01-05</td>
                     <td>13:47</td>
                     <td>17:38</td>
@@ -564,6 +577,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2021-01-05</td>
                     <td>22:16</td>
                     <td>23:21</td>
@@ -573,6 +587,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2021-01-06</td>
                     <td>12:06</td>
                     <td>12:53</td>
@@ -582,6 +597,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2021-01-06</td>
                     <td>14:53</td>
                     <td>15:56</td>
@@ -591,6 +607,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2021-01-06</td>
                     <td>21:13</td>
                     <td>00:32</td>
@@ -600,6 +617,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>13</strong></td>
                     <td>2021-01-07</td>
                     <td>13:26</td>
                     <td>14:26</td>
@@ -609,6 +627,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>14</strong></td>
                     <td>2021-01-08</td>
                     <td>11:59</td>
                     <td>12:17</td>
@@ -618,6 +637,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>15</strong></td>
                     <td>2021-01-08</td>
                     <td>13:50</td>
                     <td>14:05</td>
@@ -627,6 +647,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>16</strong></td>
                     <td>2021-01-08</td>
                     <td>15:59</td>
                     <td>16:06</td>
@@ -636,6 +657,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>17</strong></td>
                     <td>2021-01-08</td>
                     <td>17:37</td>
                     <td>19:28</td>
@@ -645,6 +667,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>18</strong></td>
                     <td>2021-01-10</td>
                     <td>00:31</td>
                     <td>00:34</td>
@@ -654,6 +677,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>19</strong></td>
                     <td>2021-01-10</td>
                     <td>20:17</td>
                     <td>22:56</td>
@@ -663,6 +687,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>20</strong></td>
                     <td>2021-01-11</td>
                     <td>12:37</td>
                     <td>12:43</td>
@@ -672,6 +697,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>21</strong></td>
                     <td>2021-01-11</td>
                     <td>15:22</td>
                     <td>15:28</td>
@@ -681,6 +707,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>22</strong></td>
                     <td>2021-04-12</td>
                     <td>21:14</td>
                     <td>21:17</td>
@@ -690,6 +717,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>23</strong></td>
                     <td>2021-04-14</td>
                     <td>16:57</td>
                     <td>17:04</td>
@@ -699,6 +727,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>24</strong></td>
                     <td>2021-04-14</td>
                     <td>19:49</td>
                     <td>20:07</td>
@@ -708,6 +737,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>25</strong></td>
                     <td>2021-04-15</td>
                     <td>23:01</td>
                     <td>23:55</td>
@@ -717,6 +747,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>26</strong></td>
                     <td>2021-04-16</td>
                     <td>17:46</td>
                     <td>18:02</td>
@@ -726,6 +757,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>27</strong></td>
                     <td>2021-11-04</td>
                     <td>11:16</td>
                     <td>11:19</td>
@@ -735,6 +767,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>28</strong></td>
                     <td>2021-11-04</td>
                     <td>13:58</td>
                     <td>14:02</td>
@@ -744,6 +777,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>29</strong></td>
                     <td>2021-11-04</td>
                     <td>16:02</td>
                     <td>16:04</td>
@@ -774,10 +808,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w2 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 86 sessions (should match Total Sessions: 86)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -788,6 +826,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2020-12-31</td>
                     <td>21:28</td>
                     <td>22:29</td>
@@ -797,6 +836,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2021-01-01</td>
                     <td>00:57</td>
                     <td>00:59</td>
@@ -806,6 +846,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2021-01-01</td>
                     <td>03:54</td>
                     <td>03:55</td>
@@ -815,6 +856,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2021-01-01</td>
                     <td>06:50</td>
                     <td>06:52</td>
@@ -824,6 +866,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>5</strong></td>
                     <td>2021-01-01</td>
                     <td>12:16</td>
                     <td>12:20</td>
@@ -833,6 +876,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>6</strong></td>
                     <td>2021-01-01</td>
                     <td>14:29</td>
                     <td>16:15</td>
@@ -842,15 +886,17 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>7</strong></td>
                     <td>2021-01-01</td>
                     <td>18:31</td>
                     <td>00:00</td>
-                    <td>-1111 min</td>
+                    <td>329 min</td>
                     <td>1741W</td>
                     <td>25</td>
                 </tr>
                 
                 <tr>
+                    <td><strong>8</strong></td>
                     <td>2021-01-02</td>
                     <td>00:25</td>
                     <td>21:26</td>
@@ -860,6 +906,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>9</strong></td>
                     <td>2021-01-02</td>
                     <td>23:10</td>
                     <td>23:11</td>
@@ -869,6 +916,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>10</strong></td>
                     <td>2021-01-03</td>
                     <td>06:39</td>
                     <td>06:40</td>
@@ -878,6 +926,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>11</strong></td>
                     <td>2021-01-03</td>
                     <td>09:28</td>
                     <td>09:29</td>
@@ -887,6 +936,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>12</strong></td>
                     <td>2021-01-03</td>
                     <td>11:13</td>
                     <td>11:14</td>
@@ -896,6 +946,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>13</strong></td>
                     <td>2021-01-03</td>
                     <td>17:12</td>
                     <td>17:14</td>
@@ -905,6 +956,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>14</strong></td>
                     <td>2021-01-03</td>
                     <td>21:42</td>
                     <td>21:44</td>
@@ -914,6 +966,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>15</strong></td>
                     <td>2021-01-04</td>
                     <td>03:52</td>
                     <td>03:54</td>
@@ -923,6 +976,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>16</strong></td>
                     <td>2021-01-04</td>
                     <td>06:32</td>
                     <td>06:34</td>
@@ -932,6 +986,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>17</strong></td>
                     <td>2021-01-04</td>
                     <td>09:59</td>
                     <td>10:02</td>
@@ -941,6 +996,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>18</strong></td>
                     <td>2021-01-04</td>
                     <td>11:10</td>
                     <td>11:11</td>
@@ -950,6 +1006,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>19</strong></td>
                     <td>2021-01-04</td>
                     <td>16:51</td>
                     <td>16:52</td>
@@ -959,6 +1016,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>20</strong></td>
                     <td>2021-01-05</td>
                     <td>09:30</td>
                     <td>09:31</td>
@@ -968,6 +1026,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>21</strong></td>
                     <td>2021-01-05</td>
                     <td>10:54</td>
                     <td>10:57</td>
@@ -977,6 +1036,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>22</strong></td>
                     <td>2021-01-05</td>
                     <td>16:43</td>
                     <td>17:15</td>
@@ -986,6 +1046,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>23</strong></td>
                     <td>2021-01-05</td>
                     <td>22:20</td>
                     <td>23:02</td>
@@ -995,6 +1056,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>24</strong></td>
                     <td>2021-01-06</td>
                     <td>00:10</td>
                     <td>00:11</td>
@@ -1004,6 +1066,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>25</strong></td>
                     <td>2021-01-06</td>
                     <td>02:58</td>
                     <td>02:59</td>
@@ -1013,6 +1076,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>26</strong></td>
                     <td>2021-01-06</td>
                     <td>05:43</td>
                     <td>05:44</td>
@@ -1022,6 +1086,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>27</strong></td>
                     <td>2021-01-06</td>
                     <td>08:27</td>
                     <td>08:29</td>
@@ -1031,6 +1096,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>28</strong></td>
                     <td>2021-01-06</td>
                     <td>10:25</td>
                     <td>10:28</td>
@@ -1040,6 +1106,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>29</strong></td>
                     <td>2021-01-06</td>
                     <td>11:59</td>
                     <td>12:00</td>
@@ -1049,6 +1116,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>30</strong></td>
                     <td>2021-01-06</td>
                     <td>21:42</td>
                     <td>21:46</td>
@@ -1058,6 +1126,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>31</strong></td>
                     <td>2021-01-07</td>
                     <td>03:55</td>
                     <td>03:56</td>
@@ -1067,6 +1136,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>32</strong></td>
                     <td>2021-01-07</td>
                     <td>06:40</td>
                     <td>06:41</td>
@@ -1076,6 +1146,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>33</strong></td>
                     <td>2021-01-07</td>
                     <td>10:10</td>
                     <td>10:12</td>
@@ -1085,6 +1156,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>34</strong></td>
                     <td>2021-01-07</td>
                     <td>13:47</td>
                     <td>13:49</td>
@@ -1094,6 +1166,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>35</strong></td>
                     <td>2021-01-07</td>
                     <td>19:59</td>
                     <td>20:01</td>
@@ -1103,6 +1176,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>36</strong></td>
                     <td>2021-01-08</td>
                     <td>04:21</td>
                     <td>04:22</td>
@@ -1112,6 +1186,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>37</strong></td>
                     <td>2021-01-08</td>
                     <td>07:09</td>
                     <td>07:10</td>
@@ -1121,6 +1196,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>38</strong></td>
                     <td>2021-01-08</td>
                     <td>09:55</td>
                     <td>09:57</td>
@@ -1130,6 +1206,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>39</strong></td>
                     <td>2021-01-08</td>
                     <td>12:00</td>
                     <td>12:03</td>
@@ -1139,6 +1216,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>40</strong></td>
                     <td>2021-01-08</td>
                     <td>14:08</td>
                     <td>15:29</td>
@@ -1148,6 +1226,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>41</strong></td>
                     <td>2021-01-08</td>
                     <td>16:54</td>
                     <td>17:15</td>
@@ -1157,6 +1236,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>42</strong></td>
                     <td>2021-01-08</td>
                     <td>18:23</td>
                     <td>01:17</td>
@@ -1166,6 +1246,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>43</strong></td>
                     <td>2021-01-09</td>
                     <td>02:22</td>
                     <td>02:40</td>
@@ -1175,6 +1256,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>44</strong></td>
                     <td>2021-01-09</td>
                     <td>03:42</td>
                     <td>10:30</td>
@@ -1184,6 +1266,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>45</strong></td>
                     <td>2021-01-09</td>
                     <td>11:38</td>
                     <td>12:39</td>
@@ -1193,6 +1276,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>46</strong></td>
                     <td>2021-01-09</td>
                     <td>13:41</td>
                     <td>22:08</td>
@@ -1202,6 +1286,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>47</strong></td>
                     <td>2021-01-10</td>
                     <td>07:47</td>
                     <td>07:48</td>
@@ -1211,6 +1296,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>48</strong></td>
                     <td>2021-01-10</td>
                     <td>10:29</td>
                     <td>10:32</td>
@@ -1220,6 +1306,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>49</strong></td>
                     <td>2021-01-10</td>
                     <td>12:37</td>
                     <td>12:38</td>
@@ -1229,11 +1316,372 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>50</strong></td>
                     <td>2021-01-10</td>
                     <td>19:30</td>
                     <td>19:31</td>
                     <td>1 min</td>
                     <td>1670W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>51</strong></td>
+                    <td>2021-01-10</td>
+                    <td>21:56</td>
+                    <td>22:20</td>
+                    <td>24 min</td>
+                    <td>1478W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>52</strong></td>
+                    <td>2021-01-11</td>
+                    <td>07:24</td>
+                    <td>07:26</td>
+                    <td>2 min</td>
+                    <td>1272W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>53</strong></td>
+                    <td>2021-01-11</td>
+                    <td>10:15</td>
+                    <td>10:17</td>
+                    <td>2 min</td>
+                    <td>1318W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>54</strong></td>
+                    <td>2021-04-12</td>
+                    <td>07:45</td>
+                    <td>07:46</td>
+                    <td>1 min</td>
+                    <td>1630W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>55</strong></td>
+                    <td>2021-04-12</td>
+                    <td>10:32</td>
+                    <td>10:35</td>
+                    <td>3 min</td>
+                    <td>1946W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>56</strong></td>
+                    <td>2021-04-12</td>
+                    <td>15:46</td>
+                    <td>16:31</td>
+                    <td>45 min</td>
+                    <td>1301W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>57</strong></td>
+                    <td>2021-04-12</td>
+                    <td>19:15</td>
+                    <td>19:16</td>
+                    <td>1 min</td>
+                    <td>1612W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>58</strong></td>
+                    <td>2021-04-13</td>
+                    <td>00:14</td>
+                    <td>00:17</td>
+                    <td>3 min</td>
+                    <td>1931W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>59</strong></td>
+                    <td>2021-04-13</td>
+                    <td>06:24</td>
+                    <td>06:25</td>
+                    <td>1 min</td>
+                    <td>1567W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>60</strong></td>
+                    <td>2021-04-13</td>
+                    <td>10:23</td>
+                    <td>10:25</td>
+                    <td>2 min</td>
+                    <td>1993W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>61</strong></td>
+                    <td>2021-04-13</td>
+                    <td>16:20</td>
+                    <td>16:21</td>
+                    <td>1 min</td>
+                    <td>1681W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>62</strong></td>
+                    <td>2021-04-13</td>
+                    <td>19:06</td>
+                    <td>19:07</td>
+                    <td>1 min</td>
+                    <td>1778W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>63</strong></td>
+                    <td>2021-04-13</td>
+                    <td>21:26</td>
+                    <td>00:47</td>
+                    <td>201 min</td>
+                    <td>2309W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>64</strong></td>
+                    <td>2021-04-13</td>
+                    <td>21:47</td>
+                    <td>22:15</td>
+                    <td>28 min</td>
+                    <td>2073W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>65</strong></td>
+                    <td>2021-04-14</td>
+                    <td>03:36</td>
+                    <td>03:38</td>
+                    <td>2 min</td>
+                    <td>1517W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>66</strong></td>
+                    <td>2021-04-14</td>
+                    <td>06:25</td>
+                    <td>06:27</td>
+                    <td>2 min</td>
+                    <td>1231W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>67</strong></td>
+                    <td>2021-04-14</td>
+                    <td>09:16</td>
+                    <td>09:18</td>
+                    <td>2 min</td>
+                    <td>1391W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>68</strong></td>
+                    <td>2021-04-14</td>
+                    <td>11:48</td>
+                    <td>11:51</td>
+                    <td>3 min</td>
+                    <td>1924W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>69</strong></td>
+                    <td>2021-04-14</td>
+                    <td>16:43</td>
+                    <td>16:46</td>
+                    <td>3 min</td>
+                    <td>1900W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>70</strong></td>
+                    <td>2021-04-14</td>
+                    <td>22:11</td>
+                    <td>22:51</td>
+                    <td>40 min</td>
+                    <td>1605W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>71</strong></td>
+                    <td>2021-04-15</td>
+                    <td>04:46</td>
+                    <td>04:47</td>
+                    <td>1 min</td>
+                    <td>1579W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>72</strong></td>
+                    <td>2021-04-15</td>
+                    <td>13:24</td>
+                    <td>13:25</td>
+                    <td>1 min</td>
+                    <td>1743W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>73</strong></td>
+                    <td>2021-04-15</td>
+                    <td>14:27</td>
+                    <td>14:30</td>
+                    <td>3 min</td>
+                    <td>1911W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>74</strong></td>
+                    <td>2021-04-15</td>
+                    <td>20:25</td>
+                    <td>20:26</td>
+                    <td>1 min</td>
+                    <td>1934W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>75</strong></td>
+                    <td>2021-04-15</td>
+                    <td>23:20</td>
+                    <td>23:22</td>
+                    <td>2 min</td>
+                    <td>1307W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>76</strong></td>
+                    <td>2021-04-16</td>
+                    <td>05:04</td>
+                    <td>05:06</td>
+                    <td>2 min</td>
+                    <td>1684W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>77</strong></td>
+                    <td>2021-04-16</td>
+                    <td>12:48</td>
+                    <td>12:51</td>
+                    <td>3 min</td>
+                    <td>1995W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>78</strong></td>
+                    <td>2021-04-16</td>
+                    <td>22:09</td>
+                    <td>22:10</td>
+                    <td>1 min</td>
+                    <td>1519W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>79</strong></td>
+                    <td>2021-04-17</td>
+                    <td>01:08</td>
+                    <td>01:09</td>
+                    <td>1 min</td>
+                    <td>1522W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>80</strong></td>
+                    <td>2021-04-17</td>
+                    <td>06:56</td>
+                    <td>06:58</td>
+                    <td>2 min</td>
+                    <td>1433W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>81</strong></td>
+                    <td>2021-04-17</td>
+                    <td>09:56</td>
+                    <td>09:57</td>
+                    <td>1 min</td>
+                    <td>1496W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>82</strong></td>
+                    <td>2021-11-03</td>
+                    <td>21:34</td>
+                    <td>22:05</td>
+                    <td>31 min</td>
+                    <td>2004W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>83</strong></td>
+                    <td>2021-11-04</td>
+                    <td>01:10</td>
+                    <td>01:12</td>
+                    <td>2 min</td>
+                    <td>1238W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>84</strong></td>
+                    <td>2021-11-04</td>
+                    <td>10:16</td>
+                    <td>10:19</td>
+                    <td>3 min</td>
+                    <td>2024W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>85</strong></td>
+                    <td>2021-11-04</td>
+                    <td>21:01</td>
+                    <td>21:02</td>
+                    <td>1 min</td>
+                    <td>1530W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>86</strong></td>
+                    <td>2021-11-05</td>
+                    <td>10:35</td>
+                    <td>10:37</td>
+                    <td>2 min</td>
+                    <td>1688W</td>
                     <td>1</td>
                 </tr>
                 </tbody>
@@ -1259,10 +1707,14 @@
             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
             </p>
+            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+                Showing all 4 sessions (should match Total Sessions: 4)
+            </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -1273,6 +1725,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td><strong>1</strong></td>
                     <td>2021-01-06</td>
                     <td>14:22</td>
                     <td>14:47</td>
@@ -1282,6 +1735,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>2</strong></td>
                     <td>2021-04-14</td>
                     <td>14:35</td>
                     <td>15:00</td>
@@ -1291,6 +1745,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>3</strong></td>
                     <td>2021-04-16</td>
                     <td>19:51</td>
                     <td>20:09</td>
@@ -1300,6 +1755,7 @@
                 </tr>
                 
                 <tr>
+                    <td><strong>4</strong></td>
                     <td>2021-04-17</td>
                     <td>03:04</td>
                     <td>03:38</td>
@@ -1329,10 +1785,14 @@
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
         Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
     </p>
+    <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+        Showing all 4 activations (should match Total Activations: 4)
+    </p>
     <div style="max-height: 400px; overflow-y: auto;">
     <table class="data-table small">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Date</th>
                 <th>ON Time</th>
                 <th>OFF Time</th>
@@ -1343,6 +1803,7 @@
         </thead>
         <tbody>
         <tr>
+            <td><strong>1</strong></td>
             <td>2021-01-06</td>
             <td>14:22</td>
             <td>14:47</td>
@@ -1352,6 +1813,7 @@
         </tr>
         
         <tr>
+            <td><strong>2</strong></td>
             <td>2021-01-06</td>
             <td>21:13</td>
             <td>23:39</td>
@@ -1361,6 +1823,7 @@
         </tr>
         
         <tr>
+            <td><strong>3</strong></td>
             <td>2021-01-10</td>
             <td>20:17</td>
             <td>22:56</td>
@@ -1370,6 +1833,7 @@
         </tr>
         
         <tr>
+            <td><strong>4</strong></td>
             <td>2021-04-15</td>
             <td>23:01</td>
             <td>23:55</td>
@@ -1381,40 +1845,42 @@
     </table>
     </div>
     
-    <h4>Device Usage Patterns by Season and Time of Day</h4>
-    <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
-        Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
-    </p>
+    <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+        <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
+        <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">
+            Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
+        </p>
+    </div>
     
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Regular AC</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🌀 Regular AC</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 75 (63%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 75 (63%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 36 (30%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 36 (30%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 8 (7%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 8 (7%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 70 (59%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 70 (59%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 49 (41%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 49 (41%)
                         </span>
                     </div>
                 </div>
@@ -1422,34 +1888,34 @@
         </div>
         
 
-        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Water Heater (Boiler)</h5>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🔥 Water Heater (Boiler)</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Winter: 3 (75%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 3 (75%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Spring: 1 (25%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 1 (25%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Summer: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 0 (0%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Fall: 0 (0%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 0 (0%)
                         </span>
                     </div>
                 </div>
                 <div>
-                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
-                    <div style="margin-top: 5px;">
-                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Day (06-18): 1 (25%)
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 1 (25%)
                         </span>
-                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
-                            Night (18-06): 3 (75%)
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 3 (75%)
                         </span>
                     </div>
                 </div>
@@ -1486,42 +1952,52 @@
             <tr>
                 <th>Month</th>
                 <th>ON Events</th>
+                <th>OFF Events</th>
                 <th>Matches</th>
                 <th>Match Rate</th>
                 <th>Matched Power</th>
+                <th>Matched Minutes</th>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>2020-12</td>
             <td>4</td>
+            <td>5</td>
             <td>2</td>
             <td>44.4%</td>
             <td>3.0 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-01</td>
             <td>357</td>
+            <td>385</td>
             <td>312</td>
             <td>84.1%</td>
             <td>512.0 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-04</td>
             <td>68</td>
+            <td>72</td>
             <td>50</td>
             <td>71.4%</td>
             <td>83.1 kW</td>
+            <td>0 min</td>
         </tr>
         
         <tr>
             <td>2021-11</td>
             <td>13</td>
+            <td>14</td>
             <td>9</td>
             <td>66.7%</td>
             <td>15.3 kW</td>
+            <td>0 min</td>
         </tr>
         </tbody>
     </table>
