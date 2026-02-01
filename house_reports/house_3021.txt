@@ -1,0 +1,29 @@
+============================================================
+EXPERIMENT REPORT: House 3021
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 520 events, 73.8% matched
+Last iteration: 141 events, 17.0% matched
+Events reduction: 72.9%
+Total matched power: 364.7 kW
+
+--- First Iteration Matching ---
+Total events: 257 ON, 263 OFF
+Matched: 0 (74.7%)
+By tag: NON-M: 128, SPIKE: 54, PARTIAL: 7, NOISY: 3
+
+--- First Iteration Segmentation ---
+Total power: 21295.2 kW
+Segmented: 3909.4 kW (18.4%)
+Remaining: 17381.5 kW
+
+--- Scores ---
+Matching score: 74/100
+Segmentation score: 18/100
+Overall score: 57/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation

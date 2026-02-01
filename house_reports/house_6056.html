@@ -1,0 +1,3521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House 6056 - Experiment Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            opacity: 0.9;
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: #444;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        section h4 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .summary-card.highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .summary-card.highlight .summary-label {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .summary-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .summary-card.highlight .summary-number {
+            color: white;
+        }
+
+        .summary-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .badge-purple { background: #e2d5f0; color: #6f42c1; }
+        .badge-green { background: #d4edda; color: #155724; }
+        .badge-blue { background: #cce5ff; color: #004085; }
+        .badge-orange { background: #fff3cd; color: #856404; }
+        .badge-red { background: #f8d7da; color: #721c24; }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .data-table.small {
+            font-size: 0.85em;
+        }
+
+        .data-table th {
+            background: #2d3748;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .pattern-row {
+            cursor: pointer;
+        }
+
+        .pattern-row:hover {
+            background: #e3f2fd !important;
+        }
+
+        .dates-row {
+            background: #f5f5f5;
+        }
+
+        .dates-expanded {
+            padding: 15px !important;
+            font-size: 0.85em;
+            color: #555;
+            word-break: break-word;
+        }
+
+        .dates-cell {
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .metrics-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .metric {
+            display: flex;
+            gap: 8px;
+        }
+
+        .metric-label {
+            color: #666;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .flags-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .flag-item {
+            padding: 10px 15px;
+            margin: 5px 0;
+            background: #fff3cd;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .flag-icon {
+            margin-right: 8px;
+        }
+
+        .warning {
+            padding: 15px;
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            color: #721c24;
+        }
+
+        .success {
+            padding: 15px;
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            border-radius: 5px;
+            color: #155724;
+        }
+
+        .chart-container {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            justify-items: start;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .two-columns { grid-template-columns: 1fr; }
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>House 6056</h1>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-01 18:17:05</div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            
+    <div class="summary-grid">
+        <div class="summary-card highlight">
+            <div class="summary-number">63</div>
+            <div class="summary-label">Overall Score</div>
+            <span class="badge badge-blue">Good</span>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">76</div>
+            <div class="summary-label">Matching Score</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">31</div>
+            <div class="summary-label">Segmentation Score</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">2</div>
+            <div class="summary-label">Iterations</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">30.7%</div>
+            <div class="summary-label">Power Segmented</div>
+        </div>
+    </div>
+    
+        </section>
+
+        <section>
+            <h2>Issues</h2>
+            
+    <ul class="flags-list">
+        <li class="flag-item"><span class="flag-icon">⚠</span> Low Improvement</li><li class="flag-item"><span class="flag-icon">⚠</span> Has Recurring Patterns</li>
+    </ul>
+    
+        </section>
+
+        <section>
+            <h2>Iterations Progress</h2>
+            
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Iteration</th>
+                <th>Events</th>
+                <th>Matches</th>
+                <th>Match Rate</th>
+                <th>Matched Power</th>
+                <th>Negative Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>0</td>
+            <td>106893</td>
+            <td>40762</td>
+            <td>76.3%</td>
+            <td>60410.2 kW</td>
+            <td>0</td>
+        </tr>
+        
+        <tr>
+            <td>1</td>
+            <td>23083</td>
+            <td>1952</td>
+            <td>16.9%</td>
+            <td>2970.2 kW</td>
+            <td>0</td>
+        </tr>
+        
+        </tbody>
+    </table>
+    <div class="metrics-row">
+        <div class="metric">
+            <span class="metric-label">Events Reduction:</span>
+            <span class="metric-value">78.4%</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Power:</span>
+            <span class="metric-value">63380.4 kW</span>
+        </div>
+    </div>
+    
+        </section>
+
+        <section>
+            <h2>Matching Details</h2>
+            
+    <div class="two-columns">
+        <div class="column">
+            <h4>Match Types</h4>
+            <table class="data-table small">
+                <thead><tr><th>Tag</th><th>Count</th></tr></thead>
+                <tbody><tr><td>NON-M</td><td>35771</td></tr><tr><td>SPIKE</td><td>4216</td></tr><tr><td>PARTIAL</td><td>570</td></tr><tr><td>NOISY</td><td>205</td></tr></tbody>
+            </table>
+        </div>
+        <div class="column">
+            <h4>By Phase</h4>
+            <table class="data-table small">
+                <thead><tr><th>Phase</th><th>Count</th></tr></thead>
+                <tbody><tr><td>w3</td><td>21158</td></tr><tr><td>w1</td><td>13114</td></tr><tr><td>w2</td><td>6490</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="metrics-row">
+        <div class="metric">
+            <span class="metric-label">ON Events:</span>
+            <span class="metric-value">49602</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">OFF Events:</span>
+            <span class="metric-value">57291</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Matched ON:</span>
+            <span class="metric-value">0 (82.2%)</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Unmatched ON:</span>
+            <span class="metric-value">0</span>
+        </div>
+    </div>
+    
+        </section>
+
+        <section>
+            <h2>Segmentation Details</h2>
+            
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Phase</th>
+                <th>Total Power</th>
+                <th>Segmented</th>
+                <th>Remaining</th>
+                <th>Ratio</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <div class="metrics-row">
+        <div class="metric">
+            <span class="metric-label">Total Power:</span>
+            <span class="metric-value">987678.6 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Segmented:</span>
+            <span class="metric-value">302930.8 kW (30.7%)</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Remaining:</span>
+            <span class="metric-value">684660.2 kW</span>
+        </div>
+    </div>
+    
+        </section>
+
+        <section>
+            <h2>Event Patterns</h2>
+            
+    <h4>Daily Statistics</h4>
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="summary-number">565</div>
+            <div class="summary-label">Total Days</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">189.2</div>
+            <div class="summary-label">Avg Events/Day</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">72.1</div>
+            <div class="summary-label">Avg Matches/Day</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">106.9</div>
+            <div class="summary-label">Avg kW/Day Matched</div>
+        </div>
+    </div>
+    
+        <h4>Recurring Appliance Usage (Matched ON+OFF Pairs)</h4>
+        <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+            <div class="metric">
+                <span class="metric-label">Frequent Patterns (≤10 days):</span>
+                <span class="metric-value">13</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">All Patterns:</span>
+                <span class="metric-value">30</span>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+            <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                <input type="checkbox" id="showAllDates" onchange="toggleAllDates(this.checked)">
+                <span style="font-size: 0.9em;">Show all dates</span>
+            </label>
+            <button onclick="showPlotInstructions()" style="padding: 6px 12px; background: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+                Generate Pattern Plots
+            </button>
+        </div>
+
+        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+            Click on a row to see all dates when this pattern occurred.
+        </p>
+        <table class="data-table small">
+            <thead>
+                <tr>
+                    <th>Start Time</th>
+                    <th>Phase</th>
+                    <th>Power</th>
+                    <th>Duration</th>
+                    <th>Frequency</th>
+                    <th>Count</th>
+                    <th>Dates</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr class="pattern-row" onclick="toggleDates('dates-0')">
+                <td>00:29</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>31 min</td>
+                <td>every ~5 days</td>
+                <td>32</td>
+                <td class="dates-cell">2022-03-06, 2022-03-08, 2022-03-09...</td>
+            </tr>
+            <tr id="dates-0" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-03-06, 2022-03-08, 2022-03-09, 2022-03-10, 2022-03-11, 2022-03-13, 2022-03-15, 2022-03-17, 2022-03-18, 2022-03-19, 2022-03-20, 2022-03-21, 2022-03-22, 2022-03-28, 2022-03-29, 2022-03-30, 2022-03-31, 2022-04-01, 2022-04-04, 2022-04-13, 2022-04-22, 2022-04-29, 2022-05-08, 2022-05-15, 2022-06-02, 2022-06-03, 2022-06-14, 2022-06-17, 2022-06-19, 2022-06-28, 2022-07-09, 2022-08-17
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-1')">
+                <td>00:29</td>
+                <td>w2</td>
+                <td>2100W</td>
+                <td>31 min</td>
+                <td>every ~9 days</td>
+                <td>20</td>
+                <td class="dates-cell">2022-03-24, 2022-03-25, 2022-04-24...</td>
+            </tr>
+            <tr id="dates-1" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-03-24, 2022-03-25, 2022-04-24, 2022-04-25, 2022-04-30, 2022-05-01, 2022-05-03, 2022-05-09, 2022-05-10, 2022-05-11, 2022-05-13, 2022-05-16, 2022-05-17, 2022-05-22, 2022-05-24, 2022-08-02, 2022-08-04, 2022-08-16, 2022-08-28, 2022-09-02
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-2')">
+                <td>09:30</td>
+                <td>w2</td>
+                <td>2100W</td>
+                <td>31 min</td>
+                <td>every ~2 days</td>
+                <td>8</td>
+                <td class="dates-cell">2021-10-30, 2021-11-01, 2021-11-03...</td>
+            </tr>
+            <tr id="dates-2" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2021-10-30, 2021-11-01, 2021-11-03, 2021-11-06, 2021-11-10, 2021-11-11, 2021-11-12, 2021-11-15
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-3')">
+                <td>19:30</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>119 min</td>
+                <td>every ~3 days</td>
+                <td>8</td>
+                <td class="dates-cell">2021-12-26, 2021-12-27, 2021-12-28...</td>
+            </tr>
+            <tr id="dates-3" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2021-12-26, 2021-12-27, 2021-12-28, 2022-01-02, 2022-01-03, 2022-01-05, 2022-01-06, 2022-01-16
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-4')">
+                <td>20:00</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>91 min</td>
+                <td>weekly</td>
+                <td>6</td>
+                <td class="dates-cell">2022-01-20, 2022-01-23, 2022-02-01...</td>
+            </tr>
+            <tr id="dates-4" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-01-20, 2022-01-23, 2022-02-01, 2022-02-02, 2022-02-17, 2022-02-21
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-5')">
+                <td>19:50</td>
+                <td>w2</td>
+                <td>2700W</td>
+                <td>60 min</td>
+                <td>weekly</td>
+                <td>6</td>
+                <td class="dates-cell">2022-10-18, 2022-10-19, 2022-11-16...</td>
+            </tr>
+            <tr id="dates-5" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-10-18, 2022-10-19, 2022-11-16, 2022-11-21, 2022-11-23, 2022-11-24
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-6')">
+                <td>09:30</td>
+                <td>w2</td>
+                <td>2100W</td>
+                <td>30 min</td>
+                <td>daily</td>
+                <td>4</td>
+                <td class="dates-cell">2021-10-25, 2021-10-26, 2021-10-27...</td>
+            </tr>
+            <tr id="dates-6" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2021-10-25, 2021-10-26, 2021-10-27, 2021-10-28
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-7')">
+                <td>08:59</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>154 min</td>
+                <td>every ~10 days</td>
+                <td>4</td>
+                <td class="dates-cell">2022-02-20, 2022-02-24, 2022-02-28...</td>
+            </tr>
+            <tr id="dates-7" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-02-20, 2022-02-24, 2022-02-28, 2022-03-22
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-8')">
+                <td>09:00</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>150 min</td>
+                <td>every ~3 days</td>
+                <td>4</td>
+                <td class="dates-cell">2021-12-28, 2021-12-29, 2022-01-05...</td>
+            </tr>
+            <tr id="dates-8" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2021-12-28, 2021-12-29, 2022-01-05, 2022-01-06
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-9')">
+                <td>19:59</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>90 min</td>
+                <td>every ~2 days</td>
+                <td>4</td>
+                <td class="dates-cell">2022-03-18, 2022-03-20, 2022-03-22...</td>
+            </tr>
+            <tr id="dates-9" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-03-18, 2022-03-20, 2022-03-22, 2022-03-24
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-10')">
+                <td>20:00</td>
+                <td>w2</td>
+                <td>2200W</td>
+                <td>90 min</td>
+                <td>every ~3 days</td>
+                <td>4</td>
+                <td class="dates-cell">2022-01-31, 2022-02-08, 2022-02-09...</td>
+            </tr>
+            <tr id="dates-10" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-01-31, 2022-02-08, 2022-02-09, 2022-02-10
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-11')">
+                <td>00:29</td>
+                <td>w2</td>
+                <td>2300W</td>
+                <td>31 min</td>
+                <td>every ~4 days</td>
+                <td>4</td>
+                <td class="dates-cell">2022-04-03, 2022-04-09, 2022-04-12...</td>
+            </tr>
+            <tr id="dates-11" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-04-03, 2022-04-09, 2022-04-12, 2022-04-14
+                </td>
+            </tr>
+            
+            <tr class="pattern-row" onclick="toggleDates('dates-12')">
+                <td>20:00</td>
+                <td>w2</td>
+                <td>2600W</td>
+                <td>60 min</td>
+                <td>every ~10 days</td>
+                <td>4</td>
+                <td class="dates-cell">2022-10-23, 2022-11-02, 2022-11-17...</td>
+            </tr>
+            <tr id="dates-12" class="dates-row" style="display:none;">
+                <td colspan="7" class="dates-expanded">
+                    <strong>All dates:</strong> 2022-10-23, 2022-11-02, 2022-11-17, 2022-11-22
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div id="plotInstructions" style="display: none; margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 8px; border-left: 4px solid #2196f3;">
+            <h5 style="margin: 0 0 10px 0; color: #1976d2;">Generate Pattern Plots</h5>
+            <p style="margin: 0 0 10px 0; font-size: 0.9em; color: #333;">
+                To generate individual plots for each pattern occurrence, run the following command:
+            </p>
+            <code style="display: block; background: #263238; color: #80cbc4; padding: 10px; border-radius: 4px; font-size: 0.85em; overflow-x: auto;">
+cd experiment_analysis/scripts<br>
+python generate_pattern_plots.py --house 6056
+            </code>
+            <p style="margin: 10px 0 0 0; font-size: 0.85em; color: #666;">
+                This will create an interactive plot for each date, organized by pattern.
+                Add <code>--patterns 1,2,3</code> to generate only specific patterns.
+            </p>
+        </div>
+
+        <script>
+            function toggleDates(id) {
+                var row = document.getElementById(id);
+                if (row.style.display === 'none') {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+
+            function toggleAllDates(show) {
+                var rows = document.querySelectorAll('.dates-row');
+                rows.forEach(function(row) {
+                    row.style.display = show ? 'table-row' : 'none';
+                });
+            }
+
+            function showPlotInstructions() {
+                var div = document.getElementById('plotInstructions');
+                div.style.display = div.style.display === 'none' ? 'block' : 'none';
+            }
+        </script>
+        
+        <h4>Central AC (Multi-Phase) <span class="badge badge-green">Detected</span></h4>
+        <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+            <div class="metric">
+                <span class="metric-label">Total Sessions:</span>
+                <span class="metric-value">687</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Cycles:</span>
+                <span class="metric-value">3466</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Phases:</span>
+                <span class="metric-value">w1, w2, w3</span>
+            </div>
+        </div>
+        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+            Sessions grouped by 1-hour gaps between compressor cycles. Events synchronized across all active phases (±10 min tolerance).
+        </p>
+        <div style="max-height: 400px; overflow-y: auto;">
+        <table class="data-table small">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Duration</th>
+                    <th>Power</th>
+                    <th>Cycles</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2021-05-04</td>
+                <td>20:40</td>
+                <td>21:17</td>
+                <td>37 min</td>
+                <td>14315W</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-05</td>
+                <td>17:47</td>
+                <td>17:51</td>
+                <td>4 min</td>
+                <td>3954W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-05</td>
+                <td>18:54</td>
+                <td>21:31</td>
+                <td>157 min</td>
+                <td>28444W</td>
+                <td>7</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-06</td>
+                <td>19:47</td>
+                <td>19:51</td>
+                <td>4 min</td>
+                <td>3941W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-09</td>
+                <td>12:02</td>
+                <td>12:06</td>
+                <td>4 min</td>
+                <td>3964W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-09</td>
+                <td>19:30</td>
+                <td>21:30</td>
+                <td>120 min</td>
+                <td>35781W</td>
+                <td>8</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-10</td>
+                <td>19:06</td>
+                <td>20:41</td>
+                <td>95 min</td>
+                <td>16359W</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-11</td>
+                <td>16:04</td>
+                <td>16:21</td>
+                <td>17 min</td>
+                <td>6137W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-14</td>
+                <td>21:13</td>
+                <td>21:35</td>
+                <td>22 min</td>
+                <td>9222W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-17</td>
+                <td>16:14</td>
+                <td>17:19</td>
+                <td>65 min</td>
+                <td>4433W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-20</td>
+                <td>19:54</td>
+                <td>19:58</td>
+                <td>4 min</td>
+                <td>3978W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-20</td>
+                <td>21:31</td>
+                <td>21:53</td>
+                <td>22 min</td>
+                <td>4300W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-21</td>
+                <td>18:39</td>
+                <td>18:43</td>
+                <td>4 min</td>
+                <td>4081W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-27</td>
+                <td>21:15</td>
+                <td>22:13</td>
+                <td>58 min</td>
+                <td>12285W</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-28</td>
+                <td>18:10</td>
+                <td>19:27</td>
+                <td>77 min</td>
+                <td>8501W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-29</td>
+                <td>19:04</td>
+                <td>19:49</td>
+                <td>45 min</td>
+                <td>9552W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-05-31</td>
+                <td>12:58</td>
+                <td>14:18</td>
+                <td>80 min</td>
+                <td>16319W</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-02</td>
+                <td>22:36</td>
+                <td>22:39</td>
+                <td>3 min</td>
+                <td>3966W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-09</td>
+                <td>22:02</td>
+                <td>22:42</td>
+                <td>40 min</td>
+                <td>3959W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-12</td>
+                <td>20:40</td>
+                <td>22:49</td>
+                <td>129 min</td>
+                <td>20555W</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-14</td>
+                <td>18:23</td>
+                <td>18:27</td>
+                <td>4 min</td>
+                <td>4025W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-17</td>
+                <td>20:45</td>
+                <td>20:49</td>
+                <td>4 min</td>
+                <td>3991W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-18</td>
+                <td>19:20</td>
+                <td>21:14</td>
+                <td>114 min</td>
+                <td>12904W</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-19</td>
+                <td>22:49</td>
+                <td>22:59</td>
+                <td>10 min</td>
+                <td>5536W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-20</td>
+                <td>20:19</td>
+                <td>21:05</td>
+                <td>46 min</td>
+                <td>7827W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-23</td>
+                <td>10:21</td>
+                <td>10:30</td>
+                <td>9 min</td>
+                <td>4498W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-23</td>
+                <td>17:32</td>
+                <td>17:36</td>
+                <td>4 min</td>
+                <td>3999W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-23</td>
+                <td>18:58</td>
+                <td>22:30</td>
+                <td>212 min</td>
+                <td>25239W</td>
+                <td>6</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-24</td>
+                <td>17:51</td>
+                <td>17:55</td>
+                <td>4 min</td>
+                <td>4115W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-24</td>
+                <td>21:49</td>
+                <td>22:52</td>
+                <td>63 min</td>
+                <td>12329W</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-25</td>
+                <td>02:36</td>
+                <td>02:39</td>
+                <td>3 min</td>
+                <td>5063W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-25</td>
+                <td>15:54</td>
+                <td>15:57</td>
+                <td>3 min</td>
+                <td>4071W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-25</td>
+                <td>19:39</td>
+                <td>19:55</td>
+                <td>16 min</td>
+                <td>4119W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-27</td>
+                <td>00:11</td>
+                <td>00:50</td>
+                <td>39 min</td>
+                <td>8353W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-27</td>
+                <td>10:47</td>
+                <td>10:52</td>
+                <td>5 min</td>
+                <td>3954W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-27</td>
+                <td>22:51</td>
+                <td>00:14</td>
+                <td>-1357 min</td>
+                <td>16410W</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-28</td>
+                <td>00:10</td>
+                <td>02:43</td>
+                <td>153 min</td>
+                <td>20819W</td>
+                <td>5</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-28</td>
+                <td>12:57</td>
+                <td>13:46</td>
+                <td>49 min</td>
+                <td>8177W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-28</td>
+                <td>17:30</td>
+                <td>22:24</td>
+                <td>294 min</td>
+                <td>62755W</td>
+                <td>14</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-29</td>
+                <td>00:09</td>
+                <td>03:04</td>
+                <td>175 min</td>
+                <td>21120W</td>
+                <td>5</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-29</td>
+                <td>11:58</td>
+                <td>14:53</td>
+                <td>175 min</td>
+                <td>29374W</td>
+                <td>7</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-29</td>
+                <td>17:31</td>
+                <td>22:46</td>
+                <td>315 min</td>
+                <td>70983W</td>
+                <td>16</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-30</td>
+                <td>00:07</td>
+                <td>00:25</td>
+                <td>18 min</td>
+                <td>8294W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-30</td>
+                <td>02:06</td>
+                <td>02:25</td>
+                <td>19 min</td>
+                <td>8425W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-30</td>
+                <td>11:09</td>
+                <td>11:42</td>
+                <td>33 min</td>
+                <td>8511W</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>2021-06-30</td>
+                <td>19:04</td>
+                <td>00:21</td>
+                <td>317 min</td>
+                <td>78891W</td>
+                <td>18</td>
+            </tr>
+            
+            <tr>
+                <td>2021-07-01</td>
+                <td>01:28</td>
+                <td>02:29</td>
+                <td>61 min</td>
+                <td>16549W</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>2021-07-01</td>
+                <td>05:17</td>
+                <td>05:21</td>
+                <td>4 min</td>
+                <td>4029W</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>2021-07-01</td>
+                <td>20:08</td>
+                <td>00:04</td>
+                <td>-1204 min</td>
+                <td>49309W</td>
+                <td>11</td>
+            </tr>
+            
+            <tr>
+                <td>2021-07-02</td>
+                <td>00:12</td>
+                <td>03:51</td>
+                <td>219 min</td>
+                <td>28989W</td>
+                <td>7</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        
+
+            <h4>Regular AC (Single Phase - w1) <span class="badge badge-green">Detected</span></h4>
+            <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+                <div class="metric">
+                    <span class="metric-label">Total Sessions:</span>
+                    <span class="metric-value">2617</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Cycles:</span>
+                    <span class="metric-value">9648</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Phase:</span>
+                    <span class="metric-value">w1</span>
+                </div>
+            </div>
+            <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+                Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
+            </p>
+            <div style="max-height: 400px; overflow-y: auto;">
+            <table class="data-table small">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Duration</th>
+                        <th>Power</th>
+                        <th>Cycles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2021-05-04</td>
+                    <td>16:06</td>
+                    <td>16:09</td>
+                    <td>3 min</td>
+                    <td>1772W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-04</td>
+                    <td>19:50</td>
+                    <td>19:54</td>
+                    <td>4 min</td>
+                    <td>1293W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-04</td>
+                    <td>20:59</td>
+                    <td>21:53</td>
+                    <td>54 min</td>
+                    <td>1482W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>02:14</td>
+                    <td>02:15</td>
+                    <td>1 min</td>
+                    <td>1246W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>10:01</td>
+                    <td>10:05</td>
+                    <td>4 min</td>
+                    <td>1892W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>14:32</td>
+                    <td>14:34</td>
+                    <td>2 min</td>
+                    <td>1671W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>17:30</td>
+                    <td>17:42</td>
+                    <td>12 min</td>
+                    <td>1388W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>19:14</td>
+                    <td>19:18</td>
+                    <td>4 min</td>
+                    <td>1222W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>21:50</td>
+                    <td>21:54</td>
+                    <td>4 min</td>
+                    <td>1453W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>06:38</td>
+                    <td>06:51</td>
+                    <td>13 min</td>
+                    <td>1274W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>11:41</td>
+                    <td>11:44</td>
+                    <td>3 min</td>
+                    <td>1784W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>18:49</td>
+                    <td>18:54</td>
+                    <td>5 min</td>
+                    <td>1263W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>21:37</td>
+                    <td>21:43</td>
+                    <td>6 min</td>
+                    <td>1250W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-07</td>
+                    <td>05:53</td>
+                    <td>05:54</td>
+                    <td>1 min</td>
+                    <td>1239W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-07</td>
+                    <td>10:25</td>
+                    <td>10:29</td>
+                    <td>4 min</td>
+                    <td>1731W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-07</td>
+                    <td>17:34</td>
+                    <td>18:10</td>
+                    <td>36 min</td>
+                    <td>2474W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-08</td>
+                    <td>01:28</td>
+                    <td>01:29</td>
+                    <td>1 min</td>
+                    <td>1240W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-08</td>
+                    <td>09:16</td>
+                    <td>09:17</td>
+                    <td>1 min</td>
+                    <td>1230W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-08</td>
+                    <td>22:12</td>
+                    <td>22:13</td>
+                    <td>1 min</td>
+                    <td>1211W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>03:44</td>
+                    <td>03:45</td>
+                    <td>1 min</td>
+                    <td>1220W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>09:08</td>
+                    <td>09:51</td>
+                    <td>43 min</td>
+                    <td>1549W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>21:08</td>
+                    <td>22:54</td>
+                    <td>106 min</td>
+                    <td>1289W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>09:16</td>
+                    <td>09:19</td>
+                    <td>3 min</td>
+                    <td>1854W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>10:22</td>
+                    <td>10:56</td>
+                    <td>34 min</td>
+                    <td>1691W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>13:41</td>
+                    <td>14:07</td>
+                    <td>26 min</td>
+                    <td>1597W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>17:32</td>
+                    <td>18:17</td>
+                    <td>45 min</td>
+                    <td>1234W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>10:09</td>
+                    <td>10:12</td>
+                    <td>3 min</td>
+                    <td>1864W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>17:15</td>
+                    <td>17:21</td>
+                    <td>6 min</td>
+                    <td>1733W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>19:34</td>
+                    <td>19:38</td>
+                    <td>4 min</td>
+                    <td>1299W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-12</td>
+                    <td>00:51</td>
+                    <td>01:13</td>
+                    <td>22 min</td>
+                    <td>1307W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-12</td>
+                    <td>11:45</td>
+                    <td>11:46</td>
+                    <td>1 min</td>
+                    <td>1233W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-12</td>
+                    <td>14:15</td>
+                    <td>15:03</td>
+                    <td>48 min</td>
+                    <td>1491W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-12</td>
+                    <td>21:43</td>
+                    <td>22:42</td>
+                    <td>59 min</td>
+                    <td>1513W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-13</td>
+                    <td>01:15</td>
+                    <td>01:19</td>
+                    <td>4 min</td>
+                    <td>1434W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-13</td>
+                    <td>05:13</td>
+                    <td>05:14</td>
+                    <td>1 min</td>
+                    <td>1460W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-13</td>
+                    <td>09:20</td>
+                    <td>09:23</td>
+                    <td>3 min</td>
+                    <td>1862W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-13</td>
+                    <td>18:29</td>
+                    <td>18:30</td>
+                    <td>1 min</td>
+                    <td>1542W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>09:15</td>
+                    <td>09:19</td>
+                    <td>4 min</td>
+                    <td>1621W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>12:00</td>
+                    <td>12:02</td>
+                    <td>2 min</td>
+                    <td>1387W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>15:31</td>
+                    <td>15:35</td>
+                    <td>4 min</td>
+                    <td>1323W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>09:35</td>
+                    <td>09:36</td>
+                    <td>1 min</td>
+                    <td>1250W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>10:45</td>
+                    <td>10:48</td>
+                    <td>3 min</td>
+                    <td>1865W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>19:39</td>
+                    <td>19:42</td>
+                    <td>3 min</td>
+                    <td>1883W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>22:02</td>
+                    <td>22:04</td>
+                    <td>2 min</td>
+                    <td>1415W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>09:39</td>
+                    <td>09:42</td>
+                    <td>3 min</td>
+                    <td>1842W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>13:34</td>
+                    <td>13:49</td>
+                    <td>15 min</td>
+                    <td>1517W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>14:56</td>
+                    <td>15:08</td>
+                    <td>12 min</td>
+                    <td>1645W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>20:45</td>
+                    <td>20:49</td>
+                    <td>4 min</td>
+                    <td>1277W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>22:59</td>
+                    <td>23:45</td>
+                    <td>46 min</td>
+                    <td>1228W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-17</td>
+                    <td>09:57</td>
+                    <td>10:01</td>
+                    <td>4 min</td>
+                    <td>1870W</td>
+                    <td>1</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            
+
+            <h4>Regular AC (Single Phase - w2) <span class="badge badge-green">Detected</span></h4>
+            <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+                <div class="metric">
+                    <span class="metric-label">Total Sessions:</span>
+                    <span class="metric-value">1468</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Cycles:</span>
+                    <span class="metric-value">3024</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Phase:</span>
+                    <span class="metric-value">w2</span>
+                </div>
+            </div>
+            <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+                Sessions grouped by 1-hour gaps. High-power events (>800W) on w2 only, not part of central AC.
+            </p>
+            <div style="max-height: 400px; overflow-y: auto;">
+            <table class="data-table small">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Duration</th>
+                        <th>Power</th>
+                        <th>Cycles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2021-05-04</td>
+                    <td>20:30</td>
+                    <td>20:34</td>
+                    <td>4 min</td>
+                    <td>1238W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>21:10</td>
+                    <td>21:14</td>
+                    <td>4 min</td>
+                    <td>1291W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>19:30</td>
+                    <td>19:33</td>
+                    <td>3 min</td>
+                    <td>1212W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>20:56</td>
+                    <td>21:10</td>
+                    <td>14 min</td>
+                    <td>1249W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>09:09</td>
+                    <td>10:38</td>
+                    <td>89 min</td>
+                    <td>2183W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>19:21</td>
+                    <td>22:26</td>
+                    <td>185 min</td>
+                    <td>1270W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>19:32</td>
+                    <td>19:35</td>
+                    <td>3 min</td>
+                    <td>1206W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>20:50</td>
+                    <td>21:07</td>
+                    <td>17 min</td>
+                    <td>1256W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>14:39</td>
+                    <td>16:40</td>
+                    <td>121 min</td>
+                    <td>1485W</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>18:14</td>
+                    <td>18:46</td>
+                    <td>32 min</td>
+                    <td>1235W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>20:57</td>
+                    <td>21:01</td>
+                    <td>4 min</td>
+                    <td>1254W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>22:29</td>
+                    <td>23:18</td>
+                    <td>49 min</td>
+                    <td>2106W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-13</td>
+                    <td>11:15</td>
+                    <td>12:11</td>
+                    <td>56 min</td>
+                    <td>2215W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>19:37</td>
+                    <td>20:45</td>
+                    <td>68 min</td>
+                    <td>1548W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>19:31</td>
+                    <td>21:14</td>
+                    <td>103 min</td>
+                    <td>2212W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>20:37</td>
+                    <td>21:08</td>
+                    <td>31 min</td>
+                    <td>1781W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-19</td>
+                    <td>21:32</td>
+                    <td>22:03</td>
+                    <td>31 min</td>
+                    <td>2118W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-20</td>
+                    <td>18:50</td>
+                    <td>19:04</td>
+                    <td>14 min</td>
+                    <td>2145W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-21</td>
+                    <td>20:47</td>
+                    <td>23:21</td>
+                    <td>154 min</td>
+                    <td>1783W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-22</td>
+                    <td>12:17</td>
+                    <td>12:41</td>
+                    <td>24 min</td>
+                    <td>1457W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-22</td>
+                    <td>18:41</td>
+                    <td>20:05</td>
+                    <td>84 min</td>
+                    <td>2200W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-24</td>
+                    <td>02:32</td>
+                    <td>02:58</td>
+                    <td>26 min</td>
+                    <td>2190W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-24</td>
+                    <td>21:54</td>
+                    <td>23:07</td>
+                    <td>73 min</td>
+                    <td>1415W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-25</td>
+                    <td>02:19</td>
+                    <td>02:32</td>
+                    <td>13 min</td>
+                    <td>2184W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-25</td>
+                    <td>22:32</td>
+                    <td>23:20</td>
+                    <td>48 min</td>
+                    <td>2128W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-27</td>
+                    <td>01:10</td>
+                    <td>01:16</td>
+                    <td>6 min</td>
+                    <td>2074W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-28</td>
+                    <td>00:29</td>
+                    <td>00:39</td>
+                    <td>10 min</td>
+                    <td>1919W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-29</td>
+                    <td>19:47</td>
+                    <td>19:49</td>
+                    <td>2 min</td>
+                    <td>1347W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-30</td>
+                    <td>20:51</td>
+                    <td>22:42</td>
+                    <td>111 min</td>
+                    <td>2120W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-31</td>
+                    <td>14:25</td>
+                    <td>15:16</td>
+                    <td>51 min</td>
+                    <td>1236W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-01</td>
+                    <td>17:48</td>
+                    <td>17:52</td>
+                    <td>4 min</td>
+                    <td>1208W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-02</td>
+                    <td>19:57</td>
+                    <td>20:19</td>
+                    <td>22 min</td>
+                    <td>1294W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-02</td>
+                    <td>22:31</td>
+                    <td>22:55</td>
+                    <td>24 min</td>
+                    <td>1418W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-06</td>
+                    <td>01:11</td>
+                    <td>03:31</td>
+                    <td>140 min</td>
+                    <td>2156W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-08</td>
+                    <td>17:23</td>
+                    <td>18:27</td>
+                    <td>64 min</td>
+                    <td>1404W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-12</td>
+                    <td>20:03</td>
+                    <td>21:24</td>
+                    <td>81 min</td>
+                    <td>1631W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-14</td>
+                    <td>18:55</td>
+                    <td>19:51</td>
+                    <td>56 min</td>
+                    <td>1442W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-14</td>
+                    <td>22:27</td>
+                    <td>23:11</td>
+                    <td>44 min</td>
+                    <td>2113W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-15</td>
+                    <td>18:59</td>
+                    <td>19:23</td>
+                    <td>24 min</td>
+                    <td>1462W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-15</td>
+                    <td>22:52</td>
+                    <td>23:30</td>
+                    <td>38 min</td>
+                    <td>2194W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-17</td>
+                    <td>02:27</td>
+                    <td>03:05</td>
+                    <td>38 min</td>
+                    <td>2131W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-20</td>
+                    <td>14:47</td>
+                    <td>15:32</td>
+                    <td>45 min</td>
+                    <td>2205W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-20</td>
+                    <td>22:34</td>
+                    <td>23:03</td>
+                    <td>29 min</td>
+                    <td>2123W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-21</td>
+                    <td>13:46</td>
+                    <td>14:05</td>
+                    <td>19 min</td>
+                    <td>3293W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-21</td>
+                    <td>19:59</td>
+                    <td>20:04</td>
+                    <td>5 min</td>
+                    <td>1295W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-22</td>
+                    <td>18:12</td>
+                    <td>18:16</td>
+                    <td>4 min</td>
+                    <td>1241W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-22</td>
+                    <td>20:56</td>
+                    <td>22:17</td>
+                    <td>81 min</td>
+                    <td>1233W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-22</td>
+                    <td>23:25</td>
+                    <td>00:13</td>
+                    <td>48 min</td>
+                    <td>1263W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-23</td>
+                    <td>18:06</td>
+                    <td>18:35</td>
+                    <td>29 min</td>
+                    <td>1228W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-06-23</td>
+                    <td>20:13</td>
+                    <td>20:17</td>
+                    <td>4 min</td>
+                    <td>1242W</td>
+                    <td>1</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            
+
+            <h4>Regular AC (Single Phase - w3) <span class="badge badge-green">Detected</span></h4>
+            <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+                <div class="metric">
+                    <span class="metric-label">Total Sessions:</span>
+                    <span class="metric-value">938</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Cycles:</span>
+                    <span class="metric-value">17692</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Phase:</span>
+                    <span class="metric-value">w3</span>
+                </div>
+            </div>
+            <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+                Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
+            </p>
+            <div style="max-height: 400px; overflow-y: auto;">
+            <table class="data-table small">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Duration</th>
+                        <th>Power</th>
+                        <th>Cycles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2021-05-04</td>
+                    <td>17:52</td>
+                    <td>18:30</td>
+                    <td>38 min</td>
+                    <td>1418W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-04</td>
+                    <td>19:50</td>
+                    <td>23:53</td>
+                    <td>243 min</td>
+                    <td>1491W</td>
+                    <td>14</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-05</td>
+                    <td>16:58</td>
+                    <td>23:20</td>
+                    <td>382 min</td>
+                    <td>1494W</td>
+                    <td>23</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>04:06</td>
+                    <td>07:02</td>
+                    <td>176 min</td>
+                    <td>1312W</td>
+                    <td>10</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>10:26</td>
+                    <td>10:33</td>
+                    <td>7 min</td>
+                    <td>2028W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>11:40</td>
+                    <td>11:54</td>
+                    <td>14 min</td>
+                    <td>1953W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-06</td>
+                    <td>18:49</td>
+                    <td>00:54</td>
+                    <td>365 min</td>
+                    <td>1434W</td>
+                    <td>24</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-07</td>
+                    <td>10:14</td>
+                    <td>11:24</td>
+                    <td>70 min</td>
+                    <td>1355W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-07</td>
+                    <td>15:18</td>
+                    <td>19:38</td>
+                    <td>260 min</td>
+                    <td>1412W</td>
+                    <td>18</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>00:26</td>
+                    <td>02:19</td>
+                    <td>113 min</td>
+                    <td>1388W</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>03:38</td>
+                    <td>05:22</td>
+                    <td>104 min</td>
+                    <td>1730W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>10:22</td>
+                    <td>11:55</td>
+                    <td>93 min</td>
+                    <td>1436W</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>19:10</td>
+                    <td>20:34</td>
+                    <td>84 min</td>
+                    <td>1649W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-09</td>
+                    <td>22:13</td>
+                    <td>00:11</td>
+                    <td>-1322 min</td>
+                    <td>1552W</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>00:32</td>
+                    <td>01:14</td>
+                    <td>42 min</td>
+                    <td>1407W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>03:06</td>
+                    <td>03:48</td>
+                    <td>42 min</td>
+                    <td>1300W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>05:30</td>
+                    <td>07:54</td>
+                    <td>144 min</td>
+                    <td>1306W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>09:25</td>
+                    <td>11:42</td>
+                    <td>137 min</td>
+                    <td>1297W</td>
+                    <td>11</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>13:41</td>
+                    <td>15:04</td>
+                    <td>83 min</td>
+                    <td>1382W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>16:41</td>
+                    <td>19:35</td>
+                    <td>174 min</td>
+                    <td>1439W</td>
+                    <td>10</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-10</td>
+                    <td>20:50</td>
+                    <td>23:35</td>
+                    <td>165 min</td>
+                    <td>1443W</td>
+                    <td>11</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>10:36</td>
+                    <td>21:01</td>
+                    <td>625 min</td>
+                    <td>1436W</td>
+                    <td>35</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-11</td>
+                    <td>23:22</td>
+                    <td>02:51</td>
+                    <td>209 min</td>
+                    <td>1342W</td>
+                    <td>11</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-12</td>
+                    <td>16:52</td>
+                    <td>20:23</td>
+                    <td>211 min</td>
+                    <td>1726W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-12</td>
+                    <td>22:04</td>
+                    <td>01:46</td>
+                    <td>222 min</td>
+                    <td>1385W</td>
+                    <td>13</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>11:46</td>
+                    <td>12:04</td>
+                    <td>18 min</td>
+                    <td>1254W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>14:32</td>
+                    <td>16:47</td>
+                    <td>135 min</td>
+                    <td>1435W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>18:22</td>
+                    <td>21:50</td>
+                    <td>208 min</td>
+                    <td>1471W</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-14</td>
+                    <td>22:51</td>
+                    <td>03:11</td>
+                    <td>260 min</td>
+                    <td>1392W</td>
+                    <td>9</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>16:33</td>
+                    <td>17:30</td>
+                    <td>57 min</td>
+                    <td>1264W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-15</td>
+                    <td>22:57</td>
+                    <td>02:29</td>
+                    <td>212 min</td>
+                    <td>1312W</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>15:44</td>
+                    <td>17:29</td>
+                    <td>105 min</td>
+                    <td>1983W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-16</td>
+                    <td>22:41</td>
+                    <td>00:43</td>
+                    <td>122 min</td>
+                    <td>1658W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-17</td>
+                    <td>11:19</td>
+                    <td>14:13</td>
+                    <td>174 min</td>
+                    <td>1384W</td>
+                    <td>8</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-17</td>
+                    <td>16:38</td>
+                    <td>17:20</td>
+                    <td>42 min</td>
+                    <td>1316W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-17</td>
+                    <td>22:00</td>
+                    <td>22:20</td>
+                    <td>20 min</td>
+                    <td>1325W</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-17</td>
+                    <td>23:50</td>
+                    <td>23:54</td>
+                    <td>4 min</td>
+                    <td>1237W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-18</td>
+                    <td>03:08</td>
+                    <td>04:21</td>
+                    <td>73 min</td>
+                    <td>1897W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-18</td>
+                    <td>11:07</td>
+                    <td>11:47</td>
+                    <td>40 min</td>
+                    <td>1269W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-18</td>
+                    <td>17:28</td>
+                    <td>18:06</td>
+                    <td>38 min</td>
+                    <td>1363W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-18</td>
+                    <td>22:58</td>
+                    <td>00:27</td>
+                    <td>89 min</td>
+                    <td>1335W</td>
+                    <td>4</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-19</td>
+                    <td>01:59</td>
+                    <td>02:03</td>
+                    <td>4 min</td>
+                    <td>1332W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-19</td>
+                    <td>08:42</td>
+                    <td>10:09</td>
+                    <td>87 min</td>
+                    <td>1975W</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-19</td>
+                    <td>11:57</td>
+                    <td>21:06</td>
+                    <td>549 min</td>
+                    <td>1314W</td>
+                    <td>19</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-19</td>
+                    <td>23:40</td>
+                    <td>23:44</td>
+                    <td>4 min</td>
+                    <td>1273W</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-20</td>
+                    <td>00:56</td>
+                    <td>03:32</td>
+                    <td>156 min</td>
+                    <td>1612W</td>
+                    <td>6</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-20</td>
+                    <td>12:04</td>
+                    <td>09:23</td>
+                    <td>1279 min</td>
+                    <td>1371W</td>
+                    <td>44</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-21</td>
+                    <td>10:45</td>
+                    <td>13:47</td>
+                    <td>182 min</td>
+                    <td>1374W</td>
+                    <td>5</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-21</td>
+                    <td>15:00</td>
+                    <td>20:01</td>
+                    <td>301 min</td>
+                    <td>1463W</td>
+                    <td>10</td>
+                </tr>
+                
+                <tr>
+                    <td>2021-05-21</td>
+                    <td>23:32</td>
+                    <td>02:09</td>
+                    <td>157 min</td>
+                    <td>1516W</td>
+                    <td>8</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            
+    <h4>Water Heater (Boiler) <span class="badge badge-green">Detected</span></h4>
+    <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+        <div class="metric">
+            <span class="metric-label">Total Activations:</span>
+            <span class="metric-value">547</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Avg Duration:</span>
+            <span class="metric-value">74 min</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Avg Power:</span>
+            <span class="metric-value">2199W</span>
+        </div>
+    </div>
+    <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+        Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
+    </p>
+    <div style="max-height: 400px; overflow-y: auto;">
+    <table class="data-table small">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>ON Time</th>
+                <th>OFF Time</th>
+                <th>Duration</th>
+                <th>Power</th>
+                <th>Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2021-05-09</td>
+            <td>09:52</td>
+            <td>10:38</td>
+            <td>46 min</td>
+            <td>2172W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-11</td>
+            <td>22:29</td>
+            <td>23:18</td>
+            <td>49 min</td>
+            <td>2106W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-13</td>
+            <td>11:15</td>
+            <td>12:11</td>
+            <td>56 min</td>
+            <td>2215W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-15</td>
+            <td>19:31</td>
+            <td>21:14</td>
+            <td>103 min</td>
+            <td>2212W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-16</td>
+            <td>22:41</td>
+            <td>23:08</td>
+            <td>27 min</td>
+            <td>1883W</td>
+            <td>w3</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-16</td>
+            <td>22:52</td>
+            <td>23:33</td>
+            <td>41 min</td>
+            <td>2037W</td>
+            <td>w3</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-19</td>
+            <td>21:32</td>
+            <td>22:03</td>
+            <td>31 min</td>
+            <td>2118W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-22</td>
+            <td>18:41</td>
+            <td>20:05</td>
+            <td>84 min</td>
+            <td>2200W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-24</td>
+            <td>02:32</td>
+            <td>02:58</td>
+            <td>26 min</td>
+            <td>2190W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-25</td>
+            <td>22:32</td>
+            <td>23:20</td>
+            <td>48 min</td>
+            <td>2128W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-05-30</td>
+            <td>20:51</td>
+            <td>22:42</td>
+            <td>111 min</td>
+            <td>2120W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06-14</td>
+            <td>22:27</td>
+            <td>23:11</td>
+            <td>44 min</td>
+            <td>2113W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06-15</td>
+            <td>22:52</td>
+            <td>23:30</td>
+            <td>38 min</td>
+            <td>2194W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06-16</td>
+            <td>00:28</td>
+            <td>01:08</td>
+            <td>40 min</td>
+            <td>1771W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06-17</td>
+            <td>02:27</td>
+            <td>03:05</td>
+            <td>38 min</td>
+            <td>2131W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06-20</td>
+            <td>14:47</td>
+            <td>15:32</td>
+            <td>45 min</td>
+            <td>2205W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06-20</td>
+            <td>22:34</td>
+            <td>23:03</td>
+            <td>29 min</td>
+            <td>2123W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-07-07</td>
+            <td>20:30</td>
+            <td>22:01</td>
+            <td>91 min</td>
+            <td>2069W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-07-18</td>
+            <td>08:00</td>
+            <td>08:52</td>
+            <td>52 min</td>
+            <td>2164W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-07-29</td>
+            <td>20:30</td>
+            <td>22:00</td>
+            <td>90 min</td>
+            <td>2018W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-08-01</td>
+            <td>08:00</td>
+            <td>09:12</td>
+            <td>72 min</td>
+            <td>2187W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-08-10</td>
+            <td>20:30</td>
+            <td>21:37</td>
+            <td>67 min</td>
+            <td>2118W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-08-11</td>
+            <td>20:30</td>
+            <td>21:55</td>
+            <td>85 min</td>
+            <td>2121W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-08-22</td>
+            <td>08:00</td>
+            <td>09:30</td>
+            <td>90 min</td>
+            <td>2118W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-08-24</td>
+            <td>20:30</td>
+            <td>21:14</td>
+            <td>44 min</td>
+            <td>2082W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-07</td>
+            <td>20:30</td>
+            <td>21:39</td>
+            <td>69 min</td>
+            <td>2108W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-08</td>
+            <td>20:30</td>
+            <td>21:26</td>
+            <td>56 min</td>
+            <td>2138W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-11</td>
+            <td>23:26</td>
+            <td>00:11</td>
+            <td>45 min</td>
+            <td>2118W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-17</td>
+            <td>20:41</td>
+            <td>22:01</td>
+            <td>80 min</td>
+            <td>2098W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-20</td>
+            <td>20:30</td>
+            <td>22:00</td>
+            <td>90 min</td>
+            <td>2100W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-23</td>
+            <td>20:30</td>
+            <td>21:35</td>
+            <td>65 min</td>
+            <td>2135W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-24</td>
+            <td>20:41</td>
+            <td>22:00</td>
+            <td>79 min</td>
+            <td>2105W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09-26</td>
+            <td>10:00</td>
+            <td>10:31</td>
+            <td>31 min</td>
+            <td>2148W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-01</td>
+            <td>10:00</td>
+            <td>10:31</td>
+            <td>31 min</td>
+            <td>2130W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-01</td>
+            <td>20:41</td>
+            <td>23:40</td>
+            <td>179 min</td>
+            <td>2610W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-04</td>
+            <td>10:00</td>
+            <td>10:31</td>
+            <td>31 min</td>
+            <td>2128W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-04</td>
+            <td>20:30</td>
+            <td>22:01</td>
+            <td>91 min</td>
+            <td>2110W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-05</td>
+            <td>20:26</td>
+            <td>21:53</td>
+            <td>87 min</td>
+            <td>1785W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-06</td>
+            <td>10:00</td>
+            <td>10:31</td>
+            <td>31 min</td>
+            <td>2157W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-07</td>
+            <td>10:00</td>
+            <td>10:30</td>
+            <td>30 min</td>
+            <td>2168W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-07</td>
+            <td>11:09</td>
+            <td>11:41</td>
+            <td>32 min</td>
+            <td>2132W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-09</td>
+            <td>17:11</td>
+            <td>18:41</td>
+            <td>90 min</td>
+            <td>2130W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-10</td>
+            <td>08:00</td>
+            <td>09:26</td>
+            <td>86 min</td>
+            <td>2183W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-11</td>
+            <td>02:42</td>
+            <td>03:45</td>
+            <td>63 min</td>
+            <td>1512W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-11</td>
+            <td>10:13</td>
+            <td>10:43</td>
+            <td>30 min</td>
+            <td>2080W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-11</td>
+            <td>20:30</td>
+            <td>21:55</td>
+            <td>85 min</td>
+            <td>2145W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-12</td>
+            <td>20:30</td>
+            <td>22:01</td>
+            <td>91 min</td>
+            <td>3280W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-14</td>
+            <td>11:36</td>
+            <td>12:06</td>
+            <td>30 min</td>
+            <td>2140W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-14</td>
+            <td>20:30</td>
+            <td>22:00</td>
+            <td>90 min</td>
+            <td>2131W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10-15</td>
+            <td>08:59</td>
+            <td>10:00</td>
+            <td>61 min</td>
+            <td>2137W</td>
+            <td>w2</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <h4>Device Usage Patterns by Season and Time of Day</h4>
+    <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
+        Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
+    </p>
+    
+
+        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Central AC</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div>
+                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
+                    <div style="margin-top: 5px;">
+                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Winter: 20 (3%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Spring: 21 (3%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Summer: 475 (69%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Fall: 171 (25%)
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
+                    <div style="margin-top: 5px;">
+                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Day (06-18): 316 (46%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Night (18-06): 371 (54%)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Regular AC</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div>
+                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
+                    <div style="margin-top: 5px;">
+                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Winter: 689 (14%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Spring: 842 (17%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Summer: 2079 (41%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Fall: 1413 (28%)
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
+                    <div style="margin-top: 5px;">
+                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Day (06-18): 2243 (45%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Night (18-06): 2780 (55%)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <h5 style="margin: 0 0 10px 0; color: #2c3e50;">Water Heater (Boiler)</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div>
+                    <strong style="color: #666; font-size: 0.85em;">By Season:</strong>
+                    <div style="margin-top: 5px;">
+                        <span style="display: inline-block; padding: 3px 8px; background: #3498db; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Winter: 192 (35%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #2ecc71; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Spring: 170 (31%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #e74c3c; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Summer: 60 (11%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #f39c12; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Fall: 125 (23%)
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <strong style="color: #666; font-size: 0.85em;">By Time of Day:</strong>
+                    <div style="margin-top: 5px;">
+                        <span style="display: inline-block; padding: 3px 8px; background: #f1c40f; color: #333; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Day (06-18): 251 (46%)
+                        </span>
+                        <span style="display: inline-block; padding: 3px 8px; background: #2c3e50; color: white; border-radius: 4px; margin: 2px; font-size: 0.85em;">
+                            Night (18-06): 296 (54%)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h4>Time of Day Distribution</h4>
+        <div class="metrics-row" style="border-top: none; padding-top: 0;">
+            <div class="metric">
+                <span class="metric-label">Night (00-06):</span>
+                <span class="metric-value">29251</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Morning (06-12):</span>
+                <span class="metric-value">21394</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Afternoon (12-18):</span>
+                <span class="metric-value">24194</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Evening (18-24):</span>
+                <span class="metric-value">32054</span>
+            </div>
+        </div>
+        
+    <h4>Monthly Breakdown</h4>
+    <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+        Matching performance by month (highlighted rows indicate months with &lt;40% matching rate)
+    </p>
+    <div style="max-height: 400px; overflow-y: auto;">
+    <table class="data-table small">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>ON Events</th>
+                <th>Matches</th>
+                <th>Match Rate</th>
+                <th>Matched Power</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2021-05</td>
+            <td>1263</td>
+            <td>962</td>
+            <td>73.9%</td>
+            <td>1401.8 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-06</td>
+            <td>1920</td>
+            <td>1647</td>
+            <td>80.6%</td>
+            <td>2370.0 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-07</td>
+            <td>4699</td>
+            <td>4028</td>
+            <td>77.6%</td>
+            <td>5887.5 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-08</td>
+            <td>6074</td>
+            <td>5149</td>
+            <td>78.8%</td>
+            <td>7572.7 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-09</td>
+            <td>3522</td>
+            <td>2918</td>
+            <td>76.8%</td>
+            <td>4236.6 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-10</td>
+            <td>1457</td>
+            <td>1125</td>
+            <td>75.1%</td>
+            <td>1620.2 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-11</td>
+            <td>752</td>
+            <td>578</td>
+            <td>76.1%</td>
+            <td>876.9 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2021-12</td>
+            <td>1008</td>
+            <td>769</td>
+            <td>71.6%</td>
+            <td>1282.4 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-01</td>
+            <td>1665</td>
+            <td>1319</td>
+            <td>73.9%</td>
+            <td>2135.6 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-02</td>
+            <td>2479</td>
+            <td>2117</td>
+            <td>79.3%</td>
+            <td>3415.0 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-03</td>
+            <td>2032</td>
+            <td>1666</td>
+            <td>77.0%</td>
+            <td>2656.3 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-04</td>
+            <td>540</td>
+            <td>398</td>
+            <td>73.7%</td>
+            <td>650.5 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-05</td>
+            <td>535</td>
+            <td>393</td>
+            <td>72.5%</td>
+            <td>631.9 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-06</td>
+            <td>2240</td>
+            <td>1812</td>
+            <td>75.3%</td>
+            <td>2636.5 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-07</td>
+            <td>4772</td>
+            <td>3940</td>
+            <td>76.6%</td>
+            <td>5740.6 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-08</td>
+            <td>5959</td>
+            <td>4969</td>
+            <td>75.2%</td>
+            <td>7216.0 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-09</td>
+            <td>5431</td>
+            <td>4424</td>
+            <td>74.3%</td>
+            <td>6396.6 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-10</td>
+            <td>2552</td>
+            <td>2037</td>
+            <td>75.4%</td>
+            <td>2925.5 kW</td>
+        </tr>
+        
+        <tr>
+            <td>2022-11</td>
+            <td>702</td>
+            <td>511</td>
+            <td>69.8%</td>
+            <td>757.4 kW</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="metrics-row" style="border-top: none; padding-top: 10px;">
+        <div class="metric">
+            <span class="metric-label">Avg Monthly Rate:</span>
+            <span class="metric-value">75.4%</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Months Analyzed:</span>
+            <span class="metric-value">19</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Problematic Months:</span>
+            <span class="metric-value">0</span>
+        </div>
+    </div>
+    
+    
+        </section>
+
+        <section>
+            <h2>Charts</h2>
+            <div class="charts-grid">
+                
+        <div class="chart-container">
+            <div id="seg-pie-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('seg-pie-chart', [{"values": [302930.779, 684660.195], "labels": ["Segmented<br>302930.8 kW (30.7%)", "Remaining<br>684660.2 kW (69.3%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4, "hovertemplate": "%{label}<extra></extra>"}], {"title": "Power Distribution", "annotations": [{"text": "987591.0 kW<br>Total", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('tag-pie-chart', [{"values": [35771, 4216, 570, 205], "labels": ["NON-M<br>35771 (87.8%)", "SPIKE<br>4216 (10.3%)", "PARTIAL<br>570 (1.4%)", "NOISY<br>205 (0.5%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8", "#ffc107"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "40762<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="duration-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>4292 (11%)", "Medium (3-24 min)<br>34827 (85%)", "Long (25+ min)<br>1643 (4%)"], "y": [4292, 34827, 1643], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [4292, 34827, 1643], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>29251 (27%)", "Morning (06-12)<br>21394 (20%)", "Afternoon (12-18)<br>24194 (23%)", "Evening (18-24)<br>32054 (30%)"], "y": [29251, 21394, 24194, 32054], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="magnitude-hist-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('magnitude-hist-chart', [{"x": ["1.3-1.8kW<br>29407 (91%)", "1.8-2.5kW<br>2738 (8%)", "2.5-3.5kW<br>228 (1%)", "3.5-5kW<br>29 (0%)", "5kW+<br>1 (0%)"], "y": [29407, 2738, 228, 29, 1], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Match Magnitude Distribution", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+            </script>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            House Analysis Report | Generated by experiment_analysis module
+        </footer>
+    </div>
+</body>
+</html>

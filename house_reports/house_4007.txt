@@ -1,0 +1,30 @@
+============================================================
+EXPERIMENT REPORT: House 4007
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 10459 events, 67.7% matched
+Last iteration: 3364 events, 14.5% matched
+Events reduction: 67.8%
+Total matched power: 6905.9 kW
+
+--- First Iteration Matching ---
+Total events: 5142 ON, 5317 OFF
+Matched: 0 (68.8%)
+By tag: NON-M: 2599, SPIKE: 623, PARTIAL: 207, NOISY: 110
+
+--- First Iteration Segmentation ---
+Total power: 512186.4 kW
+Segmented: 122497.0 kW (23.9%)
+Remaining: 389456.4 kW
+
+--- Scores ---
+Matching score: 68/100
+Segmentation score: 24/100
+Overall score: 55/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation
+  - Has Recurring Patterns

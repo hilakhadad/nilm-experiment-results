@@ -1,0 +1,28 @@
+============================================================
+EXPERIMENT REPORT: House 5080
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 0 events, 0.0% matched
+Last iteration: 0 events, 0.0% matched
+Total matched power: 0.0 kW
+
+--- First Iteration Matching ---
+Total events: 0 ON, 0 OFF
+Matched: 0 (0.0%)
+
+--- First Iteration Segmentation ---
+Total power: 0.0 kW
+Segmented: 0.0 kW (0.0%)
+Remaining: 0.0 kW
+
+--- Scores ---
+Matching score: 0/100
+Segmentation score: 0/100
+Overall score: 0/100
+
+--- Issues ---
+  - Low Matching Rate
+  - Low Segmentation
+  - Few Matches

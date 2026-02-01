@@ -1,0 +1,29 @@
+============================================================
+EXPERIMENT REPORT: House 5014
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 3854 events, 65.3% matched
+Last iteration: 1317 events, 9.7% matched
+Events reduction: 65.8%
+Total matched power: 2529.6 kW
+
+--- First Iteration Matching ---
+Total events: 1962 ON, 1892 OFF
+Matched: 0 (64.1%)
+By tag: NON-M: 687, SPIKE: 469, PARTIAL: 64, NOISY: 38
+
+--- First Iteration Segmentation ---
+Total power: 316086.9 kW
+Segmented: 14310.9 kW (4.5%)
+Remaining: 301766.7 kW
+
+--- Scores ---
+Matching score: 65/100
+Segmentation score: 5/100
+Overall score: 47/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation

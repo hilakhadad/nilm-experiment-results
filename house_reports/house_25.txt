@@ -1,0 +1,30 @@
+============================================================
+EXPERIMENT REPORT: House 25
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 39157 events, 75.8% matched
+Last iteration: 9759 events, 18.5% matched
+Events reduction: 75.1%
+Total matched power: 28336.8 kW
+
+--- First Iteration Matching ---
+Total events: 19086 ON, 20071 OFF
+Matched: 0 (77.8%)
+By tag: NON-M: 11537, SPIKE: 2299, PARTIAL: 720, NOISY: 285
+
+--- First Iteration Segmentation ---
+Total power: 1005673.8 kW
+Segmented: 294714.1 kW (29.3%)
+Remaining: 710878.1 kW
+
+--- Scores ---
+Matching score: 76/100
+Segmentation score: 29/100
+Overall score: 62/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation
+  - Has Recurring Patterns

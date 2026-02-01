@@ -1,0 +1,30 @@
+============================================================
+EXPERIMENT REPORT: House 2022
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 6979 events, 69.8% matched
+Last iteration: 2057 events, 5.4% matched
+Events reduction: 70.5%
+Total matched power: 4484.3 kW
+
+--- First Iteration Matching ---
+Total events: 3502 ON, 3477 OFF
+Matched: 0 (69.5%)
+By tag: NON-M: 1835, SPIKE: 412, PARTIAL: 123, NOISY: 65
+
+--- First Iteration Segmentation ---
+Total power: 1165968.3 kW
+Segmented: 108451.6 kW (9.3%)
+Remaining: 1057511.7 kW
+
+--- Scores ---
+Matching score: 70/100
+Segmentation score: 9/100
+Overall score: 52/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation
+  - Has Recurring Patterns

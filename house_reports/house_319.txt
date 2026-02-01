@@ -1,0 +1,29 @@
+============================================================
+EXPERIMENT REPORT: House 319
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 5239 events, 78.2% matched
+Last iteration: 1266 events, 33.5% matched
+Events reduction: 75.8%
+Total matched power: 3742.0 kW
+
+--- First Iteration Matching ---
+Total events: 2572 ON, 2667 OFF
+Matched: 0 (79.6%)
+By tag: NON-M: 1595, SPIKE: 371, NOISY: 41, PARTIAL: 41
+
+--- First Iteration Segmentation ---
+Total power: 126703.3 kW
+Segmented: 34830.0 kW (27.5%)
+Remaining: 91253.1 kW
+
+--- Scores ---
+Matching score: 78/100
+Segmentation score: 27/100
+Overall score: 63/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation

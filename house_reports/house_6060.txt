@@ -1,0 +1,29 @@
+============================================================
+EXPERIMENT REPORT: House 6060
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 5357 events, 59.8% matched
+Last iteration: 2380 events, 16.6% matched
+Events reduction: 55.6%
+Total matched power: 2986.5 kW
+
+--- First Iteration Matching ---
+Total events: 2513 ON, 2844 OFF
+Matched: 0 (63.7%)
+By tag: NON-M: 954, SPIKE: 470, PARTIAL: 126, NOISY: 51
+
+--- First Iteration Segmentation ---
+Total power: 213555.3 kW
+Segmented: 19731.9 kW (9.2%)
+Remaining: 193786.5 kW
+
+--- Scores ---
+Matching score: 60/100
+Segmentation score: 9/100
+Overall score: 45/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation

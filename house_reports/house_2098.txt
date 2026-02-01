@@ -1,0 +1,29 @@
+============================================================
+EXPERIMENT REPORT: House 2098
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 2370 events, 72.9% matched
+Last iteration: 583 events, 7.9% matched
+Events reduction: 75.4%
+Total matched power: 1563.8 kW
+
+--- First Iteration Matching ---
+Total events: 1194 ON, 1176 OFF
+Matched: 0 (72.4%)
+By tag: NON-M: 479, SPIKE: 354, PARTIAL: 26, NOISY: 5
+
+--- First Iteration Segmentation ---
+Total power: 130183.5 kW
+Segmented: 13850.1 kW (10.6%)
+Remaining: 116324.3 kW
+
+--- Scores ---
+Matching score: 73/100
+Segmentation score: 11/100
+Overall score: 54/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation

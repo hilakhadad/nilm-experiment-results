@@ -1,0 +1,34 @@
+============================================================
+EXPERIMENT REPORT: House 6011
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 12497 events, 74.9% matched
+Last iteration: 2974 events, 17.6% matched
+Events reduction: 76.2%
+Total matched power: 7995.0 kW
+
+--- First Iteration Matching ---
+Total events: 5982 ON, 6515 OFF
+Matched: 0 (78.3%)
+By tag: NON-M: 4504, PARTIAL: 67, NOISY: 63, SPIKE: 48
+
+--- First Iteration Segmentation ---
+Total power: 266458.2 kW
+Segmented: 73398.8 kW (27.5%)
+Remaining: 192902.3 kW
+
+--- Scores ---
+DAMAGED PHASES: w2
+Healthy phases: w1, w3
+(Scores calculated from healthy phases only)
+Matching score: 75/100
+Segmentation score: 28/100
+Overall score: 61/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation
+  - Has Damaged Phases
+  - Has Recurring Patterns
