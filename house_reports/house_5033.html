@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 5033</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 01:14:48</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 12:02:43</div>
         </header>
 
         <section>
@@ -433,20 +433,38 @@
             <h2>Segmentation Details</h2>
             
     
-    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <h4>Power Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
         <div class="summary-card">
-            <div class="summary-number" style="color: #333;">230838.4 kW</div>
-            <div class="summary-label">Total Power Consumed</div>
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">230838.4 kW</div>
+            <div class="summary-label">Total Power</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
-            <div class="summary-number" style="color: #155724;">10329.2 kW</div>
+            <div class="summary-number" style="color: #155724; font-size: 1.8em;">10329.2 kW</div>
             <div class="summary-label">Segmented (4.5%)</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-            <div class="summary-number" style="color: #6c757d;">220509.3 kW</div>
+            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">220509.3 kW</div>
             <div class="summary-label">Remaining (95.5%)</div>
         </div>
     </div>
+
+    <h4>Minutes Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">14448 hrs</div>
+            <div class="summary-label">Total Time Available</div>
+            <div style="font-size: 0.75em; color: #888;">602 days × 24 hrs</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #cce5ff 0%, #b8daff 100%);">
+            <div class="summary-number" style="color: #004085; font-size: 1.8em;">219 hrs</div>
+            <div class="summary-label">Matched (1.5%)</div>
+            <div style="font-size: 0.75em; color: #666;">13142 min (sum of 3 phases)</div>
+        </div>
+    </div>
+    <p style="font-size: 0.85em; color: #888; margin-top: 10px; text-align: center;">
+        Note: Matched minutes are summed across all 3 phases. Percentage can exceed 100% if events overlap.
+    </p>
     
         </section>
 
@@ -483,7 +501,7 @@
         Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
     </p>
     <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-        Showing all 3 activations (should match Total Activations: 3)
+        Showing all 3 activations
     </p>
     <div style="max-height: 400px; overflow-y: auto;">
     <table class="data-table small">
@@ -531,6 +549,15 @@
         </tbody>
     </table>
     </div>
+    <div style="margin-top: 10px;">
+        <button onclick="document.getElementById('boiler-copy-text').style.display = document.getElementById('boiler-copy-text').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+            Show Copyable Dates
+        </button>
+    </div>
+    <div id="boiler-copy-text" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
+        <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
+        <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2021-03-24 09:38-14:15, 2021-04-28 18:49-00:20, 2022-08-24 11:48-12:16</textarea>
+    </div>
     
     <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
         <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
@@ -575,24 +602,53 @@
         </div>
         
         <h4>Time of Day Distribution</h4>
-        <div class="metrics-row" style="border-top: none; padding-top: 0;">
-            <div class="metric">
-                <span class="metric-label">Night (00-06):</span>
-                <span class="metric-value">1600</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Morning (06-12):</span>
-                <span class="metric-value">1936</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Afternoon (12-18):</span>
-                <span class="metric-value">1754</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Evening (18-24):</span>
-                <span class="metric-value">2287</span>
-            </div>
-        </div>
+        <table class="data-table small" style="max-width: 500px;">
+            <thead>
+                <tr>
+                    <th>Period</th>
+                    <th style="text-align: center;">Total Events</th>
+                    <th style="text-align: center;">ON</th>
+                    <th style="text-align: center;">OFF</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td><strong>Night</strong><br><small style="color: #888;">00:00-06:00</small></td>
+                <td style="text-align: center;">1600</td>
+                <td style="text-align: center; color: #28a745;">795</td>
+                <td style="text-align: center; color: #dc3545;">805</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Morning</strong><br><small style="color: #888;">06:00-12:00</small></td>
+                <td style="text-align: center;">1936</td>
+                <td style="text-align: center; color: #28a745;">976</td>
+                <td style="text-align: center; color: #dc3545;">960</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Afternoon</strong><br><small style="color: #888;">12:00-18:00</small></td>
+                <td style="text-align: center;">1754</td>
+                <td style="text-align: center; color: #28a745;">875</td>
+                <td style="text-align: center; color: #dc3545;">879</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Evening</strong><br><small style="color: #888;">18:00-24:00</small></td>
+                <td style="text-align: center;">2287</td>
+                <td style="text-align: center; color: #28a745;">1137</td>
+                <td style="text-align: center; color: #dc3545;">1150</td>
+            </tr>
+            
+                <tr style="border-top: 2px solid #ddd; font-weight: bold;">
+                    <td>Total</td>
+                    <td style="text-align: center;">7577</td>
+                    <td style="text-align: center; color: #28a745;">3783</td>
+                    <td style="text-align: center; color: #dc3545;">3794</td>
+                </tr>
+            </tbody>
+        </table>
         
     <h4>Monthly Breakdown</h4>
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
@@ -876,14 +932,6 @@
             
 
         <div class="chart-container">
-            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
-            <script>
-                Plotly.newPlot('tag-pie-chart', [{"values": [1599, 1407, 40, 10], "labels": ["NON-M<br>1599 (52.3%)", "SPIKE<br>1407 (46.0%)", "PARTIAL<br>40 (1.3%)", "NOISY<br>10 (0.3%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8", "#ffc107"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "3056<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
-            </script>
-        </div>
-        
-
-        <div class="chart-container">
             <div id="duration-chart" style="width:100%;height:350px;"></div>
             <script>
                 Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>1413 (46%)", "Medium (3-24 min)<br>1623 (53%)", "Long (25+ min)<br>20 (1%)"], "y": [1413, 1623, 20], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [1413, 1623, 20], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
@@ -892,17 +940,17 @@
         
 
         <div class="chart-container">
-            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
+            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>1600 (21%)", "Morning (06-12)<br>1936 (26%)", "Afternoon (12-18)<br>1754 (23%)", "Evening (18-24)<br>2287 (30%)"], "y": [1600, 1936, 1754, 2287], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
+                Plotly.newPlot('tag-pie-chart', [{"values": [1599, 1407, 40, 10], "labels": ["NON-M<br>1599 (52.3%)", "SPIKE<br>1407 (46.0%)", "PARTIAL<br>40 (1.3%)", "NOISY<br>10 (0.3%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8", "#ffc107"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "3056<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
             </script>
         </div>
         
 
         <div class="chart-container">
-            <div id="magnitude-hist-chart" style="width:100%;height:350px;"></div>
+            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('magnitude-hist-chart', [{"x": ["1.3-1.8kW<br>1693 (68%)", "1.8-2.5kW<br>790 (32%)", "2.5-3.5kW<br>12 (0%)", "3.5-5kW<br>0 (0%)", "5kW+<br>0 (0%)"], "y": [1693, 790, 12, 0, 0], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Match Magnitude Distribution", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>1600 (21%)", "Morning (06-12)<br>1936 (26%)", "Afternoon (12-18)<br>1754 (23%)", "Evening (18-24)<br>2287 (30%)"], "y": [1600, 1936, 1754, 2287], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
             </script>
         </div>
         

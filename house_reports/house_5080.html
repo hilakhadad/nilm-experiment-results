@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 5080</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 01:14:50</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 12:02:45</div>
         </header>
 
         <section>
@@ -433,20 +433,38 @@
             <h2>Segmentation Details</h2>
             
     
-    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <h4>Power Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
         <div class="summary-card">
-            <div class="summary-number" style="color: #333;">0.0 kW</div>
-            <div class="summary-label">Total Power Consumed</div>
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">0.0 kW</div>
+            <div class="summary-label">Total Power</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
-            <div class="summary-number" style="color: #155724;">0.0 kW</div>
+            <div class="summary-number" style="color: #155724; font-size: 1.8em;">0.0 kW</div>
             <div class="summary-label">Segmented (0.0%)</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-            <div class="summary-number" style="color: #6c757d;">0.0 kW</div>
+            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">0.0 kW</div>
             <div class="summary-label">Remaining (100.0%)</div>
         </div>
     </div>
+
+    <h4>Minutes Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">0 hrs</div>
+            <div class="summary-label">Total Time Available</div>
+            <div style="font-size: 0.75em; color: #888;">0 days × 24 hrs</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #cce5ff 0%, #b8daff 100%);">
+            <div class="summary-number" style="color: #004085; font-size: 1.8em;">0 hrs</div>
+            <div class="summary-label">Matched (0.0%)</div>
+            <div style="font-size: 0.75em; color: #666;">0 min (sum of 3 phases)</div>
+        </div>
+    </div>
+    <p style="font-size: 0.85em; color: #888; margin-top: 10px; text-align: center;">
+        Note: Matched minutes are summed across all 3 phases. Percentage can exceed 100% if events overlap.
+    </p>
     
         </section>
 

@@ -1179,6 +1179,18 @@
           "afternoon": 2526,
           "evening": 2004
         },
+        "by_period_on": {
+          "night": 563,
+          "morning": 643,
+          "afternoon": 1275,
+          "evening": 1021
+        },
+        "by_period_off": {
+          "night": 664,
+          "morning": 579,
+          "afternoon": 1251,
+          "evening": 983
+        },
         "peak_hour": 13,
         "quiet_hour": 6,
         "peak_hour_count": 524,
@@ -90374,6 +90386,18 @@
           "afternoon": 917,
           "evening": 644
         },
+        "by_period_on": {
+          "night": 96,
+          "morning": 154,
+          "afternoon": 491,
+          "evening": 319
+        },
+        "by_period_off": {
+          "night": 131,
+          "morning": 115,
+          "afternoon": 426,
+          "evening": 325
+        },
         "peak_hour": 16,
         "quiet_hour": 5,
         "peak_hour_count": 168,
@@ -91095,5 +91119,5 @@
     "segmentation_score": 9.301415025733597,
     "overall_score": 51.63696412657664
   },
-  "_analysis_time": 39.48164129257202
+  "_analysis_time": 44.77372360229492
 }

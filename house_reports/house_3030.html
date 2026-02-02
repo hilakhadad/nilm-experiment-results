@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 3030</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 01:14:38</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 12:02:32</div>
         </header>
 
         <section>
@@ -433,20 +433,38 @@
             <h2>Segmentation Details</h2>
             
     
-    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <h4>Power Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
         <div class="summary-card">
-            <div class="summary-number" style="color: #333;">13125.0 kW</div>
-            <div class="summary-label">Total Power Consumed</div>
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">13125.0 kW</div>
+            <div class="summary-label">Total Power</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
-            <div class="summary-number" style="color: #155724;">1432.0 kW</div>
+            <div class="summary-number" style="color: #155724; font-size: 1.8em;">1432.0 kW</div>
             <div class="summary-label">Segmented (10.9%)</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-            <div class="summary-number" style="color: #6c757d;">11693.1 kW</div>
+            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">11693.1 kW</div>
             <div class="summary-label">Remaining (89.1%)</div>
         </div>
     </div>
+
+    <h4>Minutes Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">384 hrs</div>
+            <div class="summary-label">Total Time Available</div>
+            <div style="font-size: 0.75em; color: #888;">16 days × 24 hrs</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #cce5ff 0%, #b8daff 100%);">
+            <div class="summary-number" style="color: #004085; font-size: 1.8em;">16 hrs</div>
+            <div class="summary-label">Matched (4.1%)</div>
+            <div style="font-size: 0.75em; color: #666;">950 min (sum of 3 phases)</div>
+        </div>
+    </div>
+    <p style="font-size: 0.85em; color: #888; margin-top: 10px; text-align: center;">
+        Note: Matched minutes are summed across all 3 phases. Percentage can exceed 100% if events overlap.
+    </p>
     
         </section>
 
@@ -484,7 +502,7 @@
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
             </p>
             <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-                Showing all 6 sessions (should match Total Sessions: 6)
+                Showing all 6 sessions
             </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
@@ -562,6 +580,15 @@
                 </tbody>
             </table>
             </div>
+            <div style="margin-top: 10px;">
+                <button onclick="document.getElementById('regular-ac-copy-w1').style.display = document.getElementById('regular-ac-copy-w1').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+                    Show Copyable Dates
+                </button>
+            </div>
+            <div id="regular-ac-copy-w1" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
+                <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
+                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-11-09 15:21-15:25, 2022-11-10 11:58-12:03, 2022-11-10 18:46-18:49, 2022-11-10 21:12-21:16, 2022-11-11 02:12-02:17, 2022-11-11 11:23-11:27</textarea>
+            </div>
             
 
             <h4>Regular AC (Single Phase - w2) <span class="badge badge-green">Detected</span></h4>
@@ -583,7 +610,7 @@
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w2 only, not part of central AC.
             </p>
             <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-                Showing all 46 sessions (should match Total Sessions: 46)
+                Showing all 46 sessions
             </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
@@ -1061,6 +1088,15 @@
                 </tbody>
             </table>
             </div>
+            <div style="margin-top: 10px;">
+                <button onclick="document.getElementById('regular-ac-copy-w2').style.display = document.getElementById('regular-ac-copy-w2').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+                    Show Copyable Dates
+                </button>
+            </div>
+            <div id="regular-ac-copy-w2" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
+                <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
+                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-11-10 13:30-13:51, 2022-11-10 23:20-23:40, 2022-11-11 15:20-15:55, 2022-11-11 19:44-19:49, 2022-11-11 21:38-22:47, 2022-11-12 03:37-03:40, 2022-11-12 11:26-11:30, 2022-11-12 12:33-13:08, 2022-11-12 15:36-16:13, 2022-11-12 23:21-23:24, 2022-11-13 00:38-01:40, 2022-11-13 12:44-12:48, 2022-11-13 17:56-18:17, 2022-11-14 00:59-01:19, 2022-11-14 03:13-03:58, 2022-11-14 11:14-11:51, 2022-11-15 02:54-02:59, 2022-11-15 09:27-09:31, 2022-11-15 12:48-12:53, 2022-11-15 22:59-00:02, 2022-11-16 00:11-00:20, 2022-11-16 02:28-02:51, 2022-11-16 09:12-09:16, 2022-11-17 03:29-04:19, 2022-11-17 10:29-10:33, 2022-11-17 23:28-01:48, 2022-11-18 12:13-13:16, 2022-11-18 14:17-14:21, 2022-11-18 21:06-21:41, 2022-11-19 01:37-01:42, 2022-11-19 12:16-12:21, 2022-11-19 19:16-19:53, 2022-11-20 09:58-10:03, 2022-11-20 14:47-14:51, 2022-11-20 18:51-19:55, 2022-11-20 23:19-23:55, 2022-11-21 02:59-03:02, 2022-11-21 09:28-09:32, 2022-11-21 23:43-00:33, 2022-11-22 05:38-06:14, 2022-11-22 10:32-10:36, 2022-11-22 22:37-22:59, 2022-11-23 09:55-12:57, 2022-11-23 17:20-17:23, 2022-11-24 04:38-04:43, 2022-11-24 10:10-10:22</textarea>
+            </div>
             
 
             <h4>Regular AC (Single Phase - w3) <span class="badge badge-green">Detected</span></h4>
@@ -1082,7 +1118,7 @@
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
             </p>
             <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-                Showing all 13 sessions (should match Total Sessions: 13)
+                Showing all 13 sessions
             </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
@@ -1230,6 +1266,15 @@
                 </tbody>
             </table>
             </div>
+            <div style="margin-top: 10px;">
+                <button onclick="document.getElementById('regular-ac-copy-w3').style.display = document.getElementById('regular-ac-copy-w3').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+                    Show Copyable Dates
+                </button>
+            </div>
+            <div id="regular-ac-copy-w3" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
+                <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
+                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-11-11 19:22-19:30, 2022-11-12 19:08-19:11, 2022-11-13 15:47-16:41, 2022-11-14 22:17-22:31, 2022-11-16 23:23-23:29, 2022-11-17 15:59-16:10, 2022-11-18 22:14-22:38, 2022-11-20 15:02-15:12, 2022-11-20 21:59-22:26, 2022-11-21 22:16-22:24, 2022-11-23 14:23-14:32, 2022-11-23 16:13-16:17, 2022-11-23 21:49-21:52</textarea>
+            </div>
             
         <h4>Water Heater (Boiler)</h4>
         <p>No boiler pattern detected (no isolated long high-power events found).</p>
@@ -1277,24 +1322,53 @@
         </div>
         
         <h4>Time of Day Distribution</h4>
-        <div class="metrics-row" style="border-top: none; padding-top: 0;">
-            <div class="metric">
-                <span class="metric-label">Night (00-06):</span>
-                <span class="metric-value">50</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Morning (06-12):</span>
-                <span class="metric-value">33</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Afternoon (12-18):</span>
-                <span class="metric-value">68</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Evening (18-24):</span>
-                <span class="metric-value">75</span>
-            </div>
-        </div>
+        <table class="data-table small" style="max-width: 500px;">
+            <thead>
+                <tr>
+                    <th>Period</th>
+                    <th style="text-align: center;">Total Events</th>
+                    <th style="text-align: center;">ON</th>
+                    <th style="text-align: center;">OFF</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td><strong>Night</strong><br><small style="color: #888;">00:00-06:00</small></td>
+                <td style="text-align: center;">50</td>
+                <td style="text-align: center; color: #28a745;">25</td>
+                <td style="text-align: center; color: #dc3545;">25</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Morning</strong><br><small style="color: #888;">06:00-12:00</small></td>
+                <td style="text-align: center;">33</td>
+                <td style="text-align: center; color: #28a745;">17</td>
+                <td style="text-align: center; color: #dc3545;">16</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Afternoon</strong><br><small style="color: #888;">12:00-18:00</small></td>
+                <td style="text-align: center;">68</td>
+                <td style="text-align: center; color: #28a745;">32</td>
+                <td style="text-align: center; color: #dc3545;">36</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Evening</strong><br><small style="color: #888;">18:00-24:00</small></td>
+                <td style="text-align: center;">75</td>
+                <td style="text-align: center; color: #28a745;">38</td>
+                <td style="text-align: center; color: #dc3545;">37</td>
+            </tr>
+            
+                <tr style="border-top: 2px solid #ddd; font-weight: bold;">
+                    <td>Total</td>
+                    <td style="text-align: center;">226</td>
+                    <td style="text-align: center; color: #28a745;">112</td>
+                    <td style="text-align: center; color: #dc3545;">114</td>
+                </tr>
+            </tbody>
+        </table>
         
     <h4>Monthly Breakdown</h4>
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
@@ -1368,14 +1442,6 @@
             
 
         <div class="chart-container">
-            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
-            <script>
-                Plotly.newPlot('tag-pie-chart', [{"values": [93, 4, 2], "labels": ["NON-M<br>93 (93.9%)", "SPIKE<br>4 (4.0%)", "PARTIAL<br>2 (2.0%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "99<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
-            </script>
-        </div>
-        
-
-        <div class="chart-container">
             <div id="duration-chart" style="width:100%;height:350px;"></div>
             <script>
                 Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>4 (4%)", "Medium (3-24 min)<br>94 (95%)", "Long (25+ min)<br>1 (1%)"], "y": [4, 94, 1], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [4, 94, 1], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
@@ -1384,17 +1450,17 @@
         
 
         <div class="chart-container">
-            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
+            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>50 (22%)", "Morning (06-12)<br>33 (15%)", "Afternoon (12-18)<br>68 (30%)", "Evening (18-24)<br>75 (33%)"], "y": [50, 33, 68, 75], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
+                Plotly.newPlot('tag-pie-chart', [{"values": [93, 4, 2], "labels": ["NON-M<br>93 (93.9%)", "SPIKE<br>4 (4.0%)", "PARTIAL<br>2 (2.0%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "99<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
             </script>
         </div>
         
 
         <div class="chart-container">
-            <div id="magnitude-hist-chart" style="width:100%;height:350px;"></div>
+            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('magnitude-hist-chart', [{"x": ["1.3-1.8kW<br>44 (45%)", "1.8-2.5kW<br>54 (55%)", "2.5-3.5kW<br>0 (0%)", "3.5-5kW<br>0 (0%)", "5kW+<br>0 (0%)"], "y": [44, 54, 0, 0, 0], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Match Magnitude Distribution", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>50 (22%)", "Morning (06-12)<br>33 (15%)", "Afternoon (12-18)<br>68 (30%)", "Evening (18-24)<br>75 (33%)"], "y": [50, 33, 68, 75], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
             </script>
         </div>
         

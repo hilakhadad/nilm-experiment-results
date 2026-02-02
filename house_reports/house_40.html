@@ -265,7 +265,7 @@
     <div class="container">
         <header>
             <h1>House 40</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 01:14:10</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-02 12:02:00</div>
         </header>
 
         <section>
@@ -433,20 +433,38 @@
             <h2>Segmentation Details</h2>
             
     
-    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <h4>Power Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
         <div class="summary-card">
-            <div class="summary-number" style="color: #333;">717364.3 kW</div>
-            <div class="summary-label">Total Power Consumed</div>
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">717364.3 kW</div>
+            <div class="summary-label">Total Power</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
-            <div class="summary-number" style="color: #155724;">222981.6 kW</div>
+            <div class="summary-number" style="color: #155724; font-size: 1.8em;">222981.6 kW</div>
             <div class="summary-label">Segmented (31.1%)</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-            <div class="summary-number" style="color: #6c757d;">494368.6 kW</div>
+            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">494368.6 kW</div>
             <div class="summary-label">Remaining (68.9%)</div>
         </div>
     </div>
+
+    <h4>Minutes Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">12408 hrs</div>
+            <div class="summary-label">Total Time Available</div>
+            <div style="font-size: 0.75em; color: #888;">517 days × 24 hrs</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #cce5ff 0%, #b8daff 100%);">
+            <div class="summary-number" style="color: #004085; font-size: 1.8em;">2152 hrs</div>
+            <div class="summary-label">Matched (17.3%)</div>
+            <div style="font-size: 0.75em; color: #666;">129141 min (sum of 3 phases)</div>
+        </div>
+    </div>
+    <p style="font-size: 0.85em; color: #888; margin-top: 10px; text-align: center;">
+        Note: Matched minutes are summed across all 3 phases. Percentage can exceed 100% if events overlap.
+    </p>
     
         </section>
 
@@ -577,7 +595,7 @@ python generate_pattern_plots.py --house 40
         Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
     </p>
     <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-        Showing all 264 activations (should match Total Activations: 264)
+        Showing all 264 activations
     </p>
     <div style="max-height: 400px; overflow-y: auto;">
     <table class="data-table small">
@@ -3235,6 +3253,15 @@ python generate_pattern_plots.py --house 40
         </tbody>
     </table>
     </div>
+    <div style="margin-top: 10px;">
+        <button onclick="document.getElementById('boiler-copy-text').style.display = document.getElementById('boiler-copy-text').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+            Show Copyable Dates
+        </button>
+    </div>
+    <div id="boiler-copy-text" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
+        <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
+        <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2020-07-20 00:39-01:13, 2020-07-21 09:22-09:47, 2020-07-23 09:08-10:33, 2020-07-24 16:27-17:47, 2020-07-28 13:44-14:12, 2020-07-29 08:33-09:02, 2020-07-30 12:50-13:54, 2020-08-02 08:23-09:04, 2020-08-05 11:54-12:40, 2020-08-05 12:41-13:25, 2020-08-06 19:25-19:51, 2020-08-11 13:27-15:21, 2020-08-14 18:21-20:44, 2020-08-16 13:35-14:59, 2020-08-22 14:23-15:38, 2020-08-23 23:22-01:02, 2020-08-30 11:34-12:11, 2020-09-01 10:01-10:32, 2020-09-04 06:08-07:06, 2020-09-06 09:24-10:04, 2020-09-06 10:38-11:17, 2020-09-06 13:08-13:54, 2020-09-07 18:34-19:54, 2020-09-08 09:18-10:11, 2020-09-09 12:05-13:16, 2020-09-10 09:20-09:57, 2020-09-10 11:53-12:29, 2020-09-12 23:57-00:42, 2020-09-13 14:18-16:09, 2020-09-19 23:07-23:41, 2020-09-30 02:21-03:25, 2020-10-08 22:44-23:52, 2020-10-09 13:08-13:55, 2020-10-18 09:42-10:09, 2020-10-20 17:38-18:07, 2020-10-20 18:10-18:54, 2020-10-22 02:30-03:51, 2020-10-23 12:16-13:26, 2020-11-03 10:13-10:48, 2020-11-04 21:30-22:37, 2020-11-10 09:24-10:26, 2020-11-12 14:51-15:50, 2020-11-16 08:55-10:14, 2020-11-19 10:14-10:52, 2020-11-22 10:36-13:40, 2020-11-23 09:16-10:16, 2020-11-27 16:11-16:42, 2020-11-29 21:40-22:35, 2020-12-01 12:28-14:00, 2020-12-02 02:03-03:25, 2020-12-03 23:52-00:25, 2020-12-05 15:42-17:17, 2020-12-08 14:44-15:37, 2020-12-08 23:06-23:33, 2020-12-09 10:06-10:49, 2020-12-10 01:19-02:56, 2020-12-16 21:22-22:17, 2020-12-17 15:28-16:31, 2020-12-18 00:38-01:56, 2020-12-20 22:15-22:43, 2020-12-21 09:09-11:28, 2020-12-21 22:32-23:34, 2020-12-21 23:55-01:28, 2020-12-24 09:55-11:03, 2020-12-26 10:58-12:03, 2020-12-31 00:00-00:29, 2020-12-31 08:02-09:14, 2021-01-01 22:07-23:20, 2021-01-02 21:57-23:14, 2021-01-06 08:38-10:22, 2021-01-17 14:27-15:20, 2021-01-18 11:16-12:47, 2021-01-19 09:45-11:15, 2021-01-21 10:35-11:43, 2021-01-22 09:20-11:36, 2021-01-23 16:52-18:22, 2021-01-26 12:29-13:46, 2021-01-27 23:27-00:22, 2021-01-28 01:18-02:39, 2021-01-30 20:23-21:11, 2021-01-30 20:50-21:30, 2021-02-04 10:33-11:24, 2021-02-04 22:21-23:23, 2021-02-06 22:33-23:18, 2021-02-07 18:40-19:53, 2021-02-08 22:47-23:47, 2021-02-12 14:06-14:49, 2021-02-13 22:56-00:13, 2021-02-15 21:07-22:39, 2021-02-18 08:50-10:13, 2021-02-18 12:49-13:17, 2021-02-18 13:24-14:21, 2021-02-19 03:08-03:46, 2021-02-20 00:24-01:25, 2021-02-21 00:10-01:38, 2021-02-21 04:54-06:00, 2021-02-21 11:35-12:40, 2021-02-21 20:37-21:40, 2021-02-22 08:58-10:18, 2021-02-24 10:06-10:51, 2021-02-25 10:04-10:46, 2021-02-26 15:21-16:15, 2021-03-01 09:57-11:18, 2021-03-01 21:39-22:10, 2021-03-03 21:25-22:38, 2021-03-04 09:23-11:12, 2021-03-06 23:04-00:42, 2021-03-10 10:38-11:31, 2021-03-14 01:48-03:42, 2021-03-14 09:23-09:59, 2021-03-16 11:41-12:48, 2021-03-19 12:22-13:16, 2021-03-20 22:24-23:56, 2021-03-20 22:27-23:32, 2021-03-22 09:45-10:20, 2021-03-22 14:02-15:15, 2021-03-26 01:58-03:57, 2021-04-01 12:32-13:20, 2021-04-03 22:41-23:40, 2021-04-04 21:48-22:47, 2021-04-05 10:03-10:43, 2021-04-09 19:32-20:40, 2021-04-11 21:44-22:52, 2021-04-12 08:53-09:34, 2021-04-13 08:18-09:21, 2021-04-13 23:18-01:17, 2021-04-16 22:36-23:13, 2021-04-26 15:24-16:15, 2021-05-03 09:19-10:56, 2021-05-07 01:59-03:02, 2021-05-10 09:30-10:45, 2021-05-12 00:31-01:18, 2021-05-20 01:39-03:03, 2021-05-23 10:34-11:38, 2021-05-23 20:56-21:43, 2021-05-24 09:39-10:25, 2021-05-28 18:39-19:22, 2021-05-31 10:33-11:09, 2021-06-01 22:19-22:51, 2021-06-02 11:56-13:02, 2021-06-03 08:30-09:36, 2021-06-05 23:03-23:44, 2021-06-08 23:03-23:42, 2021-06-10 15:36-18:11, 2021-06-14 09:40-11:03, 2021-06-14 18:23-19:48, 2021-06-15 09:56-10:28, 2021-06-17 09:39-10:21, 2021-06-18 10:34-11:04, 2021-06-18 11:29-12:08, 2021-06-22 12:52-13:37, 2021-06-24 17:36-22:13, 2021-06-25 17:50-19:59, 2021-06-26 18:41-19:12, 2021-06-26 23:13-23:40, 2021-06-27 00:20-01:11, 2021-06-27 21:12-21:58, 2021-06-29 01:48-03:16, 2021-07-03 21:28-03:13, 2021-07-04 08:35-09:46, 2021-07-06 01:05-02:54, 2021-07-13 16:32-18:15, 2021-07-13 22:39-23:22, 2021-07-14 04:25-05:09, 2021-07-17 11:54-12:43, 2021-07-18 11:31-14:11, 2021-07-18 17:28-19:27, 2021-07-20 00:12-03:02, 2021-07-20 14:57-15:50, 2021-07-22 09:04-10:22, 2021-07-23 20:42-21:20, 2021-07-24 00:31-01:17, 2021-07-26 15:12-15:41, 2021-07-29 23:45-01:10, 2021-08-02 00:46-02:49, 2021-08-02 19:58-21:02, 2021-08-02 21:05-22:01, 2021-08-03 00:40-03:02, 2021-08-04 15:46-16:19, 2021-08-04 16:22-18:00, 2021-08-05 00:18-02:53, 2021-08-06 12:45-15:54, 2021-08-07 00:35-01:33, 2021-08-08 02:03-02:47, 2021-08-10 03:27-03:58, 2021-08-12 13:40-18:35, 2021-08-12 18:37-19:46, 2021-08-13 16:19-19:37, 2021-08-13 23:36-01:57, 2021-08-14 16:25-18:07, 2021-08-14 19:21-19:49, 2021-08-15 00:11-02:04, 2021-08-16 15:09-16:24, 2021-08-16 17:54-18:40, 2021-08-17 10:39-11:10, 2021-08-17 21:57-23:36, 2021-08-18 15:33-16:55, 2021-08-18 15:40-20:07, 2021-08-18 21:39-01:37, 2021-08-19 22:51-02:43, 2021-08-26 10:10-11:01, 2021-08-27 23:23-01:07, 2021-08-28 12:10-12:37, 2021-08-29 16:55-18:53, 2021-08-30 01:19-03:30, 2021-08-30 12:04-12:40, 2021-09-01 15:37-17:03, 2021-09-02 09:37-10:22, 2021-09-03 14:19-15:11, 2021-09-04 02:21-02:51, 2021-09-04 13:39-16:22, 2021-09-04 14:33-15:00, 2021-09-04 16:25-16:54, 2021-09-04 16:57-17:38, 2021-09-04 23:54-00:46, 2021-09-06 14:37-15:18, 2021-09-06 15:20-15:47, 2021-09-09 17:13-17:39, 2021-09-09 19:48-21:10, 2021-09-11 02:06-02:43, 2021-09-14 15:49-16:16, 2021-09-14 16:25-17:00, 2021-09-15 14:49-16:46, 2021-09-19 16:25-17:02, 2021-09-20 23:49-02:41, 2021-09-21 10:13-11:32, 2021-09-22 20:24-20:51, 2021-09-29 23:50-01:37, 2021-10-02 22:48-23:21, 2021-10-03 22:37-23:03, 2021-10-04 22:12-23:10, 2021-10-07 09:13-10:20, 2021-10-17 10:31-11:10, 2021-10-17 22:22-22:55, 2021-10-18 22:33-23:29, 2021-10-25 09:02-10:09, 2021-10-28 23:15-00:09, 2021-11-01 20:32-21:09, 2021-11-02 22:12-00:01, 2021-11-04 23:16-00:16, 2021-11-05 11:51-12:19, 2021-11-08 21:06-21:41, 2021-11-11 08:10-09:35, 2021-11-20 23:37-00:20, 2021-11-23 21:12-22:34, 2021-11-24 06:57-09:49, 2021-11-25 19:17-19:57, 2021-11-29 09:52-10:43, 2021-11-30 21:28-22:45, 2021-12-03 21:48-23:14, 2021-12-04 18:02-19:09, 2021-12-06 09:51-11:11, 2021-12-06 22:58-23:51, 2021-12-07 20:23-20:51, 2021-12-07 22:17-23:07, 2021-12-08 23:04-00:11, 2021-12-12 11:17-12:11, 2021-12-14 08:47-11:00, 2021-12-14 21:16-23:03, 2021-12-16 10:06-10:58, 2021-12-17 11:05-12:33, 2021-12-17 22:08-22:35, 2021-12-21 22:35-00:17, 2021-12-22 00:23-01:02</textarea>
+    </div>
     
     <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
         <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
@@ -3279,24 +3306,53 @@ python generate_pattern_plots.py --house 40
         </div>
         
         <h4>Time of Day Distribution</h4>
-        <div class="metrics-row" style="border-top: none; padding-top: 0;">
-            <div class="metric">
-                <span class="metric-label">Night (00-06):</span>
-                <span class="metric-value">4571</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Morning (06-12):</span>
-                <span class="metric-value">2074</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Afternoon (12-18):</span>
-                <span class="metric-value">8740</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">Evening (18-24):</span>
-                <span class="metric-value">12240</span>
-            </div>
-        </div>
+        <table class="data-table small" style="max-width: 500px;">
+            <thead>
+                <tr>
+                    <th>Period</th>
+                    <th style="text-align: center;">Total Events</th>
+                    <th style="text-align: center;">ON</th>
+                    <th style="text-align: center;">OFF</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td><strong>Night</strong><br><small style="color: #888;">00:00-06:00</small></td>
+                <td style="text-align: center;">4571</td>
+                <td style="text-align: center; color: #28a745;">2177</td>
+                <td style="text-align: center; color: #dc3545;">2394</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Morning</strong><br><small style="color: #888;">06:00-12:00</small></td>
+                <td style="text-align: center;">2074</td>
+                <td style="text-align: center; color: #28a745;">1063</td>
+                <td style="text-align: center; color: #dc3545;">1011</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Afternoon</strong><br><small style="color: #888;">12:00-18:00</small></td>
+                <td style="text-align: center;">8740</td>
+                <td style="text-align: center; color: #28a745;">4316</td>
+                <td style="text-align: center; color: #dc3545;">4424</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Evening</strong><br><small style="color: #888;">18:00-24:00</small></td>
+                <td style="text-align: center;">12240</td>
+                <td style="text-align: center; color: #28a745;">5993</td>
+                <td style="text-align: center; color: #dc3545;">6247</td>
+            </tr>
+            
+                <tr style="border-top: 2px solid #ddd; font-weight: bold;">
+                    <td>Total</td>
+                    <td style="text-align: center;">27625</td>
+                    <td style="text-align: center; color: #28a745;">13549</td>
+                    <td style="text-align: center; color: #dc3545;">14076</td>
+                </tr>
+            </tbody>
+        </table>
         
     <h4>Monthly Breakdown</h4>
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
@@ -3540,14 +3596,6 @@ python generate_pattern_plots.py --house 40
             
 
         <div class="chart-container">
-            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
-            <script>
-                Plotly.newPlot('tag-pie-chart', [{"values": [8007, 1266, 824, 188], "labels": ["NON-M<br>8007 (77.9%)", "SPIKE<br>1266 (12.3%)", "PARTIAL<br>824 (8.0%)", "NOISY<br>188 (1.8%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8", "#ffc107"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "10285<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
-            </script>
-        </div>
-        
-
-        <div class="chart-container">
             <div id="duration-chart" style="width:100%;height:350px;"></div>
             <script>
                 Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>1455 (14%)", "Medium (3-24 min)<br>7961 (77%)", "Long (25+ min)<br>869 (8%)"], "y": [1455, 7961, 869], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [1455, 7961, 869], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
@@ -3556,17 +3604,17 @@ python generate_pattern_plots.py --house 40
         
 
         <div class="chart-container">
-            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
+            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>4571 (17%)", "Morning (06-12)<br>2074 (8%)", "Afternoon (12-18)<br>8740 (32%)", "Evening (18-24)<br>12240 (44%)"], "y": [4571, 2074, 8740, 12240], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
+                Plotly.newPlot('tag-pie-chart', [{"values": [8007, 1266, 824, 188], "labels": ["NON-M<br>8007 (77.9%)", "SPIKE<br>1266 (12.3%)", "PARTIAL<br>824 (8.0%)", "NOISY<br>188 (1.8%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8", "#ffc107"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "10285<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
             </script>
         </div>
         
 
         <div class="chart-container">
-            <div id="magnitude-hist-chart" style="width:100%;height:350px;"></div>
+            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('magnitude-hist-chart', [{"x": ["1.3-1.8kW<br>2156 (21%)", "1.8-2.5kW<br>2175 (22%)", "2.5-3.5kW<br>5529 (55%)", "3.5-5kW<br>182 (2%)", "5kW+<br>27 (0%)"], "y": [2156, 2175, 5529, 182, 27], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Match Magnitude Distribution", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>4571 (17%)", "Morning (06-12)<br>2074 (8%)", "Afternoon (12-18)<br>8740 (32%)", "Evening (18-24)<br>12240 (44%)"], "y": [4571, 2074, 8740, 12240], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
             </script>
         </div>
         
