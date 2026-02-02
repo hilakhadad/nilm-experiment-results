@@ -1,0 +1,932 @@
+{
+  "house_id": "344",
+  "experiment_dir": "/home/hilakese/role_based_segregation_dev/experiment_pipeline/OUTPUT/experiments/exp006_20260201_141850",
+  "iterations": {
+    "house_id": "344",
+    "iterations_completed": 2,
+    "iterations_data": [
+      {
+        "run_number": 0,
+        "total_events": 30,
+        "on_events": 17,
+        "off_events": 13,
+        "matched_events": 18,
+        "unmatched_events": 12,
+        "matching_rate": 0.6,
+        "unmatched_on": 8,
+        "unmatched_off": 4,
+        "total_matches": 9,
+        "matched_power": 18365.0,
+        "matched_minutes": 81.0,
+        "negative_duration_count": 0,
+        "remaining_power": 366590.0,
+        "negative_values": 0
+      },
+      {
+        "run_number": 1,
+        "total_events": 12,
+        "on_events": 8,
+        "off_events": 4,
+        "matched_events": 2,
+        "unmatched_events": 10,
+        "matching_rate": 0.16666666666666666,
+        "unmatched_on": 7,
+        "unmatched_off": 3,
+        "total_matches": 1,
+        "matched_power": 2203.0,
+        "matched_minutes": 27.0,
+        "negative_duration_count": 0,
+        "remaining_power": 344873.0,
+        "negative_values": 0
+      }
+    ],
+    "first_iter_events": 30,
+    "first_iter_matching_rate": 0.6,
+    "last_iter_events": 12,
+    "last_iter_matching_rate": 0.16666666666666666,
+    "events_reduction_ratio": 0.6,
+    "total_matched_power": 20568.0,
+    "total_matched_minutes": 108.0,
+    "matching_rate_change": -0.43333333333333335,
+    "total_negative_values": 0,
+    "has_negative_values": false
+  },
+  "status": "complete",
+  "first_iteration": {
+    "matching": {
+      "house_id": "344",
+      "run_number": 0,
+      "total_on_events": 17,
+      "total_off_events": 13,
+      "total_events": 30,
+      "matched_on_events": 9,
+      "matched_off_events": 9,
+      "unmatched_on_events": 8,
+      "unmatched_off_events": 4,
+      "on_matching_rate": 0.5294117647058824,
+      "off_matching_rate": 0.6923076923076923,
+      "overall_matching_rate": 0.6,
+      "total_matches": 9,
+      "tag_breakdown": {
+        "NON-M": 7,
+        "SPIKE": 2
+      },
+      "matches_by_tag": {
+        "NON-M": 7,
+        "SPIKE": 2
+      },
+      "matches_non_m": 7,
+      "matches_noisy": 0,
+      "matches_partial": 0,
+      "phase_breakdown": {
+        "w1": 7,
+        "w2": 2
+      },
+      "matches_by_phase": {
+        "w1": 7,
+        "w2": 2
+      },
+      "negative_duration_count": 0,
+      "avg_match_duration": 9.0,
+      "median_match_duration": 4.0,
+      "max_match_duration": 41.0,
+      "min_match_duration": 2.0,
+      "duration_breakdown": {
+        "short": 2,
+        "medium": 6,
+        "long": 1
+      },
+      "duration_minutes_breakdown": {
+        "short": 4.0,
+        "medium": 36.0,
+        "long": 41.0
+      },
+      "total_matched_minutes": 81.0,
+      "avg_match_magnitude": 2040.5555555555557,
+      "total_matched_power": 18365.0,
+      "magnitude_breakdown": {
+        "1300-1800": 1,
+        "1800-2500": 8,
+        "2500-3500": 0,
+        "3500-5000": 0,
+        "5000+": 0
+      },
+      "magnitude_minutes_breakdown": {
+        "1300-1800": 5.0,
+        "1800-2500": 76.0,
+        "2500-3500": 0.0,
+        "3500-5000": 0.0,
+        "5000+": 0.0
+      },
+      "unmatched_on_total_power": 12738.0,
+      "unmatched_on_avg_magnitude": 1592.25,
+      "unmatched_off_total_power": 9432.0
+    },
+    "segmentation": {
+      "house_id": "344",
+      "run_number": 0,
+      "w1_total_power": 367934.0,
+      "w2_total_power": 87374.0,
+      "w3_total_power": 45077.0,
+      "short_duration_w1_sum": 8767.0,
+      "medium_duration_w1_sum": 21498.0,
+      "long_duration_w1_sum": 96049.0,
+      "short_duration_w2_sum": 0.0,
+      "medium_duration_w2_sum": 7481.0,
+      "long_duration_w2_sum": 0.0,
+      "short_duration_w3_sum": 0.0,
+      "medium_duration_w3_sum": 0.0,
+      "long_duration_w3_sum": 0.0,
+      "remaining_w1_sum": 241620.0,
+      "remaining_w2_sum": 79893.0,
+      "remaining_w3_sum": 45077.0,
+      "total_segmented_power": 133795.0,
+      "total_remaining_power": 366590.0,
+      "total_power": 500385.0,
+      "segmentation_ratio": 0.26738411423204134,
+      "remaining_ratio": 0.7326158857679587,
+      "negative_value_columns": {},
+      "negative_value_count": 0,
+      "has_negative_values": false,
+      "w1_segmented_power": 126314.0,
+      "w1_segmentation_ratio": 0.34330613642664176,
+      "w1_negative_remaining": 0,
+      "w2_segmented_power": 7481.0,
+      "w2_segmentation_ratio": 0.08562043628539383,
+      "w2_negative_remaining": 0,
+      "w3_segmented_power": 0.0,
+      "w3_segmentation_ratio": 0.0,
+      "w3_negative_remaining": 0
+    },
+    "events": {
+      "house_id": "344",
+      "run_number": 0,
+      "events_by_phase": {
+        "w1": 26,
+        "w2": 4
+      },
+      "events_w1": 26,
+      "events_w2": 4,
+      "events_w3": 0,
+      "avg_magnitude": 1960.6,
+      "median_magnitude": 1944.5,
+      "std_magnitude": 613.7084335246749,
+      "min_magnitude": 1250.0,
+      "max_magnitude": 4474.0,
+      "events_under_500W": 0,
+      "events_500_1000W": 0,
+      "events_1000_2000W": 16,
+      "events_2000_5000W": 14,
+      "events_over_5000W": 0,
+      "magnitude_p25": 1479.0,
+      "magnitude_p75": 2226.25,
+      "magnitude_p90": 2263.1,
+      "magnitude_p99": 3896.3200000000015,
+      "avg_event_duration": 0.4117647058823529,
+      "median_event_duration": 0.0,
+      "max_event_duration": 2.0,
+      "events_under_5min": 17,
+      "events_5_30min": 0,
+      "events_30_60min": 0,
+      "events_1_6hr": 0,
+      "events_over_6hr": 0,
+      "events_night": 0,
+      "events_morning": 0,
+      "events_afternoon": 15,
+      "events_evening": 15,
+      "peak_event_hour": 15,
+      "events_at_peak_hour": 11,
+      "matched_avg_magnitude": 2036.0,
+      "unmatched_avg_magnitude": 1847.5,
+      "unmatched_vs_matched_magnitude": 0.9074165029469549
+    },
+    "patterns": {
+      "house_id": "344",
+      "run_number": 0,
+      "daily_stats": {
+        "total_days": 2,
+        "avg_events_per_day": 15.0,
+        "min_events_per_day": 2,
+        "max_events_per_day": 28,
+        "std_events_per_day": 18.384776310850235,
+        "avg_on_events_per_day": 8.5,
+        "avg_off_events_per_day": 13.0,
+        "avg_matches_per_day": 9.0,
+        "total_match_days": 1,
+        "avg_power_matched_per_day": 18365.0
+      },
+      "recurring_events": {
+        "recurring_patterns": [
+          {
+            "phase": "w1",
+            "event_type": "on",
+            "magnitude": 2200.0,
+            "avg_time": "15:37",
+            "time_range": "15:26 - 15:46",
+            "occurrences": 4,
+            "unique_days": 1
+          },
+          {
+            "phase": "w1",
+            "event_type": "off",
+            "magnitude": 2200.0,
+            "avg_time": "15:46",
+            "time_range": "15:39 - 15:52",
+            "occurrences": 3,
+            "unique_days": 1
+          }
+        ],
+        "total_recurring_events": 7,
+        "recurring_event_percentage": 23.333333333333332,
+        "pattern_count": 2
+      },
+      "recurring_matches": {
+        "patterns": [],
+        "total_recurring": 0,
+        "recurring_percentage": 0.0,
+        "pattern_count": 0
+      },
+      "proximity_stats": {
+        "events_with_close_neighbors": 25,
+        "percentage_with_close_neighbors": 83.33333333333334,
+        "avg_neighbors_per_event": 2.1333333333333333,
+        "clusters": [],
+        "cluster_count": 5,
+        "avg_cluster_size": 5.0,
+        "max_cluster_size": 10
+      },
+      "time_distribution": {
+        "by_hour": {
+          "15": 11,
+          "16": 3,
+          "17": 1,
+          "18": 3,
+          "19": 3,
+          "20": 4,
+          "21": 5
+        },
+        "by_period": {
+          "night": 0,
+          "morning": 0,
+          "afternoon": 15,
+          "evening": 15
+        },
+        "peak_hour": 15,
+        "quiet_hour": 17,
+        "peak_hour_count": 11,
+        "quiet_hour_count": 1
+      },
+      "ac_detection": {
+        "central_ac": {
+          "activations": [],
+          "total_count": 0,
+          "phases_used": [
+            "w1",
+            "w2",
+            "w3"
+          ],
+          "raw_activations": [],
+          "total_cycles": 0
+        },
+        "regular_ac": {
+          "activations": [
+            {
+              "date": "2022-10-24",
+              "on_time": "15:26",
+              "off_time": "17:17",
+              "duration_minutes": 111,
+              "magnitude": 2257,
+              "max_magnitude": 2345,
+              "total_magnitude": 9028,
+              "cycle_count": 4,
+              "phase": "w1",
+              "phases": [
+                "w1"
+              ],
+              "phase_magnitudes": {}
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "18:55",
+              "off_time": "19:04",
+              "duration_minutes": 9,
+              "magnitude": 1828,
+              "max_magnitude": 2157,
+              "total_magnitude": 3657,
+              "cycle_count": 2,
+              "phase": "w1",
+              "phases": [
+                "w1"
+              ],
+              "phase_magnitudes": {}
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "19:09",
+              "off_time": "19:12",
+              "duration_minutes": 3,
+              "magnitude": 1826,
+              "max_magnitude": 1826,
+              "total_magnitude": 1826,
+              "cycle_count": 1,
+              "phase": "w2",
+              "phases": [
+                "w2"
+              ],
+              "phase_magnitudes": {}
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "21:01",
+              "off_time": "21:05",
+              "duration_minutes": 4,
+              "magnitude": 1991,
+              "max_magnitude": 1991,
+              "total_magnitude": 1991,
+              "cycle_count": 1,
+              "phase": "w1",
+              "phases": [
+                "w1"
+              ],
+              "phase_magnitudes": {}
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "21:02",
+              "off_time": "21:05",
+              "duration_minutes": 3,
+              "magnitude": 1863,
+              "max_magnitude": 1863,
+              "total_magnitude": 1863,
+              "cycle_count": 1,
+              "phase": "w2",
+              "phases": [
+                "w2"
+              ],
+              "phase_magnitudes": {}
+            }
+          ],
+          "total_count": 5,
+          "raw_activations": [
+            {
+              "date": "2022-10-24",
+              "on_time": "15:26",
+              "off_time": "15:40",
+              "duration_minutes": 14,
+              "magnitude": 2203,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "15:37",
+              "off_time": "15:44",
+              "duration_minutes": 7,
+              "magnitude": 2249,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "15:46",
+              "off_time": "15:48",
+              "duration_minutes": 2,
+              "magnitude": 2231,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "16:36",
+              "off_time": "17:17",
+              "duration_minutes": 41,
+              "magnitude": 2345,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "18:55",
+              "off_time": "18:57",
+              "duration_minutes": 2,
+              "magnitude": 2157,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "18:59",
+              "off_time": "19:04",
+              "duration_minutes": 5,
+              "magnitude": 1500,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "19:09",
+              "off_time": "19:12",
+              "duration_minutes": 3,
+              "magnitude": 1826,
+              "phase": "w2"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "21:01",
+              "off_time": "21:05",
+              "duration_minutes": 4,
+              "magnitude": 1991,
+              "phase": "w1"
+            },
+            {
+              "date": "2022-10-24",
+              "on_time": "21:02",
+              "off_time": "21:05",
+              "duration_minutes": 3,
+              "magnitude": 1863,
+              "phase": "w2"
+            }
+          ],
+          "total_cycles": 9
+        },
+        "has_central_ac": false,
+        "has_regular_ac": true,
+        "regular_ac_by_phase": {
+          "w1": {
+            "activations": [
+              {
+                "date": "2022-10-24",
+                "on_time": "15:26",
+                "off_time": "17:17",
+                "duration_minutes": 111,
+                "magnitude": 2257,
+                "max_magnitude": 2345,
+                "total_magnitude": 9028,
+                "cycle_count": 4,
+                "phase": "w1",
+                "phases": [
+                  "w1"
+                ],
+                "phase_magnitudes": {}
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "18:55",
+                "off_time": "19:04",
+                "duration_minutes": 9,
+                "magnitude": 1828,
+                "max_magnitude": 2157,
+                "total_magnitude": 3657,
+                "cycle_count": 2,
+                "phase": "w1",
+                "phases": [
+                  "w1"
+                ],
+                "phase_magnitudes": {}
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "21:01",
+                "off_time": "21:05",
+                "duration_minutes": 4,
+                "magnitude": 1991,
+                "max_magnitude": 1991,
+                "total_magnitude": 1991,
+                "cycle_count": 1,
+                "phase": "w1",
+                "phases": [
+                  "w1"
+                ],
+                "phase_magnitudes": {}
+              }
+            ],
+            "raw_activations": [
+              {
+                "date": "2022-10-24",
+                "on_time": "15:26",
+                "off_time": "15:40",
+                "duration_minutes": 14,
+                "magnitude": 2203,
+                "phase": "w1"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "15:37",
+                "off_time": "15:44",
+                "duration_minutes": 7,
+                "magnitude": 2249,
+                "phase": "w1"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "15:46",
+                "off_time": "15:48",
+                "duration_minutes": 2,
+                "magnitude": 2231,
+                "phase": "w1"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "16:36",
+                "off_time": "17:17",
+                "duration_minutes": 41,
+                "magnitude": 2345,
+                "phase": "w1"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "18:55",
+                "off_time": "18:57",
+                "duration_minutes": 2,
+                "magnitude": 2157,
+                "phase": "w1"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "18:59",
+                "off_time": "19:04",
+                "duration_minutes": 5,
+                "magnitude": 1500,
+                "phase": "w1"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "21:01",
+                "off_time": "21:05",
+                "duration_minutes": 4,
+                "magnitude": 1991,
+                "phase": "w1"
+              }
+            ],
+            "total_count": 3,
+            "total_cycles": 7
+          },
+          "w2": {
+            "activations": [
+              {
+                "date": "2022-10-24",
+                "on_time": "19:09",
+                "off_time": "19:12",
+                "duration_minutes": 3,
+                "magnitude": 1826,
+                "max_magnitude": 1826,
+                "total_magnitude": 1826,
+                "cycle_count": 1,
+                "phase": "w2",
+                "phases": [
+                  "w2"
+                ],
+                "phase_magnitudes": {}
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "21:02",
+                "off_time": "21:05",
+                "duration_minutes": 3,
+                "magnitude": 1863,
+                "max_magnitude": 1863,
+                "total_magnitude": 1863,
+                "cycle_count": 1,
+                "phase": "w2",
+                "phases": [
+                  "w2"
+                ],
+                "phase_magnitudes": {}
+              }
+            ],
+            "raw_activations": [
+              {
+                "date": "2022-10-24",
+                "on_time": "19:09",
+                "off_time": "19:12",
+                "duration_minutes": 3,
+                "magnitude": 1826,
+                "phase": "w2"
+              },
+              {
+                "date": "2022-10-24",
+                "on_time": "21:02",
+                "off_time": "21:05",
+                "duration_minutes": 3,
+                "magnitude": 1863,
+                "phase": "w2"
+              }
+            ],
+            "total_count": 2,
+            "total_cycles": 2
+          }
+        }
+      },
+      "boiler_detection": {
+        "boiler": {
+          "activations": [
+            {
+              "date": "2022-10-24",
+              "on_time": "16:36",
+              "off_time": "17:17",
+              "duration_minutes": 41,
+              "magnitude": 2345,
+              "phase": "w1"
+            }
+          ],
+          "total_count": 1,
+          "avg_duration": 41.0,
+          "avg_magnitude": 2345.0
+        },
+        "has_boiler": false
+      },
+      "device_usage": {
+        "central_ac": {
+          "seasonal": {},
+          "time_of_day": {}
+        },
+        "regular_ac": {
+          "seasonal": {
+            "winter": 0,
+            "spring": 0,
+            "summer": 0,
+            "fall": 5
+          },
+          "time_of_day": {
+            "day": 1,
+            "night": 4
+          }
+        },
+        "boiler": {
+          "seasonal": {
+            "winter": 0,
+            "spring": 0,
+            "summer": 0,
+            "fall": 1
+          },
+          "time_of_day": {
+            "day": 1,
+            "night": 0
+          }
+        }
+      }
+    }
+  },
+  "last_iteration": {
+    "matching": {
+      "house_id": "344",
+      "run_number": 1,
+      "total_on_events": 8,
+      "total_off_events": 4,
+      "total_events": 12,
+      "matched_on_events": 1,
+      "matched_off_events": 1,
+      "unmatched_on_events": 7,
+      "unmatched_off_events": 3,
+      "on_matching_rate": 0.125,
+      "off_matching_rate": 0.25,
+      "overall_matching_rate": 0.16666666666666666,
+      "total_matches": 1,
+      "tag_breakdown": {
+        "NON-M": 1
+      },
+      "matches_by_tag": {
+        "NON-M": 1
+      },
+      "matches_non_m": 1,
+      "matches_noisy": 0,
+      "matches_partial": 0,
+      "phase_breakdown": {
+        "w1": 1
+      },
+      "matches_by_phase": {
+        "w1": 1
+      },
+      "negative_duration_count": 0,
+      "avg_match_duration": 27.0,
+      "median_match_duration": 27.0,
+      "max_match_duration": 27.0,
+      "min_match_duration": 27.0,
+      "duration_breakdown": {
+        "short": 0,
+        "medium": 0,
+        "long": 1
+      },
+      "duration_minutes_breakdown": {
+        "short": 0.0,
+        "medium": 0.0,
+        "long": 27.0
+      },
+      "total_matched_minutes": 27.0,
+      "avg_match_magnitude": 2203.0,
+      "total_matched_power": 2203.0,
+      "magnitude_breakdown": {
+        "1300-1800": 0,
+        "1800-2500": 1,
+        "2500-3500": 0,
+        "3500-5000": 0,
+        "5000+": 0
+      },
+      "magnitude_minutes_breakdown": {
+        "1300-1800": 0.0,
+        "1800-2500": 27.0,
+        "2500-3500": 0.0,
+        "3500-5000": 0.0,
+        "5000+": 0.0
+      },
+      "unmatched_on_total_power": 10496.0,
+      "unmatched_on_avg_magnitude": 1499.4285714285713,
+      "unmatched_off_total_power": 7220.0
+    },
+    "segmentation": {
+      "house_id": "344",
+      "run_number": 1,
+      "w1_total_power": 241620.0,
+      "w2_total_power": 79893.0,
+      "w3_total_power": 45077.0,
+      "short_duration_w1_sum": 0.0,
+      "medium_duration_w1_sum": 0.0,
+      "long_duration_w1_sum": 21717.0,
+      "short_duration_w2_sum": 0.0,
+      "medium_duration_w2_sum": 0.0,
+      "long_duration_w2_sum": 0.0,
+      "short_duration_w3_sum": 0.0,
+      "medium_duration_w3_sum": 0.0,
+      "long_duration_w3_sum": 0.0,
+      "remaining_w1_sum": 219903.0,
+      "remaining_w2_sum": 79893.0,
+      "remaining_w3_sum": 45077.0,
+      "total_segmented_power": 21717.0,
+      "total_remaining_power": 344873.0,
+      "total_power": 366590.0,
+      "segmentation_ratio": 0.05924056848250089,
+      "remaining_ratio": 0.9407594315174991,
+      "negative_value_columns": {},
+      "negative_value_count": 0,
+      "has_negative_values": false,
+      "w1_segmented_power": 21717.0,
+      "w1_segmentation_ratio": 0.08988080456915819,
+      "w1_negative_remaining": 0,
+      "w2_segmented_power": 0.0,
+      "w2_segmentation_ratio": 0.0,
+      "w2_negative_remaining": 0,
+      "w3_segmented_power": 0.0,
+      "w3_segmentation_ratio": 0.0,
+      "w3_negative_remaining": 0
+    },
+    "events": {
+      "house_id": "344",
+      "run_number": 1,
+      "events_by_phase": {
+        "w1": 12
+      },
+      "events_w1": 12,
+      "events_w2": 0,
+      "events_w3": 0,
+      "avg_magnitude": 1844.25,
+      "median_magnitude": 1470.0,
+      "std_magnitude": 915.8843838309804,
+      "min_magnitude": 1250.0,
+      "max_magnitude": 4474.0,
+      "events_under_500W": 0,
+      "events_500_1000W": 0,
+      "events_1000_2000W": 8,
+      "events_2000_5000W": 4,
+      "events_over_5000W": 0,
+      "magnitude_p25": 1269.5,
+      "magnitude_p75": 2124.25,
+      "magnitude_p90": 2211.1,
+      "magnitude_p99": 4225.180000000001,
+      "avg_event_duration": 0.25,
+      "median_event_duration": 0.0,
+      "max_event_duration": 1.0,
+      "events_under_5min": 8,
+      "events_5_30min": 0,
+      "events_30_60min": 0,
+      "events_1_6hr": 0,
+      "events_over_6hr": 0,
+      "events_night": 0,
+      "events_morning": 0,
+      "events_afternoon": 7,
+      "events_evening": 5,
+      "peak_event_hour": 15,
+      "events_at_peak_hour": 5,
+      "matched_avg_magnitude": 2207.5,
+      "unmatched_avg_magnitude": 1771.6,
+      "unmatched_vs_matched_magnitude": 0.8025368063420159
+    },
+    "patterns": {
+      "house_id": "344",
+      "run_number": 1,
+      "daily_stats": {
+        "total_days": 2,
+        "avg_events_per_day": 6.0,
+        "min_events_per_day": 2,
+        "max_events_per_day": 10,
+        "std_events_per_day": 5.656854249492381,
+        "avg_on_events_per_day": 4.0,
+        "avg_off_events_per_day": 4.0,
+        "avg_matches_per_day": 1.0,
+        "total_match_days": 1,
+        "avg_power_matched_per_day": 2203.0
+      },
+      "recurring_events": {
+        "recurring_patterns": [],
+        "total_recurring_events": 0,
+        "recurring_event_percentage": 0.0,
+        "pattern_count": 0
+      },
+      "recurring_matches": {
+        "patterns": [],
+        "total_recurring": 0,
+        "recurring_percentage": 0.0,
+        "pattern_count": 0
+      },
+      "proximity_stats": {
+        "events_with_close_neighbors": 7,
+        "percentage_with_close_neighbors": 58.333333333333336,
+        "avg_neighbors_per_event": 0.6666666666666666,
+        "clusters": [],
+        "cluster_count": 3,
+        "avg_cluster_size": 2.3333333333333335,
+        "max_cluster_size": 3
+      },
+      "time_distribution": {
+        "by_hour": {
+          "15": 5,
+          "16": 2,
+          "20": 4,
+          "21": 1
+        },
+        "by_period": {
+          "night": 0,
+          "morning": 0,
+          "afternoon": 7,
+          "evening": 5
+        },
+        "peak_hour": 15,
+        "quiet_hour": 21,
+        "peak_hour_count": 5,
+        "quiet_hour_count": 1
+      }
+    }
+  },
+  "progression": {
+    "matches_per_iteration": [
+      9,
+      -8
+    ],
+    "diminishing_returns_at": 1,
+    "converged": false
+  },
+  "monthly": {
+    "house_id": "344",
+    "run_number": 0,
+    "monthly_data": [
+      {
+        "month": "2022-10",
+        "total_events": 30,
+        "on_events": 17,
+        "off_events": 13,
+        "matched_events": 18,
+        "unmatched_events": 12,
+        "matching_rate": 0.6,
+        "events_by_phase": {
+          "w1": 26,
+          "w2": 4
+        },
+        "avg_magnitude": 1960.6,
+        "total_power": 58818.0,
+        "total_matches": 9,
+        "matches_by_tag": {
+          "NON-M": 7,
+          "SPIKE": 2
+        },
+        "matched_power": 18365.0,
+        "matched_minutes": 81.0
+      }
+    ],
+    "avg_monthly_matching_rate": 0.6,
+    "min_monthly_matching_rate": 0.6,
+    "max_monthly_matching_rate": 0.6,
+    "std_monthly_matching_rate": 0.0,
+    "problematic_months": [],
+    "n_problematic_months": 0,
+    "best_months": [
+      "2022-10"
+    ]
+  },
+  "flags": {
+    "low_matching_rate": false,
+    "low_improvement": true,
+    "has_negative_values": false,
+    "low_segmentation": true,
+    "few_matches": true,
+    "high_partial_ratio": false,
+    "many_remainders": false,
+    "has_damaged_phases": false,
+    "has_recurring_patterns": false
+  },
+  "scores": {
+    "damaged_phases": [],
+    "healthy_phases": [
+      "w1",
+      "w2",
+      "w3"
+    ],
+    "matching_score": 60.0,
+    "healthy_segmentation_ratio": 0.26738411423204134,
+    "segmentation_score": 26.738411423204134,
+    "overall_score": 50.02152342696124
+  },
+  "_analysis_time": 0.38300251960754395
+}
