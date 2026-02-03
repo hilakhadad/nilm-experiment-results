@@ -276,125 +276,14 @@
           "total_cycles": 0
         },
         "regular_ac": {
-          "activations": [
-            {
-              "date": "2022-11-04",
-              "on_time": "10:00",
-              "off_time": "10:18",
-              "duration_minutes": 18,
-              "magnitude": 1814,
-              "max_magnitude": 1814,
-              "total_magnitude": 1814,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-05",
-              "on_time": "22:00",
-              "off_time": "22:16",
-              "duration_minutes": 16,
-              "magnitude": 1825,
-              "max_magnitude": 1825,
-              "total_magnitude": 1825,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            }
-          ],
-          "total_count": 2,
-          "raw_activations": [
-            {
-              "date": "2022-11-04",
-              "on_time": "10:00",
-              "off_time": "10:18",
-              "duration_minutes": 18,
-              "magnitude": 1814,
-              "phase": "w1"
-            },
-            {
-              "date": "2022-11-05",
-              "on_time": "22:00",
-              "off_time": "22:16",
-              "duration_minutes": 16,
-              "magnitude": 1825,
-              "phase": "w3"
-            }
-          ],
-          "total_cycles": 2
+          "activations": [],
+          "total_count": 0,
+          "raw_activations": [],
+          "total_cycles": 0
         },
         "has_central_ac": false,
         "has_regular_ac": false,
-        "regular_ac_by_phase": {
-          "w1": {
-            "activations": [
-              {
-                "date": "2022-11-04",
-                "on_time": "10:00",
-                "off_time": "10:18",
-                "duration_minutes": 18,
-                "magnitude": 1814,
-                "max_magnitude": 1814,
-                "total_magnitude": 1814,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              }
-            ],
-            "raw_activations": [
-              {
-                "date": "2022-11-04",
-                "on_time": "10:00",
-                "off_time": "10:18",
-                "duration_minutes": 18,
-                "magnitude": 1814,
-                "phase": "w1"
-              }
-            ],
-            "total_count": 1,
-            "total_cycles": 1
-          },
-          "w3": {
-            "activations": [
-              {
-                "date": "2022-11-05",
-                "on_time": "22:00",
-                "off_time": "22:16",
-                "duration_minutes": 16,
-                "magnitude": 1825,
-                "max_magnitude": 1825,
-                "total_magnitude": 1825,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              }
-            ],
-            "raw_activations": [
-              {
-                "date": "2022-11-05",
-                "on_time": "22:00",
-                "off_time": "22:16",
-                "duration_minutes": 16,
-                "magnitude": 1825,
-                "phase": "w3"
-              }
-            ],
-            "total_count": 1,
-            "total_cycles": 1
-          }
-        }
+        "regular_ac_by_phase": {}
       },
       "boiler_detection": {
         "boiler": {
@@ -411,16 +300,8 @@
           "time_of_day": {}
         },
         "regular_ac": {
-          "seasonal": {
-            "winter": 0,
-            "spring": 0,
-            "summer": 0,
-            "fall": 2
-          },
-          "time_of_day": {
-            "day": 1,
-            "night": 1
-          }
+          "seasonal": {},
+          "time_of_day": {}
         },
         "boiler": {
           "seasonal": {},
@@ -704,5 +585,5 @@
     "segmentation_score": 2.59954427363236,
     "overall_score": 28.779863282089707
   },
-  "_analysis_time": 0.3657841682434082
+  "_analysis_time": 0.5791583061218262
 }

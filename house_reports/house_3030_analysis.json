@@ -484,126 +484,6 @@
         "regular_ac": {
           "activations": [
             {
-              "date": "2022-11-09",
-              "on_time": "15:21",
-              "off_time": "15:25",
-              "duration_minutes": 4,
-              "magnitude": 1956,
-              "max_magnitude": 1956,
-              "total_magnitude": 1956,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "11:58",
-              "off_time": "12:03",
-              "duration_minutes": 5,
-              "magnitude": 1949,
-              "max_magnitude": 1949,
-              "total_magnitude": 1949,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "13:30",
-              "off_time": "13:51",
-              "duration_minutes": 21,
-              "magnitude": 1768,
-              "max_magnitude": 1768,
-              "total_magnitude": 1768,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "18:46",
-              "off_time": "18:49",
-              "duration_minutes": 3,
-              "magnitude": 1953,
-              "max_magnitude": 1953,
-              "total_magnitude": 1953,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "21:12",
-              "off_time": "21:16",
-              "duration_minutes": 4,
-              "magnitude": 1951,
-              "max_magnitude": 1951,
-              "total_magnitude": 1951,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "23:20",
-              "off_time": "23:40",
-              "duration_minutes": 20,
-              "magnitude": 1822,
-              "max_magnitude": 1822,
-              "total_magnitude": 1822,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "02:12",
-              "off_time": "02:17",
-              "duration_minutes": 5,
-              "magnitude": 1944,
-              "max_magnitude": 1944,
-              "total_magnitude": 1944,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "11:23",
-              "off_time": "11:27",
-              "duration_minutes": 4,
-              "magnitude": 1881,
-              "max_magnitude": 1881,
-              "total_magnitude": 1881,
-              "cycle_count": 1,
-              "phase": "w1",
-              "phases": [
-                "w1"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
               "date": "2022-11-11",
               "on_time": "15:20",
               "off_time": "15:55",
@@ -620,36 +500,6 @@
             },
             {
               "date": "2022-11-11",
-              "on_time": "19:22",
-              "off_time": "19:30",
-              "duration_minutes": 8,
-              "magnitude": 2402,
-              "max_magnitude": 2402,
-              "total_magnitude": 2402,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "19:44",
-              "off_time": "19:49",
-              "duration_minutes": 5,
-              "magnitude": 1801,
-              "max_magnitude": 1801,
-              "total_magnitude": 1801,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-11",
               "on_time": "21:38",
               "off_time": "22:47",
               "duration_minutes": 69,
@@ -657,36 +507,6 @@
               "max_magnitude": 1845,
               "total_magnitude": 5390,
               "cycle_count": 3,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-12",
-              "on_time": "03:37",
-              "off_time": "03:40",
-              "duration_minutes": 3,
-              "magnitude": 1769,
-              "max_magnitude": 1769,
-              "total_magnitude": 1769,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-12",
-              "on_time": "11:26",
-              "off_time": "11:30",
-              "duration_minutes": 4,
-              "magnitude": 1869,
-              "max_magnitude": 1869,
-              "total_magnitude": 1869,
-              "cycle_count": 1,
               "phase": "w2",
               "phases": [
                 "w2"
@@ -724,36 +544,6 @@
               "phase_magnitudes": {}
             },
             {
-              "date": "2022-11-12",
-              "on_time": "19:08",
-              "off_time": "19:11",
-              "duration_minutes": 3,
-              "magnitude": 2271,
-              "max_magnitude": 2271,
-              "total_magnitude": 2271,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-12",
-              "on_time": "23:21",
-              "off_time": "23:24",
-              "duration_minutes": 3,
-              "magnitude": 1875,
-              "max_magnitude": 1875,
-              "total_magnitude": 1875,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
               "date": "2022-11-13",
               "on_time": "00:38",
               "off_time": "01:40",
@@ -762,66 +552,6 @@
               "max_magnitude": 1809,
               "total_magnitude": 3600,
               "cycle_count": 2,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "12:44",
-              "off_time": "12:48",
-              "duration_minutes": 4,
-              "magnitude": 1869,
-              "max_magnitude": 1869,
-              "total_magnitude": 1869,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "15:47",
-              "off_time": "16:41",
-              "duration_minutes": 54,
-              "magnitude": 1803,
-              "max_magnitude": 2326,
-              "total_magnitude": 5410,
-              "cycle_count": 3,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "17:56",
-              "off_time": "18:17",
-              "duration_minutes": 21,
-              "magnitude": 1765,
-              "max_magnitude": 1765,
-              "total_magnitude": 1765,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-14",
-              "on_time": "00:59",
-              "off_time": "01:19",
-              "duration_minutes": 20,
-              "magnitude": 1816,
-              "max_magnitude": 1816,
-              "total_magnitude": 1816,
-              "cycle_count": 1,
               "phase": "w2",
               "phases": [
                 "w2"
@@ -859,141 +589,6 @@
               "phase_magnitudes": {}
             },
             {
-              "date": "2022-11-14",
-              "on_time": "22:17",
-              "off_time": "22:31",
-              "duration_minutes": 14,
-              "magnitude": 2327,
-              "max_magnitude": 2327,
-              "total_magnitude": 2327,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "02:54",
-              "off_time": "02:59",
-              "duration_minutes": 5,
-              "magnitude": 1843,
-              "max_magnitude": 1843,
-              "total_magnitude": 1843,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "09:27",
-              "off_time": "09:31",
-              "duration_minutes": 4,
-              "magnitude": 1873,
-              "max_magnitude": 1873,
-              "total_magnitude": 1873,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "12:48",
-              "off_time": "12:53",
-              "duration_minutes": 5,
-              "magnitude": 1886,
-              "max_magnitude": 1886,
-              "total_magnitude": 1886,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "22:59",
-              "off_time": "00:02",
-              "duration_minutes": -1377,
-              "magnitude": 1783,
-              "max_magnitude": 1790,
-              "total_magnitude": 3567,
-              "cycle_count": 2,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "00:11",
-              "off_time": "00:20",
-              "duration_minutes": 9,
-              "magnitude": 1491,
-              "max_magnitude": 1738,
-              "total_magnitude": 2983,
-              "cycle_count": 2,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "02:28",
-              "off_time": "02:51",
-              "duration_minutes": 23,
-              "magnitude": 1798,
-              "max_magnitude": 1798,
-              "total_magnitude": 1798,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "09:12",
-              "off_time": "09:16",
-              "duration_minutes": 4,
-              "magnitude": 1870,
-              "max_magnitude": 1870,
-              "total_magnitude": 1870,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "23:23",
-              "off_time": "23:29",
-              "duration_minutes": 6,
-              "magnitude": 2333,
-              "max_magnitude": 2333,
-              "total_magnitude": 2333,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
               "date": "2022-11-17",
               "on_time": "03:29",
               "off_time": "04:19",
@@ -1005,36 +600,6 @@
               "phase": "w2",
               "phases": [
                 "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-17",
-              "on_time": "10:29",
-              "off_time": "10:33",
-              "duration_minutes": 4,
-              "magnitude": 1803,
-              "max_magnitude": 1803,
-              "total_magnitude": 1803,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-17",
-              "on_time": "15:59",
-              "off_time": "16:10",
-              "duration_minutes": 11,
-              "magnitude": 2310,
-              "max_magnitude": 2310,
-              "total_magnitude": 2310,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
               ],
               "phase_magnitudes": {}
             },
@@ -1058,25 +623,10 @@
               "on_time": "12:13",
               "off_time": "13:16",
               "duration_minutes": 63,
-              "magnitude": 1602,
+              "magnitude": 1694,
               "max_magnitude": 1844,
-              "total_magnitude": 6411,
-              "cycle_count": 4,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-18",
-              "on_time": "14:17",
-              "off_time": "14:21",
-              "duration_minutes": 4,
-              "magnitude": 1866,
-              "max_magnitude": 1866,
-              "total_magnitude": 1866,
-              "cycle_count": 1,
+              "total_magnitude": 5082,
+              "cycle_count": 3,
               "phase": "w2",
               "phases": [
                 "w2"
@@ -1092,51 +642,6 @@
               "max_magnitude": 1842,
               "total_magnitude": 3645,
               "cycle_count": 2,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-18",
-              "on_time": "22:14",
-              "off_time": "22:38",
-              "duration_minutes": 24,
-              "magnitude": 1897,
-              "max_magnitude": 2331,
-              "total_magnitude": 3795,
-              "cycle_count": 2,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-19",
-              "on_time": "01:37",
-              "off_time": "01:42",
-              "duration_minutes": 5,
-              "magnitude": 1741,
-              "max_magnitude": 1741,
-              "total_magnitude": 1741,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-19",
-              "on_time": "12:16",
-              "off_time": "12:21",
-              "duration_minutes": 5,
-              "magnitude": 1897,
-              "max_magnitude": 1897,
-              "total_magnitude": 1897,
-              "cycle_count": 1,
               "phase": "w2",
               "phases": [
                 "w2"
@@ -1160,51 +665,6 @@
             },
             {
               "date": "2022-11-20",
-              "on_time": "09:58",
-              "off_time": "10:03",
-              "duration_minutes": 5,
-              "magnitude": 1860,
-              "max_magnitude": 1860,
-              "total_magnitude": 1860,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-20",
-              "on_time": "14:47",
-              "off_time": "14:51",
-              "duration_minutes": 4,
-              "magnitude": 1875,
-              "max_magnitude": 1875,
-              "total_magnitude": 1875,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-20",
-              "on_time": "15:02",
-              "off_time": "15:12",
-              "duration_minutes": 10,
-              "magnitude": 2345,
-              "max_magnitude": 2345,
-              "total_magnitude": 2345,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-20",
               "on_time": "18:51",
               "off_time": "19:55",
               "duration_minutes": 64,
@@ -1220,21 +680,6 @@
             },
             {
               "date": "2022-11-20",
-              "on_time": "21:59",
-              "off_time": "22:26",
-              "duration_minutes": 27,
-              "magnitude": 2334,
-              "max_magnitude": 2349,
-              "total_magnitude": 7002,
-              "cycle_count": 3,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-20",
               "on_time": "23:19",
               "off_time": "23:55",
               "duration_minutes": 36,
@@ -1245,51 +690,6 @@
               "phase": "w2",
               "phases": [
                 "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-21",
-              "on_time": "02:59",
-              "off_time": "03:02",
-              "duration_minutes": 3,
-              "magnitude": 1783,
-              "max_magnitude": 1783,
-              "total_magnitude": 1783,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-21",
-              "on_time": "09:28",
-              "off_time": "09:32",
-              "duration_minutes": 4,
-              "magnitude": 1854,
-              "max_magnitude": 1854,
-              "total_magnitude": 1854,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-21",
-              "on_time": "22:16",
-              "off_time": "22:24",
-              "duration_minutes": 8,
-              "magnitude": 2314,
-              "max_magnitude": 2314,
-              "total_magnitude": 2314,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
               ],
               "phase_magnitudes": {}
             },
@@ -1324,36 +724,6 @@
               "phase_magnitudes": {}
             },
             {
-              "date": "2022-11-22",
-              "on_time": "10:32",
-              "off_time": "10:36",
-              "duration_minutes": 4,
-              "magnitude": 1869,
-              "max_magnitude": 1869,
-              "total_magnitude": 1869,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-22",
-              "on_time": "22:37",
-              "off_time": "22:59",
-              "duration_minutes": 22,
-              "magnitude": 1736,
-              "max_magnitude": 1736,
-              "total_magnitude": 1736,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
               "date": "2022-11-23",
               "on_time": "09:55",
               "off_time": "12:57",
@@ -1367,164 +737,10 @@
                 "w2"
               ],
               "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "14:23",
-              "off_time": "14:32",
-              "duration_minutes": 9,
-              "magnitude": 2360,
-              "max_magnitude": 2360,
-              "total_magnitude": 2360,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "16:13",
-              "off_time": "16:17",
-              "duration_minutes": 4,
-              "magnitude": 2300,
-              "max_magnitude": 2300,
-              "total_magnitude": 2300,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "17:20",
-              "off_time": "17:23",
-              "duration_minutes": 3,
-              "magnitude": 1800,
-              "max_magnitude": 1800,
-              "total_magnitude": 1800,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "21:49",
-              "off_time": "21:52",
-              "duration_minutes": 3,
-              "magnitude": 1947,
-              "max_magnitude": 1947,
-              "total_magnitude": 1947,
-              "cycle_count": 1,
-              "phase": "w3",
-              "phases": [
-                "w3"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-24",
-              "on_time": "04:38",
-              "off_time": "04:43",
-              "duration_minutes": 5,
-              "magnitude": 1782,
-              "max_magnitude": 1782,
-              "total_magnitude": 1782,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
-            },
-            {
-              "date": "2022-11-24",
-              "on_time": "10:10",
-              "off_time": "10:22",
-              "duration_minutes": 12,
-              "magnitude": 1878,
-              "max_magnitude": 1878,
-              "total_magnitude": 1878,
-              "cycle_count": 1,
-              "phase": "w2",
-              "phases": [
-                "w2"
-              ],
-              "phase_magnitudes": {}
             }
           ],
-          "total_count": 65,
+          "total_count": 17,
           "raw_activations": [
-            {
-              "date": "2022-11-09",
-              "on_time": "15:21",
-              "off_time": "15:25",
-              "duration_minutes": 4,
-              "magnitude": 1956,
-              "phase": "w1"
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "11:58",
-              "off_time": "12:03",
-              "duration_minutes": 5,
-              "magnitude": 1949,
-              "phase": "w1"
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "13:30",
-              "off_time": "13:51",
-              "duration_minutes": 21,
-              "magnitude": 1768,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "18:46",
-              "off_time": "18:49",
-              "duration_minutes": 3,
-              "magnitude": 1953,
-              "phase": "w1"
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "21:12",
-              "off_time": "21:16",
-              "duration_minutes": 4,
-              "magnitude": 1951,
-              "phase": "w1"
-            },
-            {
-              "date": "2022-11-10",
-              "on_time": "23:20",
-              "off_time": "23:40",
-              "duration_minutes": 20,
-              "magnitude": 1822,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "02:12",
-              "off_time": "02:17",
-              "duration_minutes": 5,
-              "magnitude": 1944,
-              "phase": "w1"
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "11:23",
-              "off_time": "11:27",
-              "duration_minutes": 4,
-              "magnitude": 1881,
-              "phase": "w1"
-            },
             {
               "date": "2022-11-11",
               "on_time": "15:20",
@@ -1539,22 +755,6 @@
               "off_time": "15:55",
               "duration_minutes": 20,
               "magnitude": 1733,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "19:22",
-              "off_time": "19:30",
-              "duration_minutes": 8,
-              "magnitude": 2402,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-11",
-              "on_time": "19:44",
-              "off_time": "19:49",
-              "duration_minutes": 5,
-              "magnitude": 1801,
               "phase": "w2"
             },
             {
@@ -1579,22 +779,6 @@
               "off_time": "22:47",
               "duration_minutes": 15,
               "magnitude": 1766,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-12",
-              "on_time": "03:37",
-              "off_time": "03:40",
-              "duration_minutes": 3,
-              "magnitude": 1769,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-12",
-              "on_time": "11:26",
-              "off_time": "11:30",
-              "duration_minutes": 4,
-              "magnitude": 1869,
               "phase": "w2"
             },
             {
@@ -1638,22 +822,6 @@
               "phase": "w2"
             },
             {
-              "date": "2022-11-12",
-              "on_time": "19:08",
-              "off_time": "19:11",
-              "duration_minutes": 3,
-              "magnitude": 2271,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-12",
-              "on_time": "23:21",
-              "off_time": "23:24",
-              "duration_minutes": 3,
-              "magnitude": 1875,
-              "phase": "w2"
-            },
-            {
               "date": "2022-11-13",
               "on_time": "00:38",
               "off_time": "00:55",
@@ -1667,54 +835,6 @@
               "off_time": "01:40",
               "duration_minutes": 14,
               "magnitude": 1809,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "12:44",
-              "off_time": "12:48",
-              "duration_minutes": 4,
-              "magnitude": 1869,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "15:47",
-              "off_time": "15:49",
-              "duration_minutes": 2,
-              "magnitude": 1529,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "16:00",
-              "off_time": "16:02",
-              "duration_minutes": 2,
-              "magnitude": 1555,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "16:27",
-              "off_time": "16:41",
-              "duration_minutes": 14,
-              "magnitude": 2326,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-13",
-              "on_time": "17:56",
-              "off_time": "18:17",
-              "duration_minutes": 21,
-              "magnitude": 1765,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-14",
-              "on_time": "00:59",
-              "off_time": "01:19",
-              "duration_minutes": 20,
-              "magnitude": 1816,
               "phase": "w2"
             },
             {
@@ -1758,94 +878,6 @@
               "phase": "w2"
             },
             {
-              "date": "2022-11-14",
-              "on_time": "22:17",
-              "off_time": "22:31",
-              "duration_minutes": 14,
-              "magnitude": 2327,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "02:54",
-              "off_time": "02:59",
-              "duration_minutes": 5,
-              "magnitude": 1843,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "09:27",
-              "off_time": "09:31",
-              "duration_minutes": 4,
-              "magnitude": 1873,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "12:48",
-              "off_time": "12:53",
-              "duration_minutes": 5,
-              "magnitude": 1886,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "22:59",
-              "off_time": "23:17",
-              "duration_minutes": 18,
-              "magnitude": 1790,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-15",
-              "on_time": "23:48",
-              "off_time": "00:02",
-              "duration_minutes": 14,
-              "magnitude": 1777,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "00:11",
-              "off_time": "00:32",
-              "duration_minutes": 21,
-              "magnitude": 1738,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "00:15",
-              "off_time": "00:20",
-              "duration_minutes": 5,
-              "magnitude": 1245,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "02:28",
-              "off_time": "02:51",
-              "duration_minutes": 23,
-              "magnitude": 1798,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "09:12",
-              "off_time": "09:16",
-              "duration_minutes": 4,
-              "magnitude": 1870,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-16",
-              "on_time": "23:23",
-              "off_time": "23:29",
-              "duration_minutes": 6,
-              "magnitude": 2333,
-              "phase": "w3"
-            },
-            {
               "date": "2022-11-17",
               "on_time": "03:29",
               "off_time": "03:33",
@@ -1860,22 +892,6 @@
               "duration_minutes": 5,
               "magnitude": 1802,
               "phase": "w2"
-            },
-            {
-              "date": "2022-11-17",
-              "on_time": "10:29",
-              "off_time": "10:33",
-              "duration_minutes": 4,
-              "magnitude": 1803,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-17",
-              "on_time": "15:59",
-              "off_time": "16:10",
-              "duration_minutes": 11,
-              "magnitude": 2310,
-              "phase": "w3"
             },
             {
               "date": "2022-11-17",
@@ -1919,14 +935,6 @@
             },
             {
               "date": "2022-11-18",
-              "on_time": "12:29",
-              "off_time": "12:31",
-              "duration_minutes": 2,
-              "magnitude": 1329,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-18",
               "on_time": "12:36",
               "off_time": "12:57",
               "duration_minutes": 21,
@@ -1943,14 +951,6 @@
             },
             {
               "date": "2022-11-18",
-              "on_time": "14:17",
-              "off_time": "14:21",
-              "duration_minutes": 4,
-              "magnitude": 1866,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-18",
               "on_time": "21:06",
               "off_time": "21:12",
               "duration_minutes": 6,
@@ -1963,38 +963,6 @@
               "off_time": "21:41",
               "duration_minutes": 19,
               "magnitude": 1803,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-18",
-              "on_time": "22:14",
-              "off_time": "22:24",
-              "duration_minutes": 10,
-              "magnitude": 1464,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-18",
-              "on_time": "22:32",
-              "off_time": "22:38",
-              "duration_minutes": 6,
-              "magnitude": 2331,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-19",
-              "on_time": "01:37",
-              "off_time": "01:42",
-              "duration_minutes": 5,
-              "magnitude": 1741,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-19",
-              "on_time": "12:16",
-              "off_time": "12:21",
-              "duration_minutes": 5,
-              "magnitude": 1897,
               "phase": "w2"
             },
             {
@@ -2015,30 +983,6 @@
             },
             {
               "date": "2022-11-20",
-              "on_time": "09:58",
-              "off_time": "10:03",
-              "duration_minutes": 5,
-              "magnitude": 1860,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-20",
-              "on_time": "14:47",
-              "off_time": "14:51",
-              "duration_minutes": 4,
-              "magnitude": 1875,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-20",
-              "on_time": "15:02",
-              "off_time": "15:12",
-              "duration_minutes": 10,
-              "magnitude": 2345,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-20",
               "on_time": "18:51",
               "off_time": "19:10",
               "duration_minutes": 19,
@@ -2055,30 +999,6 @@
             },
             {
               "date": "2022-11-20",
-              "on_time": "21:59",
-              "off_time": "22:16",
-              "duration_minutes": 17,
-              "magnitude": 2349,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-20",
-              "on_time": "22:18",
-              "off_time": "22:21",
-              "duration_minutes": 3,
-              "magnitude": 2330,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-20",
-              "on_time": "22:24",
-              "off_time": "22:26",
-              "duration_minutes": 2,
-              "magnitude": 2323,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-20",
               "on_time": "23:19",
               "off_time": "23:26",
               "duration_minutes": 7,
@@ -2092,30 +1012,6 @@
               "duration_minutes": 20,
               "magnitude": 1709,
               "phase": "w2"
-            },
-            {
-              "date": "2022-11-21",
-              "on_time": "02:59",
-              "off_time": "03:02",
-              "duration_minutes": 3,
-              "magnitude": 1783,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-21",
-              "on_time": "09:28",
-              "off_time": "09:32",
-              "duration_minutes": 4,
-              "magnitude": 1854,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-21",
-              "on_time": "22:16",
-              "off_time": "22:24",
-              "duration_minutes": 8,
-              "magnitude": 2314,
-              "phase": "w3"
             },
             {
               "date": "2022-11-21",
@@ -2158,22 +1054,6 @@
               "phase": "w2"
             },
             {
-              "date": "2022-11-22",
-              "on_time": "10:32",
-              "off_time": "10:36",
-              "duration_minutes": 4,
-              "magnitude": 1869,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-22",
-              "on_time": "22:37",
-              "off_time": "22:59",
-              "duration_minutes": 22,
-              "magnitude": 1736,
-              "phase": "w2"
-            },
-            {
               "date": "2022-11-23",
               "on_time": "09:55",
               "off_time": "09:59",
@@ -2204,239 +1084,15 @@
               "duration_minutes": 14,
               "magnitude": 1801,
               "phase": "w2"
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "14:23",
-              "off_time": "14:32",
-              "duration_minutes": 9,
-              "magnitude": 2360,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "16:13",
-              "off_time": "16:17",
-              "duration_minutes": 4,
-              "magnitude": 2300,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "17:20",
-              "off_time": "17:23",
-              "duration_minutes": 3,
-              "magnitude": 1800,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-23",
-              "on_time": "21:49",
-              "off_time": "21:52",
-              "duration_minutes": 3,
-              "magnitude": 1947,
-              "phase": "w3"
-            },
-            {
-              "date": "2022-11-24",
-              "on_time": "04:38",
-              "off_time": "04:43",
-              "duration_minutes": 5,
-              "magnitude": 1782,
-              "phase": "w2"
-            },
-            {
-              "date": "2022-11-24",
-              "on_time": "10:10",
-              "off_time": "10:22",
-              "duration_minutes": 12,
-              "magnitude": 1878,
-              "phase": "w2"
             }
           ],
-          "total_cycles": 99
+          "total_cycles": 43
         },
         "has_central_ac": false,
         "has_regular_ac": true,
         "regular_ac_by_phase": {
-          "w1": {
-            "activations": [
-              {
-                "date": "2022-11-09",
-                "on_time": "15:21",
-                "off_time": "15:25",
-                "duration_minutes": 4,
-                "magnitude": 1956,
-                "max_magnitude": 1956,
-                "total_magnitude": 1956,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "11:58",
-                "off_time": "12:03",
-                "duration_minutes": 5,
-                "magnitude": 1949,
-                "max_magnitude": 1949,
-                "total_magnitude": 1949,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "18:46",
-                "off_time": "18:49",
-                "duration_minutes": 3,
-                "magnitude": 1953,
-                "max_magnitude": 1953,
-                "total_magnitude": 1953,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "21:12",
-                "off_time": "21:16",
-                "duration_minutes": 4,
-                "magnitude": 1951,
-                "max_magnitude": 1951,
-                "total_magnitude": 1951,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-11",
-                "on_time": "02:12",
-                "off_time": "02:17",
-                "duration_minutes": 5,
-                "magnitude": 1944,
-                "max_magnitude": 1944,
-                "total_magnitude": 1944,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-11",
-                "on_time": "11:23",
-                "off_time": "11:27",
-                "duration_minutes": 4,
-                "magnitude": 1881,
-                "max_magnitude": 1881,
-                "total_magnitude": 1881,
-                "cycle_count": 1,
-                "phase": "w1",
-                "phases": [
-                  "w1"
-                ],
-                "phase_magnitudes": {}
-              }
-            ],
-            "raw_activations": [
-              {
-                "date": "2022-11-09",
-                "on_time": "15:21",
-                "off_time": "15:25",
-                "duration_minutes": 4,
-                "magnitude": 1956,
-                "phase": "w1"
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "11:58",
-                "off_time": "12:03",
-                "duration_minutes": 5,
-                "magnitude": 1949,
-                "phase": "w1"
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "18:46",
-                "off_time": "18:49",
-                "duration_minutes": 3,
-                "magnitude": 1953,
-                "phase": "w1"
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "21:12",
-                "off_time": "21:16",
-                "duration_minutes": 4,
-                "magnitude": 1951,
-                "phase": "w1"
-              },
-              {
-                "date": "2022-11-11",
-                "on_time": "02:12",
-                "off_time": "02:17",
-                "duration_minutes": 5,
-                "magnitude": 1944,
-                "phase": "w1"
-              },
-              {
-                "date": "2022-11-11",
-                "on_time": "11:23",
-                "off_time": "11:27",
-                "duration_minutes": 4,
-                "magnitude": 1881,
-                "phase": "w1"
-              }
-            ],
-            "total_count": 6,
-            "total_cycles": 6
-          },
           "w2": {
             "activations": [
-              {
-                "date": "2022-11-10",
-                "on_time": "13:30",
-                "off_time": "13:51",
-                "duration_minutes": 21,
-                "magnitude": 1768,
-                "max_magnitude": 1768,
-                "total_magnitude": 1768,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "23:20",
-                "off_time": "23:40",
-                "duration_minutes": 20,
-                "magnitude": 1822,
-                "max_magnitude": 1822,
-                "total_magnitude": 1822,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
               {
                 "date": "2022-11-11",
                 "on_time": "15:20",
@@ -2454,21 +1110,6 @@
               },
               {
                 "date": "2022-11-11",
-                "on_time": "19:44",
-                "off_time": "19:49",
-                "duration_minutes": 5,
-                "magnitude": 1801,
-                "max_magnitude": 1801,
-                "total_magnitude": 1801,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-11",
                 "on_time": "21:38",
                 "off_time": "22:47",
                 "duration_minutes": 69,
@@ -2476,36 +1117,6 @@
                 "max_magnitude": 1845,
                 "total_magnitude": 5390,
                 "cycle_count": 3,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-12",
-                "on_time": "03:37",
-                "off_time": "03:40",
-                "duration_minutes": 3,
-                "magnitude": 1769,
-                "max_magnitude": 1769,
-                "total_magnitude": 1769,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-12",
-                "on_time": "11:26",
-                "off_time": "11:30",
-                "duration_minutes": 4,
-                "magnitude": 1869,
-                "max_magnitude": 1869,
-                "total_magnitude": 1869,
-                "cycle_count": 1,
                 "phase": "w2",
                 "phases": [
                   "w2"
@@ -2543,21 +1154,6 @@
                 "phase_magnitudes": {}
               },
               {
-                "date": "2022-11-12",
-                "on_time": "23:21",
-                "off_time": "23:24",
-                "duration_minutes": 3,
-                "magnitude": 1875,
-                "max_magnitude": 1875,
-                "total_magnitude": 1875,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
                 "date": "2022-11-13",
                 "on_time": "00:38",
                 "off_time": "01:40",
@@ -2566,51 +1162,6 @@
                 "max_magnitude": 1809,
                 "total_magnitude": 3600,
                 "cycle_count": 2,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "12:44",
-                "off_time": "12:48",
-                "duration_minutes": 4,
-                "magnitude": 1869,
-                "max_magnitude": 1869,
-                "total_magnitude": 1869,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "17:56",
-                "off_time": "18:17",
-                "duration_minutes": 21,
-                "magnitude": 1765,
-                "max_magnitude": 1765,
-                "total_magnitude": 1765,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-14",
-                "on_time": "00:59",
-                "off_time": "01:19",
-                "duration_minutes": 20,
-                "magnitude": 1816,
-                "max_magnitude": 1816,
-                "total_magnitude": 1816,
-                "cycle_count": 1,
                 "phase": "w2",
                 "phases": [
                   "w2"
@@ -2648,111 +1199,6 @@
                 "phase_magnitudes": {}
               },
               {
-                "date": "2022-11-15",
-                "on_time": "02:54",
-                "off_time": "02:59",
-                "duration_minutes": 5,
-                "magnitude": 1843,
-                "max_magnitude": 1843,
-                "total_magnitude": 1843,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "09:27",
-                "off_time": "09:31",
-                "duration_minutes": 4,
-                "magnitude": 1873,
-                "max_magnitude": 1873,
-                "total_magnitude": 1873,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "12:48",
-                "off_time": "12:53",
-                "duration_minutes": 5,
-                "magnitude": 1886,
-                "max_magnitude": 1886,
-                "total_magnitude": 1886,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "22:59",
-                "off_time": "00:02",
-                "duration_minutes": -1377,
-                "magnitude": 1783,
-                "max_magnitude": 1790,
-                "total_magnitude": 3567,
-                "cycle_count": 2,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "00:11",
-                "off_time": "00:20",
-                "duration_minutes": 9,
-                "magnitude": 1491,
-                "max_magnitude": 1738,
-                "total_magnitude": 2983,
-                "cycle_count": 2,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "02:28",
-                "off_time": "02:51",
-                "duration_minutes": 23,
-                "magnitude": 1798,
-                "max_magnitude": 1798,
-                "total_magnitude": 1798,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "09:12",
-                "off_time": "09:16",
-                "duration_minutes": 4,
-                "magnitude": 1870,
-                "max_magnitude": 1870,
-                "total_magnitude": 1870,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
                 "date": "2022-11-17",
                 "on_time": "03:29",
                 "off_time": "04:19",
@@ -2761,21 +1207,6 @@
                 "max_magnitude": 1812,
                 "total_magnitude": 3614,
                 "cycle_count": 2,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-17",
-                "on_time": "10:29",
-                "off_time": "10:33",
-                "duration_minutes": 4,
-                "magnitude": 1803,
-                "max_magnitude": 1803,
-                "total_magnitude": 1803,
-                "cycle_count": 1,
                 "phase": "w2",
                 "phases": [
                   "w2"
@@ -2802,25 +1233,10 @@
                 "on_time": "12:13",
                 "off_time": "13:16",
                 "duration_minutes": 63,
-                "magnitude": 1602,
+                "magnitude": 1694,
                 "max_magnitude": 1844,
-                "total_magnitude": 6411,
-                "cycle_count": 4,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-18",
-                "on_time": "14:17",
-                "off_time": "14:21",
-                "duration_minutes": 4,
-                "magnitude": 1866,
-                "max_magnitude": 1866,
-                "total_magnitude": 1866,
-                "cycle_count": 1,
+                "total_magnitude": 5082,
+                "cycle_count": 3,
                 "phase": "w2",
                 "phases": [
                   "w2"
@@ -2844,36 +1260,6 @@
               },
               {
                 "date": "2022-11-19",
-                "on_time": "01:37",
-                "off_time": "01:42",
-                "duration_minutes": 5,
-                "magnitude": 1741,
-                "max_magnitude": 1741,
-                "total_magnitude": 1741,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-19",
-                "on_time": "12:16",
-                "off_time": "12:21",
-                "duration_minutes": 5,
-                "magnitude": 1897,
-                "max_magnitude": 1897,
-                "total_magnitude": 1897,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-19",
                 "on_time": "19:16",
                 "off_time": "19:53",
                 "duration_minutes": 37,
@@ -2881,36 +1267,6 @@
                 "max_magnitude": 1783,
                 "total_magnitude": 3550,
                 "cycle_count": 2,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "09:58",
-                "off_time": "10:03",
-                "duration_minutes": 5,
-                "magnitude": 1860,
-                "max_magnitude": 1860,
-                "total_magnitude": 1860,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "14:47",
-                "off_time": "14:51",
-                "duration_minutes": 4,
-                "magnitude": 1875,
-                "max_magnitude": 1875,
-                "total_magnitude": 1875,
-                "cycle_count": 1,
                 "phase": "w2",
                 "phases": [
                   "w2"
@@ -2949,36 +1305,6 @@
               },
               {
                 "date": "2022-11-21",
-                "on_time": "02:59",
-                "off_time": "03:02",
-                "duration_minutes": 3,
-                "magnitude": 1783,
-                "max_magnitude": 1783,
-                "total_magnitude": 1783,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-21",
-                "on_time": "09:28",
-                "off_time": "09:32",
-                "duration_minutes": 4,
-                "magnitude": 1854,
-                "max_magnitude": 1854,
-                "total_magnitude": 1854,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-21",
                 "on_time": "23:43",
                 "off_time": "00:33",
                 "duration_minutes": 50,
@@ -3008,36 +1334,6 @@
                 "phase_magnitudes": {}
               },
               {
-                "date": "2022-11-22",
-                "on_time": "10:32",
-                "off_time": "10:36",
-                "duration_minutes": 4,
-                "magnitude": 1869,
-                "max_magnitude": 1869,
-                "total_magnitude": 1869,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-22",
-                "on_time": "22:37",
-                "off_time": "22:59",
-                "duration_minutes": 22,
-                "magnitude": 1736,
-                "max_magnitude": 1736,
-                "total_magnitude": 1736,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
                 "date": "2022-11-23",
                 "on_time": "09:55",
                 "off_time": "12:57",
@@ -3051,70 +1347,9 @@
                   "w2"
                 ],
                 "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "17:20",
-                "off_time": "17:23",
-                "duration_minutes": 3,
-                "magnitude": 1800,
-                "max_magnitude": 1800,
-                "total_magnitude": 1800,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-24",
-                "on_time": "04:38",
-                "off_time": "04:43",
-                "duration_minutes": 5,
-                "magnitude": 1782,
-                "max_magnitude": 1782,
-                "total_magnitude": 1782,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-24",
-                "on_time": "10:10",
-                "off_time": "10:22",
-                "duration_minutes": 12,
-                "magnitude": 1878,
-                "max_magnitude": 1878,
-                "total_magnitude": 1878,
-                "cycle_count": 1,
-                "phase": "w2",
-                "phases": [
-                  "w2"
-                ],
-                "phase_magnitudes": {}
               }
             ],
             "raw_activations": [
-              {
-                "date": "2022-11-10",
-                "on_time": "13:30",
-                "off_time": "13:51",
-                "duration_minutes": 21,
-                "magnitude": 1768,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-10",
-                "on_time": "23:20",
-                "off_time": "23:40",
-                "duration_minutes": 20,
-                "magnitude": 1822,
-                "phase": "w2"
-              },
               {
                 "date": "2022-11-11",
                 "on_time": "15:20",
@@ -3129,14 +1364,6 @@
                 "off_time": "15:55",
                 "duration_minutes": 20,
                 "magnitude": 1733,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-11",
-                "on_time": "19:44",
-                "off_time": "19:49",
-                "duration_minutes": 5,
-                "magnitude": 1801,
                 "phase": "w2"
               },
               {
@@ -3161,22 +1388,6 @@
                 "off_time": "22:47",
                 "duration_minutes": 15,
                 "magnitude": 1766,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-12",
-                "on_time": "03:37",
-                "off_time": "03:40",
-                "duration_minutes": 3,
-                "magnitude": 1769,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-12",
-                "on_time": "11:26",
-                "off_time": "11:30",
-                "duration_minutes": 4,
-                "magnitude": 1869,
                 "phase": "w2"
               },
               {
@@ -3220,14 +1431,6 @@
                 "phase": "w2"
               },
               {
-                "date": "2022-11-12",
-                "on_time": "23:21",
-                "off_time": "23:24",
-                "duration_minutes": 3,
-                "magnitude": 1875,
-                "phase": "w2"
-              },
-              {
                 "date": "2022-11-13",
                 "on_time": "00:38",
                 "off_time": "00:55",
@@ -3241,30 +1444,6 @@
                 "off_time": "01:40",
                 "duration_minutes": 14,
                 "magnitude": 1809,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "12:44",
-                "off_time": "12:48",
-                "duration_minutes": 4,
-                "magnitude": 1869,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "17:56",
-                "off_time": "18:17",
-                "duration_minutes": 21,
-                "magnitude": 1765,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-14",
-                "on_time": "00:59",
-                "off_time": "01:19",
-                "duration_minutes": 20,
-                "magnitude": 1816,
                 "phase": "w2"
               },
               {
@@ -3308,78 +1487,6 @@
                 "phase": "w2"
               },
               {
-                "date": "2022-11-15",
-                "on_time": "02:54",
-                "off_time": "02:59",
-                "duration_minutes": 5,
-                "magnitude": 1843,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "09:27",
-                "off_time": "09:31",
-                "duration_minutes": 4,
-                "magnitude": 1873,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "12:48",
-                "off_time": "12:53",
-                "duration_minutes": 5,
-                "magnitude": 1886,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "22:59",
-                "off_time": "23:17",
-                "duration_minutes": 18,
-                "magnitude": 1790,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-15",
-                "on_time": "23:48",
-                "off_time": "00:02",
-                "duration_minutes": 14,
-                "magnitude": 1777,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "00:11",
-                "off_time": "00:32",
-                "duration_minutes": 21,
-                "magnitude": 1738,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "00:15",
-                "off_time": "00:20",
-                "duration_minutes": 5,
-                "magnitude": 1245,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "02:28",
-                "off_time": "02:51",
-                "duration_minutes": 23,
-                "magnitude": 1798,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "09:12",
-                "off_time": "09:16",
-                "duration_minutes": 4,
-                "magnitude": 1870,
-                "phase": "w2"
-              },
-              {
                 "date": "2022-11-17",
                 "on_time": "03:29",
                 "off_time": "03:33",
@@ -3393,14 +1500,6 @@
                 "off_time": "04:19",
                 "duration_minutes": 5,
                 "magnitude": 1802,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-17",
-                "on_time": "10:29",
-                "off_time": "10:33",
-                "duration_minutes": 4,
-                "magnitude": 1803,
                 "phase": "w2"
               },
               {
@@ -3445,14 +1544,6 @@
               },
               {
                 "date": "2022-11-18",
-                "on_time": "12:29",
-                "off_time": "12:31",
-                "duration_minutes": 2,
-                "magnitude": 1329,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-18",
                 "on_time": "12:36",
                 "off_time": "12:57",
                 "duration_minutes": 21,
@@ -3465,14 +1556,6 @@
                 "off_time": "13:16",
                 "duration_minutes": 14,
                 "magnitude": 1486,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-18",
-                "on_time": "14:17",
-                "off_time": "14:21",
-                "duration_minutes": 4,
-                "magnitude": 1866,
                 "phase": "w2"
               },
               {
@@ -3493,22 +1576,6 @@
               },
               {
                 "date": "2022-11-19",
-                "on_time": "01:37",
-                "off_time": "01:42",
-                "duration_minutes": 5,
-                "magnitude": 1741,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-19",
-                "on_time": "12:16",
-                "off_time": "12:21",
-                "duration_minutes": 5,
-                "magnitude": 1897,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-19",
                 "on_time": "19:16",
                 "off_time": "19:23",
                 "duration_minutes": 7,
@@ -3521,22 +1588,6 @@
                 "off_time": "19:53",
                 "duration_minutes": 21,
                 "magnitude": 1783,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "09:58",
-                "off_time": "10:03",
-                "duration_minutes": 5,
-                "magnitude": 1860,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "14:47",
-                "off_time": "14:51",
-                "duration_minutes": 4,
-                "magnitude": 1875,
                 "phase": "w2"
               },
               {
@@ -3569,22 +1620,6 @@
                 "off_time": "23:55",
                 "duration_minutes": 20,
                 "magnitude": 1709,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-21",
-                "on_time": "02:59",
-                "off_time": "03:02",
-                "duration_minutes": 3,
-                "magnitude": 1783,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-21",
-                "on_time": "09:28",
-                "off_time": "09:32",
-                "duration_minutes": 4,
-                "magnitude": 1854,
                 "phase": "w2"
               },
               {
@@ -3628,22 +1663,6 @@
                 "phase": "w2"
               },
               {
-                "date": "2022-11-22",
-                "on_time": "10:32",
-                "off_time": "10:36",
-                "duration_minutes": 4,
-                "magnitude": 1869,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-22",
-                "on_time": "22:37",
-                "off_time": "22:59",
-                "duration_minutes": 22,
-                "magnitude": 1736,
-                "phase": "w2"
-              },
-              {
                 "date": "2022-11-23",
                 "on_time": "09:55",
                 "off_time": "09:59",
@@ -3674,381 +1693,10 @@
                 "duration_minutes": 14,
                 "magnitude": 1801,
                 "phase": "w2"
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "17:20",
-                "off_time": "17:23",
-                "duration_minutes": 3,
-                "magnitude": 1800,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-24",
-                "on_time": "04:38",
-                "off_time": "04:43",
-                "duration_minutes": 5,
-                "magnitude": 1782,
-                "phase": "w2"
-              },
-              {
-                "date": "2022-11-24",
-                "on_time": "10:10",
-                "off_time": "10:22",
-                "duration_minutes": 12,
-                "magnitude": 1878,
-                "phase": "w2"
               }
             ],
-            "total_count": 46,
-            "total_cycles": 75
-          },
-          "w3": {
-            "activations": [
-              {
-                "date": "2022-11-11",
-                "on_time": "19:22",
-                "off_time": "19:30",
-                "duration_minutes": 8,
-                "magnitude": 2402,
-                "max_magnitude": 2402,
-                "total_magnitude": 2402,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-12",
-                "on_time": "19:08",
-                "off_time": "19:11",
-                "duration_minutes": 3,
-                "magnitude": 2271,
-                "max_magnitude": 2271,
-                "total_magnitude": 2271,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "15:47",
-                "off_time": "16:41",
-                "duration_minutes": 54,
-                "magnitude": 1803,
-                "max_magnitude": 2326,
-                "total_magnitude": 5410,
-                "cycle_count": 3,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-14",
-                "on_time": "22:17",
-                "off_time": "22:31",
-                "duration_minutes": 14,
-                "magnitude": 2327,
-                "max_magnitude": 2327,
-                "total_magnitude": 2327,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "23:23",
-                "off_time": "23:29",
-                "duration_minutes": 6,
-                "magnitude": 2333,
-                "max_magnitude": 2333,
-                "total_magnitude": 2333,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-17",
-                "on_time": "15:59",
-                "off_time": "16:10",
-                "duration_minutes": 11,
-                "magnitude": 2310,
-                "max_magnitude": 2310,
-                "total_magnitude": 2310,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-18",
-                "on_time": "22:14",
-                "off_time": "22:38",
-                "duration_minutes": 24,
-                "magnitude": 1897,
-                "max_magnitude": 2331,
-                "total_magnitude": 3795,
-                "cycle_count": 2,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "15:02",
-                "off_time": "15:12",
-                "duration_minutes": 10,
-                "magnitude": 2345,
-                "max_magnitude": 2345,
-                "total_magnitude": 2345,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "21:59",
-                "off_time": "22:26",
-                "duration_minutes": 27,
-                "magnitude": 2334,
-                "max_magnitude": 2349,
-                "total_magnitude": 7002,
-                "cycle_count": 3,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-21",
-                "on_time": "22:16",
-                "off_time": "22:24",
-                "duration_minutes": 8,
-                "magnitude": 2314,
-                "max_magnitude": 2314,
-                "total_magnitude": 2314,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "14:23",
-                "off_time": "14:32",
-                "duration_minutes": 9,
-                "magnitude": 2360,
-                "max_magnitude": 2360,
-                "total_magnitude": 2360,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "16:13",
-                "off_time": "16:17",
-                "duration_minutes": 4,
-                "magnitude": 2300,
-                "max_magnitude": 2300,
-                "total_magnitude": 2300,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "21:49",
-                "off_time": "21:52",
-                "duration_minutes": 3,
-                "magnitude": 1947,
-                "max_magnitude": 1947,
-                "total_magnitude": 1947,
-                "cycle_count": 1,
-                "phase": "w3",
-                "phases": [
-                  "w3"
-                ],
-                "phase_magnitudes": {}
-              }
-            ],
-            "raw_activations": [
-              {
-                "date": "2022-11-11",
-                "on_time": "19:22",
-                "off_time": "19:30",
-                "duration_minutes": 8,
-                "magnitude": 2402,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-12",
-                "on_time": "19:08",
-                "off_time": "19:11",
-                "duration_minutes": 3,
-                "magnitude": 2271,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "15:47",
-                "off_time": "15:49",
-                "duration_minutes": 2,
-                "magnitude": 1529,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "16:00",
-                "off_time": "16:02",
-                "duration_minutes": 2,
-                "magnitude": 1555,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-13",
-                "on_time": "16:27",
-                "off_time": "16:41",
-                "duration_minutes": 14,
-                "magnitude": 2326,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-14",
-                "on_time": "22:17",
-                "off_time": "22:31",
-                "duration_minutes": 14,
-                "magnitude": 2327,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-16",
-                "on_time": "23:23",
-                "off_time": "23:29",
-                "duration_minutes": 6,
-                "magnitude": 2333,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-17",
-                "on_time": "15:59",
-                "off_time": "16:10",
-                "duration_minutes": 11,
-                "magnitude": 2310,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-18",
-                "on_time": "22:14",
-                "off_time": "22:24",
-                "duration_minutes": 10,
-                "magnitude": 1464,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-18",
-                "on_time": "22:32",
-                "off_time": "22:38",
-                "duration_minutes": 6,
-                "magnitude": 2331,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "15:02",
-                "off_time": "15:12",
-                "duration_minutes": 10,
-                "magnitude": 2345,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "21:59",
-                "off_time": "22:16",
-                "duration_minutes": 17,
-                "magnitude": 2349,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "22:18",
-                "off_time": "22:21",
-                "duration_minutes": 3,
-                "magnitude": 2330,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-20",
-                "on_time": "22:24",
-                "off_time": "22:26",
-                "duration_minutes": 2,
-                "magnitude": 2323,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-21",
-                "on_time": "22:16",
-                "off_time": "22:24",
-                "duration_minutes": 8,
-                "magnitude": 2314,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "14:23",
-                "off_time": "14:32",
-                "duration_minutes": 9,
-                "magnitude": 2360,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "16:13",
-                "off_time": "16:17",
-                "duration_minutes": 4,
-                "magnitude": 2300,
-                "phase": "w3"
-              },
-              {
-                "date": "2022-11-23",
-                "on_time": "21:49",
-                "off_time": "21:52",
-                "duration_minutes": 3,
-                "magnitude": 1947,
-                "phase": "w3"
-              }
-            ],
-            "total_count": 13,
-            "total_cycles": 18
+            "total_count": 17,
+            "total_cycles": 43
           }
         }
       },
@@ -4071,11 +1719,11 @@
             "winter": 0,
             "spring": 0,
             "summer": 0,
-            "fall": 65
+            "fall": 17
           },
           "time_of_day": {
-            "day": 30,
-            "night": 35
+            "day": 6,
+            "night": 11
           }
         },
         "boiler": {
@@ -4380,5 +2028,5 @@
     "segmentation_score": 10.910085538852101,
     "overall_score": 64.60045928997421
   },
-  "_analysis_time": 1.4828388690948486
+  "_analysis_time": 1.4892981052398682
 }
