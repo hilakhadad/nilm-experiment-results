@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 2089
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 14145 events, 77.2% matched
-Last iteration: 3424 events, 27.6% matched
-Events reduction: 75.8%
-Total matched power: 10720.4 kW
+First iteration: 14274 events, 70.5% matched
+Last iteration: 4972 events, 28.6% matched
+Events reduction: 65.2%
+Total matched power: 9854.1 kW
 
 --- First Iteration Matching ---
-Total events: 7002 ON, 7143 OFF
-Matched: 0 (78.0%)
-By tag: NON-M: 4187, SPIKE: 889, NOISY: 210, PARTIAL: 174
+Total events: 7166 ON, 7108 OFF
+Matched: 5030 (70.2%)
+By tag: EXACT-EXTENDED: 771, EXACT-SPIKE: 707, EXACT-MEDIUM: 616, EXACT-QUICK: 439, CLOSE-EXTENDED: 413, CLOSE-MEDIUM: 358, APPROX-MEDIUM: 227, APPROX-EXTENDED: 176, PARTIAL-MEDIUM: 136, PARTIAL-QUICK: 124, CLOSE-QUICK: 123, CLOSE-SPIKE: 108, LOOSE-MEDIUM: 95, EXACT-EXTENDED-CORRECTED: 93, NOISY-LOOSE-EXTENDED: 73, PARTIAL-SPIKE: 66, LOOSE-SPIKE: 60, NOISY-APPROX-EXTENDED: 59, EXACT-MEDIUM-CORRECTED: 55, CLOSE-EXTENDED-CORRECTED: 50, LOOSE-QUICK: 48, APPROX-QUICK: 42, LOOSE-EXTENDED: 41, APPROX-SPIKE: 37, PARTIAL-EXTENDED: 35, NOISY-LOOSE-MEDIUM: 26, NOISY-APPROX-MEDIUM: 21, CLOSE-MEDIUM-CORRECTED: 18, NOISY-LOOSE-QUICK: 4, EXACT-QUICK-CORRECTED: 2, CLOSE-QUICK-CORRECTED: 2, LOOSE-EXTENDED-CORRECTED: 2, NOISY-APPROX-QUICK: 1, NOISY-APPROX-EXTENDED-CORRECTED: 1, APPROX-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 749889.0 kW
-Segmented: 316233.6 kW (42.2%)
-Remaining: 433395.8 kW
+Segmented: 284718.1 kW (38.0%)
+Remaining: 464906.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 270,508
+Minutes explained: 135,214 (50.0%)
+  w1: 64,752 above TH, 22,518 explained (34.8%)
+  w2: 89,511 above TH, 38,263 explained (42.7%)
+  w3: 116,245 above TH, 74,433 explained (64.0%)
 
 --- Scores ---
-Matching score: 77/100
-Segmentation score: 42/100
-Overall score: 67/100
+Matching score: 70/100
+Segmentation score: 38/100
+Overall score: 61/100
 
 --- Issues ---
   - Low Improvement

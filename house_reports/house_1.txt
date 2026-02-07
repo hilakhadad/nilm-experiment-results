@@ -4,30 +4,32 @@ EXPERIMENT REPORT: House 1
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 27809 events, 73.5% matched
-Last iteration: 8567 events, 29.5% matched
-Events reduction: 69.2%
-Total matched power: 19381.7 kW
+First iteration: 45825 events, 75.3% matched
+Last iteration: 14473 events, 39.7% matched
+Events reduction: 68.4%
+Total matched power: 35751.5 kW
 
 --- First Iteration Matching ---
-Total events: 14107 ON, 13702 OFF
-Matched: 0 (72.4%)
-By tag: NON-M: 8577, SPIKE: 965, PARTIAL: 542, NOISY: 131
+Total events: 23119 ON, 22706 OFF
+Matched: 17251 (74.6%)
+By tag: EXACT-MEDIUM: 4214, EXACT-QUICK: 2182, EXACT-SPIKE: 2145, CLOSE-MEDIUM: 1839, EXACT-EXTENDED: 1511, CLOSE-EXTENDED: 735, EXACT-MEDIUM-CORRECTED: 675, CLOSE-QUICK: 602, APPROX-MEDIUM: 484, PARTIAL-MEDIUM: 455, PARTIAL-QUICK: 364, EXACT-EXTENDED-CORRECTED: 306, PARTIAL-SPIKE: 293, CLOSE-SPIKE: 245, APPROX-QUICK: 178, CLOSE-MEDIUM-CORRECTED: 157, APPROX-EXTENDED: 156, LOOSE-MEDIUM: 109, APPROX-SPIKE: 95, CLOSE-EXTENDED-CORRECTED: 85, NOISY-APPROX-EXTENDED: 71, LOOSE-QUICK: 60, LOOSE-SPIKE: 50, NOISY-APPROX-MEDIUM: 48, NOISY-LOOSE-MEDIUM: 37, NOISY-LOOSE-EXTENDED: 34, LOOSE-EXTENDED: 34, EXACT-QUICK-CORRECTED: 26, PARTIAL-EXTENDED: 22, NOISY-LOOSE-QUICK: 9, APPROX-MEDIUM-CORRECTED: 8, PARTIAL-SPIKE-CORRECTED: 4, NOISY-APPROX-QUICK: 4, PARTIAL-QUICK-CORRECTED: 3, APPROX-QUICK-CORRECTED: 2, LOOSE-MEDIUM-CORRECTED: 2, APPROX-EXTENDED-CORRECTED: 2, NOISY-LOOSE-EXTENDED-CORRECTED: 2, NOISY-LOOSE-MEDIUM-CORRECTED: 1, LOOSE-EXTENDED-CORRECTED: 1, PARTIAL-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 638545.1 kW
-Segmented: 189029.5 kW (29.6%)
-Remaining: 448965.1 kW
+Total power: 939199.2 kW
+Segmented: 317284.0 kW (33.8%)
+Remaining: 621211.9 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 299,033
+Minutes explained: 170,131 (56.9%)
+  w1: 94,554 above TH, 55,999 explained (59.2%)
+  w2: 126,667 above TH, 74,665 explained (58.9%)
+  w3: 77,812 above TH, 39,467 explained (50.7%)
 
 --- Scores ---
-DAMAGED PHASES: w1
-Healthy phases: w2, w3
-(Scores calculated from healthy phases only)
-Matching score: 73/100
-Segmentation score: 30/100
-Overall score: 60/100
+Matching score: 75/100
+Segmentation score: 34/100
+Overall score: 63/100
 
 --- Issues ---
   - Low Improvement
-  - Low Segmentation
-  - Has Damaged Phases

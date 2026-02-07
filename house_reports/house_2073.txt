@@ -4,26 +4,34 @@ EXPERIMENT REPORT: House 2073
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 8969 events, 64.2% matched
-Last iteration: 3102 events, 7.5% matched
-Events reduction: 65.4%
-Total matched power: 5296.3 kW
+First iteration: 14531 events, 71.2% matched
+Last iteration: 5373 events, 31.4% matched
+Events reduction: 63.0%
+Total matched power: 8321.1 kW
 
 --- First Iteration Matching ---
-Total events: 4355 ON, 4614 OFF
-Matched: 0 (66.1%)
-By tag: NON-M: 2050, SPIKE: 576, PARTIAL: 176, NOISY: 75
+Total events: 7081 ON, 7450 OFF
+Matched: 5172 (73.0%)
+By tag: EXACT-MEDIUM: 1203, EXACT-SPIKE: 643, CLOSE-MEDIUM: 580, EXACT-QUICK: 438, EXACT-MEDIUM-CORRECTED: 364, EXACT-EXTENDED: 251, CLOSE-MEDIUM-CORRECTED: 228, CLOSE-EXTENDED: 199, APPROX-MEDIUM: 179, PARTIAL-MEDIUM: 138, CLOSE-QUICK: 127, EXACT-EXTENDED-CORRECTED: 101, PARTIAL-QUICK: 89, CLOSE-SPIKE: 83, APPROX-SPIKE: 76, PARTIAL-SPIKE: 69, CLOSE-EXTENDED-CORRECTED: 63, APPROX-EXTENDED: 56, LOOSE-MEDIUM: 47, APPROX-QUICK: 41, LOOSE-SPIKE: 35, LOOSE-QUICK: 35, NOISY-APPROX-EXTENDED: 32, NOISY-LOOSE-EXTENDED: 22, NOISY-APPROX-MEDIUM: 22, NOISY-LOOSE-MEDIUM: 18, LOOSE-EXTENDED: 17, APPROX-EXTENDED-CORRECTED: 4, PARTIAL-EXTENDED: 3, NOISY-APPROX-QUICK: 2, CLOSE-SPIKE-CORRECTED: 2, APPROX-MEDIUM-CORRECTED: 2, NOISY-LOOSE-QUICK: 1, NOISY-LOOSE-EXTENDED-CORRECTED: 1, EXACT-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 601225.6 kW
-Segmented: 83077.2 kW (13.8%)
-Remaining: 518139.5 kW
+Segmented: 101919.6 kW (17.0%)
+Remaining: 499286.9 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 117,461
+Minutes explained: 54,182 (46.1%)
+  w1: 13,386 above TH, 8,134 explained (60.8%)
+  w2: 52,659 above TH, 29,414 explained (55.9%)
+  w3: 51,416 above TH, 16,634 explained (32.4%)
 
 --- Scores ---
-Matching score: 64/100
-Segmentation score: 14/100
-Overall score: 49/100
+Matching score: 71/100
+Segmentation score: 17/100
+Overall score: 55/100
 
 --- Issues ---
   - Low Improvement
   - Low Segmentation
+  - Has Recurring Patterns

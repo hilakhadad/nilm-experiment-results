@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 1001
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 40522 events, 61.8% matched
-Last iteration: 15652 events, 16.1% matched
-Events reduction: 61.4%
-Total matched power: 23782.0 kW
+First iteration: 48439 events, 66.7% matched
+Last iteration: 20056 events, 31.7% matched
+Events reduction: 58.6%
+Total matched power: 31105.7 kW
 
 --- First Iteration Matching ---
-Total events: 18125 ON, 22397 OFF
-Matched: 0 (69.1%)
-By tag: NON-M: 6056, SPIKE: 5368, PARTIAL: 846, NOISY: 257
+Total events: 23974 ON, 24465 OFF
+Matched: 16144 (67.3%)
+By tag: EXACT-SPIKE: 4334, EXACT-MEDIUM: 2659, EXACT-QUICK: 1227, CLOSE-MEDIUM: 1088, EXACT-EXTENDED: 866, CLOSE-SPIKE: 836, EXACT-MEDIUM-CORRECTED: 616, CLOSE-EXTENDED: 563, PARTIAL-SPIKE: 549, APPROX-SPIKE: 537, PARTIAL-QUICK: 430, CLOSE-QUICK: 407, LOOSE-SPIKE: 294, APPROX-MEDIUM: 253, PARTIAL-MEDIUM: 226, APPROX-QUICK: 176, EXACT-EXTENDED-CORRECTED: 172, LOOSE-MEDIUM: 164, NOISY-APPROX-MEDIUM: 98, CLOSE-MEDIUM-CORRECTED: 94, NOISY-LOOSE-MEDIUM: 81, LOOSE-QUICK: 80, APPROX-EXTENDED: 66, NOISY-APPROX-EXTENDED: 59, NOISY-LOOSE-EXTENDED: 58, CLOSE-EXTENDED-CORRECTED: 53, LOOSE-EXTENDED: 35, NOISY-LOOSE-QUICK: 31, NOISY-APPROX-QUICK: 19, EXACT-QUICK-CORRECTED: 14, APPROX-SPIKE-CORRECTED: 12, PARTIAL-EXTENDED: 11, CLOSE-SPIKE-CORRECTED: 11, CLOSE-QUICK-CORRECTED: 7, LOOSE-SPIKE-CORRECTED: 5, NOISY-LOOSE-MEDIUM-CORRECTED: 4, NOISY-APPROX-MEDIUM-CORRECTED: 2, NOISY-APPROX-EXTENDED-CORRECTED: 2, APPROX-EXTENDED-CORRECTED: 2, APPROX-QUICK-CORRECTED: 1, LOOSE-QUICK-CORRECTED: 1, NOISY-APPROX-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 1372179.4 kW
-Segmented: 132392.7 kW (9.6%)
-Remaining: 1239582.5 kW
+Segmented: 162306.6 kW (11.8%)
+Remaining: 1209571.4 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 264,780
+Minutes explained: 96,268 (36.4%)
+  w1: 111,136 above TH, 54,931 explained (49.4%)
+  w2: 69,448 above TH, 12,382 explained (17.8%)
+  w3: 84,196 above TH, 28,955 explained (34.4%)
 
 --- Scores ---
-Matching score: 62/100
-Segmentation score: 10/100
-Overall score: 46/100
+Matching score: 67/100
+Segmentation score: 12/100
+Overall score: 50/100
 
 --- Issues ---
   - Low Improvement

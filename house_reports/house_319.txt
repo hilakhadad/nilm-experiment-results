@@ -4,26 +4,34 @@ EXPERIMENT REPORT: House 319
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 5239 events, 78.2% matched
-Last iteration: 1266 events, 33.5% matched
-Events reduction: 75.8%
-Total matched power: 3742.0 kW
+First iteration: 15742 events, 73.1% matched
+Last iteration: 6039 events, 40.3% matched
+Events reduction: 61.6%
+Total matched power: 10510.7 kW
 
 --- First Iteration Matching ---
-Total events: 2572 ON, 2667 OFF
-Matched: 0 (79.6%)
-By tag: NON-M: 1595, SPIKE: 371, NOISY: 41, PARTIAL: 41
+Total events: 7858 ON, 7884 OFF
+Matched: 5753 (73.2%)
+By tag: EXACT-SPIKE: 1415, EXACT-MEDIUM: 775, EXACT-EXTENDED: 538, CLOSE-MEDIUM: 486, EXACT-QUICK: 360, CLOSE-EXTENDED: 336, EXACT-MEDIUM-CORRECTED: 206, EXACT-EXTENDED-CORRECTED: 166, APPROX-MEDIUM: 163, PARTIAL-SPIKE: 156, PARTIAL-QUICK: 141, APPROX-SPIKE: 130, CLOSE-QUICK: 118, CLOSE-SPIKE: 112, APPROX-EXTENDED: 93, PARTIAL-MEDIUM: 89, CLOSE-EXTENDED-CORRECTED: 80, CLOSE-MEDIUM-CORRECTED: 76, APPROX-QUICK: 58, LOOSE-MEDIUM: 48, NOISY-APPROX-EXTENDED: 41, LOOSE-EXTENDED: 35, NOISY-LOOSE-EXTENDED: 31, NOISY-APPROX-MEDIUM: 26, NOISY-LOOSE-MEDIUM: 16, PARTIAL-EXTENDED: 15, LOOSE-SPIKE: 14, LOOSE-QUICK: 9, EXACT-QUICK-CORRECTED: 5, APPROX-EXTENDED-CORRECTED: 4, APPROX-MEDIUM-CORRECTED: 3, NOISY-LOOSE-QUICK: 2, PARTIAL-SPIKE-CORRECTED: 1, NOISY-LOOSE-EXTENDED-CORRECTED: 1, LOOSE-MEDIUM-CORRECTED: 1, LOOSE-SPIKE-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1, NOISY-APPROX-QUICK: 1
 
 --- First Iteration Segmentation ---
-Total power: 126703.3 kW
-Segmented: 34830.0 kW (27.5%)
-Remaining: 91253.1 kW
+Total power: 390191.5 kW
+Segmented: 80779.9 kW (20.7%)
+Remaining: 307434.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 99,808
+Minutes explained: 44,890 (45.0%)
+  w1: 22,528 above TH, 3,900 explained (17.3%)
+  w2: 34,855 above TH, 12,194 explained (35.0%)
+  w3: 42,425 above TH, 28,796 explained (67.9%)
 
 --- Scores ---
-Matching score: 78/100
-Segmentation score: 27/100
-Overall score: 63/100
+Matching score: 73/100
+Segmentation score: 21/100
+Overall score: 57/100
 
 --- Issues ---
   - Low Improvement
   - Low Segmentation
+  - Has Recurring Patterns

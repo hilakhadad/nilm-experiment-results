@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 2029
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 9911 events, 72.6% matched
-Last iteration: 2832 events, 16.3% matched
-Events reduction: 71.4%
-Total matched power: 6176.6 kW
+First iteration: 11295 events, 72.7% matched
+Last iteration: 3562 events, 24.6% matched
+Events reduction: 68.5%
+Total matched power: 6998.8 kW
 
 --- First Iteration Matching ---
-Total events: 4820 ON, 5091 OFF
-Matched: 0 (74.7%)
-By tag: NON-M: 2910, SPIKE: 453, PARTIAL: 162, NOISY: 75
+Total events: 5685 ON, 5610 OFF
+Matched: 4106 (72.2%)
+By tag: EXACT-MEDIUM: 1006, EXACT-QUICK: 815, EXACT-SPIKE: 511, CLOSE-MEDIUM: 384, EXACT-EXTENDED: 190, APPROX-MEDIUM: 160, LOOSE-MEDIUM: 147, CLOSE-QUICK: 140, PARTIAL-MEDIUM: 136, CLOSE-EXTENDED: 118, PARTIAL-QUICK: 72, EXACT-MEDIUM-CORRECTED: 60, CLOSE-SPIKE: 53, PARTIAL-SPIKE: 50, APPROX-QUICK: 41, LOOSE-QUICK: 33, EXACT-EXTENDED-CORRECTED: 30, NOISY-LOOSE-MEDIUM: 25, LOOSE-SPIKE: 15, NOISY-APPROX-MEDIUM: 15, CLOSE-MEDIUM-CORRECTED: 14, CLOSE-EXTENDED-CORRECTED: 14, APPROX-EXTENDED: 14, NOISY-LOOSE-EXTENDED: 14, NOISY-APPROX-EXTENDED: 9, APPROX-SPIKE: 9, NOISY-LOOSE-QUICK: 9, LOOSE-EXTENDED: 8, PARTIAL-EXTENDED: 6, EXACT-QUICK-CORRECTED: 2, NOISY-LOOSE-EXTENDED-CORRECTED: 1, LOOSE-MEDIUM-CORRECTED: 1, LOOSE-QUICK-CORRECTED: 1, NOISY-APPROX-QUICK: 1, LOOSE-SPIKE-CORRECTED: 1, NOISY-APPROX-EXTENDED-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 244059.3 kW
-Segmented: 54364.3 kW (22.3%)
-Remaining: 189669.7 kW
+Segmented: 51221.5 kW (21.0%)
+Remaining: 192815.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 60,092
+Minutes explained: 25,576 (42.6%)
+  w1: 12,761 above TH, 8,114 explained (63.6%)
+  w2: 31,572 above TH, 9,876 explained (31.3%)
+  w3: 15,759 above TH, 7,586 explained (48.1%)
 
 --- Scores ---
 Matching score: 73/100
-Segmentation score: 22/100
-Overall score: 58/100
+Segmentation score: 21/100
+Overall score: 57/100
 
 --- Issues ---
   - Low Improvement

@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 3024
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 283 events, 82.0% matched
-Last iteration: 57 events, 14.0% matched
-Events reduction: 79.9%
-Total matched power: 217.9 kW
+First iteration: 32798 events, 67.2% matched
+Last iteration: 12095 events, 21.2% matched
+Events reduction: 63.1%
+Total matched power: 20010.3 kW
 
 --- First Iteration Matching ---
-Total events: 140 ON, 143 OFF
-Matched: 0 (82.9%)
-By tag: NON-M: 90, SPIKE: 23, PARTIAL: 3
+Total events: 16782 ON, 16016 OFF
+Matched: 11026 (65.7%)
+By tag: EXACT-MEDIUM: 1598, APPROX-MEDIUM: 1487, EXACT-QUICK: 1320, EXACT-SPIKE: 1046, CLOSE-MEDIUM: 1019, EXACT-EXTENDED: 657, CLOSE-EXTENDED: 543, CLOSE-QUICK: 388, LOOSE-MEDIUM: 373, APPROX-EXTENDED: 351, PARTIAL-MEDIUM: 311, PARTIAL-QUICK: 305, LOOSE-EXTENDED: 272, PARTIAL-EXTENDED: 174, NOISY-LOOSE-EXTENDED: 169, NOISY-APPROX-EXTENDED: 160, APPROX-QUICK: 126, CLOSE-SPIKE: 121, PARTIAL-SPIKE: 120, EXACT-EXTENDED-CORRECTED: 82, NOISY-LOOSE-MEDIUM: 65, LOOSE-QUICK: 56, CLOSE-EXTENDED-CORRECTED: 55, APPROX-SPIKE: 52, NOISY-APPROX-MEDIUM: 52, EXACT-MEDIUM-CORRECTED: 48, LOOSE-SPIKE: 29, CLOSE-MEDIUM-CORRECTED: 27, NOISY-LOOSE-QUICK: 7, LOOSE-EXTENDED-CORRECTED: 3, APPROX-MEDIUM-CORRECTED: 2, APPROX-EXTENDED-CORRECTED: 2, LOOSE-MEDIUM-CORRECTED: 2, NOISY-APPROX-EXTENDED-CORRECTED: 1, NOISY-APPROX-QUICK: 1, CLOSE-QUICK-CORRECTED: 1, PARTIAL-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 14863.2 kW
-Segmented: 1307.4 kW (8.8%)
-Remaining: 13555.8 kW
+Total power: 1843989.8 kW
+Segmented: 404688.8 kW (21.9%)
+Remaining: 1439233.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 435,706
+Minutes explained: 170,255 (39.1%)
+  w1: 215,835 above TH, 66,808 explained (31.0%)
+  w2: 28,066 above TH, 12,470 explained (44.4%)
+  w3: 191,805 above TH, 90,977 explained (47.4%)
 
 --- Scores ---
-Matching score: 82/100
-Segmentation score: 9/100
-Overall score: 60/100
+Matching score: 67/100
+Segmentation score: 22/100
+Overall score: 54/100
 
 --- Issues ---
   - Low Improvement

@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 258
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 21112 events, 63.0% matched
-Last iteration: 7579 events, 10.9% matched
-Events reduction: 64.1%
-Total matched power: 12866.2 kW
+First iteration: 23105 events, 59.5% matched
+Last iteration: 10361 events, 18.0% matched
+Events reduction: 55.2%
+Total matched power: 13149.5 kW
 
 --- First Iteration Matching ---
-Total events: 9774 ON, 11338 OFF
-Matched: 0 (68.0%)
-By tag: NON-M: 4194, SPIKE: 1977, PARTIAL: 374, NOISY: 104
+Total events: 10876 ON, 12229 OFF
+Matched: 6869 (63.2%)
+By tag: EXACT-SPIKE: 1508, EXACT-QUICK: 1060, EXACT-MEDIUM: 1036, CLOSE-MEDIUM: 567, PARTIAL-QUICK: 281, PARTIAL-SPIKE: 279, CLOSE-QUICK: 221, EXACT-MEDIUM-CORRECTED: 212, PARTIAL-MEDIUM: 199, LOOSE-SPIKE: 184, APPROX-MEDIUM: 183, EXACT-EXTENDED: 174, CLOSE-SPIKE: 172, APPROX-SPIKE: 145, CLOSE-EXTENDED: 111, LOOSE-MEDIUM: 91, APPROX-QUICK: 90, LOOSE-QUICK: 74, NOISY-LOOSE-MEDIUM: 54, EXACT-EXTENDED-CORRECTED: 54, NOISY-APPROX-MEDIUM: 50, CLOSE-MEDIUM-CORRECTED: 48, CLOSE-EXTENDED-CORRECTED: 27, NOISY-APPROX-QUICK: 7, NOISY-LOOSE-QUICK: 6, APPROX-EXTENDED: 6, NOISY-LOOSE-MEDIUM-CORRECTED: 6, NOISY-LOOSE-EXTENDED: 5, PARTIAL-SPIKE-CORRECTED: 3, CLOSE-QUICK-CORRECTED: 3, NOISY-APPROX-MEDIUM-CORRECTED: 2, LOOSE-EXTENDED: 2, NOISY-APPROX-EXTENDED: 2, PARTIAL-MEDIUM-CORRECTED: 1, PARTIAL-EXTENDED: 1, LOOSE-QUICK-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1, NOISY-APPROX-EXTENDED-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1, PARTIAL-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 1150634.3 kW
-Segmented: 58856.7 kW (5.1%)
-Remaining: 1091859.4 kW
+Segmented: 52513.9 kW (4.6%)
+Remaining: 1098096.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 166,126
+Minutes explained: 27,501 (16.6%)
+  w1: 41,236 above TH, 8,072 explained (19.6%)
+  w2: 91,650 above TH, 8,888 explained (9.7%)
+  w3: 33,240 above TH, 10,541 explained (31.7%)
 
 --- Scores ---
-Matching score: 63/100
+Matching score: 59/100
 Segmentation score: 5/100
-Overall score: 46/100
+Overall score: 43/100
 
 --- Issues ---
   - Low Improvement

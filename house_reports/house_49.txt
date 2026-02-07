@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 49
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 51706 events, 73.1% matched
-Last iteration: 14423 events, 20.6% matched
-Events reduction: 72.1%
-Total matched power: 39327.4 kW
+First iteration: 57507 events, 70.2% matched
+Last iteration: 21903 events, 34.9% matched
+Events reduction: 61.9%
+Total matched power: 43067.7 kW
 
 --- First Iteration Matching ---
-Total events: 25524 ON, 26182 OFF
-Matched: 0 (74.0%)
-By tag: NON-M: 11351, SPIKE: 6269, PARTIAL: 787, NOISY: 485
+Total events: 29134 ON, 28373 OFF
+Matched: 20193 (69.3%)
+By tag: EXACT-SPIKE: 4896, EXACT-MEDIUM: 3802, CLOSE-MEDIUM: 1546, EXACT-QUICK: 1546, EXACT-EXTENDED: 1339, PARTIAL-MEDIUM: 908, CLOSE-SPIKE: 791, CLOSE-EXTENDED: 670, EXACT-MEDIUM-CORRECTED: 551, CLOSE-QUICK: 535, APPROX-MEDIUM: 445, PARTIAL-QUICK: 420, PARTIAL-SPIKE: 354, EXACT-EXTENDED-CORRECTED: 351, APPROX-SPIKE: 339, APPROX-QUICK: 198, LOOSE-MEDIUM: 184, NOISY-LOOSE-EXTENDED: 178, CLOSE-EXTENDED-CORRECTED: 171, CLOSE-MEDIUM-CORRECTED: 135, LOOSE-QUICK: 116, NOISY-APPROX-MEDIUM: 105, LOOSE-SPIKE: 98, NOISY-APPROX-EXTENDED: 92, NOISY-LOOSE-MEDIUM: 90, LOOSE-EXTENDED: 88, EXACT-QUICK-CORRECTED: 73, PARTIAL-EXTENDED: 57, APPROX-EXTENDED: 44, NOISY-LOOSE-QUICK: 14, CLOSE-SPIKE-CORRECTED: 11, NOISY-APPROX-QUICK: 11, CLOSE-QUICK-CORRECTED: 7, APPROX-MEDIUM-CORRECTED: 6, NOISY-LOOSE-MEDIUM-CORRECTED: 6, PARTIAL-QUICK-CORRECTED: 3, NOISY-LOOSE-EXTENDED-CORRECTED: 3, LOOSE-MEDIUM-CORRECTED: 2, PARTIAL-SPIKE-CORRECTED: 2, NOISY-APPROX-EXTENDED-CORRECTED: 2, NOISY-APPROX-MEDIUM-CORRECTED: 1, APPROX-SPIKE-CORRECTED: 1, APPROX-EXTENDED-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 1601879.3 kW
-Segmented: 545046.4 kW (34.0%)
-Remaining: 1056533.3 kW
+Segmented: 483678.8 kW (30.2%)
+Remaining: 1117809.1 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 446,401
+Minutes explained: 201,667 (45.2%)
+  w1: 246,089 above TH, 127,905 explained (52.0%)
+  w2: 121,720 above TH, 48,389 explained (39.8%)
+  w3: 78,592 above TH, 25,373 explained (32.3%)
 
 --- Scores ---
-Matching score: 73/100
-Segmentation score: 34/100
-Overall score: 61/100
+Matching score: 70/100
+Segmentation score: 30/100
+Overall score: 58/100
 
 --- Issues ---
   - Low Improvement

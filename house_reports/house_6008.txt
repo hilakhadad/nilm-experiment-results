@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 6008
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 11737 events, 68.7% matched
-Last iteration: 3791 events, 12.7% matched
-Events reduction: 67.7%
-Total matched power: 8618.8 kW
+First iteration: 14605 events, 66.0% matched
+Last iteration: 5893 events, 25.0% matched
+Events reduction: 59.7%
+Total matched power: 9751.6 kW
 
 --- First Iteration Matching ---
-Total events: 5825 ON, 5912 OFF
-Matched: 0 (69.2%)
-By tag: NON-M: 2736, SPIKE: 913, PARTIAL: 315, NOISY: 67
+Total events: 7183 ON, 7422 OFF
+Matched: 4821 (67.1%)
+By tag: EXACT-MEDIUM: 984, EXACT-SPIKE: 800, CLOSE-MEDIUM: 481, EXACT-QUICK: 427, EXACT-EXTENDED: 375, APPROX-MEDIUM: 210, CLOSE-EXTENDED: 181, PARTIAL-MEDIUM: 166, PARTIAL-QUICK: 149, PARTIAL-SPIKE: 123, EXACT-MEDIUM-CORRECTED: 105, EXACT-EXTENDED-CORRECTED: 105, CLOSE-QUICK: 92, LOOSE-MEDIUM: 91, LOOSE-SPIKE: 76, APPROX-SPIKE: 66, CLOSE-SPIKE: 51, LOOSE-QUICK: 48, CLOSE-EXTENDED-CORRECTED: 45, APPROX-EXTENDED: 39, APPROX-QUICK: 33, NOISY-APPROX-MEDIUM: 32, PARTIAL-EXTENDED: 30, LOOSE-EXTENDED: 27, NOISY-LOOSE-MEDIUM: 25, CLOSE-MEDIUM-CORRECTED: 21, NOISY-LOOSE-EXTENDED: 11, NOISY-APPROX-EXTENDED: 7, NOISY-APPROX-QUICK: 6, NOISY-LOOSE-QUICK: 3, NOISY-LOOSE-MEDIUM-CORRECTED: 3, EXACT-QUICK-CORRECTED: 3, APPROX-MEDIUM-CORRECTED: 2, NOISY-LOOSE-EXTENDED-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1, NOISY-APPROX-MEDIUM-CORRECTED: 1, PARTIAL-SPIKE-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 617160.8 kW
-Segmented: 73112.1 kW (11.8%)
-Remaining: 543987.2 kW
+Segmented: 84866.1 kW (13.8%)
+Remaining: 532225.7 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 84,669
+Minutes explained: 40,735 (48.1%)
+  w1: 50,597 above TH, 24,027 explained (47.5%)
+  w2: 30,143 above TH, 16,079 explained (53.3%)
+  w3: 3,929 above TH, 629 explained (16.0%)
 
 --- Scores ---
-Matching score: 69/100
-Segmentation score: 12/100
-Overall score: 52/100
+Matching score: 66/100
+Segmentation score: 14/100
+Overall score: 50/100
 
 --- Issues ---
   - Low Improvement

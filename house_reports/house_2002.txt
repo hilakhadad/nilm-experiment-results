@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 2002
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 6096 events, 62.8% matched
-Last iteration: 2619 events, 24.5% matched
-Events reduction: 57.0%
-Total matched power: 3778.4 kW
+First iteration: 16814 events, 69.2% matched
+Last iteration: 7073 events, 35.6% matched
+Events reduction: 57.9%
+Total matched power: 10905.0 kW
 
 --- First Iteration Matching ---
-Total events: 3018 ON, 3078 OFF
-Matched: 0 (63.5%)
-By tag: NON-M: 1465, SPIKE: 336, PARTIAL: 84, NOISY: 30
+Total events: 8291 ON, 8523 OFF
+Matched: 5816 (70.1%)
+By tag: EXACT-SPIKE: 1125, EXACT-MEDIUM: 1054, CLOSE-MEDIUM: 609, EXACT-QUICK: 546, EXACT-EXTENDED: 437, CLOSE-EXTENDED: 275, APPROX-MEDIUM: 269, EXACT-MEDIUM-CORRECTED: 251, CLOSE-QUICK: 200, CLOSE-SPIKE: 138, CLOSE-MEDIUM-CORRECTED: 125, PARTIAL-MEDIUM: 125, APPROX-QUICK: 120, PARTIAL-QUICK: 99, PARTIAL-SPIKE: 85, LOOSE-MEDIUM: 70, APPROX-SPIKE: 38, LOOSE-QUICK: 32, PARTIAL-EXTENDED: 30, NOISY-LOOSE-MEDIUM: 29, NOISY-APPROX-EXTENDED: 24, EXACT-EXTENDED-CORRECTED: 24, NOISY-APPROX-MEDIUM: 22, APPROX-EXTENDED: 21, LOOSE-SPIKE: 18, CLOSE-EXTENDED-CORRECTED: 14, NOISY-LOOSE-EXTENDED: 12, APPROX-MEDIUM-CORRECTED: 9, LOOSE-MEDIUM-CORRECTED: 5, EXACT-QUICK-CORRECTED: 4, NOISY-APPROX-QUICK: 2, PARTIAL-MEDIUM-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 158487.8 kW
-Segmented: 19951.6 kW (12.6%)
-Remaining: 138203.0 kW
+Total power: 306008.0 kW
+Segmented: 50586.0 kW (16.5%)
+Remaining: 254235.3 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 65,941
+Minutes explained: 21,918 (33.2%)
+  w1: 2,821 above TH, 1,675 explained (59.4%)
+  w2: 17,844 above TH, 8,674 explained (48.6%)
+  w3: 45,276 above TH, 11,569 explained (25.6%)
 
 --- Scores ---
-Matching score: 63/100
-Segmentation score: 13/100
-Overall score: 48/100
+Matching score: 69/100
+Segmentation score: 17/100
+Overall score: 53/100
 
 --- Issues ---
   - Low Improvement

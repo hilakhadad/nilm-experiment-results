@@ -4,28 +4,33 @@ EXPERIMENT REPORT: House 3020
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 10 events, 40.0% matched
-Last iteration: 6 events, 33.3% matched
-Events reduction: 40.0%
-Total matched power: 4.9 kW
+First iteration: 12190 events, 73.0% matched
+Last iteration: 4408 events, 34.3% matched
+Events reduction: 63.8%
+Total matched power: 9189.1 kW
 
 --- First Iteration Matching ---
-Total events: 5 ON, 5 OFF
-Matched: 0 (40.0%)
-By tag: NON-M: 1, NOISY: 1
+Total events: 6143 ON, 6047 OFF
+Matched: 4450 (72.4%)
+By tag: EXACT-MEDIUM: 1188, EXACT-SPIKE: 738, CLOSE-MEDIUM: 539, APPROX-MEDIUM: 275, EXACT-QUICK: 260, EXACT-MEDIUM-CORRECTED: 230, EXACT-EXTENDED: 162, PARTIAL-MEDIUM: 160, EXACT-EXTENDED-CORRECTED: 130, CLOSE-EXTENDED: 108, PARTIAL-QUICK: 101, LOOSE-MEDIUM: 74, PARTIAL-SPIKE: 70, CLOSE-EXTENDED-CORRECTED: 55, CLOSE-QUICK: 45, NOISY-LOOSE-MEDIUM: 44, CLOSE-MEDIUM-CORRECTED: 41, CLOSE-SPIKE: 37, APPROX-QUICK: 33, APPROX-EXTENDED: 29, PARTIAL-EXTENDED: 23, NOISY-APPROX-MEDIUM: 21, APPROX-SPIKE: 21, LOOSE-SPIKE: 17, LOOSE-QUICK: 16, NOISY-LOOSE-EXTENDED: 10, APPROX-EXTENDED-CORRECTED: 5, NOISY-LOOSE-QUICK: 4, APPROX-MEDIUM-CORRECTED: 3, NOISY-APPROX-EXTENDED: 3, NOISY-APPROX-QUICK: 2, LOOSE-EXTENDED: 2, LOOSE-QUICK-CORRECTED: 2, EXACT-QUICK-CORRECTED: 1, LOOSE-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 2279.4 kW
-Segmented: 59.3 kW (2.6%)
-Remaining: 2220.2 kW
+Total power: 421455.2 kW
+Segmented: 53978.8 kW (12.8%)
+Remaining: 367102.7 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 54,928
+Minutes explained: 28,467 (51.8%)
+  w1: 30,235 above TH, 20,391 explained (67.4%)
+  w2: 0 above TH, 0 explained (0.0%)
+  w3: 24,693 above TH, 8,076 explained (32.7%)
 
 --- Scores ---
-Matching score: 40/100
-Segmentation score: 3/100
-Overall score: 29/100
+Matching score: 73/100
+Segmentation score: 13/100
+Overall score: 55/100
 
 --- Issues ---
-  - Low Matching Rate
   - Low Improvement
   - Low Segmentation
-  - Few Matches

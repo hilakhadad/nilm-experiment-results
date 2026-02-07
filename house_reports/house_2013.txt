@@ -4,26 +4,33 @@ EXPERIMENT REPORT: House 2013
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 10942 events, 68.1% matched
-Last iteration: 3341 events, 3.1% matched
-Events reduction: 69.5%
-Total matched power: 5556.4 kW
+First iteration: 17685 events, 81.5% matched
+Last iteration: 4101 events, 29.9% matched
+Events reduction: 76.8%
+Total matched power: 10224.2 kW
 
 --- First Iteration Matching ---
-Total events: 4792 ON, 6150 OFF
-Matched: 0 (77.8%)
-By tag: NON-M: 3494, NOISY: 106, PARTIAL: 75, SPIKE: 51
+Total events: 8791 ON, 8894 OFF
+Matched: 7208 (82.0%)
+By tag: EXACT-MEDIUM: 2385, CLOSE-MEDIUM: 2058, APPROX-MEDIUM: 712, EXACT-EXTENDED: 338, CLOSE-EXTENDED: 235, EXACT-QUICK: 228, EXACT-EXTENDED-CORRECTED: 225, CLOSE-EXTENDED-CORRECTED: 167, LOOSE-MEDIUM: 151, NOISY-APPROX-MEDIUM: 97, EXACT-MEDIUM-CORRECTED: 94, PARTIAL-MEDIUM: 89, NOISY-LOOSE-MEDIUM: 80, APPROX-EXTENDED: 70, EXACT-SPIKE: 66, CLOSE-QUICK: 50, CLOSE-MEDIUM-CORRECTED: 28, NOISY-APPROX-EXTENDED: 22, CLOSE-SPIKE: 19, NOISY-LOOSE-EXTENDED: 17, LOOSE-QUICK: 12, APPROX-SPIKE: 11, PARTIAL-QUICK: 11, APPROX-QUICK: 8, LOOSE-EXTENDED: 7, APPROX-MEDIUM-CORRECTED: 7, LOOSE-SPIKE: 6, PARTIAL-SPIKE: 4, LOOSE-MEDIUM-CORRECTED: 4, PARTIAL-EXTENDED: 2, APPROX-EXTENDED-CORRECTED: 2, NOISY-LOOSE-EXTENDED-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1, NOISY-LOOSE-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 369296.9 kW
-Segmented: 80011.1 kW (21.7%)
-Remaining: 289261.1 kW
+Segmented: 116983.1 kW (31.7%)
+Remaining: 252283.1 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 85,353
+Minutes explained: 58,538 (68.6%)
+  w1: 33,891 above TH, 27,593 explained (81.4%)
+  w2: 31,086 above TH, 16,975 explained (54.6%)
+  w3: 20,376 above TH, 13,970 explained (68.6%)
 
 --- Scores ---
-Matching score: 68/100
-Segmentation score: 22/100
-Overall score: 54/100
+Matching score: 82/100
+Segmentation score: 32/100
+Overall score: 67/100
 
 --- Issues ---
   - Low Improvement
-  - Low Segmentation
+  - Has Recurring Patterns

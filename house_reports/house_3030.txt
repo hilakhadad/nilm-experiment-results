@@ -4,26 +4,34 @@ EXPERIMENT REPORT: House 3030
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 226 events, 87.6% matched
-Last iteration: 30 events, 26.7% matched
-Events reduction: 86.7%
-Total matched power: 192.0 kW
+First iteration: 27438 events, 76.6% matched
+Last iteration: 9655 events, 49.3% matched
+Events reduction: 64.8%
+Total matched power: 22249.6 kW
 
 --- First Iteration Matching ---
-Total events: 112 ON, 114 OFF
-Matched: 0 (88.4%)
-By tag: NON-M: 93, SPIKE: 4, PARTIAL: 2
+Total events: 13946 ON, 13492 OFF
+Matched: 10513 (75.4%)
+By tag: EXACT-MEDIUM: 2057, CLOSE-MEDIUM: 1932, EXACT-QUICK: 1105, APPROX-MEDIUM: 1077, EXACT-MEDIUM-CORRECTED: 878, CLOSE-MEDIUM-CORRECTED: 812, CLOSE-QUICK: 549, EXACT-EXTENDED-CORRECTED: 308, CLOSE-EXTENDED-CORRECTED: 252, LOOSE-MEDIUM: 231, APPROX-QUICK: 227, EXACT-SPIKE: 209, EXACT-EXTENDED: 205, PARTIAL-QUICK: 192, PARTIAL-MEDIUM: 164, CLOSE-EXTENDED: 157, LOOSE-QUICK: 42, PARTIAL-SPIKE: 36, APPROX-MEDIUM-CORRECTED: 17, CLOSE-SPIKE: 16, NOISY-APPROX-MEDIUM: 11, NOISY-LOOSE-MEDIUM: 10, APPROX-SPIKE: 6, APPROX-EXTENDED: 5, APPROX-EXTENDED-CORRECTED: 3, LOOSE-MEDIUM-CORRECTED: 2, LOOSE-SPIKE: 2, LOOSE-EXTENDED: 2, PARTIAL-SPIKE-CORRECTED: 1, NOISY-APPROX-EXTENDED: 1, PARTIAL-MEDIUM-CORRECTED: 1, NOISY-LOOSE-MEDIUM-CORRECTED: 1, NOISY-APPROX-EXTENDED-CORRECTED: 1, NOISY-APPROX-QUICK: 1
 
 --- First Iteration Segmentation ---
-Total power: 13125.0 kW
-Segmented: 1432.0 kW (10.9%)
-Remaining: 11693.1 kW
+Total power: 465614.8 kW
+Segmented: 81961.3 kW (17.6%)
+Remaining: 383633.4 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 73,079
+Minutes explained: 42,280 (57.9%)
+  w1: 19,153 above TH, 13,280 explained (69.3%)
+  w2: 39,912 above TH, 20,962 explained (52.5%)
+  w3: 14,014 above TH, 8,038 explained (57.4%)
 
 --- Scores ---
-Matching score: 88/100
-Segmentation score: 11/100
-Overall score: 65/100
+Matching score: 77/100
+Segmentation score: 18/100
+Overall score: 59/100
 
 --- Issues ---
   - Low Improvement
   - Low Segmentation
+  - Has Recurring Patterns

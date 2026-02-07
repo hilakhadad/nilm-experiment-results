@@ -4,28 +4,35 @@ EXPERIMENT REPORT: House 2078
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 37914 events, 58.2% matched
-Last iteration: 15903 events, 14.1% matched
-Events reduction: 58.1%
-Total matched power: 21404.8 kW
+First iteration: 103219 events, 69.4% matched
+Last iteration: 38316 events, 31.7% matched
+Events reduction: 62.9%
+Total matched power: 73072.0 kW
 
 --- First Iteration Matching ---
-Total events: 17394 ON, 20520 OFF
-Matched: 0 (63.4%)
-By tag: NON-M: 5890, SPIKE: 4020, PARTIAL: 880, NOISY: 236
+Total events: 51264 ON, 51955 OFF
+Matched: 35814 (69.9%)
+By tag: EXACT-SPIKE: 9862, EXACT-QUICK: 5430, EXACT-MEDIUM: 5305, CLOSE-MEDIUM: 2464, EXACT-EXTENDED: 1541, CLOSE-QUICK: 1107, EXACT-MEDIUM-CORRECTED: 995, PARTIAL-QUICK: 973, APPROX-MEDIUM: 859, LOOSE-SPIKE: 851, CLOSE-EXTENDED: 827, PARTIAL-SPIKE: 805, CLOSE-SPIKE: 799, PARTIAL-MEDIUM: 678, APPROX-SPIKE: 570, EXACT-EXTENDED-CORRECTED: 462, APPROX-QUICK: 366, CLOSE-EXTENDED-CORRECTED: 318, LOOSE-QUICK: 313, CLOSE-MEDIUM-CORRECTED: 276, LOOSE-MEDIUM: 243, NOISY-LOOSE-MEDIUM: 206, NOISY-APPROX-MEDIUM: 199, NOISY-APPROX-EXTENDED: 105, NOISY-LOOSE-EXTENDED: 39, APPROX-EXTENDED: 32, PARTIAL-EXTENDED: 30, NOISY-LOOSE-QUICK: 26, NOISY-APPROX-QUICK: 25, APPROX-MEDIUM-CORRECTED: 17, NOISY-LOOSE-MEDIUM-CORRECTED: 16, NOISY-APPROX-MEDIUM-CORRECTED: 14, PARTIAL-QUICK-CORRECTED: 8, NOISY-APPROX-EXTENDED-CORRECTED: 8, EXACT-QUICK-CORRECTED: 8, NOISY-LOOSE-EXTENDED-CORRECTED: 6, APPROX-EXTENDED-CORRECTED: 5, LOOSE-EXTENDED: 5, PARTIAL-SPIKE-CORRECTED: 3, PARTIAL-MEDIUM-CORRECTED: 3, NOISY-LOOSE-QUICK-CORRECTED: 3, CLOSE-QUICK-CORRECTED: 2, NOISY-APPROX-QUICK-CORRECTED: 2, LOOSE-MEDIUM-CORRECTED: 2, APPROX-SPIKE-CORRECTED: 2, CLOSE-SPIKE-CORRECTED: 2, APPROX-QUICK-CORRECTED: 2
 
 --- First Iteration Segmentation ---
-Total power: 840536.7 kW
-Segmented: 106234.1 kW (12.6%)
-Remaining: 734222.3 kW
+Total power: 2179033.5 kW
+Segmented: 298882.6 kW (13.7%)
+Remaining: 1879781.7 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 343,873
+Minutes explained: 138,371 (40.2%)
+  w1: 6 above TH, 0 explained (0.0%)
+  w2: 159,594 above TH, 49,028 explained (30.7%)
+  w3: 184,273 above TH, 89,343 explained (48.5%)
 
 --- Scores ---
 DAMAGED PHASES: w1
 Healthy phases: w2, w3
 (Scores calculated from healthy phases only)
-Matching score: 58/100
-Segmentation score: 13/100
-Overall score: 45/100
+Matching score: 69/100
+Segmentation score: 14/100
+Overall score: 53/100
 
 --- Issues ---
   - Low Improvement

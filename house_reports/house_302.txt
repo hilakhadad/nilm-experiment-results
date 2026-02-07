@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 302
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 11867 events, 70.9% matched
-Last iteration: 3318 events, 15.3% matched
-Events reduction: 72.0%
-Total matched power: 8282.4 kW
+First iteration: 12465 events, 65.6% matched
+Last iteration: 5007 events, 22.6% matched
+Events reduction: 59.8%
+Total matched power: 7920.6 kW
 
 --- First Iteration Matching ---
-Total events: 5790 ON, 6077 OFF
-Matched: 0 (72.7%)
-By tag: NON-M: 2220, SPIKE: 1760, PARTIAL: 151, NOISY: 77
+Total events: 6422 ON, 6043 OFF
+Matched: 4086 (63.6%)
+By tag: EXACT-SPIKE: 1433, EXACT-MEDIUM: 542, EXACT-QUICK: 311, EXACT-EXTENDED: 282, CLOSE-MEDIUM: 210, CLOSE-EXTENDED: 180, EXACT-MEDIUM-CORRECTED: 155, CLOSE-SPIKE: 143, PARTIAL-SPIKE: 125, PARTIAL-MEDIUM: 96, APPROX-MEDIUM: 81, APPROX-SPIKE: 80, PARTIAL-QUICK: 62, EXACT-EXTENDED-CORRECTED: 57, CLOSE-QUICK: 50, LOOSE-SPIKE: 37, APPROX-EXTENDED: 34, CLOSE-EXTENDED-CORRECTED: 28, LOOSE-MEDIUM: 27, CLOSE-MEDIUM-CORRECTED: 23, NOISY-LOOSE-EXTENDED: 20, NOISY-APPROX-MEDIUM: 19, NOISY-LOOSE-MEDIUM: 19, APPROX-QUICK: 18, NOISY-APPROX-EXTENDED: 14, LOOSE-QUICK: 9, PARTIAL-EXTENDED: 7, NOISY-LOOSE-QUICK: 7, LOOSE-EXTENDED: 4, EXACT-QUICK-CORRECTED: 4, NOISY-APPROX-QUICK: 3, APPROX-QUICK-CORRECTED: 1, PARTIAL-SPIKE-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1, PARTIAL-QUICK-CORRECTED: 1, APPROX-SPIKE-CORRECTED: 1, PARTIAL-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 581709.6 kW
-Segmented: 95427.0 kW (16.4%)
-Remaining: 486173.4 kW
+Segmented: 92477.7 kW (15.9%)
+Remaining: 489111.2 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 92,918
+Minutes explained: 36,397 (39.2%)
+  w1: 21,804 above TH, 5,577 explained (25.6%)
+  w2: 2,721 above TH, 1,508 explained (55.4%)
+  w3: 68,393 above TH, 29,312 explained (42.9%)
 
 --- Scores ---
-Matching score: 71/100
+Matching score: 66/100
 Segmentation score: 16/100
-Overall score: 55/100
+Overall score: 51/100
 
 --- Issues ---
   - Low Improvement

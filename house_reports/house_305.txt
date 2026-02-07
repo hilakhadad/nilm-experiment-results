@@ -4,26 +4,34 @@ EXPERIMENT REPORT: House 305
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 19074 events, 82.4% matched
-Last iteration: 3546 events, 15.5% matched
-Events reduction: 81.4%
-Total matched power: 13649.3 kW
+First iteration: 20326 events, 69.7% matched
+Last iteration: 7459 events, 25.4% matched
+Events reduction: 63.3%
+Total matched power: 12540.9 kW
 
 --- First Iteration Matching ---
-Total events: 9433 ON, 9641 OFF
-Matched: 0 (83.3%)
-By tag: NON-M: 6889, SPIKE: 630, NOISY: 189, PARTIAL: 149
+Total events: 10210 ON, 10116 OFF
+Matched: 7084 (69.4%)
+By tag: EXACT-MEDIUM: 1404, CLOSE-MEDIUM: 1081, EXACT-QUICK: 729, APPROX-MEDIUM: 571, EXACT-SPIKE: 489, EXACT-EXTENDED: 476, CLOSE-EXTENDED: 341, PARTIAL-MEDIUM: 253, EXACT-EXTENDED-CORRECTED: 252, CLOSE-QUICK: 219, CLOSE-EXTENDED-CORRECTED: 190, LOOSE-MEDIUM: 157, APPROX-SPIKE: 123, CLOSE-SPIKE: 122, PARTIAL-QUICK: 115, APPROX-QUICK: 99, PARTIAL-SPIKE: 76, APPROX-EXTENDED: 69, NOISY-APPROX-MEDIUM: 58, NOISY-LOOSE-MEDIUM: 41, LOOSE-QUICK: 33, LOOSE-EXTENDED: 31, EXACT-MEDIUM-CORRECTED: 29, LOOSE-SPIKE: 24, NOISY-LOOSE-EXTENDED: 24, PARTIAL-EXTENDED: 23, NOISY-APPROX-EXTENDED: 18, CLOSE-MEDIUM-CORRECTED: 15, APPROX-EXTENDED-CORRECTED: 5, NOISY-APPROX-EXTENDED-CORRECTED: 3, APPROX-MEDIUM-CORRECTED: 2, EXACT-QUICK-CORRECTED: 2, PARTIAL-QUICK-CORRECTED: 2, NOISY-APPROX-QUICK: 2, LOOSE-MEDIUM-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1, NOISY-APPROX-MEDIUM-CORRECTED: 1, NOISY-LOOSE-EXTENDED-CORRECTED: 1, PARTIAL-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 509904.7 kW
-Segmented: 178538.8 kW (35.0%)
-Remaining: 331169.7 kW
+Total power: 528284.2 kW
+Segmented: 137213.8 kW (26.0%)
+Remaining: 390903.6 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 147,312
+Minutes explained: 72,225 (49.0%)
+  w1: 46,095 above TH, 21,985 explained (47.7%)
+  w2: 50,264 above TH, 16,291 explained (32.4%)
+  w3: 50,953 above TH, 33,949 explained (66.6%)
 
 --- Scores ---
-Matching score: 82/100
-Segmentation score: 35/100
-Overall score: 68/100
+Matching score: 70/100
+Segmentation score: 26/100
+Overall score: 57/100
 
 --- Issues ---
   - Low Improvement
+  - Low Segmentation
   - Has Recurring Patterns

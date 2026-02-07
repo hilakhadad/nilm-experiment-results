@@ -4,27 +4,33 @@ EXPERIMENT REPORT: House 5032
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 45579 events, 72.4% matched
-Last iteration: 11784 events, 12.8% matched
-Events reduction: 74.1%
-Total matched power: 27001.0 kW
+First iteration: 245538 events, 78.5% matched
+Last iteration: 72895 events, 44.5% matched
+Events reduction: 70.3%
+Total matched power: 157482.5 kW
 
 --- First Iteration Matching ---
-Total events: 20648 ON, 24931 OFF
-Matched: 0 (79.9%)
-By tag: NON-M: 14095, SPIKE: 1866, PARTIAL: 380, NOISY: 154
+Total events: 124133 ON, 121405 OFF
+Matched: 96407 (77.7%)
+By tag: EXACT-QUICK: 14037, EXACT-MEDIUM: 13625, CLOSE-MEDIUM: 11757, CLOSE-QUICK: 8687, APPROX-QUICK: 6848, EXACT-SPIKE: 6693, APPROX-MEDIUM: 6268, LOOSE-MEDIUM: 4237, EXACT-EXTENDED: 4150, EXACT-MEDIUM-CORRECTED: 4108, CLOSE-EXTENDED: 3060, CLOSE-MEDIUM-CORRECTED: 3005, LOOSE-QUICK: 1525, PARTIAL-QUICK: 1458, PARTIAL-MEDIUM: 1278, EXACT-EXTENDED-CORRECTED: 1241, CLOSE-EXTENDED-CORRECTED: 1125, CLOSE-SPIKE: 828, PARTIAL-SPIKE: 710, NOISY-LOOSE-MEDIUM: 320, NOISY-APPROX-MEDIUM: 253, APPROX-EXTENDED: 188, APPROX-SPIKE: 186, LOOSE-SPIKE: 179, LOOSE-EXTENDED: 160, NOISY-LOOSE-EXTENDED: 95, PARTIAL-EXTENDED: 68, NOISY-APPROX-EXTENDED: 57, APPROX-MEDIUM-CORRECTED: 56, EXACT-QUICK-CORRECTED: 47, NOISY-APPROX-QUICK: 41, NOISY-LOOSE-QUICK: 34, APPROX-EXTENDED-CORRECTED: 26, NOISY-APPROX-EXTENDED-CORRECTED: 10, CLOSE-QUICK-CORRECTED: 9, PARTIAL-QUICK-CORRECTED: 7, NOISY-LOOSE-EXTENDED-CORRECTED: 7, CLOSE-SPIKE-CORRECTED: 5, NOISY-LOOSE-MEDIUM-CORRECTED: 4, PARTIAL-SPIKE-CORRECTED: 3, PARTIAL-MEDIUM-CORRECTED: 3, APPROX-QUICK-CORRECTED: 3, NOISY-APPROX-MEDIUM-CORRECTED: 2, LOOSE-MEDIUM-CORRECTED: 2, LOOSE-EXTENDED-CORRECTED: 2
 
 --- First Iteration Segmentation ---
-Total power: 591966.0 kW
-Segmented: 166484.9 kW (28.1%)
-Remaining: 425408.9 kW
+Total power: 2136936.0 kW
+Segmented: 771326.1 kW (36.1%)
+Remaining: 1365380.8 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 624,631
+Minutes explained: 349,227 (55.9%)
+  w1: 283,932 above TH, 157,684 explained (55.5%)
+  w2: 175,331 above TH, 104,789 explained (59.8%)
+  w3: 165,368 above TH, 86,754 explained (52.5%)
 
 --- Scores ---
-Matching score: 72/100
-Segmentation score: 28/100
-Overall score: 59/100
+Matching score: 79/100
+Segmentation score: 36/100
+Overall score: 66/100
 
 --- Issues ---
   - Low Improvement
-  - Low Segmentation
   - Has Recurring Patterns

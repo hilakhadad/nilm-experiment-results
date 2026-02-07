@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 2014
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 10013 events, 79.5% matched
-Last iteration: 2076 events, 10.3% matched
-Events reduction: 79.3%
-Total matched power: 6905.0 kW
+First iteration: 11303 events, 68.3% matched
+Last iteration: 3864 events, 16.6% matched
+Events reduction: 65.8%
+Total matched power: 6114.0 kW
 
 --- First Iteration Matching ---
-Total events: 4937 ON, 5076 OFF
-Matched: 0 (80.6%)
-By tag: NON-M: 3300, SPIKE: 517, PARTIAL: 98, NOISY: 63
+Total events: 5634 ON, 5669 OFF
+Matched: 3861 (68.5%)
+By tag: EXACT-MEDIUM: 681, APPROX-MEDIUM: 532, EXACT-QUICK: 508, CLOSE-MEDIUM: 415, EXACT-SPIKE: 406, PARTIAL-QUICK: 176, LOOSE-MEDIUM: 159, EXACT-EXTENDED: 147, CLOSE-EXTENDED: 118, CLOSE-QUICK: 110, PARTIAL-SPIKE: 102, PARTIAL-MEDIUM: 85, EXACT-EXTENDED-CORRECTED: 55, APPROX-EXTENDED: 49, CLOSE-EXTENDED-CORRECTED: 43, APPROX-QUICK: 41, EXACT-MEDIUM-CORRECTED: 37, APPROX-SPIKE: 34, CLOSE-SPIKE: 26, LOOSE-EXTENDED: 19, NOISY-LOOSE-MEDIUM: 19, NOISY-APPROX-MEDIUM: 18, CLOSE-MEDIUM-CORRECTED: 18, LOOSE-QUICK: 17, NOISY-APPROX-EXTENDED: 14, PARTIAL-EXTENDED: 12, NOISY-LOOSE-EXTENDED: 6, LOOSE-SPIKE: 4, NOISY-LOOSE-QUICK: 2, APPROX-MEDIUM-CORRECTED: 2, APPROX-QUICK-CORRECTED: 1, EXACT-QUICK-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1, APPROX-EXTENDED-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1, LOOSE-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 417880.2 kW
-Segmented: 65872.6 kW (15.8%)
-Remaining: 351975.2 kW
+Segmented: 56923.7 kW (13.6%)
+Remaining: 360889.2 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 54,745
+Minutes explained: 30,990 (56.6%)
+  w1: 25,656 above TH, 15,146 explained (59.0%)
+  w2: 13,385 above TH, 8,804 explained (65.8%)
+  w3: 15,704 above TH, 7,040 explained (44.8%)
 
 --- Scores ---
-Matching score: 79/100
-Segmentation score: 16/100
-Overall score: 60/100
+Matching score: 68/100
+Segmentation score: 14/100
+Overall score: 52/100
 
 --- Issues ---
   - Low Improvement

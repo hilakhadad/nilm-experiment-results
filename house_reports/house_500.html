@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House 500 - Experiment Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            opacity: 0.9;
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: #444;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        section h4 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .summary-card.highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .summary-card.highlight .summary-label {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .summary-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .summary-card.highlight .summary-number {
+            color: white;
+        }
+
+        .summary-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .badge-purple { background: #e2d5f0; color: #6f42c1; }
+        .badge-green { background: #d4edda; color: #155724; }
+        .badge-blue { background: #cce5ff; color: #004085; }
+        .badge-orange { background: #fff3cd; color: #856404; }
+        .badge-red { background: #f8d7da; color: #721c24; }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .data-table.small {
+            font-size: 0.85em;
+        }
+
+        .data-table th {
+            background: #2d3748;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .pattern-row {
+            cursor: pointer;
+        }
+
+        .pattern-row:hover {
+            background: #e3f2fd !important;
+        }
+
+        .dates-row {
+            background: #f5f5f5;
+        }
+
+        .dates-expanded {
+            padding: 15px !important;
+            font-size: 0.85em;
+            color: #555;
+            word-break: break-word;
+        }
+
+        .dates-cell {
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .metrics-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .metric {
+            display: flex;
+            gap: 8px;
+        }
+
+        .metric-label {
+            color: #666;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .flags-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .flag-item {
+            padding: 10px 15px;
+            margin: 5px 0;
+            background: #fff3cd;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .flag-icon {
+            margin-right: 8px;
+        }
+
+        .warning {
+            padding: 15px;
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            color: #721c24;
+        }
+
+        .success {
+            padding: 15px;
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            border-radius: 5px;
+            color: #155724;
+        }
+
+        .chart-container {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            justify-items: start;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .two-columns { grid-template-columns: 1fr; }
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>House 500</h1>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-07 22:08:08</div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            
+    <div class="th-explanation-highlight" style="background: linear-gradient(135deg, #fff 0%, #dc354522 100%); border: 2px solid #dc3545; border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: center;">
+        <h3 style="margin: 0 0 10px 0; color: #333;">High-Power Energy Explained (&gt;1300W)</h3>
+        <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+            <div>
+                <div style="font-size: 2.5em; font-weight: bold; color: #dc3545;">26.0%</div>
+                <div style="color: #666;">Explained Rate</div>
+            </div>
+            <div>
+                <div style="font-size: 1.5em; font-weight: bold; color: #333;">14,209</div>
+                <div style="color: #666;">Minutes &gt;1300W</div>
+            </div>
+            <div>
+                <div style="font-size: 1.5em; font-weight: bold; color: #dc3545;">3,699</div>
+                <div style="color: #666;">Minutes Explained</div>
+            </div>
+        </div>
+    </div>
+    <div class="summary-grid">
+        <div class="summary-card" style="background: #f0f0f0;">
+            <div class="summary-number" style="color: #ffc107;">60</div>
+            <div class="summary-label">Pre-Quality Score</div>
+            <div style="font-size: 0.7em; color: #888;">(from house analysis)</div>
+        </div>
+        <div class="summary-card highlight">
+            <div class="summary-number">47</div>
+            <div class="summary-label">Experiment Score</div>
+            <span class="badge badge-purple">Damaged (w2,w3)</span>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">64</div>
+            <div class="summary-label">Matching Score</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">9</div>
+            <div class="summary-label">Segmentation Score</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-number">2</div>
+            <div class="summary-label">Iterations</div>
+        </div>
+    </div>
+    <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">9.3%</div>
+            <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">157.8 hrs</div>
+            <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
+            <div style="color: #999; font-size: 0.75em;">(sum across all 3 phases)</div>
+        </div>
+    </div>
+    
+        </section>
+
+        <section>
+            <h2>Issues</h2>
+            
+    <ul class="flags-list">
+        <li class="flag-item" style="background: #f8f9fa; border-left-color: #666;"><span class="flag-icon">⚠</span> <span style="color: #666;">Low Improvement</span></li><li class="flag-item" style="background: #fff3cd; border-left-color: #856404;"><span class="flag-icon">📊</span> <span style="color: #856404;">Low Segmentation</span></li><li class="flag-item" style="background: #f8d7da; border-left-color: #dc3545;"><span class="flag-icon">🔌</span> <span style="color: #dc3545;">Damaged Phase(s)</span></li>
+    </ul>
+    
+        </section>
+
+        <section>
+            <h2>Iterations Progress</h2>
+            
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Iter</th>
+                <th>Events<br><small>(ON/OFF)</small></th>
+                <th>Matches</th>
+                <th>Unmatched<br><small>(ON/OFF)</small></th>
+                <th>Match Rate</th>
+                <th>Matched Power</th>
+                <th>Matched Minutes</th>
+                <th>Negative</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>0</td>
+            <td>ON: 943<br>OFF: 915</td>
+            <td>591</td>
+            <td>ON: 352<br>OFF: 324</td>
+            <td>63.6%</td>
+            <td>854.7 kW</td>
+            <td>9469 min</td>
+            <td>0</td>
+        </tr>
+        
+        <tr>
+            <td>1</td>
+            <td>ON: 424<br>OFF: 379</td>
+            <td>110</td>
+            <td>ON: 314<br>OFF: 269</td>
+            <td>27.4%</td>
+            <td>171.0 kW</td>
+            <td>2275 min</td>
+            <td>0</td>
+        </tr>
+        
+        </tbody>
+    </table>
+    <div class="metrics-row">
+        <div class="metric">
+            <span class="metric-label">Events Reduction:</span>
+            <span class="metric-value">56.8%</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Power:</span>
+            <span class="metric-value">1025.7 kW</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Total Matched Minutes:</span>
+            <span class="metric-value">11744 min (195.7 hrs)</span>
+        </div>
+    </div>
+    <p style="font-size: 0.8em; color: #888; margin-top: 8px; text-align: center;">
+        Note: Minutes and power are summed across all 3 phases. Overlapping events on different phases are counted separately.
+    </p>
+    
+    <h4 style="margin-top: 20px; color: #2c3e50;">High-Power Energy Explained per Iteration (&gt;1300W)</h4>
+    <table class="data-table" style="max-width: 500px;">
+        <thead>
+            <tr>
+                <th>Iter</th>
+                <th>Minutes &gt;1300W</th>
+                <th>Minutes Explained</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>0</td>
+            <td>14,209</td>
+            <td>3,699</td>
+            <td style="color: #dc3545; font-weight: bold;">26.0%</td>
+        </tr>
+        
+        <tr>
+            <td>1</td>
+            <td>10,510</td>
+            <td>554</td>
+            <td style="color: #dc3545; font-weight: bold;">5.3%</td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+    
+        </section>
+
+        <section>
+            <h2>Matching Details</h2>
+            
+    <div class="two-columns">
+        <div class="column">
+            <h4>Match Types</h4>
+            <table class="data-table small">
+                <thead><tr><th>Tag</th><th>Count</th></tr></thead>
+                <tbody><tr><td>EXACT-MEDIUM</td><td>170</td></tr><tr><td>CLOSE-MEDIUM</td><td>77</td></tr><tr><td>EXACT-QUICK</td><td>56</td></tr><tr><td>EXACT-SPIKE</td><td>46</td></tr><tr><td>APPROX-MEDIUM</td><td>43</td></tr><tr><td>EXACT-MEDIUM-CORRECTED</td><td>35</td></tr><tr><td>PARTIAL-MEDIUM</td><td>21</td></tr><tr><td>LOOSE-MEDIUM</td><td>18</td></tr><tr><td>EXACT-EXTENDED</td><td>17</td></tr><tr><td>CLOSE-QUICK</td><td>15</td></tr><tr><td>CLOSE-EXTENDED</td><td>14</td></tr><tr><td>PARTIAL-SPIKE</td><td>11</td></tr><tr><td>EXACT-EXTENDED-CORRECTED</td><td>10</td></tr><tr><td>PARTIAL-QUICK</td><td>9</td></tr><tr><td>APPROX-SPIKE</td><td>9</td></tr><tr><td>CLOSE-SPIKE</td><td>8</td></tr><tr><td>CLOSE-MEDIUM-CORRECTED</td><td>8</td></tr><tr><td>APPROX-QUICK</td><td>5</td></tr><tr><td>LOOSE-SPIKE</td><td>4</td></tr><tr><td>LOOSE-QUICK</td><td>3</td></tr><tr><td>NOISY-LOOSE-MEDIUM</td><td>3</td></tr><tr><td>NOISY-APPROX-MEDIUM</td><td>3</td></tr><tr><td>CLOSE-EXTENDED-CORRECTED</td><td>2</td></tr><tr><td>NOISY-LOOSE-EXTENDED</td><td>1</td></tr><tr><td>APPROX-EXTENDED</td><td>1</td></tr><tr><td>NOISY-APPROX-EXTENDED</td><td>1</td></tr><tr><td>NOISY-APPROX-QUICK</td><td>1</td></tr></tbody>
+            </table>
+        </div>
+        <div class="column">
+            <h4>By Phase</h4>
+            <table class="data-table small">
+                <thead><tr><th>Phase</th><th>Count</th></tr></thead>
+                <tbody><tr><td>w1</td><td>591</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4 style="margin-top: 20px;">Event Statistics</h4>
+    <table class="data-table small" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td>943</td>
+                <td>915</td>
+            </tr>
+            <tr>
+                <td><strong>Matched</strong></td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+            </tr>
+            <tr>
+                <td><strong>Unmatched</strong></td>
+                <td>943</td>
+                <td>915</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+        Note: ON and OFF event counts may differ due to detection algorithm sensitivity and edge effects.
+        Matching rate = matched / total events of that type.
+    </p>
+    
+        </section>
+
+        <section>
+            <h2>Segmentation Details</h2>
+            
+    
+    <h4>Power Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 20px;">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">69628.7 kW</div>
+            <div class="summary-label">Total Power</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724; font-size: 1.8em;">6451.2 kW</div>
+            <div class="summary-label">Segmented (9.3%)</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">63177.5 kW</div>
+            <div class="summary-label">Remaining (90.7%)</div>
+        </div>
+    </div>
+
+    <h4>Minutes Segmentation</h4>
+    <div class="summary-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.8em;">3480 hrs</div>
+            <div class="summary-label">Total Time Available</div>
+            <div style="font-size: 0.75em; color: #888;">145 days × 24 hrs</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #cce5ff 0%, #b8daff 100%);">
+            <div class="summary-number" style="color: #004085; font-size: 1.8em;">158 hrs</div>
+            <div class="summary-label">Matched (4.5%)</div>
+            <div style="font-size: 0.75em; color: #666;">9469 min (sum of 3 phases)</div>
+        </div>
+    </div>
+    <p style="font-size: 0.85em; color: #888; margin-top: 10px; text-align: center;">
+        Note: Matched minutes are summed across all 3 phases. Percentage can exceed 100% if events overlap.
+    </p>
+    
+    <h4 style="margin-top: 25px;">Threshold Explanation (&gt;1300W)</h4>
+    <p style="font-size: 0.85em; color: #666; margin-bottom: 15px;">
+        Minutes where power exceeded 1300W and were explained by segregation (short/medium/long events).
+    </p>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 15px;">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.6em;">14,209</div>
+            <div class="summary-label">Minutes Above TH</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724; font-size: 1.6em;">3,699</div>
+            <div class="summary-label">Minutes Explained</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);">
+            <div class="summary-number" style="color: #dc3545; font-size: 1.6em;">26.0%</div>
+            <div class="summary-label">Explanation Rate</div>
+        </div>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+        <thead>
+            <tr style="background: #f8f9fa;">
+                <th style="padding: 8px 12px; text-align: left;">Phase</th>
+                <th style="padding: 8px 12px; text-align: right;">Above TH</th>
+                <th style="padding: 8px 12px; text-align: right;">Explained</th>
+                <th style="padding: 8px 12px; text-align: right;">Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td style="padding: 8px 12px;"><strong>W1</strong></td>
+                <td style="padding: 8px 12px; text-align: right;">14,209</td>
+                <td style="padding: 8px 12px; text-align: right;">3,699</td>
+                <td style="padding: 8px 12px; text-align: right; color: #dc3545; font-weight: bold;">26.0%</td>
+            </tr>
+        
+            <tr>
+                <td style="padding: 8px 12px;"><strong>W2</strong></td>
+                <td style="padding: 8px 12px; text-align: right;">0</td>
+                <td style="padding: 8px 12px; text-align: right;">0</td>
+                <td style="padding: 8px 12px; text-align: right; color: #dc3545; font-weight: bold;">0.0%</td>
+            </tr>
+        
+            <tr>
+                <td style="padding: 8px 12px;"><strong>W3</strong></td>
+                <td style="padding: 8px 12px; text-align: right;">0</td>
+                <td style="padding: 8px 12px; text-align: right;">0</td>
+                <td style="padding: 8px 12px; text-align: right; color: #dc3545; font-weight: bold;">0.0%</td>
+            </tr>
+        
+            <tr style="background: #e9ecef; font-weight: bold;">
+                <td style="padding: 8px 12px;">TOTAL</td>
+                <td style="padding: 8px 12px; text-align: right;">14,209</td>
+                <td style="padding: 8px 12px; text-align: right;">3,699</td>
+                <td style="padding: 8px 12px; text-align: right; color: #dc3545;">26.0%</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+        </section>
+
+        <section>
+            <h2>Event Patterns</h2>
+            
+    <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; display: inline-block;">
+        <span style="font-size: 1.5em; font-weight: bold; color: #2d3748;">145</span>
+        <span style="color: #666; margin-left: 10px;">Days of Data Analyzed</span>
+    </div>
+    
+        <h4>Recurring Appliance Usage</h4>
+        <p>No significant recurring match patterns found.</p>
+        
+        <h4>Central AC (Multi-Phase)</h4>
+        <p>No central AC pattern detected (no synchronized multi-phase events found).</p>
+        
+    <h4>Water Heater (Boiler) <span class="badge badge-green">Detected</span></h4>
+    <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
+        <div class="metric">
+            <span class="metric-label">Total Activations:</span>
+            <span class="metric-value">8</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Avg Duration:</span>
+            <span class="metric-value">82 min</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Avg Power:</span>
+            <span class="metric-value">1787W</span>
+        </div>
+    </div>
+    <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+        Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
+    </p>
+    <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+        Showing all 8 activations
+    </p>
+    <div style="max-height: 400px; overflow-y: auto;">
+    <table class="data-table small">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>ON Time</th>
+                <th>OFF Time</th>
+                <th>Duration</th>
+                <th>Power</th>
+                <th>Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong>1</strong></td>
+            <td>2022-10-29</td>
+            <td>20:15</td>
+            <td>21:51</td>
+            <td>96 min</td>
+            <td>1806W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>2</strong></td>
+            <td>2022-11-02</td>
+            <td>15:05</td>
+            <td>16:40</td>
+            <td>95 min</td>
+            <td>1974W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>3</strong></td>
+            <td>2022-11-02</td>
+            <td>15:26</td>
+            <td>15:52</td>
+            <td>26 min</td>
+            <td>1926W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>4</strong></td>
+            <td>2022-11-02</td>
+            <td>15:31</td>
+            <td>16:09</td>
+            <td>38 min</td>
+            <td>1905W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>5</strong></td>
+            <td>2022-11-12</td>
+            <td>13:12</td>
+            <td>13:43</td>
+            <td>31 min</td>
+            <td>1962W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>6</strong></td>
+            <td>2023-02-25</td>
+            <td>14:15</td>
+            <td>15:17</td>
+            <td>62 min</td>
+            <td>1646W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>7</strong></td>
+            <td>2023-03-10</td>
+            <td>12:55</td>
+            <td>16:43</td>
+            <td>228 min</td>
+            <td>1556W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>8</strong></td>
+            <td>2023-03-20</td>
+            <td>14:56</td>
+            <td>16:14</td>
+            <td>78 min</td>
+            <td>1522W</td>
+            <td>w1</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <div style="margin-top: 10px;">
+        <button onclick="document.getElementById('boiler-copy-text').style.display = document.getElementById('boiler-copy-text').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
+            Show Copyable Dates
+        </button>
+    </div>
+    <div id="boiler-copy-text" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
+        <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
+        <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-10-29 20:15-21:51, 2022-11-02 15:05-16:40, 2022-11-02 15:26-15:52, 2022-11-02 15:31-16:09, 2022-11-12 13:12-13:43, 2023-02-25 14:15-15:17, 2023-03-10 12:55-16:43, 2023-03-20 14:56-16:14</textarea>
+    </div>
+    
+    <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+        <h4 style="margin: 0 0 5px 0; color: white;">📊 Device Usage Patterns by Season and Time of Day</h4>
+        <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">
+            Breakdown of detected device activations by season (Winter: Dec-Feb, Summer: Jun-Aug) and time of day (Day: 06:00-18:00, Night: 18:00-06:00)
+        </p>
+    </div>
+    
+
+        <div style="margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+            <h5 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.1em;">🔥 Water Heater (Boiler)</h5>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                <div>
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Season:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #3498db; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ❄️ Winter: 1 (12%)
+                        </span>
+                        <span style="display: inline-block; padding: 6px 12px; background: #2ecc71; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌸 Spring: 2 (25%)
+                        </span>
+                        <span style="display: inline-block; padding: 6px 12px; background: #e74c3c; color: white; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Summer: 0 (0%)
+                        </span>
+                        <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🍂 Fall: 5 (62%)
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
+                            ☀️ Day (06-18): 7 (88%)
+                        </span>
+                        <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
+                            🌙 Night (18-06): 1 (12%)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h4>Time of Day Distribution</h4>
+        <table class="data-table small" style="max-width: 500px;">
+            <thead>
+                <tr>
+                    <th>Period</th>
+                    <th style="text-align: center;">Total Events</th>
+                    <th style="text-align: center;">ON</th>
+                    <th style="text-align: center;">OFF</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td><strong>Night</strong><br><small style="color: #888;">00:00-06:00</small></td>
+                <td style="text-align: center;">277</td>
+                <td style="text-align: center; color: #28a745;">137</td>
+                <td style="text-align: center; color: #dc3545;">140</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Morning</strong><br><small style="color: #888;">06:00-12:00</small></td>
+                <td style="text-align: center;">104</td>
+                <td style="text-align: center; color: #28a745;">53</td>
+                <td style="text-align: center; color: #dc3545;">51</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Afternoon</strong><br><small style="color: #888;">12:00-18:00</small></td>
+                <td style="text-align: center;">909</td>
+                <td style="text-align: center; color: #28a745;">461</td>
+                <td style="text-align: center; color: #dc3545;">448</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Evening</strong><br><small style="color: #888;">18:00-24:00</small></td>
+                <td style="text-align: center;">568</td>
+                <td style="text-align: center; color: #28a745;">292</td>
+                <td style="text-align: center; color: #dc3545;">276</td>
+            </tr>
+            
+                <tr style="border-top: 2px solid #ddd; font-weight: bold;">
+                    <td>Total</td>
+                    <td style="text-align: center;">1858</td>
+                    <td style="text-align: center; color: #28a745;">943</td>
+                    <td style="text-align: center; color: #dc3545;">915</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    <h4>Monthly Breakdown</h4>
+    <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+        Matching performance by month (highlighted rows indicate months with &lt;40% matching rate)
+    </p>
+    <div style="max-height: 400px; overflow-y: auto;">
+    <table class="data-table small">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>ON Events</th>
+                <th>OFF Events</th>
+                <th>Matches</th>
+                <th>Match Rate</th>
+                <th>Matched Power</th>
+                <th>Matched Minutes</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2022-09</td>
+            <td>63</td>
+            <td>58</td>
+            <td>37</td>
+            <td>61.2%</td>
+            <td>59.4 kW</td>
+            <td>314 min</td>
+        </tr>
+        
+        <tr>
+            <td>2022-10</td>
+            <td>137</td>
+            <td>129</td>
+            <td>86</td>
+            <td>64.7%</td>
+            <td>132.6 kW</td>
+            <td>1722 min</td>
+        </tr>
+        
+        <tr>
+            <td>2022-11</td>
+            <td>172</td>
+            <td>171</td>
+            <td>111</td>
+            <td>64.7%</td>
+            <td>161.7 kW</td>
+            <td>2068 min</td>
+        </tr>
+        
+        <tr>
+            <td>2022-12</td>
+            <td>118</td>
+            <td>111</td>
+            <td>83</td>
+            <td>72.5%</td>
+            <td>111.6 kW</td>
+            <td>1443 min</td>
+        </tr>
+        
+        <tr>
+            <td>2023-01</td>
+            <td>180</td>
+            <td>168</td>
+            <td>117</td>
+            <td>67.2%</td>
+            <td>167.3 kW</td>
+            <td>1485 min</td>
+        </tr>
+        
+        <tr>
+            <td>2023-02</td>
+            <td>113</td>
+            <td>130</td>
+            <td>77</td>
+            <td>63.4%</td>
+            <td>99.3 kW</td>
+            <td>1381 min</td>
+        </tr>
+        
+        <tr>
+            <td>2023-03</td>
+            <td>139</td>
+            <td>139</td>
+            <td>78</td>
+            <td>56.1%</td>
+            <td>120.1 kW</td>
+            <td>1033 min</td>
+        </tr>
+        
+        <tr style="background-color: #fff3cd;">
+            <td>2024-04</td>
+            <td>21</td>
+            <td>9</td>
+            <td>2</td>
+            <td>13.3%</td>
+            <td>2.7 kW</td>
+            <td>23 min</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="metrics-row" style="border-top: none; padding-top: 10px;">
+        <div class="metric">
+            <span class="metric-label">Avg Monthly Rate:</span>
+            <span class="metric-value">57.9%</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Months Analyzed:</span>
+            <span class="metric-value">8</span>
+        </div>
+        <div class="metric">
+            <span class="metric-label">Problematic Months:</span>
+            <span class="metric-value">1</span>
+        </div>
+    </div>
+    
+        <div style="margin-top: 10px; padding: 10px; background: #fff3cd; border-radius: 5px; font-size: 0.9em;">
+            <strong>Problematic months (&lt;40%):</strong> 2024-04
+            
+        </div>
+        
+    
+        </section>
+
+        <section>
+            <h2>Charts</h2>
+            <div class="charts-grid">
+                
+        <div class="chart-container">
+            <div id="seg-pie-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('seg-pie-chart', [{"values": [6451.245, 63177.491], "labels": ["Segmented<br>6451.2 kW (9.3%)", "Remaining<br>63177.5 kW (90.7%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4, "hovertemplate": "%{label}<extra></extra>"}], {"title": "Power Distribution", "annotations": [{"text": "69628.7 kW<br>Total", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
+            </script>
+        </div>
+        
+
+            <div class="chart-container">
+                <div id="minutes-pie-chart" style="width:100%;height:350px;"></div>
+                <script>
+                    Plotly.newPlot('minutes-pie-chart', [{"values": [144.0, 4379.0, 4946.0], "labels": ["Short (1-2 min)<br>144 min", "Medium (3-24 min)<br>4379 min", "Long (25+ min)<br>4946 min"], "type": "pie", "marker": {"colors": ["#17a2b8", "#ffc107", "#dc3545"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4}], {"title": "Matched Minutes Distribution (sum of all 3 phases)", "annotations": [{"text": "9469 min<br>(157.8 hrs)", "x": 0.5, "y": 0.5, "font": {"size": 12, "color": "#333"}, "showarrow": false}]});
+                </script>
+                <p style="text-align: center; font-size: 0.8em; color: #888; margin-top: -10px;">
+                    Overlapping events on different phases are counted separately
+                </p>
+            </div>
+            
+
+        <div class="chart-container">
+            <div id="duration-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>78 (13%)", "Medium (3-24 min)<br>447 (76%)", "Long (25+ min)<br>66 (11%)"], "y": [78, 447, 66], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [78, 447, 66], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('tag-pie-chart', [{"values": [170, 77, 56, 46, 43, 35, 21, 18, 17, 15, 14, 11, 10, 9, 9, 8, 8, 5, 4, 3, 3, 3, 2, 1, 1, 1, 1], "labels": ["EXACT-MEDIUM<br>170 (28.8%)", "CLOSE-MEDIUM<br>77 (13.0%)", "EXACT-QUICK<br>56 (9.5%)", "EXACT-SPIKE<br>46 (7.8%)", "APPROX-MEDIUM<br>43 (7.3%)", "EXACT-MEDIUM-CORRECTED<br>35 (5.9%)", "PARTIAL-MEDIUM<br>21 (3.6%)", "LOOSE-MEDIUM<br>18 (3.0%)", "EXACT-EXTENDED<br>17 (2.9%)", "CLOSE-QUICK<br>15 (2.5%)", "CLOSE-EXTENDED<br>14 (2.4%)", "PARTIAL-SPIKE<br>11 (1.9%)", "EXACT-EXTENDED-CORRECTED<br>10 (1.7%)", "PARTIAL-QUICK<br>9 (1.5%)", "APPROX-SPIKE<br>9 (1.5%)", "CLOSE-SPIKE<br>8 (1.4%)", "CLOSE-MEDIUM-CORRECTED<br>8 (1.4%)", "APPROX-QUICK<br>5 (0.8%)", "LOOSE-SPIKE<br>4 (0.7%)", "LOOSE-QUICK<br>3 (0.5%)", "NOISY-LOOSE-MEDIUM<br>3 (0.5%)", "NOISY-APPROX-MEDIUM<br>3 (0.5%)", "CLOSE-EXTENDED-CORRECTED<br>2 (0.3%)", "NOISY-LOOSE-EXTENDED<br>1 (0.2%)", "APPROX-EXTENDED<br>1 (0.2%)", "NOISY-APPROX-EXTENDED<br>1 (0.2%)", "NOISY-APPROX-QUICK<br>1 (0.2%)"], "type": "pie", "marker": {"colors": ["#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "591<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="time-dist-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>277 (15%)", "Morning (06-12)<br>104 (6%)", "Afternoon (12-18)<br>909 (49%)", "Evening (18-24)<br>568 (31%)"], "y": [277, 104, 909, 568], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
+            </script>
+        </div>
+        
+
+        <div class="chart-container">
+            <div id="magnitude-minutes-chart" style="width:100%;height:350px;"></div>
+            <script>
+                Plotly.newPlot('magnitude-minutes-chart', [{"x": ["1.3-1.8kW<br>2456 min (55%)", "1.8-2.5kW<br>1950 min (44%)", "2.5-3.5kW<br>58 min (1%)", "3.5-5kW<br>15 min (0%)", "5kW+<br>0 min (0%)"], "y": [2456.0, 1950.0, 58.0, 15.0, 0.0], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Matched Minutes by Magnitude (sum of all 3 phases)", "yaxis": {"title": "Total Minutes"}, "xaxis": {"title": ""}});
+            </script>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            House Analysis Report | Generated by experiment_analysis module
+        </footer>
+    </div>
+</body>
+</html>

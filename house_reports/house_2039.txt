@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 2039
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 5585 events, 66.1% matched
-Last iteration: 1972 events, 6.9% matched
-Events reduction: 64.7%
-Total matched power: 3510.8 kW
+First iteration: 7028 events, 65.2% matched
+Last iteration: 2820 events, 18.3% matched
+Events reduction: 59.9%
+Total matched power: 3942.4 kW
 
 --- First Iteration Matching ---
-Total events: 2900 ON, 2685 OFF
-Matched: 0 (63.6%)
-By tag: NON-M: 1383, SPIKE: 304, PARTIAL: 129, NOISY: 29
+Total events: 3639 ON, 3389 OFF
+Matched: 2291 (63.0%)
+By tag: EXACT-QUICK: 424, EXACT-MEDIUM: 352, EXACT-SPIKE: 317, EXACT-EXTENDED: 278, CLOSE-EXTENDED: 164, CLOSE-MEDIUM: 150, PARTIAL-QUICK: 115, PARTIAL-MEDIUM: 72, CLOSE-QUICK: 55, PARTIAL-SPIKE: 49, EXACT-EXTENDED-CORRECTED: 47, APPROX-MEDIUM: 42, APPROX-EXTENDED: 27, APPROX-QUICK: 23, EXACT-MEDIUM-CORRECTED: 22, LOOSE-QUICK: 21, CLOSE-SPIKE: 21, NOISY-LOOSE-MEDIUM: 19, LOOSE-MEDIUM: 19, LOOSE-SPIKE: 13, NOISY-APPROX-MEDIUM: 13, CLOSE-EXTENDED-CORRECTED: 11, APPROX-SPIKE: 9, NOISY-APPROX-EXTENDED: 7, PARTIAL-EXTENDED: 5, CLOSE-MEDIUM-CORRECTED: 4, NOISY-LOOSE-EXTENDED: 4, LOOSE-EXTENDED: 3, LOOSE-QUICK-CORRECTED: 1, NOISY-LOOSE-QUICK: 1, NOISY-APPROX-EXTENDED-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1, NOISY-APPROX-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 533448.1 kW
-Segmented: 28528.8 kW (5.3%)
-Remaining: 504910.6 kW
+Segmented: 56562.7 kW (10.6%)
+Remaining: 476852.6 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 67,571
+Minutes explained: 34,474 (51.0%)
+  w1: 28,661 above TH, 11,831 explained (41.3%)
+  w2: 14,297 above TH, 7,063 explained (49.4%)
+  w3: 24,613 above TH, 15,580 explained (63.3%)
 
 --- Scores ---
-Matching score: 66/100
-Segmentation score: 5/100
-Overall score: 48/100
+Matching score: 65/100
+Segmentation score: 11/100
+Overall score: 49/100
 
 --- Issues ---
   - Low Improvement

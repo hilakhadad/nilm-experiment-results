@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 5018
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 16819 events, 76.0% matched
-Last iteration: 4548 events, 18.5% matched
-Events reduction: 73.0%
-Total matched power: 12354.3 kW
+First iteration: 17775 events, 70.7% matched
+Last iteration: 7344 events, 35.6% matched
+Events reduction: 58.7%
+Total matched power: 12892.0 kW
 
 --- First Iteration Matching ---
-Total events: 8221 ON, 8598 OFF
-Matched: 0 (77.7%)
-By tag: NON-M: 3424, SPIKE: 2702, PARTIAL: 167, NOISY: 96
+Total events: 8973 ON, 8802 OFF
+Matched: 6285 (70.0%)
+By tag: EXACT-SPIKE: 1910, EXACT-EXTENDED: 491, EXACT-MEDIUM: 489, APPROX-MEDIUM: 445, EXACT-QUICK: 430, CLOSE-EXTENDED: 391, CLOSE-MEDIUM: 307, APPROX-SPIKE: 244, CLOSE-SPIKE: 224, EXACT-MEDIUM-CORRECTED: 164, LOOSE-MEDIUM: 160, CLOSE-QUICK: 134, PARTIAL-SPIKE: 121, CLOSE-EXTENDED-CORRECTED: 97, APPROX-EXTENDED: 92, EXACT-EXTENDED-CORRECTED: 90, PARTIAL-MEDIUM: 75, APPROX-QUICK: 71, PARTIAL-QUICK: 68, CLOSE-MEDIUM-CORRECTED: 66, NOISY-APPROX-EXTENDED: 36, LOOSE-SPIKE: 32, LOOSE-QUICK: 26, LOOSE-EXTENDED: 24, NOISY-APPROX-MEDIUM: 24, NOISY-LOOSE-MEDIUM: 21, NOISY-LOOSE-EXTENDED: 18, APPROX-MEDIUM-CORRECTED: 13, PARTIAL-EXTENDED: 8, EXACT-QUICK-CORRECTED: 4, NOISY-APPROX-EXTENDED-CORRECTED: 4, NOISY-LOOSE-QUICK: 2, APPROX-EXTENDED-CORRECTED: 2, APPROX-SPIKE-CORRECTED: 1, NOISY-APPROX-QUICK: 1
 
 --- First Iteration Segmentation ---
 Total power: 298742.1 kW
-Segmented: 79520.3 kW (26.6%)
-Remaining: 219131.5 kW
+Segmented: 70483.1 kW (23.6%)
+Remaining: 228156.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 88,872
+Minutes explained: 39,040 (43.9%)
+  w1: 33,306 above TH, 9,688 explained (29.1%)
+  w2: 26,765 above TH, 9,019 explained (33.7%)
+  w3: 28,801 above TH, 20,333 explained (70.6%)
 
 --- Scores ---
-Matching score: 76/100
-Segmentation score: 27/100
-Overall score: 61/100
+Matching score: 71/100
+Segmentation score: 24/100
+Overall score: 57/100
 
 --- Issues ---
   - Low Improvement

@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 42
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 13889 events, 76.7% matched
-Last iteration: 3674 events, 22.9% matched
-Events reduction: 73.5%
-Total matched power: 9511.4 kW
+First iteration: 15157 events, 64.5% matched
+Last iteration: 6659 events, 27.8% matched
+Events reduction: 56.1%
+Total matched power: 8867.4 kW
 
 --- First Iteration Matching ---
-Total events: 7012 ON, 6877 OFF
-Matched: 0 (76.0%)
-By tag: NON-M: 3876, SPIKE: 1119, PARTIAL: 177, NOISY: 154
+Total events: 7673 ON, 7484 OFF
+Matched: 4890 (63.7%)
+By tag: EXACT-SPIKE: 955, EXACT-MEDIUM: 602, CLOSE-MEDIUM: 497, EXACT-EXTENDED: 448, CLOSE-EXTENDED: 376, EXACT-QUICK: 348, APPROX-MEDIUM: 307, PARTIAL-MEDIUM: 166, APPROX-SPIKE: 147, CLOSE-QUICK: 137, CLOSE-SPIKE: 134, LOOSE-MEDIUM: 102, CLOSE-EXTENDED-CORRECTED: 86, EXACT-EXTENDED-CORRECTED: 69, PARTIAL-SPIKE: 60, PARTIAL-QUICK: 58, APPROX-QUICK: 55, APPROX-EXTENDED: 49, LOOSE-SPIKE: 44, NOISY-APPROX-EXTENDED: 39, NOISY-LOOSE-EXTENDED: 36, NOISY-APPROX-MEDIUM: 32, NOISY-LOOSE-MEDIUM: 29, CLOSE-MEDIUM-CORRECTED: 24, EXACT-MEDIUM-CORRECTED: 23, LOOSE-QUICK: 18, PARTIAL-EXTENDED: 18, LOOSE-EXTENDED: 17, APPROX-SPIKE-CORRECTED: 4, APPROX-EXTENDED-CORRECTED: 3, NOISY-LOOSE-QUICK: 2, CLOSE-SPIKE-CORRECTED: 1, NOISY-LOOSE-EXTENDED-CORRECTED: 1, APPROX-MEDIUM-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 801130.7 kW
-Segmented: 132991.9 kW (16.6%)
-Remaining: 667386.8 kW
+Segmented: 91717.9 kW (11.4%)
+Remaining: 708446.8 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 201,807
+Minutes explained: 42,459 (21.0%)
+  w1: 0 above TH, 0 explained (0.0%)
+  w2: 83,158 above TH, 22,366 explained (26.9%)
+  w3: 118,649 above TH, 20,093 explained (16.9%)
 
 --- Scores ---
-Matching score: 77/100
-Segmentation score: 17/100
-Overall score: 59/100
+Matching score: 65/100
+Segmentation score: 11/100
+Overall score: 49/100
 
 --- Issues ---
   - Low Improvement

@@ -4,30 +4,34 @@ EXPERIMENT REPORT: House 317
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 1712 events, 64.6% matched
-Last iteration: 596 events, 6.0% matched
-Events reduction: 65.2%
-Total matched power: 953.4 kW
+First iteration: 75930 events, 72.3% matched
+Last iteration: 30960 events, 40.7% matched
+Events reduction: 59.2%
+Total matched power: 51127.6 kW
 
 --- First Iteration Matching ---
-Total events: 840 ON, 872 OFF
-Matched: 0 (65.8%)
-By tag: SPIKE: 350, NON-M: 173, PARTIAL: 22, NOISY: 8
+Total events: 37431 ON, 38499 OFF
+Matched: 27462 (73.4%)
+By tag: EXACT-SPIKE: 6052, EXACT-MEDIUM: 5900, EXACT-QUICK: 2752, EXACT-MEDIUM-CORRECTED: 2245, EXACT-EXTENDED: 2112, CLOSE-MEDIUM: 1908, CLOSE-EXTENDED: 813, CLOSE-SPIKE: 690, CLOSE-QUICK: 553, PARTIAL-MEDIUM: 498, APPROX-SPIKE: 492, EXACT-EXTENDED-CORRECTED: 475, PARTIAL-QUICK: 452, PARTIAL-SPIKE: 443, APPROX-MEDIUM: 373, CLOSE-MEDIUM-CORRECTED: 354, APPROX-QUICK: 218, NOISY-APPROX-MEDIUM: 173, LOOSE-MEDIUM: 149, LOOSE-SPIKE: 147, LOOSE-QUICK: 126, NOISY-LOOSE-MEDIUM: 125, CLOSE-EXTENDED-CORRECTED: 112, PARTIAL-EXTENDED: 64, NOISY-LOOSE-EXTENDED: 58, NOISY-APPROX-EXTENDED: 52, NOISY-APPROX-QUICK: 18, APPROX-EXTENDED: 17, NOISY-LOOSE-QUICK: 16, CLOSE-QUICK-CORRECTED: 10, APPROX-MEDIUM-CORRECTED: 10, EXACT-QUICK-CORRECTED: 9, NOISY-LOOSE-MEDIUM-CORRECTED: 8, CLOSE-SPIKE-CORRECTED: 7, NOISY-APPROX-MEDIUM-CORRECTED: 7, APPROX-SPIKE-CORRECTED: 6, APPROX-QUICK-CORRECTED: 4, LOOSE-EXTENDED: 4, LOOSE-SPIKE-CORRECTED: 3, NOISY-LOOSE-EXTENDED-CORRECTED: 2, PARTIAL-MEDIUM-CORRECTED: 2, PARTIAL-QUICK-CORRECTED: 1, LOOSE-MEDIUM-CORRECTED: 1, NOISY-APPROX-EXTENDED-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 106183.5 kW
-Segmented: 5243.9 kW (4.9%)
-Remaining: 100909.4 kW
+Total power: 1856991.7 kW
+Segmented: 196757.5 kW (10.6%)
+Remaining: 1657398.2 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 308,795
+Minutes explained: 92,705 (30.0%)
+  w1: 100,556 above TH, 33,049 explained (32.9%)
+  w2: 128,291 above TH, 40,351 explained (31.5%)
+  w3: 79,948 above TH, 19,305 explained (24.1%)
 
 --- Scores ---
-DAMAGED PHASES: w1
-Healthy phases: w2, w3
-(Scores calculated from healthy phases only)
-Matching score: 65/100
-Segmentation score: 5/100
-Overall score: 47/100
+Matching score: 72/100
+Segmentation score: 11/100
+Overall score: 54/100
 
 --- Issues ---
   - Low Improvement
   - Low Segmentation
-  - Has Damaged Phases
+  - Has Recurring Patterns

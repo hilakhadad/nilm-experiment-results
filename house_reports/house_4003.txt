@@ -4,27 +4,34 @@ EXPERIMENT REPORT: House 4003
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 953 events, 74.5% matched
-Last iteration: 240 events, 0.8% matched
-Events reduction: 74.8%
-Total matched power: 547.1 kW
+First iteration: 1523 events, 73.8% matched
+Last iteration: 409 events, 4.4% matched
+Events reduction: 73.1%
+Total matched power: 774.5 kW
 
 --- First Iteration Matching ---
-Total events: 457 ON, 496 OFF
-Matched: 0 (77.7%)
-By tag: SPIKE: 233, NON-M: 119, NOISY: 2, PARTIAL: 1
+Total events: 761 ON, 762 OFF
+Matched: 562 (73.9%)
+By tag: EXACT-SPIKE: 345, EXACT-QUICK: 97, CLOSE-SPIKE: 37, CLOSE-QUICK: 17, APPROX-SPIKE: 17, EXACT-MEDIUM: 7, EXACT-EXTENDED: 7, CLOSE-EXTENDED: 6, LOOSE-SPIKE: 5, PARTIAL-QUICK: 4, CLOSE-MEDIUM: 3, NOISY-LOOSE-MEDIUM: 2, APPROX-SPIKE-CORRECTED: 2, EXACT-EXTENDED-CORRECTED: 2, NOISY-LOOSE-EXTENDED: 2, APPROX-QUICK: 2, CLOSE-EXTENDED-CORRECTED: 2, NOISY-APPROX-QUICK: 1, LOOSE-QUICK: 1, PARTIAL-SPIKE: 1, APPROX-MEDIUM: 1, LOOSE-MEDIUM: 1
 
 --- First Iteration Segmentation ---
 Total power: 145289.2 kW
-Segmented: 1491.8 kW (1.0%)
-Remaining: 143797.4 kW
+Segmented: 2572.4 kW (1.8%)
+Remaining: 142716.8 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 6,814
+Minutes explained: 1,291 (18.9%)
+  w1: 6,814 above TH, 1,291 explained (18.9%)
+  w2: 0 above TH, 0 explained (0.0%)
+  w3: 0 above TH, 0 explained (0.0%)
 
 --- Scores ---
 DAMAGED PHASES: w2, w3
 Healthy phases: w1
 (Scores calculated from healthy phases only)
-Matching score: 75/100
-Segmentation score: 1/100
+Matching score: 74/100
+Segmentation score: 2/100
 Overall score: 52/100
 
 --- Issues ---

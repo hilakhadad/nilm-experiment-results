@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 6005
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 16669 events, 64.9% matched
-Last iteration: 6151 events, 15.0% matched
-Events reduction: 63.1%
-Total matched power: 10594.5 kW
+First iteration: 24850 events, 67.4% matched
+Last iteration: 9860 events, 26.5% matched
+Events reduction: 60.3%
+Total matched power: 18054.1 kW
 
 --- First Iteration Matching ---
-Total events: 8387 ON, 8282 OFF
-Matched: 0 (64.5%)
-By tag: NON-M: 4687, SPIKE: 288, PARTIAL: 241, NOISY: 191
+Total events: 12663 ON, 12187 OFF
+Matched: 8379 (66.2%)
+By tag: EXACT-SPIKE: 1242, EXACT-MEDIUM: 1069, EXACT-EXTENDED: 1005, EXACT-QUICK: 999, LOOSE-MEDIUM: 707, APPROX-MEDIUM: 693, CLOSE-MEDIUM: 440, CLOSE-EXTENDED: 347, EXACT-EXTENDED-CORRECTED: 274, CLOSE-QUICK: 218, PARTIAL-MEDIUM: 185, CLOSE-EXTENDED-CORRECTED: 162, PARTIAL-QUICK: 141, EXACT-MEDIUM-CORRECTED: 137, APPROX-QUICK: 92, NOISY-LOOSE-MEDIUM: 89, CLOSE-SPIKE: 83, APPROX-SPIKE: 79, NOISY-APPROX-MEDIUM: 68, PARTIAL-SPIKE: 57, NOISY-LOOSE-EXTENDED: 51, CLOSE-MEDIUM-CORRECTED: 40, NOISY-APPROX-EXTENDED: 35, LOOSE-QUICK: 29, LOOSE-SPIKE: 28, LOOSE-EXTENDED: 26, PARTIAL-EXTENDED: 19, APPROX-EXTENDED: 17, APPROX-EXTENDED-CORRECTED: 8, CLOSE-QUICK-CORRECTED: 8, LOOSE-MEDIUM-CORRECTED: 7, APPROX-QUICK-CORRECTED: 3, APPROX-MEDIUM-CORRECTED: 3, NOISY-APPROX-EXTENDED-CORRECTED: 3, NOISY-APPROX-QUICK: 3, NOISY-LOOSE-EXTENDED-CORRECTED: 3, NOISY-LOOSE-QUICK: 2, PARTIAL-MEDIUM-CORRECTED: 2, APPROX-SPIKE-CORRECTED: 2, EXACT-QUICK-CORRECTED: 1, LOOSE-EXTENDED-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1
 
 --- First Iteration Segmentation ---
-Total power: 370644.9 kW
-Segmented: 144456.0 kW (39.0%)
-Remaining: 226142.7 kW
+Total power: 534120.4 kW
+Segmented: 202371.7 kW (37.9%)
+Remaining: 331570.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 175,644
+Minutes explained: 78,898 (44.9%)
+  w1: 140,596 above TH, 66,938 explained (47.6%)
+  w2: 0 above TH, 0 explained (0.0%)
+  w3: 35,048 above TH, 11,960 explained (34.1%)
 
 --- Scores ---
-Matching score: 65/100
-Segmentation score: 39/100
-Overall score: 57/100
+Matching score: 67/100
+Segmentation score: 38/100
+Overall score: 59/100
 
 --- Issues ---
   - Low Improvement

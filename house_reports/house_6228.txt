@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 6228
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 7800 events, 58.6% matched
-Last iteration: 3381 events, 13.8% matched
-Events reduction: 56.7%
-Total matched power: 4799.9 kW
+First iteration: 11892 events, 67.0% matched
+Last iteration: 4636 events, 24.2% matched
+Events reduction: 61.0%
+Total matched power: 7199.9 kW
 
 --- First Iteration Matching ---
-Total events: 3521 ON, 4279 OFF
-Matched: 0 (65.0%)
-By tag: SPIKE: 1113, NON-M: 826, PARTIAL: 257, NOISY: 91
+Total events: 5738 ON, 6154 OFF
+Matched: 3984 (69.4%)
+By tag: EXACT-SPIKE: 1137, EXACT-MEDIUM: 762, CLOSE-MEDIUM: 382, EXACT-QUICK: 275, PARTIAL-QUICK: 164, PARTIAL-SPIKE: 148, EXACT-EXTENDED: 129, EXACT-MEDIUM-CORRECTED: 120, CLOSE-SPIKE: 110, APPROX-SPIKE: 92, LOOSE-SPIKE: 83, APPROX-MEDIUM: 81, CLOSE-QUICK: 79, PARTIAL-MEDIUM: 66, CLOSE-EXTENDED: 65, NOISY-APPROX-MEDIUM: 43, APPROX-QUICK: 37, LOOSE-MEDIUM: 35, NOISY-LOOSE-MEDIUM: 35, CLOSE-MEDIUM-CORRECTED: 31, EXACT-EXTENDED-CORRECTED: 23, LOOSE-QUICK: 15, NOISY-LOOSE-QUICK: 13, CLOSE-EXTENDED-CORRECTED: 11, EXACT-QUICK-CORRECTED: 11, APPROX-EXTENDED: 10, NOISY-APPROX-QUICK: 8, NOISY-APPROX-EXTENDED: 5, NOISY-LOOSE-MEDIUM-CORRECTED: 3, NOISY-LOOSE-EXTENDED: 3, CLOSE-QUICK-CORRECTED: 2, PARTIAL-EXTENDED: 1, APPROX-SPIKE-CORRECTED: 1, NOISY-APPROX-MEDIUM-CORRECTED: 1, LOOSE-SPIKE-CORRECTED: 1, NOISY-LOOSE-EXTENDED-CORRECTED: 1, PARTIAL-SPIKE-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 463850.7 kW
-Segmented: 15919.6 kW (3.4%)
-Remaining: 447931.0 kW
+Segmented: 32977.8 kW (7.1%)
+Remaining: 430859.3 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 27,656
+Minutes explained: 9,135 (33.0%)
+  w1: 18,993 above TH, 6,505 explained (34.2%)
+  w2: 6,551 above TH, 1,832 explained (28.0%)
+  w3: 2,112 above TH, 798 explained (37.8%)
 
 --- Scores ---
-Matching score: 59/100
-Segmentation score: 3/100
-Overall score: 42/100
+Matching score: 67/100
+Segmentation score: 7/100
+Overall score: 49/100
 
 --- Issues ---
   - Low Improvement

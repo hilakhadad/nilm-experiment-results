@@ -265,24 +265,46 @@
     <div class="container">
         <header>
             <h1>House 3021</h1>
-            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-03 11:32:16</div>
+            <div class="subtitle">Experiment Analysis Report | Generated: 2026-02-07 22:08:10</div>
         </header>
 
         <section>
             <h2>Summary</h2>
             
+    <div class="th-explanation-highlight" style="background: linear-gradient(135deg, #fff 0%, #dc354522 100%); border: 2px solid #dc3545; border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: center;">
+        <h3 style="margin: 0 0 10px 0; color: #333;">High-Power Energy Explained (&gt;1300W)</h3>
+        <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+            <div>
+                <div style="font-size: 2.5em; font-weight: bold; color: #dc3545;">46.0%</div>
+                <div style="color: #666;">Explained Rate</div>
+            </div>
+            <div>
+                <div style="font-size: 1.5em; font-weight: bold; color: #333;">4,336</div>
+                <div style="color: #666;">Minutes &gt;1300W</div>
+            </div>
+            <div>
+                <div style="font-size: 1.5em; font-weight: bold; color: #dc3545;">1,995</div>
+                <div style="color: #666;">Minutes Explained</div>
+            </div>
+        </div>
+    </div>
     <div class="summary-grid">
+        <div class="summary-card" style="background: #f0f0f0;">
+            <div class="summary-number" style="color: #ffc107;">55</div>
+            <div class="summary-label">Pre-Quality Score</div>
+            <div style="font-size: 0.7em; color: #888;">(from house analysis)</div>
+        </div>
         <div class="summary-card highlight">
-            <div class="summary-number">57</div>
-            <div class="summary-label">Overall Score</div>
+            <div class="summary-number">48</div>
+            <div class="summary-label">Experiment Score</div>
             <span class="badge badge-orange">Fair</span>
         </div>
         <div class="summary-card">
-            <div class="summary-number">74</div>
+            <div class="summary-number">60</div>
             <div class="summary-label">Matching Score</div>
         </div>
         <div class="summary-card">
-            <div class="summary-number">18</div>
+            <div class="summary-number">19</div>
             <div class="summary-label">Segmentation Score</div>
         </div>
         <div class="summary-card">
@@ -292,11 +314,11 @@
     </div>
     <div class="segmentation-summary" style="display: flex; gap: 40px; justify-content: center; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
         <div style="text-align: center;">
-            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">18.4%</div>
+            <div style="font-size: 1.5em; font-weight: bold; color: #28a745;">18.6%</div>
             <div style="color: #666; font-size: 0.9em;">Power Segmented</div>
         </div>
         <div style="text-align: center;">
-            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">58.0 hrs</div>
+            <div style="font-size: 1.5em; font-weight: bold; color: #17a2b8;">100.2 hrs</div>
             <div style="color: #666; font-size: 0.9em;">Total Matched Duration</div>
             <div style="color: #999; font-size: 0.75em;">(sum across all 3 phases)</div>
         </div>
@@ -333,23 +355,23 @@
             
         <tr>
             <td>0</td>
-            <td>ON: 257<br>OFF: 263</td>
-            <td>192</td>
-            <td>ON: 65<br>OFF: 71</td>
-            <td>73.8%</td>
-            <td>342.6 kW</td>
-            <td>3483 min</td>
+            <td>ON: 288<br>OFF: 280</td>
+            <td>171</td>
+            <td>ON: 117<br>OFF: 109</td>
+            <td>60.2%</td>
+            <td>279.4 kW</td>
+            <td>6013 min</td>
             <td>0</td>
         </tr>
         
         <tr>
             <td>1</td>
-            <td>ON: 70<br>OFF: 71</td>
-            <td>12</td>
-            <td>ON: 58<br>OFF: 59</td>
-            <td>17.0%</td>
-            <td>22.1 kW</td>
-            <td>1219 min</td>
+            <td>ON: 135<br>OFF: 128</td>
+            <td>34</td>
+            <td>ON: 101<br>OFF: 94</td>
+            <td>25.9%</td>
+            <td>55.4 kW</td>
+            <td>3498 min</td>
             <td>0</td>
         </tr>
         
@@ -358,20 +380,50 @@
     <div class="metrics-row">
         <div class="metric">
             <span class="metric-label">Events Reduction:</span>
-            <span class="metric-value">72.9%</span>
+            <span class="metric-value">53.7%</span>
         </div>
         <div class="metric">
             <span class="metric-label">Total Matched Power:</span>
-            <span class="metric-value">364.7 kW</span>
+            <span class="metric-value">334.7 kW</span>
         </div>
         <div class="metric">
             <span class="metric-label">Total Matched Minutes:</span>
-            <span class="metric-value">4702 min (78.4 hrs)</span>
+            <span class="metric-value">9511 min (158.5 hrs)</span>
         </div>
     </div>
     <p style="font-size: 0.8em; color: #888; margin-top: 8px; text-align: center;">
         Note: Minutes and power are summed across all 3 phases. Overlapping events on different phases are counted separately.
     </p>
+    
+    <h4 style="margin-top: 20px; color: #2c3e50;">High-Power Energy Explained per Iteration (&gt;1300W)</h4>
+    <table class="data-table" style="max-width: 500px;">
+        <thead>
+            <tr>
+                <th>Iter</th>
+                <th>Minutes &gt;1300W</th>
+                <th>Minutes Explained</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>0</td>
+            <td>4,336</td>
+            <td>1,995</td>
+            <td style="color: #dc3545; font-weight: bold;">46.0%</td>
+        </tr>
+        
+        <tr>
+            <td>1</td>
+            <td>2,339</td>
+            <td>629</td>
+            <td style="color: #dc3545; font-weight: bold;">26.9%</td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
     
         </section>
 
@@ -383,14 +435,14 @@
             <h4>Match Types</h4>
             <table class="data-table small">
                 <thead><tr><th>Tag</th><th>Count</th></tr></thead>
-                <tbody><tr><td>NON-M</td><td>128</td></tr><tr><td>SPIKE</td><td>54</td></tr><tr><td>PARTIAL</td><td>7</td></tr><tr><td>NOISY</td><td>3</td></tr></tbody>
+                <tbody><tr><td>EXACT-SPIKE</td><td>36</td></tr><tr><td>EXACT-MEDIUM</td><td>35</td></tr><tr><td>EXACT-EXTENDED</td><td>21</td></tr><tr><td>EXACT-QUICK</td><td>14</td></tr><tr><td>CLOSE-EXTENDED</td><td>11</td></tr><tr><td>PARTIAL-MEDIUM</td><td>8</td></tr><tr><td>CLOSE-SPIKE</td><td>6</td></tr><tr><td>CLOSE-MEDIUM</td><td>6</td></tr><tr><td>EXACT-MEDIUM-CORRECTED</td><td>5</td></tr><tr><td>APPROX-SPIKE</td><td>5</td></tr><tr><td>PARTIAL-QUICK</td><td>5</td></tr><tr><td>NOISY-APPROX-EXTENDED</td><td>4</td></tr><tr><td>PARTIAL-EXTENDED</td><td>3</td></tr><tr><td>LOOSE-QUICK</td><td>2</td></tr><tr><td>CLOSE-EXTENDED-CORRECTED</td><td>2</td></tr><tr><td>EXACT-EXTENDED-CORRECTED</td><td>2</td></tr><tr><td>APPROX-EXTENDED</td><td>1</td></tr><tr><td>PARTIAL-SPIKE</td><td>1</td></tr><tr><td>CLOSE-QUICK</td><td>1</td></tr><tr><td>LOOSE-SPIKE</td><td>1</td></tr><tr><td>CLOSE-MEDIUM-CORRECTED</td><td>1</td></tr><tr><td>LOOSE-MEDIUM</td><td>1</td></tr></tbody>
             </table>
         </div>
         <div class="column">
             <h4>By Phase</h4>
             <table class="data-table small">
                 <thead><tr><th>Phase</th><th>Count</th></tr></thead>
-                <tbody><tr><td>w2</td><td>112</td></tr><tr><td>w3</td><td>56</td></tr><tr><td>w1</td><td>24</td></tr></tbody>
+                <tbody><tr><td>w2</td><td>93</td></tr><tr><td>w3</td><td>47</td></tr><tr><td>w1</td><td>31</td></tr></tbody>
             </table>
         </div>
     </div>
@@ -407,8 +459,8 @@
         <tbody>
             <tr>
                 <td><strong>Total</strong></td>
-                <td>257</td>
-                <td>263</td>
+                <td>288</td>
+                <td>280</td>
             </tr>
             <tr>
                 <td><strong>Matched</strong></td>
@@ -417,8 +469,8 @@
             </tr>
             <tr>
                 <td><strong>Unmatched</strong></td>
-                <td>257</td>
-                <td>263</td>
+                <td>288</td>
+                <td>280</td>
             </tr>
         </tbody>
     </table>
@@ -440,12 +492,12 @@
             <div class="summary-label">Total Power</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
-            <div class="summary-number" style="color: #155724; font-size: 1.8em;">3909.4 kW</div>
-            <div class="summary-label">Segmented (18.4%)</div>
+            <div class="summary-number" style="color: #155724; font-size: 1.8em;">3955.4 kW</div>
+            <div class="summary-label">Segmented (18.6%)</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">17381.5 kW</div>
-            <div class="summary-label">Remaining (81.6%)</div>
+            <div class="summary-number" style="color: #6c757d; font-size: 1.8em;">17335.5 kW</div>
+            <div class="summary-label">Remaining (81.4%)</div>
         </div>
     </div>
 
@@ -457,14 +509,74 @@
             <div style="font-size: 0.75em; color: #888;">29 days × 24 hrs</div>
         </div>
         <div class="summary-card" style="background: linear-gradient(135deg, #cce5ff 0%, #b8daff 100%);">
-            <div class="summary-number" style="color: #004085; font-size: 1.8em;">58 hrs</div>
-            <div class="summary-label">Matched (8.3%)</div>
-            <div style="font-size: 0.75em; color: #666;">3483 min (sum of 3 phases)</div>
+            <div class="summary-number" style="color: #004085; font-size: 1.8em;">100 hrs</div>
+            <div class="summary-label">Matched (14.4%)</div>
+            <div style="font-size: 0.75em; color: #666;">6013 min (sum of 3 phases)</div>
         </div>
     </div>
     <p style="font-size: 0.85em; color: #888; margin-top: 10px; text-align: center;">
         Note: Matched minutes are summed across all 3 phases. Percentage can exceed 100% if events overlap.
     </p>
+    
+    <h4 style="margin-top: 25px;">Threshold Explanation (&gt;1300W)</h4>
+    <p style="font-size: 0.85em; color: #666; margin-bottom: 15px;">
+        Minutes where power exceeded 1300W and were explained by segregation (short/medium/long events).
+    </p>
+    <div class="summary-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 15px;">
+        <div class="summary-card">
+            <div class="summary-number" style="color: #333; font-size: 1.6em;">4,336</div>
+            <div class="summary-label">Minutes Above TH</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+            <div class="summary-number" style="color: #155724; font-size: 1.6em;">1,995</div>
+            <div class="summary-label">Minutes Explained</div>
+        </div>
+        <div class="summary-card" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);">
+            <div class="summary-number" style="color: #dc3545; font-size: 1.6em;">46.0%</div>
+            <div class="summary-label">Explanation Rate</div>
+        </div>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+        <thead>
+            <tr style="background: #f8f9fa;">
+                <th style="padding: 8px 12px; text-align: left;">Phase</th>
+                <th style="padding: 8px 12px; text-align: right;">Above TH</th>
+                <th style="padding: 8px 12px; text-align: right;">Explained</th>
+                <th style="padding: 8px 12px; text-align: right;">Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td style="padding: 8px 12px;"><strong>W1</strong></td>
+                <td style="padding: 8px 12px; text-align: right;">743</td>
+                <td style="padding: 8px 12px; text-align: right;">437</td>
+                <td style="padding: 8px 12px; text-align: right; color: #ffc107; font-weight: bold;">58.8%</td>
+            </tr>
+        
+            <tr>
+                <td style="padding: 8px 12px;"><strong>W2</strong></td>
+                <td style="padding: 8px 12px; text-align: right;">3,077</td>
+                <td style="padding: 8px 12px; text-align: right;">1,256</td>
+                <td style="padding: 8px 12px; text-align: right; color: #dc3545; font-weight: bold;">40.8%</td>
+            </tr>
+        
+            <tr>
+                <td style="padding: 8px 12px;"><strong>W3</strong></td>
+                <td style="padding: 8px 12px; text-align: right;">516</td>
+                <td style="padding: 8px 12px; text-align: right;">302</td>
+                <td style="padding: 8px 12px; text-align: right; color: #ffc107; font-weight: bold;">58.5%</td>
+            </tr>
+        
+            <tr style="background: #e9ecef; font-weight: bold;">
+                <td style="padding: 8px 12px;">TOTAL</td>
+                <td style="padding: 8px 12px; text-align: right;">4,336</td>
+                <td style="padding: 8px 12px; text-align: right;">1,995</td>
+                <td style="padding: 8px 12px; text-align: right; color: #dc3545;">46.0%</td>
+            </tr>
+        </tbody>
+    </table>
+    
     
         </section>
 
@@ -487,11 +599,11 @@
             <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
                 <div class="metric">
                     <span class="metric-label">Total Sessions:</span>
-                    <span class="metric-value">5</span>
+                    <span class="metric-value">4</span>
                 </div>
                 <div class="metric">
                     <span class="metric-label">Total Cycles:</span>
-                    <span class="metric-value">10</span>
+                    <span class="metric-value">9</span>
                 </div>
                 <div class="metric">
                     <span class="metric-label">Phase:</span>
@@ -502,7 +614,7 @@
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w1 only, not part of central AC.
             </p>
             <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-                Showing all 5 sessions
+                Showing all 4 sessions
             </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
@@ -524,32 +636,22 @@
                     <td>21:29</td>
                     <td>22:12</td>
                     <td>43 min</td>
-                    <td>1657W</td>
-                    <td>2</td>
+                    <td>1466W</td>
+                    <td>3</td>
                 </tr>
                 
                 <tr>
                     <td><strong>2</strong></td>
-                    <td>2022-11-02</td>
-                    <td>20:24</td>
-                    <td>21:16</td>
-                    <td>52 min</td>
-                    <td>1414W</td>
+                    <td>2022-11-05</td>
+                    <td>21:36</td>
+                    <td>22:21</td>
+                    <td>45 min</td>
+                    <td>1333W</td>
                     <td>2</td>
                 </tr>
                 
                 <tr>
                     <td><strong>3</strong></td>
-                    <td>2022-11-05</td>
-                    <td>21:36</td>
-                    <td>22:22</td>
-                    <td>46 min</td>
-                    <td>1584W</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>4</strong></td>
                     <td>2022-11-11</td>
                     <td>21:00</td>
                     <td>21:30</td>
@@ -559,7 +661,7 @@
                 </tr>
                 
                 <tr>
-                    <td><strong>5</strong></td>
+                    <td><strong>4</strong></td>
                     <td>2022-11-18</td>
                     <td>20:25</td>
                     <td>20:57</td>
@@ -577,97 +679,19 @@
             </div>
             <div id="regular-ac-copy-w1" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
                 <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
-                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-10-26 21:29-22:12, 2022-11-02 20:24-21:16, 2022-11-05 21:36-22:22, 2022-11-11 21:00-21:30, 2022-11-18 20:25-20:57</textarea>
+                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-10-26 21:29-22:12, 2022-11-05 21:36-22:21, 2022-11-11 21:00-21:30, 2022-11-18 20:25-20:57</textarea>
             </div>
             
 
-            <h4>Regular AC (Single Phase - w2) <span class="badge badge-green">Detected</span></h4>
+            <h4>Regular AC (Single Phase - w3) <span class="badge badge-orange">Few activations</span></h4>
             <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
                 <div class="metric">
                     <span class="metric-label">Total Sessions:</span>
-                    <span class="metric-value">3</span>
+                    <span class="metric-value">1</span>
                 </div>
                 <div class="metric">
                     <span class="metric-label">Total Cycles:</span>
-                    <span class="metric-value">6</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-label">Phase:</span>
-                    <span class="metric-value">w2</span>
-                </div>
-            </div>
-            <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
-                Sessions grouped by 1-hour gaps. High-power events (>800W) on w2 only, not part of central AC.
-            </p>
-            <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-                Showing all 3 sessions
-            </p>
-            <div style="max-height: 400px; overflow-y: auto;">
-            <table class="data-table small">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Date</th>
-                        <th>Start Time</th>
-                        <th>End Time</th>
-                        <th>Duration</th>
-                        <th>Power</th>
-                        <th>Cycles</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><strong>1</strong></td>
-                    <td>2022-11-01</td>
-                    <td>09:36</td>
-                    <td>10:27</td>
-                    <td>51 min</td>
-                    <td>1764W</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>2</strong></td>
-                    <td>2022-11-09</td>
-                    <td>23:11</td>
-                    <td>23:46</td>
-                    <td>35 min</td>
-                    <td>2008W</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>3</strong></td>
-                    <td>2022-11-15</td>
-                    <td>10:03</td>
-                    <td>10:54</td>
-                    <td>51 min</td>
-                    <td>1853W</td>
-                    <td>2</td>
-                </tr>
-                </tbody>
-            </table>
-            </div>
-            <div style="margin-top: 10px;">
-                <button onclick="document.getElementById('regular-ac-copy-w2').style.display = document.getElementById('regular-ac-copy-w2').style.display === 'none' ? 'block' : 'none'" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85em;">
-                    Show Copyable Dates
-                </button>
-            </div>
-            <div id="regular-ac-copy-w2" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
-                <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
-                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-11-01 09:36-10:27, 2022-11-09 23:11-23:46, 2022-11-15 10:03-10:54</textarea>
-            </div>
-            
-
-            <h4>Regular AC (Single Phase - w3) <span class="badge badge-green">Detected</span></h4>
-            <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
-                <div class="metric">
-                    <span class="metric-label">Total Sessions:</span>
-                    <span class="metric-value">6</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-label">Total Cycles:</span>
-                    <span class="metric-value">14</span>
+                    <span class="metric-value">4</span>
                 </div>
                 <div class="metric">
                     <span class="metric-label">Phase:</span>
@@ -678,7 +702,7 @@
                 Sessions grouped by 1-hour gaps. High-power events (>800W) on w3 only, not part of central AC.
             </p>
             <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-                Showing all 6 sessions
+                Showing all 1 sessions
             </p>
             <div style="max-height: 400px; overflow-y: auto;">
             <table class="data-table small">
@@ -696,62 +720,12 @@
                 <tbody>
                 <tr>
                     <td><strong>1</strong></td>
-                    <td>2022-11-10</td>
-                    <td>10:49</td>
-                    <td>11:50</td>
-                    <td>61 min</td>
-                    <td>1955W</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>2</strong></td>
                     <td>2022-11-11</td>
-                    <td>22:57</td>
+                    <td>22:40</td>
                     <td>00:32</td>
-                    <td>95 min</td>
-                    <td>1961W</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>3</strong></td>
-                    <td>2022-11-17</td>
-                    <td>20:32</td>
-                    <td>21:32</td>
-                    <td>60 min</td>
-                    <td>1890W</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>4</strong></td>
-                    <td>2022-11-22</td>
-                    <td>10:56</td>
-                    <td>12:23</td>
-                    <td>87 min</td>
-                    <td>1744W</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>5</strong></td>
-                    <td>2022-11-23</td>
-                    <td>18:47</td>
-                    <td>19:46</td>
-                    <td>59 min</td>
-                    <td>1930W</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>6</strong></td>
-                    <td>2022-11-24</td>
-                    <td>22:13</td>
-                    <td>22:44</td>
-                    <td>31 min</td>
-                    <td>1917W</td>
-                    <td>2</td>
+                    <td>112 min</td>
+                    <td>1964W</td>
+                    <td>4</td>
                 </tr>
                 </tbody>
             </table>
@@ -763,29 +737,29 @@
             </div>
             <div id="regular-ac-copy-w3" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
                 <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
-                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-11-10 10:49-11:50, 2022-11-11 22:57-00:32, 2022-11-17 20:32-21:32, 2022-11-22 10:56-12:23, 2022-11-23 18:47-19:46, 2022-11-24 22:13-22:44</textarea>
+                <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-11-11 22:40-00:32</textarea>
             </div>
             
     <h4>Water Heater (Boiler) <span class="badge badge-green">Detected</span></h4>
     <div class="metrics-row" style="border-top: none; padding-top: 0; margin-bottom: 15px;">
         <div class="metric">
             <span class="metric-label">Total Activations:</span>
-            <span class="metric-value">17</span>
+            <span class="metric-value">29</span>
         </div>
         <div class="metric">
             <span class="metric-label">Avg Duration:</span>
-            <span class="metric-value">67 min</span>
+            <span class="metric-value">117 min</span>
         </div>
         <div class="metric">
             <span class="metric-label">Avg Power:</span>
-            <span class="metric-value">1914W</span>
+            <span class="metric-value">1948W</span>
         </div>
     </div>
     <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
         Isolated long-duration (≥25 min) high-power (≥1500W) events with no medium-duration events nearby
     </p>
     <p style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
-        Showing all 17 activations
+        Showing all 29 activations
     </p>
     <div style="max-height: 400px; overflow-y: auto;">
     <table class="data-table small">
@@ -823,16 +797,66 @@
         
         <tr>
             <td><strong>3</strong></td>
-            <td>2022-11-04</td>
-            <td>21:19</td>
-            <td>22:26</td>
-            <td>67 min</td>
-            <td>1612W</td>
-            <td>w1</td>
+            <td>2022-11-03</td>
+            <td>10:15</td>
+            <td>16:02</td>
+            <td>347 min</td>
+            <td>1657W</td>
+            <td>w2</td>
         </tr>
         
         <tr>
             <td><strong>4</strong></td>
+            <td>2022-11-03</td>
+            <td>13:31</td>
+            <td>16:32</td>
+            <td>181 min</td>
+            <td>2215W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>5</strong></td>
+            <td>2022-11-04</td>
+            <td>10:26</td>
+            <td>16:05</td>
+            <td>339 min</td>
+            <td>1796W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>6</strong></td>
+            <td>2022-11-04</td>
+            <td>11:29</td>
+            <td>14:10</td>
+            <td>161 min</td>
+            <td>1884W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>7</strong></td>
+            <td>2022-11-04</td>
+            <td>16:03</td>
+            <td>16:34</td>
+            <td>31 min</td>
+            <td>1730W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>8</strong></td>
+            <td>2022-11-05</td>
+            <td>19:05</td>
+            <td>19:44</td>
+            <td>39 min</td>
+            <td>2272W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>9</strong></td>
             <td>2022-11-05</td>
             <td>22:56</td>
             <td>23:52</td>
@@ -842,17 +866,17 @@
         </tr>
         
         <tr>
-            <td><strong>5</strong></td>
+            <td><strong>10</strong></td>
             <td>2022-11-07</td>
-            <td>14:54</td>
-            <td>15:42</td>
-            <td>48 min</td>
-            <td>1595W</td>
-            <td>w1</td>
+            <td>01:12</td>
+            <td>02:19</td>
+            <td>67 min</td>
+            <td>2275W</td>
+            <td>w2</td>
         </tr>
         
         <tr>
-            <td><strong>6</strong></td>
+            <td><strong>11</strong></td>
             <td>2022-11-07</td>
             <td>17:47</td>
             <td>20:04</td>
@@ -862,7 +886,7 @@
         </tr>
         
         <tr>
-            <td><strong>7</strong></td>
+            <td><strong>12</strong></td>
             <td>2022-11-07</td>
             <td>19:17</td>
             <td>23:01</td>
@@ -872,7 +896,7 @@
         </tr>
         
         <tr>
-            <td><strong>8</strong></td>
+            <td><strong>13</strong></td>
             <td>2022-11-10</td>
             <td>16:16</td>
             <td>16:56</td>
@@ -882,7 +906,27 @@
         </tr>
         
         <tr>
-            <td><strong>9</strong></td>
+            <td><strong>14</strong></td>
+            <td>2022-11-11</td>
+            <td>12:46</td>
+            <td>15:44</td>
+            <td>178 min</td>
+            <td>1720W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>15</strong></td>
+            <td>2022-11-11</td>
+            <td>18:55</td>
+            <td>19:27</td>
+            <td>32 min</td>
+            <td>2262W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>16</strong></td>
             <td>2022-11-12</td>
             <td>13:34</td>
             <td>14:14</td>
@@ -892,7 +936,7 @@
         </tr>
         
         <tr>
-            <td><strong>10</strong></td>
+            <td><strong>17</strong></td>
             <td>2022-11-13</td>
             <td>22:49</td>
             <td>23:25</td>
@@ -902,7 +946,17 @@
         </tr>
         
         <tr>
-            <td><strong>11</strong></td>
+            <td><strong>18</strong></td>
+            <td>2022-11-14</td>
+            <td>11:04</td>
+            <td>15:25</td>
+            <td>261 min</td>
+            <td>1686W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>19</strong></td>
             <td>2022-11-14</td>
             <td>16:49</td>
             <td>17:15</td>
@@ -912,7 +966,27 @@
         </tr>
         
         <tr>
-            <td><strong>12</strong></td>
+            <td><strong>20</strong></td>
+            <td>2022-11-17</td>
+            <td>16:20</td>
+            <td>20:30</td>
+            <td>250 min</td>
+            <td>1793W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>21</strong></td>
+            <td>2022-11-18</td>
+            <td>19:46</td>
+            <td>20:24</td>
+            <td>38 min</td>
+            <td>1568W</td>
+            <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>22</strong></td>
             <td>2022-11-18</td>
             <td>19:58</td>
             <td>21:03</td>
@@ -922,7 +996,7 @@
         </tr>
         
         <tr>
-            <td><strong>13</strong></td>
+            <td><strong>23</strong></td>
             <td>2022-11-19</td>
             <td>20:29</td>
             <td>21:04</td>
@@ -932,27 +1006,37 @@
         </tr>
         
         <tr>
-            <td><strong>14</strong></td>
+            <td><strong>24</strong></td>
             <td>2022-11-20</td>
-            <td>20:03</td>
-            <td>20:54</td>
-            <td>51 min</td>
-            <td>1608W</td>
-            <td>w1</td>
+            <td>22:38</td>
+            <td>01:01</td>
+            <td>143 min</td>
+            <td>1758W</td>
+            <td>w2</td>
         </tr>
         
         <tr>
-            <td><strong>15</strong></td>
-            <td>2022-11-21</td>
-            <td>22:44</td>
-            <td>23:11</td>
-            <td>27 min</td>
-            <td>1873W</td>
-            <td>w3</td>
+            <td><strong>25</strong></td>
+            <td>2022-11-22</td>
+            <td>10:22</td>
+            <td>12:12</td>
+            <td>110 min</td>
+            <td>1842W</td>
+            <td>w2</td>
         </tr>
         
         <tr>
-            <td><strong>16</strong></td>
+            <td><strong>26</strong></td>
+            <td>2022-11-22</td>
+            <td>14:26</td>
+            <td>16:51</td>
+            <td>145 min</td>
+            <td>1918W</td>
+            <td>w2</td>
+        </tr>
+        
+        <tr>
+            <td><strong>27</strong></td>
             <td>2022-11-23</td>
             <td>20:40</td>
             <td>22:15</td>
@@ -962,13 +1046,23 @@
         </tr>
         
         <tr>
-            <td><strong>17</strong></td>
+            <td><strong>28</strong></td>
             <td>2022-11-24</td>
             <td>14:54</td>
             <td>15:35</td>
             <td>41 min</td>
             <td>1664W</td>
             <td>w1</td>
+        </tr>
+        
+        <tr>
+            <td><strong>29</strong></td>
+            <td>2022-11-24</td>
+            <td>18:55</td>
+            <td>21:10</td>
+            <td>135 min</td>
+            <td>2275W</td>
+            <td>w2</td>
         </tr>
         </tbody>
     </table>
@@ -980,7 +1074,7 @@
     </div>
     <div id="boiler-copy-text" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px;">
         <p style="font-size: 0.8em; color: #666; margin-bottom: 5px;">Copy this text to use for generating plots:</p>
-        <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-10-25 22:08-23:20, 2022-11-02 18:39-19:53, 2022-11-04 21:19-22:26, 2022-11-05 22:56-23:52, 2022-11-07 14:54-15:42, 2022-11-07 17:47-20:04, 2022-11-07 19:17-23:01, 2022-11-10 16:16-16:56, 2022-11-12 13:34-14:14, 2022-11-13 22:49-23:25, 2022-11-14 16:49-17:15, 2022-11-18 19:58-21:03, 2022-11-19 20:29-21:04, 2022-11-20 20:03-20:54, 2022-11-21 22:44-23:11, 2022-11-23 20:40-22:15, 2022-11-24 14:54-15:35</textarea>
+        <textarea readonly style="width: 100%; height: 60px; font-family: monospace; font-size: 0.85em; padding: 5px; border: 1px solid #ced4da; border-radius: 3px;">2022-10-25 22:08-23:20, 2022-11-02 18:39-19:53, 2022-11-03 10:15-16:02, 2022-11-03 13:31-16:32, 2022-11-04 10:26-16:05, 2022-11-04 11:29-14:10, 2022-11-04 16:03-16:34, 2022-11-05 19:05-19:44, 2022-11-05 22:56-23:52, 2022-11-07 01:12-02:19, 2022-11-07 17:47-20:04, 2022-11-07 19:17-23:01, 2022-11-10 16:16-16:56, 2022-11-11 12:46-15:44, 2022-11-11 18:55-19:27, 2022-11-12 13:34-14:14, 2022-11-13 22:49-23:25, 2022-11-14 11:04-15:25, 2022-11-14 16:49-17:15, 2022-11-17 16:20-20:30, 2022-11-18 19:46-20:24, 2022-11-18 19:58-21:03, 2022-11-19 20:29-21:04, 2022-11-20 22:38-01:01, 2022-11-22 10:22-12:12, 2022-11-22 14:26-16:51, 2022-11-23 20:40-22:15, 2022-11-24 14:54-15:35, 2022-11-24 18:55-21:10</textarea>
     </div>
     
     <div style="margin-top: 30px; margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
@@ -1007,7 +1101,7 @@
                             ☀️ Summer: 0 (0%)
                         </span>
                         <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
-                            🍂 Fall: 14 (100%)
+                            🍂 Fall: 5 (100%)
                         </span>
                     </div>
                 </div>
@@ -1015,10 +1109,10 @@
                     <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
                     <div style="display: flex; flex-wrap: wrap; gap: 5px;">
                         <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
-                            ☀️ Day (06-18): 4 (29%)
+                            ☀️ Day (06-18): 0 (0%)
                         </span>
                         <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
-                            🌙 Night (18-06): 10 (71%)
+                            🌙 Night (18-06): 5 (100%)
                         </span>
                     </div>
                 </div>
@@ -1042,7 +1136,7 @@
                             ☀️ Summer: 0 (0%)
                         </span>
                         <span style="display: inline-block; padding: 6px 12px; background: #f39c12; color: white; border-radius: 20px; font-size: 0.85em;">
-                            🍂 Fall: 17 (100%)
+                            🍂 Fall: 29 (100%)
                         </span>
                     </div>
                 </div>
@@ -1050,10 +1144,10 @@
                     <strong style="color: #555; font-size: 0.9em; display: block; margin-bottom: 8px;">By Time of Day:</strong>
                     <div style="display: flex; flex-wrap: wrap; gap: 5px;">
                         <span style="display: inline-block; padding: 6px 12px; background: #f1c40f; color: #333; border-radius: 20px; font-size: 0.85em;">
-                            ☀️ Day (06-18): 6 (35%)
+                            ☀️ Day (06-18): 15 (52%)
                         </span>
                         <span style="display: inline-block; padding: 6px 12px; background: #2c3e50; color: white; border-radius: 20px; font-size: 0.85em;">
-                            🌙 Night (18-06): 11 (65%)
+                            🌙 Night (18-06): 14 (48%)
                         </span>
                     </div>
                 </div>
@@ -1075,36 +1169,36 @@
             <tr>
                 <td><strong>Night</strong><br><small style="color: #888;">00:00-06:00</small></td>
                 <td style="text-align: center;">37</td>
-                <td style="text-align: center; color: #28a745;">18</td>
-                <td style="text-align: center; color: #dc3545;">19</td>
+                <td style="text-align: center; color: #28a745;">19</td>
+                <td style="text-align: center; color: #dc3545;">18</td>
             </tr>
             
             <tr>
                 <td><strong>Morning</strong><br><small style="color: #888;">06:00-12:00</small></td>
-                <td style="text-align: center;">84</td>
-                <td style="text-align: center; color: #28a745;">40</td>
-                <td style="text-align: center; color: #dc3545;">44</td>
+                <td style="text-align: center;">77</td>
+                <td style="text-align: center; color: #28a745;">35</td>
+                <td style="text-align: center; color: #dc3545;">42</td>
             </tr>
             
             <tr>
                 <td><strong>Afternoon</strong><br><small style="color: #888;">12:00-18:00</small></td>
-                <td style="text-align: center;">137</td>
-                <td style="text-align: center; color: #28a745;">73</td>
-                <td style="text-align: center; color: #dc3545;">64</td>
+                <td style="text-align: center;">141</td>
+                <td style="text-align: center; color: #28a745;">76</td>
+                <td style="text-align: center; color: #dc3545;">65</td>
             </tr>
             
             <tr>
                 <td><strong>Evening</strong><br><small style="color: #888;">18:00-24:00</small></td>
-                <td style="text-align: center;">262</td>
-                <td style="text-align: center; color: #28a745;">126</td>
-                <td style="text-align: center; color: #dc3545;">136</td>
+                <td style="text-align: center;">313</td>
+                <td style="text-align: center; color: #28a745;">158</td>
+                <td style="text-align: center; color: #dc3545;">155</td>
             </tr>
             
                 <tr style="border-top: 2px solid #ddd; font-weight: bold;">
                     <td>Total</td>
-                    <td style="text-align: center;">520</td>
-                    <td style="text-align: center; color: #28a745;">257</td>
-                    <td style="text-align: center; color: #dc3545;">263</td>
+                    <td style="text-align: center;">568</td>
+                    <td style="text-align: center; color: #28a745;">288</td>
+                    <td style="text-align: center; color: #dc3545;">280</td>
                 </tr>
             </tbody>
         </table>
@@ -1129,22 +1223,22 @@
         <tbody>
         <tr>
             <td>2022-10</td>
-            <td>30</td>
-            <td>27</td>
-            <td>15</td>
-            <td>52.6%</td>
-            <td>26.8 kW</td>
-            <td>150 min</td>
+            <td>36</td>
+            <td>34</td>
+            <td>18</td>
+            <td>51.4%</td>
+            <td>29.6 kW</td>
+            <td>251 min</td>
         </tr>
         
         <tr>
             <td>2022-11</td>
-            <td>227</td>
-            <td>236</td>
-            <td>177</td>
-            <td>76.5%</td>
-            <td>315.8 kW</td>
-            <td>3333 min</td>
+            <td>252</td>
+            <td>246</td>
+            <td>153</td>
+            <td>61.4%</td>
+            <td>249.8 kW</td>
+            <td>5762 min</td>
         </tr>
         </tbody>
     </table>
@@ -1152,7 +1246,7 @@
     <div class="metrics-row" style="border-top: none; padding-top: 10px;">
         <div class="metric">
             <span class="metric-label">Avg Monthly Rate:</span>
-            <span class="metric-value">64.5%</span>
+            <span class="metric-value">56.4%</span>
         </div>
         <div class="metric">
             <span class="metric-label">Months Analyzed:</span>
@@ -1174,7 +1268,7 @@
         <div class="chart-container">
             <div id="seg-pie-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('seg-pie-chart', [{"values": [3909.388, 17381.518], "labels": ["Segmented<br>3909.4 kW (18.4%)", "Remaining<br>17381.5 kW (81.6%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4, "hovertemplate": "%{label}<extra></extra>"}], {"title": "Power Distribution", "annotations": [{"text": "21290.9 kW<br>Total", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
+                Plotly.newPlot('seg-pie-chart', [{"values": [3955.412, 17335.494], "labels": ["Segmented<br>3955.4 kW (18.6%)", "Remaining<br>17335.5 kW (81.4%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4, "hovertemplate": "%{label}<extra></extra>"}], {"title": "Power Distribution", "annotations": [{"text": "21290.9 kW<br>Total", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
             </script>
         </div>
         
@@ -1182,7 +1276,7 @@
             <div class="chart-container">
                 <div id="minutes-pie-chart" style="width:100%;height:350px;"></div>
                 <script>
-                    Plotly.newPlot('minutes-pie-chart', [{"values": [98.0, 887.0, 2498.0], "labels": ["Short (1-2 min)<br>98 min", "Medium (3-24 min)<br>887 min", "Long (25+ min)<br>2498 min"], "type": "pie", "marker": {"colors": ["#17a2b8", "#ffc107", "#dc3545"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4}], {"title": "Matched Minutes Distribution (sum of all 3 phases)", "annotations": [{"text": "3483 min<br>(58.0 hrs)", "x": 0.5, "y": 0.5, "font": {"size": 12, "color": "#333"}, "showarrow": false}]});
+                    Plotly.newPlot('minutes-pie-chart', [{"values": [86.0, 728.0, 5199.0], "labels": ["Short (1-2 min)<br>86 min", "Medium (3-24 min)<br>728 min", "Long (25+ min)<br>5199 min"], "type": "pie", "marker": {"colors": ["#17a2b8", "#ffc107", "#dc3545"]}, "textinfo": "label+percent", "textposition": "inside", "hole": 0.4}], {"title": "Matched Minutes Distribution (sum of all 3 phases)", "annotations": [{"text": "6013 min<br>(100.2 hrs)", "x": 0.5, "y": 0.5, "font": {"size": 12, "color": "#333"}, "showarrow": false}]});
                 </script>
                 <p style="text-align: center; font-size: 0.8em; color: #888; margin-top: -10px;">
                     Overlapping events on different phases are counted separately
@@ -1193,7 +1287,7 @@
         <div class="chart-container">
             <div id="duration-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>55 (29%)", "Medium (3-24 min)<br>109 (57%)", "Long (25+ min)<br>28 (15%)"], "y": [55, 109, 28], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [55, 109, 28], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
+                Plotly.newPlot('duration-chart', [{"x": ["Short (1-2 min)<br>49 (29%)", "Medium (3-24 min)<br>75 (44%)", "Long (25+ min)<br>47 (27%)"], "y": [49, 75, 47], "type": "bar", "marker": {"color": ["#17a2b8", "#ffc107", "#dc3545"]}, "text": [49, 75, 47], "textposition": "outside"}], {"title": "Match Duration Breakdown", "yaxis": {"title": "Number of Matches"}, "xaxis": {"title": ""}});
             </script>
         </div>
         
@@ -1201,7 +1295,7 @@
         <div class="chart-container">
             <div id="tag-pie-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('tag-pie-chart', [{"values": [128, 54, 7, 3], "labels": ["NON-M<br>128 (66.7%)", "SPIKE<br>54 (28.1%)", "PARTIAL<br>7 (3.6%)", "NOISY<br>3 (1.6%)"], "type": "pie", "marker": {"colors": ["#28a745", "#6c757d", "#17a2b8", "#ffc107"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "192<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
+                Plotly.newPlot('tag-pie-chart', [{"values": [36, 35, 21, 14, 11, 8, 6, 6, 5, 5, 5, 4, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1], "labels": ["EXACT-SPIKE<br>36 (21.1%)", "EXACT-MEDIUM<br>35 (20.5%)", "EXACT-EXTENDED<br>21 (12.3%)", "EXACT-QUICK<br>14 (8.2%)", "CLOSE-EXTENDED<br>11 (6.4%)", "PARTIAL-MEDIUM<br>8 (4.7%)", "CLOSE-SPIKE<br>6 (3.5%)", "CLOSE-MEDIUM<br>6 (3.5%)", "EXACT-MEDIUM-CORRECTED<br>5 (2.9%)", "APPROX-SPIKE<br>5 (2.9%)", "PARTIAL-QUICK<br>5 (2.9%)", "NOISY-APPROX-EXTENDED<br>4 (2.3%)", "PARTIAL-EXTENDED<br>3 (1.8%)", "LOOSE-QUICK<br>2 (1.2%)", "CLOSE-EXTENDED-CORRECTED<br>2 (1.2%)", "EXACT-EXTENDED-CORRECTED<br>2 (1.2%)", "APPROX-EXTENDED<br>1 (0.6%)", "PARTIAL-SPIKE<br>1 (0.6%)", "CLOSE-QUICK<br>1 (0.6%)", "LOOSE-SPIKE<br>1 (0.6%)", "CLOSE-MEDIUM-CORRECTED<br>1 (0.6%)", "LOOSE-MEDIUM<br>1 (0.6%)"], "type": "pie", "marker": {"colors": ["#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d", "#6c757d"]}, "hole": 0.4, "textinfo": "label", "textposition": "inside"}], {"title": "Match Types", "annotations": [{"text": "171<br>Matches", "x": 0.5, "y": 0.5, "font": {"size": 14, "color": "#333"}, "showarrow": false}]});
             </script>
         </div>
         
@@ -1209,7 +1303,7 @@
         <div class="chart-container">
             <div id="time-dist-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>37 (7%)", "Morning (06-12)<br>84 (16%)", "Afternoon (12-18)<br>137 (26%)", "Evening (18-24)<br>262 (50%)"], "y": [37, 84, 137, 262], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
+                Plotly.newPlot('time-dist-chart', [{"x": ["Night (00-06)<br>37 (7%)", "Morning (06-12)<br>77 (14%)", "Afternoon (12-18)<br>141 (25%)", "Evening (18-24)<br>313 (55%)"], "y": [37, 77, 141, 313], "type": "bar", "marker": {"color": ["#2c3e50", "#3498db", "#f39c12", "#9b59b6"]}}], {"title": "Events by Time of Day", "yaxis": {"title": "Number of Events"}});
             </script>
         </div>
         
@@ -1217,7 +1311,7 @@
         <div class="chart-container">
             <div id="magnitude-minutes-chart" style="width:100%;height:350px;"></div>
             <script>
-                Plotly.newPlot('magnitude-minutes-chart', [{"x": ["1.3-1.8kW<br>1591 min (48%)", "1.8-2.5kW<br>1642 min (50%)", "2.5-3.5kW<br>76 min (2%)", "3.5-5kW<br>0 min (0%)", "5kW+<br>0 min (0%)"], "y": [1591.0, 1642.0, 76.0, 0.0, 0.0], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Matched Minutes by Magnitude (sum of all 3 phases)", "yaxis": {"title": "Total Minutes"}, "xaxis": {"title": ""}});
+                Plotly.newPlot('magnitude-minutes-chart', [{"x": ["1.3-1.8kW<br>2338 min (55%)", "1.8-2.5kW<br>1876 min (44%)", "2.5-3.5kW<br>5 min (0%)", "3.5-5kW<br>0 min (0%)", "5kW+<br>0 min (0%)"], "y": [2338.0, 1876.0, 5.0, 0.0, 0.0], "type": "bar", "marker": {"color": ["#3498db", "#2ecc71", "#f39c12", "#e74c3c", "#9b59b6"]}}], {"title": "Matched Minutes by Magnitude (sum of all 3 phases)", "yaxis": {"title": "Total Minutes"}, "xaxis": {"title": ""}});
             </script>
         </div>
         

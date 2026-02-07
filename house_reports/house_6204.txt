@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 6204
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 11686 events, 65.8% matched
-Last iteration: 4058 events, 11.5% matched
-Events reduction: 65.3%
-Total matched power: 8289.1 kW
+First iteration: 12753 events, 62.5% matched
+Last iteration: 5328 events, 18.8% matched
+Events reduction: 58.2%
+Total matched power: 8602.5 kW
 
 --- First Iteration Matching ---
-Total events: 5830 ON, 5856 OFF
-Matched: 0 (65.9%)
-By tag: NON-M: 2414, SPIKE: 1114, PARTIAL: 207, NOISY: 108
+Total events: 6426 ON, 6327 OFF
+Matched: 3983 (62.0%)
+By tag: EXACT-SPIKE: 756, EXACT-MEDIUM: 582, EXACT-QUICK: 549, CLOSE-MEDIUM: 299, EXACT-EXTENDED: 234, CLOSE-EXTENDED: 171, CLOSE-QUICK: 165, CLOSE-SPIKE: 139, APPROX-MEDIUM: 122, PARTIAL-QUICK: 122, APPROX-SPIKE: 120, PARTIAL-MEDIUM: 119, PARTIAL-SPIKE: 105, LOOSE-MEDIUM: 69, EXACT-MEDIUM-CORRECTED: 64, APPROX-QUICK: 62, LOOSE-SPIKE: 56, NOISY-LOOSE-MEDIUM: 36, LOOSE-QUICK: 36, NOISY-APPROX-MEDIUM: 29, NOISY-APPROX-EXTENDED: 29, CLOSE-MEDIUM-CORRECTED: 28, EXACT-EXTENDED-CORRECTED: 26, APPROX-EXTENDED: 16, NOISY-LOOSE-EXTENDED: 14, CLOSE-EXTENDED-CORRECTED: 14, LOOSE-EXTENDED: 6, NOISY-LOOSE-QUICK: 4, NOISY-LOOSE-MEDIUM-CORRECTED: 3, NOISY-APPROX-QUICK: 2, EXACT-QUICK-CORRECTED: 1, CLOSE-QUICK-CORRECTED: 1, LOOSE-SPIKE-CORRECTED: 1, NOISY-LOOSE-EXTENDED-CORRECTED: 1, PARTIAL-EXTENDED: 1, PARTIAL-SPIKE-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 715463.9 kW
-Segmented: 73878.3 kW (10.3%)
-Remaining: 641479.3 kW
+Segmented: 73504.8 kW (10.3%)
+Remaining: 641847.5 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 122,601
+Minutes explained: 28,303 (23.1%)
+  w1: 15,051 above TH, 3,974 explained (26.4%)
+  w2: 24,265 above TH, 1,436 explained (5.9%)
+  w3: 83,285 above TH, 22,893 explained (27.5%)
 
 --- Scores ---
-Matching score: 66/100
+Matching score: 62/100
 Segmentation score: 10/100
-Overall score: 49/100
+Overall score: 47/100
 
 --- Issues ---
   - Low Improvement

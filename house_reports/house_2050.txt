@@ -4,27 +4,33 @@ EXPERIMENT REPORT: House 2050
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 9085 events, 55.9% matched
-Last iteration: 3999 events, 5.5% matched
-Events reduction: 56.0%
-Total matched power: 4589.5 kW
+First iteration: 11553 events, 55.0% matched
+Last iteration: 5604 events, 12.7% matched
+Events reduction: 51.5%
+Total matched power: 5502.5 kW
 
 --- First Iteration Matching ---
-Total events: 4508 ON, 4577 OFF
-Matched: 0 (56.3%)
-By tag: NON-M: 1657, SPIKE: 592, PARTIAL: 233, NOISY: 56
+Total events: 5685 ON, 5868 OFF
+Matched: 3177 (55.9%)
+By tag: EXACT-SPIKE: 852, EXACT-MEDIUM: 691, EXACT-EXTENDED: 252, EXACT-QUICK: 243, CLOSE-MEDIUM: 192, PARTIAL-MEDIUM: 188, CLOSE-EXTENDED: 97, PARTIAL-QUICK: 77, APPROX-MEDIUM: 64, PARTIAL-SPIKE: 60, LOOSE-MEDIUM: 47, CLOSE-SPIKE: 44, APPROX-QUICK: 40, LOOSE-SPIKE: 37, CLOSE-QUICK: 35, EXACT-EXTENDED-CORRECTED: 34, CLOSE-EXTENDED-CORRECTED: 33, EXACT-MEDIUM-CORRECTED: 30, NOISY-APPROX-MEDIUM: 28, APPROX-SPIKE: 24, LOOSE-QUICK: 23, NOISY-LOOSE-MEDIUM: 20, NOISY-APPROX-EXTENDED: 14, APPROX-EXTENDED: 13, CLOSE-MEDIUM-CORRECTED: 8, NOISY-LOOSE-EXTENDED: 6, PARTIAL-EXTENDED: 6, LOOSE-EXTENDED: 4, NOISY-APPROX-EXTENDED-CORRECTED: 3, EXACT-QUICK-CORRECTED: 3, NOISY-LOOSE-QUICK: 3, NOISY-LOOSE-EXTENDED-CORRECTED: 2, NOISY-APPROX-QUICK: 2, APPROX-EXTENDED-CORRECTED: 1, APPROX-SPIKE-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 764358.5 kW
-Segmented: 54879.5 kW (7.2%)
-Remaining: 709463.4 kW
+Segmented: 63934.8 kW (8.4%)
+Remaining: 700393.8 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 106,593
+Minutes explained: 30,816 (28.9%)
+  w1: 20,136 above TH, 5,385 explained (26.7%)
+  w2: 66,689 above TH, 23,406 explained (35.1%)
+  w3: 19,768 above TH, 2,025 explained (10.2%)
 
 --- Scores ---
-Matching score: 56/100
-Segmentation score: 7/100
+Matching score: 55/100
+Segmentation score: 8/100
 Overall score: 41/100
 
 --- Issues ---
   - Low Improvement
   - Low Segmentation
-  - Has Recurring Patterns

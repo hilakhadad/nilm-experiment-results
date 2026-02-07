@@ -1,0 +1,40 @@
+============================================================
+EXPERIMENT REPORT: House 5085
+============================================================
+
+--- Iterations Overview ---
+Iterations completed: 2
+First iteration: 27184 events, 75.0% matched
+Last iteration: 11535 events, 48.6% matched
+Events reduction: 57.6%
+Total matched power: 15863.6 kW
+
+--- First Iteration Matching ---
+Total events: 12752 ON, 14432 OFF
+Matched: 10192 (79.9%)
+By tag: EXACT-QUICK: 1890, EXACT-MEDIUM: 1785, EXACT-EXTENDED: 1375, EXACT-SPIKE: 1042, EXACT-MEDIUM-CORRECTED: 734, CLOSE-MEDIUM: 693, CLOSE-EXTENDED: 618, CLOSE-QUICK: 588, CLOSE-MEDIUM-CORRECTED: 274, EXACT-EXTENDED-CORRECTED: 199, CLOSE-SPIKE: 161, PARTIAL-SPIKE: 153, APPROX-QUICK: 135, APPROX-MEDIUM: 95, APPROX-SPIKE: 86, CLOSE-EXTENDED-CORRECTED: 85, PARTIAL-QUICK: 76, LOOSE-QUICK: 34, LOOSE-SPIKE: 33, LOOSE-MEDIUM: 32, PARTIAL-MEDIUM: 25, NOISY-APPROX-MEDIUM: 17, NOISY-LOOSE-MEDIUM: 15, APPROX-EXTENDED: 12, NOISY-APPROX-EXTENDED: 10, CLOSE-QUICK-CORRECTED: 4, APPROX-MEDIUM-CORRECTED: 4, NOISY-LOOSE-EXTENDED: 3, NOISY-APPROX-QUICK: 2, NOISY-LOOSE-EXTENDED-CORRECTED: 2, NOISY-APPROX-EXTENDED-CORRECTED: 2, APPROX-SPIKE-CORRECTED: 1, PARTIAL-EXTENDED: 1, APPROX-EXTENDED-CORRECTED: 1, CLOSE-SPIKE-CORRECTED: 1, LOOSE-QUICK-CORRECTED: 1, NOISY-APPROX-MEDIUM-CORRECTED: 1, APPROX-QUICK-CORRECTED: 1, EXACT-QUICK-CORRECTED: 1
+
+--- First Iteration Segmentation ---
+Total power: 273152.1 kW
+Segmented: 47795.1 kW (17.5%)
+Remaining: 225315.0 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 37,136
+Minutes explained: 17,452 (47.0%)
+  w1: 23,625 above TH, 11,111 explained (47.0%)
+  w2: 13,511 above TH, 6,341 explained (46.9%)
+  w3: 0 above TH, 0 explained (0.0%)
+
+--- Scores ---
+DAMAGED PHASES: w3
+Healthy phases: w1, w2
+(Scores calculated from healthy phases only)
+Matching score: 75/100
+Segmentation score: 17/100
+Overall score: 58/100
+
+--- Issues ---
+  - Low Improvement
+  - Low Segmentation
+  - Has Damaged Phases

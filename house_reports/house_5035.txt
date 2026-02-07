@@ -4,26 +4,34 @@ EXPERIMENT REPORT: House 5035
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 10478 events, 56.1% matched
-Last iteration: 4590 events, 9.5% matched
-Events reduction: 56.2%
-Total matched power: 5053.5 kW
+First iteration: 20627 events, 77.8% matched
+Last iteration: 6397 events, 37.1% matched
+Events reduction: 69.0%
+Total matched power: 12371.1 kW
 
 --- First Iteration Matching ---
-Total events: 4862 ON, 5616 OFF
-Matched: 0 (60.5%)
-By tag: NON-M: 2388, PARTIAL: 289, SPIKE: 209, NOISY: 55
+Total events: 10080 ON, 10547 OFF
+Matched: 8023 (79.6%)
+By tag: EXACT-QUICK: 2317, EXACT-MEDIUM: 1479, CLOSE-QUICK: 1052, CLOSE-MEDIUM: 588, EXACT-MEDIUM-CORRECTED: 493, EXACT-SPIKE: 294, EXACT-EXTENDED: 266, APPROX-QUICK: 241, PARTIAL-QUICK: 160, APPROX-MEDIUM: 156, EXACT-EXTENDED-CORRECTED: 151, PARTIAL-MEDIUM: 137, CLOSE-MEDIUM-CORRECTED: 132, CLOSE-EXTENDED: 129, LOOSE-QUICK: 81, CLOSE-EXTENDED-CORRECTED: 58, LOOSE-MEDIUM: 54, CLOSE-SPIKE: 41, PARTIAL-SPIKE: 34, APPROX-EXTENDED: 28, NOISY-APPROX-MEDIUM: 22, LOOSE-EXTENDED: 18, NOISY-LOOSE-MEDIUM: 18, APPROX-SPIKE: 16, PARTIAL-EXTENDED: 14, NOISY-APPROX-EXTENDED: 13, NOISY-LOOSE-EXTENDED: 12, LOOSE-SPIKE: 7, APPROX-MEDIUM-CORRECTED: 4, NOISY-APPROX-QUICK: 3, EXACT-QUICK-CORRECTED: 1, LOOSE-MEDIUM-CORRECTED: 1, PARTIAL-MEDIUM-CORRECTED: 1, NOISY-LOOSE-QUICK: 1, APPROX-EXTENDED-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 925432.4 kW
-Segmented: 53722.7 kW (5.8%)
-Remaining: 871696.9 kW
+Segmented: 75988.7 kW (8.2%)
+Remaining: 849403.3 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 194,655
+Minutes explained: 36,999 (19.0%)
+  w1: 36,405 above TH, 3 explained (0.0%)
+  w2: 42,009 above TH, 2,053 explained (4.9%)
+  w3: 116,241 above TH, 34,943 explained (30.1%)
 
 --- Scores ---
-Matching score: 56/100
-Segmentation score: 6/100
-Overall score: 41/100
+Matching score: 78/100
+Segmentation score: 8/100
+Overall score: 57/100
 
 --- Issues ---
   - Low Improvement
   - Low Segmentation
+  - Has Recurring Patterns

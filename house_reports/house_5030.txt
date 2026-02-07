@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 5030
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 14716 events, 68.0% matched
-Last iteration: 4700 events, 13.4% matched
-Events reduction: 68.1%
-Total matched power: 9814.6 kW
+First iteration: 16154 events, 63.4% matched
+Last iteration: 6788 events, 19.5% matched
+Events reduction: 58.0%
+Total matched power: 9592.8 kW
 
 --- First Iteration Matching ---
-Total events: 6934 ON, 7782 OFF
-Matched: 0 (72.1%)
-By tag: NON-M: 2972, SPIKE: 1704, PARTIAL: 177, NOISY: 148
+Total events: 7789 ON, 8365 OFF
+Matched: 5118 (65.7%)
+By tag: EXACT-SPIKE: 1654, EXACT-MEDIUM: 688, CLOSE-MEDIUM: 323, EXACT-EXTENDED: 317, EXACT-QUICK: 311, CLOSE-SPIKE: 262, PARTIAL-MEDIUM: 239, CLOSE-EXTENDED: 234, PARTIAL-QUICK: 148, APPROX-MEDIUM: 134, PARTIAL-SPIKE: 122, APPROX-SPIKE: 103, CLOSE-QUICK: 95, NOISY-APPROX-EXTENDED: 80, LOOSE-SPIKE: 61, LOOSE-MEDIUM: 53, EXACT-MEDIUM-CORRECTED: 41, EXACT-EXTENDED-CORRECTED: 38, LOOSE-QUICK: 32, NOISY-LOOSE-EXTENDED: 31, APPROX-EXTENDED: 29, CLOSE-EXTENDED-CORRECTED: 21, NOISY-LOOSE-MEDIUM: 21, APPROX-QUICK: 20, NOISY-APPROX-MEDIUM: 20, PARTIAL-EXTENDED: 11, CLOSE-MEDIUM-CORRECTED: 10, LOOSE-EXTENDED: 4, EXACT-QUICK-CORRECTED: 3, NOISY-APPROX-EXTENDED-CORRECTED: 3, APPROX-SPIKE-CORRECTED: 2, NOISY-APPROX-QUICK: 2, APPROX-MEDIUM-CORRECTED: 1, PARTIAL-MEDIUM-CORRECTED: 1, LOOSE-SPIKE-CORRECTED: 1, NOISY-LOOSE-QUICK-CORRECTED: 1, PARTIAL-QUICK-CORRECTED: 1, PARTIAL-SPIKE-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 764399.2 kW
-Segmented: 127111.9 kW (16.6%)
-Remaining: 637091.7 kW
+Segmented: 91778.2 kW (12.0%)
+Remaining: 672304.0 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 161,474
+Minutes explained: 41,589 (25.8%)
+  w1: 43,083 above TH, 15,117 explained (35.1%)
+  w2: 14,678 above TH, 1,642 explained (11.2%)
+  w3: 103,713 above TH, 24,830 explained (23.9%)
 
 --- Scores ---
-Matching score: 68/100
-Segmentation score: 17/100
-Overall score: 53/100
+Matching score: 63/100
+Segmentation score: 12/100
+Overall score: 48/100
 
 --- Issues ---
   - Low Improvement

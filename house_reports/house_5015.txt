@@ -4,25 +4,32 @@ EXPERIMENT REPORT: House 5015
 
 --- Iterations Overview ---
 Iterations completed: 2
-First iteration: 2889 events, 46.8% matched
-Last iteration: 1499 events, 2.1% matched
-Events reduction: 48.1%
-Total matched power: 1199.2 kW
+First iteration: 4929 events, 38.9% matched
+Last iteration: 3105 events, 7.2% matched
+Events reduction: 37.0%
+Total matched power: 1661.7 kW
 
 --- First Iteration Matching ---
-Total events: 1370 ON, 1519 OFF
-Matched: 0 (49.3%)
-By tag: NON-M: 474, SPIKE: 105, PARTIAL: 62, NOISY: 35
+Total events: 2401 ON, 2528 OFF
+Matched: 959 (39.9%)
+By tag: EXACT-MEDIUM: 207, EXACT-EXTENDED: 97, PARTIAL-MEDIUM: 76, EXACT-SPIKE: 72, CLOSE-MEDIUM: 68, EXACT-QUICK: 67, LOOSE-MEDIUM: 58, APPROX-MEDIUM: 49, CLOSE-EXTENDED: 39, CLOSE-QUICK: 32, APPROX-SPIKE: 24, CLOSE-SPIKE: 21, LOOSE-QUICK: 19, EXACT-EXTENDED-CORRECTED: 19, LOOSE-SPIKE: 16, NOISY-APPROX-EXTENDED: 15, CLOSE-EXTENDED-CORRECTED: 14, PARTIAL-QUICK: 11, NOISY-APPROX-MEDIUM: 11, NOISY-LOOSE-EXTENDED: 10, APPROX-QUICK: 8, EXACT-MEDIUM-CORRECTED: 8, NOISY-LOOSE-MEDIUM: 7, PARTIAL-SPIKE: 5, CLOSE-MEDIUM-CORRECTED: 3, NOISY-APPROX-MEDIUM-CORRECTED: 1, LOOSE-MEDIUM-CORRECTED: 1, APPROX-MEDIUM-CORRECTED: 1
 
 --- First Iteration Segmentation ---
 Total power: 591041.2 kW
-Segmented: 20509.0 kW (3.5%)
-Remaining: 570532.2 kW
+Segmented: 22663.5 kW (3.8%)
+Remaining: 568377.7 kW
+
+--- High-Power Energy Explained (>1300W) ---
+Total minutes above threshold: 53,133
+Minutes explained: 10,061 (18.9%)
+  w1: 35,608 above TH, 2,721 explained (7.6%)
+  w2: 12,664 above TH, 6,232 explained (49.2%)
+  w3: 4,861 above TH, 1,108 explained (22.8%)
 
 --- Scores ---
-Matching score: 47/100
-Segmentation score: 3/100
-Overall score: 34/100
+Matching score: 39/100
+Segmentation score: 4/100
+Overall score: 28/100
 
 --- Issues ---
   - Low Matching Rate
