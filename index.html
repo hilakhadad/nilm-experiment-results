@@ -56,7 +56,7 @@
         /* Navigation cards */
         .nav-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -535,6 +535,52 @@
             .module-banner { flex-direction: column; text-align: center; }
         }
 
+        /* Comparison iframes */
+        .comparison-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .comparison-section h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.3em;
+        }
+
+        .comparison-labels {
+            display: flex;
+            margin-bottom: 0;
+        }
+
+        .comparison-labels div {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 0.9em;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .comparison-labels .label-original { background: #e2e8f0; color: #2d3748; }
+        .comparison-labels .label-nan { background: #c6f6d5; color: #22543d; }
+
+        .comparison-frames {
+            display: flex;
+            gap: 4px;
+            height: 80vh;
+        }
+
+        .comparison-frames iframe {
+            flex: 1;
+            border: 1px solid #e2e8f0;
+            border-radius: 0 0 6px 6px;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -715,20 +761,15 @@
 
         <!-- Report Navigation -->
         <div class="nav-grid">
-            <a class="nav-card house" href="h_report.html">
+            <a class="nav-card house" href="house_report.html">
                 <div class="card-icon">&#127968;</div>
                 <h2>M1 Input Analysis</h2>
                 <p><strong>Raw data quality</strong> — coverage, phase health, power patterns, and quality scoring for each household before processing.</p>
             </a>
-            <a class="nav-card experiment" href="report.html">
-                <div class="card-icon">&#9889;</div>
-                <h2>M1 Output Analysis</h2>
-                <p><strong>Algorithm results</strong> — matching rates, segmentation metrics, device detection, and per-house comparison after Module 1 processing.</p>
-            </a>
-            <a class="nav-card comparison" href="nan_comparison.html">
+            <a class="nav-card comparison" href="#comparison">
                 <div class="card-icon">&#9878;</div>
-                <h2>NaN Imputation Comparison</h2>
-                <p><strong>Side-by-side</strong> — algorithm results with NaN imputation vs. without. Compare explained power, efficiency and matching rates across all houses.</p>
+                <h2>M1 Output &mdash; NaN Comparison</h2>
+                <p><strong>Side-by-side</strong> — algorithm results with NaN imputation vs. without, in a split view.</p>
             </a>
         </div>
 
@@ -1573,6 +1614,19 @@
                 </div>
             </div>
         </section>
+
+        <!-- Side-by-Side Comparison -->
+        <div class="comparison-section" id="comparison">
+            <h2>M1 Output &mdash; NaN Imputation Comparison</h2>
+            <div class="comparison-labels">
+                <div class="label-original">Original (no imputation)</div>
+                <div class="label-nan">With NaN Imputation</div>
+            </div>
+            <div class="comparison-frames">
+                <iframe src="report.html"></iframe>
+                <iframe src="nan_comparison.html"></iframe>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer>
