@@ -99,13 +99,15 @@
     <div class="container">
         <header>
             <h1>Dynamic Threshold Analysis - House 2042</h1>
-            <div class="subtitle">Generated: 2026-02-18 18:50</div>
+            <div class="subtitle">Generated: 2026-02-19 00:53</div>
             <div class="info-bar">
                 <div class="info-item"><strong>Period:</strong> 2021-01-26 to 2022-01-29 (368 days)</div>
                 <div class="info-item"><strong>Thresholds:</strong> 2000W -> 1500W -> 1100W -> 800W</div>
                 <div class="info-item"><strong>Pre-Quality:</strong> <span style="color:#ffc107;font-weight:bold;">64</span></div>
             </div>
         </header>
+
+        <div style="background:#e8daf0;border:1px solid #6f42c1;border-radius:6px;padding:8px 15px;margin-bottom:12px;font-size:0.82em;color:#4a0e6b;">NaN minutes (shown as "No Data"): w1: 3,681 min (1%), w2: 25,785 min (6%), w3: 22,593 min (5%)</div>
 
         <section>
             <h2>Power Decomposition Summary</h2>
@@ -117,48 +119,55 @@
     </p>
 
     <div style="background: #fff3e0; border: 2px solid #fd7e14; border-radius: 12px; padding: 15px 20px; text-align: center; margin-bottom: 18px;">
-        <div style="font-size: 2.8em; font-weight: bold; color: #fd7e14;">34.8%</div>
+        <div style="font-size: 2.8em; font-weight: bold; color: #fd7e14;">34.3%</div>
         <div style="font-size: 1em; font-weight: 700; color: #333;">Detection Efficiency</div>
         <div style="font-size: 0.82em; color: #555; margin-top: 4px; line-height: 1.5;">
-            Of non-background power (76.3%), <strong>34.8%</strong> matched to devices.
-            Unmatched includes sub-threshold events, complex appliances (ovens, washing machines), and noise.
+            Of non-background power (77.5%), <strong>34.3%</strong> matched to devices.<br>
+            <em>Efficiency = Explained / (Total &minus; Background)</em>
         </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 12px;">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 12px;">
         <div style="background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 8px; padding: 14px; text-align: center;">
-            <div style="font-size: 1.8em; font-weight: bold; color: #ffc107;">26.5%</div>
+            <div style="font-size: 1.8em; font-weight: bold; color: #ffc107;">25.6%</div>
             <div style="font-size: 0.9em; color: #856404; font-weight: 600;">Explained</div>
             <div style="font-size: 0.8em; color: #666;">2570.22 kWh</div>
             <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
-                Matched ON&rarr;OFF events (boilers, ACs, high-power devices).
+                Matched ON&rarr;OFF events (boilers, ACs, high-power devices).<br>
+                <em>Per-minute difference: original &minus; remaining, summed across all minutes.</em>
             </div>
         </div>
         <div style="background: #e9ecef; border-left: 4px solid #6c757d; border-radius: 8px; padding: 14px; text-align: center;">
-            <div style="font-size: 1.8em; font-weight: bold; color: #6c757d;">23.7%</div>
+            <div style="font-size: 1.8em; font-weight: bold; color: #6c757d;">21.7%</div>
             <div style="font-size: 0.9em; color: #495057; font-weight: 600;">Background</div>
-            <div style="font-size: 0.8em; color: #666;">2294.01 kWh</div>
+            <div style="font-size: 0.8em; color: #666;">2184.21 kWh</div>
             <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
-                Always-on baseload (~99W avg/phase). Not targetable.
+                Always-on baseload (~99W avg/phase). Not targetable.<br>
+                <em>P5 (5th percentile of original power) &times; measured minutes.</em>
             </div>
         </div>
         <div style="background: #fff3cd; border-left: 4px solid #fd7e14; border-radius: 8px; padding: 14px; text-align: center;">
-            <div style="font-size: 1.8em; font-weight: bold; color: #fd7e14;">49.8%</div>
+            <div style="font-size: 1.8em; font-weight: bold; color: #fd7e14;">49.0%</div>
             <div style="font-size: 0.9em; color: #856404; font-weight: 600;">Unmatched</div>
-            <div style="font-size: 0.8em; color: #666;">4817.36 kWh</div>
+            <div style="font-size: 0.8em; color: #666;">4927.16 kWh</div>
             <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
-                Sub-threshold events, complex appliances, noise.
+                Sub-threshold events (&lt;800W), complex appliances, noise.<br>
+                <em>Remaining power &minus; Background. What the algorithm could not match.</em>
             </div>
         </div>
+        <div style="background:#e8daf0; border-left: 4px solid #6f42c1; border-radius: 8px; padding: 14px; text-align: center;"><div style="font-size: 1.8em; font-weight: bold; color: #6f42c1;">3.7%</div><div style="font-size: 0.9em; color: #4a0e6b; font-weight: 600;">No Data</div><div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">Minutes with no power reading (NaN).<br><em>Not included in any calculation.</em></div></div>
     </div>
 
     <div style="background: #f8f9fa; border-radius: 6px; padding: 8px 15px; margin-bottom: 8px; text-align: center; font-size: 0.82em; color: #555;">
-        <span style="color:#ffc107;">Explained (26.5%)</span> +
-        <span style="color:#6c757d;">Background (23.7%)</span> +
-        <span style="color:#fd7e14;">Unmatched (49.8%)</span>
-        = 100%
+        <span style="color:#ffc107;">Explained (25.6%)</span> +
+        <span style="color:#6c757d;">Background (21.7%)</span> +
+        <span style="color:#fd7e14;">Unmatched (49.0%)</span>
+        + <span style="color:#6f42c1;">No Data (3.7%)</span>
+        = 100.0%
         &nbsp;|&nbsp;
-        <strong>Efficiency</strong> = 26.5% / 76.3% = <strong style="color:#fd7e14;">34.8%</strong>
+        <strong>Efficiency</strong> = 2570.22 / (9681.59 &minus; 2184.21) kWh
+        <em>(of measured)</em>
+        = <strong style="color:#fd7e14;">34.3%</strong>
     </div>
     
         </section>
@@ -171,7 +180,7 @@
             
     <div id="power-breakdown-chart" style="width:100%;height:250px;"></div>
     <script>
-        Plotly.newPlot('power-breakdown-chart', [{"y": ["w1", "w2", "w3"], "x": [40.1, 17.3, 29.5], "name": "Explained", "type": "bar", "orientation": "h", "marker": {"color": "#28a745"}, "text": ["40.1%", "17.3%", "29.5%"], "textposition": "inside", "hovertext": ["w1: 746.04 kWh (40.1%)", "w2: 684.62 kWh (17.3%)", "w3: 1139.57 kWh (29.5%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [10.4, 21.5, 32.4], "name": "Background", "type": "bar", "orientation": "h", "marker": {"color": "#6c757d"}, "text": ["10.4%", "21.5%", "32.4%"], "textposition": "inside", "hovertext": ["w1: 193.1 kWh (10.4%)", "w2: 849.63 kWh (21.5%)", "w3: 1251.28 kWh (32.4%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [49.6, 61.2, 38.2], "name": "Unmatched", "type": "bar", "orientation": "h", "marker": {"color": "#fd7e14"}, "text": ["49.6%", "61.2%", "38.2%"], "textposition": "inside", "hovertext": ["w1: 922.85 kWh (49.6%)", "w2: 2417.76 kWh (61.2%)", "w3: 1476.75 kWh (38.2%)"], "hoverinfo": "text"}], {"title": "Power Decomposition by Phase", "barmode": "stack", "xaxis": {"title": "% of Total Power", "range": [0, 105]}, "yaxis": {"title": ""}, "legend": {"orientation": "h", "y": -0.2}, "margin": {"l": 50, "r": 30, "t": 50, "b": 60}, "height": 250});
+        Plotly.newPlot('power-breakdown-chart', [{"y": ["w1", "w2", "w3"], "x": [39.7, 16.4, 28.0], "name": "Explained", "type": "bar", "orientation": "h", "marker": {"color": "#28a745"}, "text": ["39.7%", "16.4%", "28.0%"], "textposition": "inside", "hovertext": ["w1: 746.04 kWh (39.7%)", "w2: 684.62 kWh (16.4%)", "w3: 1139.57 kWh (28.0%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [10.2, 19.2, 29.3], "name": "Background", "type": "bar", "orientation": "h", "marker": {"color": "#6c757d"}, "text": ["10.2%", "19.2%", "29.3%"], "textposition": "inside", "hovertext": ["w1: 191.56 kWh (10.2%)", "w2: 802.36 kWh (19.2%)", "w3: 1190.28 kWh (29.3%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [49.3, 58.9, 37.8], "name": "Unmatched", "type": "bar", "orientation": "h", "marker": {"color": "#fd7e14"}, "text": ["49.3%", "58.9%", "37.8%"], "textposition": "inside", "hovertext": ["w1: 924.38 kWh (49.3%)", "w2: 2465.03 kWh (58.9%)", "w3: 1537.75 kWh (37.8%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [0.8, 5.6, 4.9], "name": "No Data", "type": "bar", "orientation": "h", "marker": {"color": "#6f42c1"}, "text": ["", "5.6%", "4.9%"], "textposition": "inside", "hovertext": ["w1: 3,681 NaN minutes (0.8%)", "w2: 25,785 NaN minutes (5.6%)", "w3: 22,593 NaN minutes (4.9%)"], "hoverinfo": "text"}], {"title": "Power Decomposition by Phase", "barmode": "stack", "xaxis": {"title": "% of Total Period", "range": [0, 105]}, "yaxis": {"title": ""}, "legend": {"orientation": "h", "y": -0.2}, "margin": {"l": 50, "r": 30, "t": 50, "b": 60}, "height": 250});
     </script>
     
             
@@ -191,28 +200,28 @@
         <tr>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; font-weight: 600;">w1</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">1861.99 kWh</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">746.04 kWh (40.1%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">193.1 kWh (10.4%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">922.85 kWh (49.6%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">746.04 kWh (39.7%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">191.56 kWh (10.2%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">924.38 kWh (49.3%)</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">44.7%</td>
         </tr>
         
         <tr>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; font-weight: 600;">w2</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">3952.01 kWh</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">684.62 kWh (17.3%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">849.63 kWh (21.5%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">2417.76 kWh (61.2%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">22.1%</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">684.62 kWh (16.4%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">802.36 kWh (19.2%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">2465.03 kWh (58.9%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">21.7%</td>
         </tr>
         
         <tr>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; font-weight: 600;">w3</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">3867.6 kWh</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">1139.57 kWh (29.5%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">1251.28 kWh (32.4%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">1476.75 kWh (38.2%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">43.6%</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">1139.57 kWh (28.0%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">1190.28 kWh (29.3%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">1537.75 kWh (37.8%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">42.6%</td>
         </tr>
         
         </tbody>
@@ -229,7 +238,7 @@
         <div style="text-align: center;">
             <div id="efficiency-gauge-chart-w1" style="width:200px;height:200px;display:inline-block;"></div>
             <div style="font-size: 0.85em; color: #666;">
-                746.04 / 1668.89 kWh
+                746.04 / 1670.43 kWh
             </div>
             <script>
                 Plotly.newPlot('efficiency-gauge-chart-w1', [{"values": [44.7, 55.3], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#fd7e14", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "45%", "showarrow": false, "font": {"size": 24, "color": "#fd7e14", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w1", "font": {"size": 14}}},
@@ -240,10 +249,10 @@
         <div style="text-align: center;">
             <div id="efficiency-gauge-chart-w2" style="width:200px;height:200px;display:inline-block;"></div>
             <div style="font-size: 0.85em; color: #666;">
-                684.62 / 3102.38 kWh
+                684.62 / 3149.65 kWh
             </div>
             <script>
-                Plotly.newPlot('efficiency-gauge-chart-w2', [{"values": [22.1, 77.9], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#fd7e14", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "22%", "showarrow": false, "font": {"size": 24, "color": "#fd7e14", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w2", "font": {"size": 14}}},
+                Plotly.newPlot('efficiency-gauge-chart-w2', [{"values": [21.7, 78.3], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#fd7e14", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "22%", "showarrow": false, "font": {"size": 24, "color": "#fd7e14", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w2", "font": {"size": 14}}},
                     {displayModeBar: false});
             </script>
         </div>
@@ -251,10 +260,10 @@
         <div style="text-align: center;">
             <div id="efficiency-gauge-chart-w3" style="width:200px;height:200px;display:inline-block;"></div>
             <div style="font-size: 0.85em; color: #666;">
-                1139.57 / 2616.32 kWh
+                1139.57 / 2677.32 kWh
             </div>
             <script>
-                Plotly.newPlot('efficiency-gauge-chart-w3', [{"values": [43.6, 56.4], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#fd7e14", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "44%", "showarrow": false, "font": {"size": 24, "color": "#fd7e14", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w3", "font": {"size": 14}}},
+                Plotly.newPlot('efficiency-gauge-chart-w3', [{"values": [42.6, 57.4], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#fd7e14", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "43%", "showarrow": false, "font": {"size": 24, "color": "#fd7e14", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w3", "font": {"size": 14}}},
                     {displayModeBar: false});
             </script>
         </div>
@@ -382,6 +391,40 @@
         </footer>
     </div>
 
-    
+    <script>
+    // Sort device activations tables by column
+    var deviceSortState = {};
+    function sortDeviceTable(tableId, colIdx, type) {
+        var table = document.getElementById(tableId);
+        if (!table) return;
+        var tbody = table.querySelector('tbody');
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+        var key = tableId + '-' + colIdx;
+        var asc = deviceSortState[key] === undefined ? true : !deviceSortState[key];
+        deviceSortState[key] = asc;
+
+        rows.sort(function(a, b) {
+            var cellA = a.cells[colIdx], cellB = b.cells[colIdx];
+            var vA, vB;
+            if (type === 'num') {
+                vA = parseFloat(cellA.getAttribute('data-value') || cellA.textContent.replace(/[^0-9.-]/g, '')) || 0;
+                vB = parseFloat(cellB.getAttribute('data-value') || cellB.textContent.replace(/[^0-9.-]/g, '')) || 0;
+            } else {
+                vA = (cellA.getAttribute('data-value') || cellA.textContent).trim();
+                vB = (cellB.getAttribute('data-value') || cellB.textContent).trim();
+                if (vA < vB) return asc ? -1 : 1;
+                if (vA > vB) return asc ? 1 : -1;
+                return 0;
+            }
+            return asc ? (vA - vB) : (vB - vA);
+        });
+
+        // Re-number rows
+        rows.forEach(function(row, i) {
+            row.cells[0].textContent = i + 1;
+            tbody.appendChild(row);
+        });
+    }
+    </script>
 </body>
 </html>

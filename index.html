@@ -535,35 +535,64 @@
             .module-banner { flex-direction: column; text-align: center; }
         }
 
-        /* Comparison iframes */
-        .comparison-section {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        /* Comparison overlay */
+        .comparison-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1000;
+            background: #f5f7fa;
+            flex-direction: column;
         }
 
-        .comparison-section h2 {
-            color: #2d3748;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-            font-size: 1.3em;
+        .comparison-overlay.active {
+            display: flex;
         }
+
+        .comparison-toolbar {
+            background: #2d3748;
+            color: white;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .comparison-toolbar h2 {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0;
+            border: none;
+            padding: 0;
+            color: white;
+        }
+
+        .comparison-close {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .comparison-close:hover { background: #c53030; }
 
         .comparison-labels {
             display: flex;
-            margin-bottom: 0;
+            flex-shrink: 0;
         }
 
         .comparison-labels div {
             flex: 1;
             text-align: center;
-            padding: 8px;
+            padding: 6px;
             font-weight: 600;
-            font-size: 0.9em;
-            border-radius: 6px 6px 0 0;
+            font-size: 0.85em;
         }
 
         .comparison-labels .label-original { background: #e2e8f0; color: #2d3748; }
@@ -571,14 +600,14 @@
 
         .comparison-frames {
             display: flex;
-            gap: 4px;
-            height: 80vh;
+            flex: 1;
+            min-height: 0;
+            gap: 2px;
         }
 
         .comparison-frames iframe {
             flex: 1;
-            border: 1px solid #e2e8f0;
-            border-radius: 0 0 6px 6px;
+            border: none;
         }
 
         /* Footer */
@@ -766,11 +795,11 @@
                 <h2>M1 Input Analysis</h2>
                 <p><strong>Raw data quality</strong> — coverage, phase health, power patterns, and quality scoring for each household before processing.</p>
             </a>
-            <a class="nav-card comparison" href="#comparison">
+            <div class="nav-card comparison" onclick="openComparison()" style="cursor:pointer;">
                 <div class="card-icon">&#9878;</div>
                 <h2>M1 Output &mdash; NaN Comparison</h2>
                 <p><strong>Side-by-side</strong> — algorithm results with NaN imputation vs. without, in a split view.</p>
-            </a>
+            </div>
         </div>
 
         <!-- Table of Contents -->
@@ -1274,12 +1303,15 @@
                             (clean &rarr; noisy &rarr; partial) gets much higher accuracy when the large device is already gone.
                         </p>
                         <svg viewBox="0 0 340 100" xmlns="http://www.w3.org/2000/svg" style="max-width:340px; margin-top:8px;">
-                            <!-- Before: messy signal -->
+                            <!-- Before: AC cycles on top of boiler rectangle -->
                             <rect x="5" y="5" width="155" height="85" fill="#fafbfc" rx="4" stroke="#e2e8f0"/>
                             <text x="82" y="18" fill="#718096" font-size="7" font-weight="bold" text-anchor="middle">Before (combined)</text>
-                            <polyline points="15,70 30,70 35,35 50,25 65,35 80,25 95,35 110,35 115,70 140,70"
+                            <!-- Boiler rectangle (constant 2000W base) -->
+                            <rect x="30" y="50" width="100" height="20" fill="#fce4e4" stroke="#dc3545" stroke-width="0.8" rx="1"/>
+                            <text x="80" y="63" fill="#dc3545" font-size="5.5" text-anchor="middle">boiler</text>
+                            <!-- AC cycles riding on top of boiler -->
+                            <polyline points="15,70 30,70 30,50 35,50 40,28 55,28 60,50 65,50 70,28 85,28 90,50 95,50 100,28 115,28 120,50 130,50 130,70 140,70"
                                       fill="none" stroke="#2d3748" stroke-width="1.8" stroke-linejoin="round"/>
-                            <text x="75" y="50" fill="#dc3545" font-size="6" text-anchor="middle">boiler+AC mixed</text>
                             <text x="82" y="82" fill="#dc3545" font-size="6" text-anchor="middle">hard to match</text>
 
                             <!-- Arrow -->
@@ -1615,19 +1647,6 @@
             </div>
         </section>
 
-        <!-- Side-by-Side Comparison -->
-        <div class="comparison-section" id="comparison">
-            <h2>M1 Output &mdash; NaN Imputation Comparison</h2>
-            <div class="comparison-labels">
-                <div class="label-original">Original (no imputation)</div>
-                <div class="label-nan">With NaN Imputation</div>
-            </div>
-            <div class="comparison-frames">
-                <iframe src="report.html"></iframe>
-                <iframe src="nan_comparison.html"></iframe>
-            </div>
-        </div>
-
         <!-- Footer -->
         <footer>
             <p>ElectricPatterns NILM Pipeline &mdash; Hila Khadad</p>
@@ -1637,5 +1656,38 @@
         </footer>
 
     </div>
+
+    <!-- Full-screen comparison overlay -->
+    <div class="comparison-overlay" id="comparisonOverlay">
+        <div class="comparison-toolbar">
+            <h2>M1 Output &mdash; NaN Imputation Comparison</h2>
+            <button class="comparison-close" onclick="closeComparison()">Close &times;</button>
+        </div>
+        <div class="comparison-labels">
+            <div class="label-original">Original (no imputation)</div>
+            <div class="label-nan">With NaN Imputation</div>
+        </div>
+        <div class="comparison-frames">
+            <iframe id="frame-original"></iframe>
+            <iframe id="frame-nan"></iframe>
+        </div>
+    </div>
+
+    <script>
+    function openComparison() {
+        var overlay = document.getElementById('comparisonOverlay');
+        overlay.classList.add('active');
+        document.getElementById('frame-original').src = 'report.html';
+        document.getElementById('frame-nan').src = 'nan_comparison.html';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeComparison() {
+        var overlay = document.getElementById('comparisonOverlay');
+        overlay.classList.remove('active');
+        document.getElementById('frame-original').src = '';
+        document.getElementById('frame-nan').src = '';
+        document.body.style.overflow = '';
+    }
+    </script>
 </body>
 </html>
