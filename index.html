@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectricPatterns — NILM Pipeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero */
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        header .description {
+            font-size: 0.95em;
+            opacity: 0.75;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Navigation cards */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .nav-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 2px solid transparent;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav-card.experiment {
+            border-color: #28a745;
+        }
+
+        .nav-card.experiment:hover {
+            background: linear-gradient(135deg, #fff 0%, #d4edda 100%);
+        }
+
+        .nav-card.house {
+            border-color: #007bff;
+        }
+
+        .nav-card.house:hover {
+            background: linear-gradient(135deg, #fff 0%, #cce5ff 100%);
+        }
+
+        .nav-card.comparison {
+            border-color: #6f42c1;
+        }
+
+        .nav-card.comparison:hover {
+            background: linear-gradient(135deg, #fff 0%, #e2d5f1 100%);
+        }
+
+        .nav-card .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+
+        .nav-card h2 {
+            font-size: 1.4em;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .nav-card p {
+            color: #666;
+            font-size: 0.92em;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: white;
+            border-radius: 10px;
+            padding: 22px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .toc h2 {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+
+        .toc-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+        }
+
+        .toc a {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 4px 12px;
+            border-radius: 15px;
+            background: #f0f4f8;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .toc a:hover {
+            background: #2d3748;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.5em;
+        }
+
+        section h3 {
+            color: #4a5568;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Pipeline flow */
+        .pipeline-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            margin: 25px 0;
+        }
+
+        .pipeline-step {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95em;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .pipeline-arrow {
+            color: #a0aec0;
+            font-size: 1.6em;
+            padding: 0 8px;
+            font-weight: bold;
+        }
+
+        .pipeline-desc {
+            text-align: center;
+            color: #666;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Sub-pipeline detail */
+        .sub-pipeline {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 10px 16px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-top: 12px;
+        }
+
+        .sub-step {
+            font-size: 0.8em;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .sub-arrow {
+            color: #cbd5e0;
+            font-size: 0.9em;
+        }
+
+        /* Event cards grid */
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .event-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            background: #fafbfc;
+        }
+
+        .event-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-card .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .badge-on { background: #d4edda; color: #155724; }
+        .badge-off { background: #f8d7da; color: #721c24; }
+        .badge-clean { background: #cce5ff; color: #004085; }
+        .badge-noisy { background: #fff3cd; color: #856404; }
+        .badge-partial { background: #e2d5f0; color: #6f42c1; }
+        .badge-refine { background: #e0f2fe; color: #0369a1; }
+        .badge-validate { background: #fef3c7; color: #92400e; }
+        .badge-seg { background: #dbeafe; color: #1e40af; }
+
+        .event-card p {
+            color: #555;
+            font-size: 0.88em;
+            margin-top: 8px;
+        }
+
+        .event-card svg {
+            display: block;
+            margin: 12px auto 0;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        /* Match grid */
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        /* Device grid */
+        .device-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .device-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            background: #fafbfc;
+            text-align: center;
+        }
+
+        .device-card svg {
+            display: block;
+            margin: 12px auto 0;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .device-card p {
+            color: #555;
+            font-size: 0.88em;
+            margin-top: 8px;
+        }
+
+        /* Tags section */
+        .tags-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .tags-table th {
+            background: #2d3748;
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .tags-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tags-table tr:hover {
+            background: #f7fafc;
+        }
+
+        .tag-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* Segmentation paths */
+        .seg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        /* Validation cards */
+        .validation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .validation-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 18px;
+            background: #fafbfc;
+        }
+
+        .validation-card h3 {
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+
+        .validation-card p {
+            color: #555;
+            font-size: 0.85em;
+        }
+
+        .validation-card .threshold {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 3px 10px;
+            background: #f0f4f8;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.82em;
+            color: #4a5568;
+        }
+
+        /* Module dividers */
+        .module-banner {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .module-banner.module1 {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+        }
+
+        .module-banner.module2 {
+            background: linear-gradient(135deg, #22543d 0%, #38a169 100%);
+        }
+
+        .module-banner .module-number {
+            font-size: 2.2em;
+            font-weight: 800;
+            opacity: 0.35;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .module-banner .module-info h2 {
+            font-size: 1.3em;
+            margin-bottom: 4px;
+            border: none;
+            padding: 0;
+            color: white;
+        }
+
+        .module-banner .module-info p {
+            font-size: 0.88em;
+            opacity: 0.85;
+        }
+
+        /* Research context */
+        .research-context {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #2b6cb0;
+        }
+
+        .research-context h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .research-context p {
+            color: #555;
+            font-size: 0.92em;
+            margin-bottom: 10px;
+        }
+
+        .device-scope {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .scope-card {
+            flex: 1;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .scope-card.in-scope {
+            background: #f0fff4;
+            border-color: #c6f6d5;
+        }
+
+        .scope-card.out-scope {
+            background: #fff5f5;
+            border-color: #fed7d7;
+        }
+
+        .scope-card h3 {
+            font-size: 0.95em;
+            margin-bottom: 6px;
+        }
+
+        .scope-card p {
+            font-size: 0.82em;
+            color: #666;
+        }
+
+        .scope-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 0;
+            font-size: 0.85em;
+        }
+
+        .scope-card ul li {
+            padding: 2px 0;
+            color: #555;
+        }
+
+        /* Architecture flow */
+        .arch-flow {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .arch-flow h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            .device-scope { flex-direction: column; }
+            .module-banner { flex-direction: column; text-align: center; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .nav-grid { grid-template-columns: 1fr !important; }
+            .event-grid { grid-template-columns: 1fr; }
+            .match-grid { grid-template-columns: 1fr; }
+            .device-grid { grid-template-columns: 1fr; }
+            .seg-grid { grid-template-columns: 1fr; }
+            .validation-grid { grid-template-columns: 1fr; }
+            .pipeline-flow { flex-direction: column; }
+            .pipeline-arrow { transform: rotate(90deg); }
+            .sub-pipeline { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Hero -->
+        <header>
+            <h1>ElectricPatterns</h1>
+            <div class="subtitle">Non-Intrusive Load Monitoring (NILM) Pipeline</div>
+            <div class="description">
+                Detecting and classifying household device usage from aggregate 3-phase power data.
+                The pipeline identifies ON/OFF events, matches them into device activations, and segregates
+                total consumption into device-specific and background power.
+            </div>
+        </header>
+
+        <!-- Research Context -->
+        <div class="research-context" id="context">
+            <h2>Research Scope</h2>
+            <p>
+                This project focuses on <strong>high-power deterministic devices</strong> — appliances with
+                predictable, rule-based power signatures. These devices draw significant power (800W+),
+                exhibit clear ON/OFF transitions, and maintain relatively stable consumption during operation.
+                This makes them separable from aggregate power data using signal processing and heuristic rules,
+                without requiring machine learning models.
+            </p>
+            <p>
+                Devices with complex, non-deterministic operating cycles (washing machines, dishwashers, dryers)
+                involve multiple internal states (fill, heat, agitate, drain, spin) that produce irregular power
+                profiles. These cannot be decomposed into simple ON/OFF rules and are outside the scope of this work.
+            </p>
+            <div class="device-scope">
+                <div class="scope-card in-scope">
+                    <h3 style="color:#22543d;">In scope — deterministic patterns</h3>
+                    <ul>
+                        <li><strong>Boiler / water heater</strong> — flat block, single phase, 2000-3000W, 25-45 min</li>
+                        <li><strong>Regular AC (split)</strong> — compressor cycling, single phase, 800-1500W per cycle</li>
+                        <li><strong>Central AC (ducted)</strong> — synchronized events across 2-3 phases</li>
+                    </ul>
+                </div>
+                <div class="scope-card out-scope">
+                    <h3 style="color:#9b2c2c;">Out of scope — complex cycles</h3>
+                    <ul>
+                        <li><strong>Washing machine</strong> — fill, heat, wash, rinse, spin (variable power profile)</li>
+                        <li><strong>Dishwasher</strong> — multi-stage wash with heating elements and pumps</li>
+                        <li><strong>Dryer</strong> — heating cycles with moisture-dependent duration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- High-Level Architecture -->
+        <div class="arch-flow" id="architecture">
+            <h2>Two-Module Architecture</h2>
+            <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+                <!-- Raw Data input -->
+                <rect x="10" y="110" width="100" height="50" rx="8" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1.5"/>
+                <text x="60" y="132" fill="#2d3748" font-size="11" font-weight="bold" text-anchor="middle">Raw Data</text>
+                <text x="60" y="148" fill="#718096" font-size="8" text-anchor="middle">3-phase power</text>
+
+                <!-- Arrow to Module 1 -->
+                <line x1="112" y1="135" x2="148" y2="135" stroke="#a0aec0" stroke-width="2"/>
+                <polygon points="148,130 158,135 148,140" fill="#a0aec0"/>
+
+                <!-- Module 1 box -->
+                <rect x="160" y="20" width="300" height="230" rx="12" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2"/>
+                <rect x="160" y="20" width="300" height="36" rx="12" fill="#2b6cb0"/>
+                <rect x="160" y="40" width="300" height="16" fill="#2b6cb0"/>
+                <text x="310" y="44" fill="white" font-size="13" font-weight="bold" text-anchor="middle">Module 1 — Signal Analysis &amp; Segmentation</text>
+
+                <!-- Module 1 internal steps -->
+                <rect x="185" y="70" width="110" height="34" rx="6" fill="#fff" stroke="#bee3f8" stroke-width="1"/>
+                <text x="240" y="91" fill="#2c5282" font-size="10" font-weight="600" text-anchor="middle">Detection</text>
+                <text x="240" y="100" fill="#718096" font-size="7" text-anchor="middle">sharp + gradual events</text>
+
+                <line x1="240" y1="104" x2="240" y2="118" stroke="#90cdf4" stroke-width="1.5"/>
+                <polygon points="236,116 240,122 244,116" fill="#90cdf4"/>
+
+                <rect x="185" y="122" width="110" height="34" rx="6" fill="#fff" stroke="#bee3f8" stroke-width="1"/>
+                <text x="240" y="143" fill="#2c5282" font-size="10" font-weight="600" text-anchor="middle">Matching</text>
+                <text x="240" y="152" fill="#718096" font-size="7" text-anchor="middle">ON &harr; OFF pairing</text>
+
+                <line x1="240" y1="156" x2="240" y2="170" stroke="#90cdf4" stroke-width="1.5"/>
+                <polygon points="236,168 240,174 244,168" fill="#90cdf4"/>
+
+                <rect x="185" y="174" width="110" height="34" rx="6" fill="#fff" stroke="#bee3f8" stroke-width="1"/>
+                <text x="240" y="195" fill="#2c5282" font-size="10" font-weight="600" text-anchor="middle">Segmentation</text>
+                <text x="240" y="204" fill="#718096" font-size="7" text-anchor="middle">extract device power</text>
+
+                <!-- Module 1 output: segregated streams -->
+                <rect x="320" y="72" width="120" height="32" rx="5" fill="#c6f6d5" stroke="#68d391" stroke-width="1"/>
+                <text x="380" y="93" fill="#276749" font-size="9" font-weight="600" text-anchor="middle">Short (&le;2 min)</text>
+
+                <rect x="320" y="118" width="120" height="32" rx="5" fill="#fefcbf" stroke="#ecc94b" stroke-width="1"/>
+                <text x="380" y="139" fill="#744210" font-size="9" font-weight="600" text-anchor="middle">Medium (3-24 min)</text>
+
+                <rect x="320" y="164" width="120" height="32" rx="5" fill="#fed7d7" stroke="#fc8181" stroke-width="1"/>
+                <text x="380" y="185" fill="#9b2c2c" font-size="9" font-weight="600" text-anchor="middle">Long (&ge;25 min)</text>
+
+                <text x="380" y="215" fill="#718096" font-size="8" text-anchor="middle">Segregated Streams</text>
+
+                <!-- Iterative loop arrow -->
+                <path d="M 296,200 C 296,225 184,225 184,195" fill="none" stroke="#2b6cb0" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <polygon points="182,199 184,190 188,198" fill="#2b6cb0"/>
+                <text x="240" y="238" fill="#2b6cb0" font-size="8" text-anchor="middle">iterative peeling (4 thresholds)</text>
+
+                <!-- Arrow Module 1 to Module 2 -->
+                <line x1="462" y1="135" x2="498" y2="135" stroke="#a0aec0" stroke-width="2"/>
+                <polygon points="498,130 508,135 498,140" fill="#a0aec0"/>
+
+                <!-- Intermediate output label -->
+                <text x="485" y="120" fill="#718096" font-size="7" text-anchor="middle">matches +</text>
+                <text x="485" y="128" fill="#718096" font-size="7" text-anchor="middle">unmatched</text>
+
+                <!-- Module 2 box -->
+                <rect x="510" y="45" width="250" height="180" rx="12" fill="#f0fff4" stroke="#38a169" stroke-width="2"/>
+                <rect x="510" y="45" width="250" height="36" rx="12" fill="#38a169"/>
+                <rect x="510" y="65" width="250" height="16" fill="#38a169"/>
+                <text x="635" y="69" fill="white" font-size="13" font-weight="bold" text-anchor="middle">Module 2 — Device Identification</text>
+
+                <!-- Module 2 internal steps -->
+                <rect x="535" y="95" width="200" height="34" rx="6" fill="#fff" stroke="#c6f6d5" stroke-width="1"/>
+                <text x="635" y="113" fill="#276749" font-size="10" font-weight="600" text-anchor="middle">Rule-Based Classification</text>
+                <text x="635" y="123" fill="#718096" font-size="7" text-anchor="middle">power signatures, duration, phase sync</text>
+
+                <line x1="635" y1="129" x2="635" y2="143" stroke="#9ae6b4" stroke-width="1.5"/>
+                <polygon points="631,141 635,147 639,141" fill="#9ae6b4"/>
+
+                <rect x="535" y="147" width="200" height="34" rx="6" fill="#fff" stroke="#c6f6d5" stroke-width="1"/>
+                <text x="635" y="165" fill="#276749" font-size="10" font-weight="600" text-anchor="middle">Unified Output</text>
+                <text x="635" y="175" fill="#718096" font-size="7" text-anchor="middle">deduplication across iterations</text>
+
+                <text x="635" y="208" fill="#718096" font-size="8" text-anchor="middle">rules only — no ML models</text>
+
+                <!-- Arrow to output -->
+                <line x1="762" y1="135" x2="798" y2="135" stroke="#a0aec0" stroke-width="2"/>
+                <polygon points="798,130 808,135 798,140" fill="#a0aec0"/>
+
+                <!-- Final output -->
+                <rect x="810" y="85" width="80" height="100" rx="8" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+                <text x="850" y="118" fill="#dc3545" font-size="18" text-anchor="middle">&#127777;</text>
+                <text x="850" y="135" fill="#2d3748" font-size="8" font-weight="bold" text-anchor="middle">Boiler</text>
+                <text x="850" y="150" fill="#007bff" font-size="18" text-anchor="middle">&#10052;</text>
+                <text x="850" y="165" fill="#2d3748" font-size="8" font-weight="bold" text-anchor="middle">AC</text>
+                <text x="850" y="178" fill="#718096" font-size="7" text-anchor="middle">per device</text>
+            </svg>
+        </div>
+
+        <!-- Report Navigation -->
+        <div class="nav-grid">
+            <a class="nav-card house" href="h_report.html">
+                <div class="card-icon">&#127968;</div>
+                <h2>M1 Input Analysis</h2>
+                <p><strong>Raw data quality</strong> — coverage, phase health, power patterns, and quality scoring for each household before processing.</p>
+            </a>
+            <a class="nav-card experiment" href="report.html">
+                <div class="card-icon">&#9889;</div>
+                <h2>M1 Output Analysis</h2>
+                <p><strong>Algorithm results</strong> — matching rates, segmentation metrics, device detection, and per-house comparison after Module 1 processing.</p>
+            </a>
+            <a class="nav-card comparison" href="nan_comparison.html">
+                <div class="card-icon">&#9878;</div>
+                <h2>NaN Imputation Comparison</h2>
+                <p><strong>Side-by-side</strong> — algorithm results with NaN imputation vs. without. Compare explained power, efficiency and matching rates across all houses.</p>
+            </a>
+        </div>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>Contents</h2>
+            <div class="toc-grid">
+                <a href="#context" style="background:#ebf8ff;color:#2b6cb0;">Research Scope</a>
+                <a href="#architecture" style="background:#ebf8ff;color:#2b6cb0;">Architecture</a>
+                <a href="#pipeline">Pipeline Overview</a>
+                <a href="#detection">Event Detection</a>
+                <a href="#refinement">Detection Refinement</a>
+                <a href="#matching">Match Types</a>
+                <a href="#validation">Validation Gates</a>
+                <a href="#tags">Match Tag System</a>
+                <a href="#segmentation">Segmentation</a>
+                <a href="#classification">Device Classification</a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- MODULE 1: Signal Analysis & Segmentation               -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <div class="module-banner module1">
+            <div class="module-number">M1</div>
+            <div class="module-info">
+                <h2>Signal Analysis &amp; Segmentation</h2>
+                <p>Raw 3-phase power data &rarr; event detection &rarr; ON/OFF matching &rarr; power extraction. Produces segregated streams by duration category (short / medium / long) through iterative threshold peeling.</p>
+            </div>
+        </div>
+
+        <!-- Pipeline Overview -->
+        <section id="pipeline">
+            <h2>Module 1 — Internal Pipeline</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                Each iteration of Module 1 runs the full signal processing pipeline on one threshold level.
+                The remaining power after each iteration feeds back as input to the next, revealing progressively smaller devices.
+            </p>
+            <div class="pipeline-flow">
+                <div class="pipeline-step">Detection</div>
+                <span class="pipeline-arrow">&#10132;</span>
+                <div class="pipeline-step">Matching</div>
+                <span class="pipeline-arrow">&#10132;</span>
+                <div class="pipeline-step">Segmentation</div>
+            </div>
+
+            <!-- Detailed sub-steps -->
+            <div class="sub-pipeline">
+                <span class="sub-step" style="background:#d4edda;color:#155724;">Sharp</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#d4edda;color:#155724;">Gradual</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#e0f2fe;color:#0369a1;">Expand</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#e0f2fe;color:#0369a1;">Merge</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#e0f2fe;color:#0369a1;">Near-TH</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#e0f2fe;color:#0369a1;">Tail Ext.</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#cce5ff;color:#004085;">Stage 1</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#fff3cd;color:#856404;">Stage 2</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#e2d5f0;color:#6f42c1;">Stage 3</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#fef3c7;color:#92400e;">Validate</span>
+                <span class="sub-arrow">&#8594;</span>
+                <span class="sub-step" style="background:#dbeafe;color:#1e40af;">Segment</span>
+            </div>
+
+            <p class="pipeline-desc">
+                Each iteration detects progressively smaller devices by operating on the <em>remaining</em> power
+                after removing previously identified devices. Dynamic threshold schedule: 2000W &rarr; 1500W &rarr; 1100W &rarr; 800W.
+                First pass catches boilers (2000W+), second reveals ACs hidden underneath, third finds smaller ACs, fourth catches remaining devices.
+            </p>
+
+            <!-- Iterative Peeling Illustration -->
+            <div style="margin-top:20px;">
+                <h3>Iterative Peeling</h3>
+                <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:700px; display:block; margin:12px auto 0;">
+                    <defs>
+                        <linearGradient id="gridGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f0f0f0"/>
+                            <stop offset="100%" stop-color="#fafafa"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Iteration 0 (2000W) — detect boiler jump above baseline -->
+                    <rect x="5" y="10" width="155" height="130" fill="#fafbfc" rx="5" stroke="#e2e8f0"/>
+                    <text x="82" y="28" fill="#2d3748" font-size="9" font-weight="bold" text-anchor="middle">Iteration 0 (2000W)</text>
+                    <!-- Baseline reference -->
+                    <line x1="15" y1="88" x2="150" y2="88" stroke="#6c757d" stroke-width="0.5" stroke-dasharray="3,2"/>
+                    <text x="148" y="86" fill="#6c757d" font-size="5" text-anchor="end">baseline</text>
+                    <!-- Total signal: baseline with boiler bump on top -->
+                    <polyline points="15,88 35,88 40,88 45,30 80,30 110,30 115,88 135,88 150,88"
+                              fill="none" stroke="#2d3748" stroke-width="1.8" stroke-linejoin="round"/>
+                    <!-- Boiler: ONLY the jump above baseline, not from zero -->
+                    <polygon points="45,30 45,88 115,88 115,30" fill="#dc3545" fill-opacity="0.2"/>
+                    <text x="80" y="55" fill="#dc3545" font-size="7" text-anchor="middle">boiler</text>
+                    <text x="80" y="64" fill="#dc3545" font-size="5.5" text-anchor="middle">(jump only)</text>
+
+                    <!-- Arrow -->
+                    <text x="175" y="82" fill="#a0aec0" font-size="18" font-weight="bold">&#10132;</text>
+
+                    <!-- Iteration 1 (1500W) — AC compressor cycling visible -->
+                    <rect x="195" y="10" width="155" height="130" fill="#fafbfc" rx="5" stroke="#e2e8f0"/>
+                    <text x="272" y="28" fill="#2d3748" font-size="9" font-weight="bold" text-anchor="middle">Iteration 1 (1500W)</text>
+                    <line x1="205" y1="88" x2="340" y2="88" stroke="#6c757d" stroke-width="0.5" stroke-dasharray="3,2"/>
+                    <!-- Remaining signal: boiler removed, AC cycling pattern -->
+                    <polyline points="205,88 215,88 220,48 240,48 245,88 255,88 260,48 280,48 285,88 295,88 300,48 318,48 323,88 340,88"
+                              fill="none" stroke="#2d3748" stroke-width="1.8" stroke-linejoin="round"/>
+                    <!-- Highlight each compressor cycle above baseline -->
+                    <polygon points="220,48 220,88 245,88 245,48" fill="#fd7e14" fill-opacity="0.18"/>
+                    <polygon points="260,48 260,88 285,88 285,48" fill="#fd7e14" fill-opacity="0.18"/>
+                    <polygon points="300,48 300,88 323,88 323,48" fill="#fd7e14" fill-opacity="0.18"/>
+                    <text x="272" y="72" fill="#fd7e14" font-size="7" text-anchor="middle">AC cycles</text>
+
+                    <!-- Arrow -->
+                    <text x="365" y="82" fill="#a0aec0" font-size="18" font-weight="bold">&#10132;</text>
+
+                    <!-- Iteration 2 (1100W) — smaller device -->
+                    <rect x="385" y="10" width="155" height="130" fill="#fafbfc" rx="5" stroke="#e2e8f0"/>
+                    <text x="462" y="28" fill="#2d3748" font-size="9" font-weight="bold" text-anchor="middle">Iteration 2 (1100W)</text>
+                    <line x1="395" y1="88" x2="530" y2="88" stroke="#6c757d" stroke-width="0.5" stroke-dasharray="3,2"/>
+                    <!-- Remaining: AC removed, smaller bump visible -->
+                    <polyline points="395,88 420,88 430,88 440,58 465,58 475,88 500,88 530,88"
+                              fill="none" stroke="#2d3748" stroke-width="1.8" stroke-linejoin="round"/>
+                    <polygon points="440,58 440,88 475,88 475,58" fill="#007bff" fill-opacity="0.18"/>
+                    <text x="457" y="76" fill="#007bff" font-size="7" text-anchor="middle">smaller</text>
+
+                    <!-- Arrow -->
+                    <text x="555" y="82" fill="#a0aec0" font-size="18" font-weight="bold">&#10132;</text>
+
+                    <!-- Final: background -->
+                    <rect x="575" y="10" width="115" height="130" fill="#fafbfc" rx="5" stroke="#e2e8f0"/>
+                    <text x="632" y="28" fill="#2d3748" font-size="9" font-weight="bold" text-anchor="middle">Background</text>
+                    <polyline points="585,90 600,87 612,91 625,85 640,89 655,86 670,90 680,88"
+                              fill="none" stroke="#6c757d" stroke-width="1.5"/>
+                    <text x="632" y="108" fill="#6c757d" font-size="7" text-anchor="middle">unexplained</text>
+
+                    <!-- Bottom label -->
+                    <text x="350" y="170" fill="#666" font-size="9" text-anchor="middle">Each iteration detects only the power jump (event magnitude), not the total power during activation</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Event Detection -->
+        <section id="detection">
+            <h2>Event Detection</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                The pipeline detects two types of power events on each of the three phases (w1, w2, w3),
+                plus a tail extension step that captures residual power decay after OFF events:
+            </p>
+
+            <div class="event-grid">
+                <!-- Sharp ON -->
+                <div class="event-card">
+                    <h3><span class="badge badge-on">ON</span> Sharp Event</h3>
+                    <p>A single-minute power jump exceeding the threshold. Example: a boiler thermostat clicks on and the heating element instantly draws 2000W, or an AC compressor engages and pulls 1500W — the full load appears within a single data sample.</p>
+                    <svg viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="10" width="320" height="110" fill="url(#gridGrad)" rx="4"/>
+                        <line x1="40" y1="35" x2="360" y2="35" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="60" x2="360" y2="60" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="85" x2="360" y2="85" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="120" x2="360" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="40" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <text x="15" y="40" fill="#888" font-size="9" text-anchor="middle">2kW</text>
+                        <text x="15" y="90" fill="#888" font-size="9" text-anchor="middle">0.5kW</text>
+                        <text x="200" y="135" fill="#888" font-size="9" text-anchor="middle">time (minutes)</text>
+                        <polyline points="50,95 90,95 130,95 160,95 165,95 170,35 210,35 250,35 290,35 330,35 350,35"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <line x1="155" y1="35" x2="155" y2="95" stroke="#28a745" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        <text x="148" y="68" fill="#28a745" font-size="10" font-weight="bold" text-anchor="end">&ge; TH</text>
+                        <polygon points="162,50 168,50 165,40" fill="#28a745"/>
+                        <polygon points="162,80 168,80 165,90" fill="#28a745"/>
+                    </svg>
+                </div>
+
+                <!-- Sharp OFF -->
+                <div class="event-card">
+                    <h3><span class="badge badge-off">OFF</span> Sharp Event</h3>
+                    <p>A single-minute power drop exceeding the threshold. Example: a boiler reaches its target temperature and the thermostat cuts the heating element — instant drop from 2000W to 0W. Most resistive devices in Israeli households shut off this way.</p>
+                    <svg viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="10" width="320" height="110" fill="url(#gridGrad)" rx="4"/>
+                        <line x1="40" y1="35" x2="360" y2="35" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="60" x2="360" y2="60" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="85" x2="360" y2="85" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="120" x2="360" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="40" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <text x="15" y="40" fill="#888" font-size="9" text-anchor="middle">2kW</text>
+                        <text x="15" y="90" fill="#888" font-size="9" text-anchor="middle">0.5kW</text>
+                        <text x="200" y="135" fill="#888" font-size="9" text-anchor="middle">time (minutes)</text>
+                        <polyline points="50,35 90,35 130,35 170,35 200,35 205,95 240,95 280,95 320,95 350,95"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <line x1="215" y1="35" x2="215" y2="95" stroke="#dc3545" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        <text x="222" y="68" fill="#dc3545" font-size="10" font-weight="bold">&ge; TH</text>
+                        <polygon points="208,50 214,50 211,40" fill="#dc3545"/>
+                        <polygon points="208,80 214,80 211,90" fill="#dc3545"/>
+                    </svg>
+                </div>
+
+                <!-- Gradual ON -->
+                <div class="event-card">
+                    <h3><span class="badge badge-on">ON</span> Gradual Event</h3>
+                    <p>A multi-minute power ramp where each step is below threshold, but the cumulative increase (over 2-3 min) exceeds it. Example: an inverter AC ramping up its compressor speed — each minute adds 500-700W, reaching full 1500W over 3 minutes. No single step crosses the threshold alone.</p>
+                    <svg viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="10" width="320" height="110" fill="url(#gridGrad)" rx="4"/>
+                        <line x1="40" y1="35" x2="360" y2="35" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="60" x2="360" y2="60" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="85" x2="360" y2="85" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="120" x2="360" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="40" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <text x="15" y="40" fill="#888" font-size="9" text-anchor="middle">2kW</text>
+                        <text x="15" y="90" fill="#888" font-size="9" text-anchor="middle">0.5kW</text>
+                        <text x="200" y="135" fill="#888" font-size="9" text-anchor="middle">time (minutes)</text>
+                        <polyline points="50,95 90,95 120,95 140,75 170,55 200,35 240,35 280,35 320,35 350,35"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <line x1="120" y1="95" x2="120" y2="75" stroke="#28a745" stroke-width="1" stroke-dasharray="3"/>
+                        <line x1="140" y1="75" x2="140" y2="55" stroke="#28a745" stroke-width="1" stroke-dasharray="3"/>
+                        <line x1="170" y1="55" x2="170" y2="35" stroke="#28a745" stroke-width="1" stroke-dasharray="3"/>
+                        <line x1="110" y1="95" x2="110" y2="35" stroke="#28a745" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        <text x="102" y="68" fill="#28a745" font-size="9" font-weight="bold" text-anchor="end">sum</text>
+                        <text x="102" y="78" fill="#28a745" font-size="9" font-weight="bold" text-anchor="end">&ge; TH</text>
+                    </svg>
+                </div>
+
+                <!-- Gradual OFF -->
+                <div class="event-card">
+                    <h3><span class="badge badge-off">OFF</span> Gradual Event</h3>
+                    <p>A multi-minute power decline. Each step is individually below threshold, but the total drop over 2-3 minutes exceeds it. Example: an inverter AC gradually slowing down its compressor as the room approaches target temperature — power drops 400-600W per minute over 3 minutes.</p>
+                    <svg viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="10" width="320" height="110" fill="url(#gridGrad)" rx="4"/>
+                        <line x1="40" y1="35" x2="360" y2="35" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="60" x2="360" y2="60" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="85" x2="360" y2="85" stroke="#e0e0e0" stroke-dasharray="4"/>
+                        <line x1="40" y1="120" x2="360" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="40" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <text x="15" y="40" fill="#888" font-size="9" text-anchor="middle">2kW</text>
+                        <text x="15" y="90" fill="#888" font-size="9" text-anchor="middle">0.5kW</text>
+                        <text x="200" y="135" fill="#888" font-size="9" text-anchor="middle">time (minutes)</text>
+                        <polyline points="50,35 90,35 120,35 150,35 170,55 200,75 230,95 270,95 310,95 350,95"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <line x1="170" y1="35" x2="170" y2="55" stroke="#dc3545" stroke-width="1" stroke-dasharray="3"/>
+                        <line x1="200" y1="55" x2="200" y2="75" stroke="#dc3545" stroke-width="1" stroke-dasharray="3"/>
+                        <line x1="230" y1="75" x2="230" y2="95" stroke="#dc3545" stroke-width="1" stroke-dasharray="3"/>
+                        <line x1="245" y1="35" x2="245" y2="95" stroke="#dc3545" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        <text x="252" y="68" fill="#dc3545" font-size="9" font-weight="bold">sum</text>
+                        <text x="252" y="78" fill="#dc3545" font-size="9" font-weight="bold">&ge; TH</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Tail Extension -->
+            <div style="margin-top:20px;">
+                <div class="event-card" style="max-width:100%;">
+                    <h3><span class="badge badge-off">OFF</span> Tail Extension</h3>
+                    <p>After a sharp OFF drop, some devices leave residual power that decays over several minutes.
+                       Common in ducted AC systems: the compressor shuts off sharply, but the indoor blower fan continues running at reduced power for 5-10 minutes.
+                       The tail extension captures this decay, increasing the detected OFF magnitude to match the full device power.</p>
+                    <svg viewBox="0 0 520 150" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;">
+                        <rect x="40" y="10" width="460" height="115" fill="#fafbfc" rx="4"/>
+                        <line x1="40" y1="30" x2="500" y2="30" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="40" y1="55" x2="500" y2="55" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="40" y1="80" x2="500" y2="80" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="40" y1="105" x2="500" y2="105" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="40" y1="125" x2="500" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="40" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <text x="18" y="35" fill="#888" font-size="8" text-anchor="middle">1.6kW</text>
+                        <text x="18" y="85" fill="#888" font-size="8" text-anchor="middle">280W</text>
+                        <text x="18" y="120" fill="#888" font-size="8" text-anchor="middle">0W</text>
+                        <polyline points="55,110 80,110 90,30 150,30 200,30 220,30"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polyline points="220,30 225,80"
+                                  fill="none" stroke="#dc3545" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polyline points="225,80 255,75 285,68 315,58 345,48 370,42 395,38 410,35 430,33 450,30 470,28 490,28"
+                                  fill="none" stroke="#fd7e14" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6,3"/>
+                        <line x1="230" y1="30" x2="230" y2="80" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,2"/>
+                        <text x="242" y="50" fill="#888" font-size="8">-1300W</text>
+                        <text x="242" y="60" fill="#888" font-size="7">(without tail)</text>
+                        <line x1="205" y1="30" x2="205" y2="110" stroke="#dc3545" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        <text x="175" y="65" fill="#dc3545" font-size="8" text-anchor="end">-1600W</text>
+                        <text x="175" y="75" fill="#dc3545" font-size="7" text-anchor="end">(with tail)</text>
+                        <line x1="225" y1="135" x2="470" y2="135" stroke="#fd7e14" stroke-width="1.5"/>
+                        <line x1="225" y1="131" x2="225" y2="139" stroke="#fd7e14" stroke-width="1.5"/>
+                        <line x1="470" y1="131" x2="470" y2="139" stroke="#fd7e14" stroke-width="1.5"/>
+                        <text x="347" y="147" fill="#fd7e14" font-size="8" text-anchor="middle">tail: residual decay (up to 10 min)</text>
+                    </svg>
+                    <p style="font-size:0.82em; color:#888; margin-top:6px;">
+                        Example: AC turns off &rarr; sharp drop from 1600W to 280W &rarr; 280W decays to ~0W over 8 minutes.
+                        Without tail extension the detected magnitude would be only 1300W instead of the full 1600W.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detection Refinement -->
+        <section id="refinement">
+            <h2>Detection Refinement</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                After initial sharp/gradual detection, three refinement steps improve event boundaries and remove duplicates:
+            </p>
+
+            <div class="match-grid">
+                <!-- Expand -->
+                <div class="event-card">
+                    <h3><span class="badge badge-refine">Expand</span> Edge Absorption</h3>
+                    <p>Looks 1 minute before and after each event. If adjacent power changes are in the same direction and within 5% of the event magnitude, they are absorbed into the event. Example: an AC relay closes 1 minute before the compressor engages, drawing a small pre-current (+60W) that belongs to the same activation.</p>
+                    <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="270" height="95" fill="#fafbfc" rx="4"/>
+                        <line x1="30" y1="110" x2="300" y2="110" stroke="#aaa" stroke-width="1"/>
+                        <line x1="30" y1="10" x2="30" y2="110" stroke="#aaa" stroke-width="1"/>
+                        <!-- Original event (narrow) -->
+                        <polyline points="50,90 80,90 100,85 110,85 115,30 160,30 205,30 210,85 220,85 240,90 280,90"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <!-- Small pre-ramp -->
+                        <rect x="95" y="78" width="20" height="12" fill="#0369a1" fill-opacity="0.15" rx="2"/>
+                        <text x="105" y="75" fill="#0369a1" font-size="7" text-anchor="middle">+60W</text>
+                        <!-- Small post-ramp -->
+                        <rect x="206" y="78" width="20" height="12" fill="#0369a1" fill-opacity="0.15" rx="2"/>
+                        <text x="216" y="75" fill="#0369a1" font-size="7" text-anchor="middle">-40W</text>
+                        <!-- Expanded boundary arrows -->
+                        <line x1="100" y1="100" x2="220" y2="100" stroke="#0369a1" stroke-width="1.5" stroke-dasharray="4,2"/>
+                        <text x="160" y="125" fill="#0369a1" font-size="8" text-anchor="middle">expanded event boundary</text>
+                    </svg>
+                </div>
+
+                <!-- Merge -->
+                <div class="event-card">
+                    <h3><span class="badge badge-refine">Merge</span> Consolidation</h3>
+                    <p>When sharp detection sees two instantaneous threshold crossings in consecutive minutes with no opposite event between them, they are merged into a single ON (or OFF) event. This captures a single appliance turning on in two rapid stages. Magnitudes are summed from the detected values. Example: an AC relay engages (+800W at min 0), then the compressor reaches full speed (+400W at min 1) — merged into one +1200W ON event that starts the full activation.</p>
+                    <svg viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="370" height="110" fill="#fafbfc" rx="4"/>
+                        <line x1="30" y1="125" x2="400" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <line x1="30" y1="10" x2="30" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <!-- Grid lines -->
+                        <line x1="30" y1="35" x2="400" y2="35" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="65" x2="400" y2="65" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="95" x2="400" y2="95" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <!-- Y-axis labels -->
+                        <text x="18" y="38" fill="#888" font-size="7" text-anchor="middle">1.2kW</text>
+                        <text x="18" y="68" fill="#888" font-size="7" text-anchor="middle">0.8kW</text>
+                        <text x="18" y="110" fill="#888" font-size="7" text-anchor="middle">0</text>
+
+                        <!-- Signal: baseline → two quick jumps → long flat run → OFF → baseline -->
+                        <polyline points="40,108 65,108 70,65 75,35 290,35 295,108 370,108 390,108"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+
+                        <!-- Highlight the two instantaneous jumps (very narrow = 1 min each) -->
+                        <rect x="66" y="63" width="8" height="45" fill="#0369a1" fill-opacity="0.18" rx="1"/>
+                        <rect x="71" y="33" width="8" height="32" fill="#0369a1" fill-opacity="0.12" rx="1"/>
+
+                        <!-- Jump labels -->
+                        <text x="55" y="82" fill="#0369a1" font-size="7" text-anchor="end">+800W</text>
+                        <text x="55" y="50" fill="#0369a1" font-size="7" text-anchor="end">+400W</text>
+                        <!-- Small arrows pointing to jumps -->
+                        <line x1="56" y1="80" x2="66" y2="75" stroke="#0369a1" stroke-width="0.7"/>
+                        <line x1="56" y1="48" x2="71" y2="45" stroke="#0369a1" stroke-width="0.7"/>
+
+                        <!-- Merge bracket (only covers the 2 narrow minutes) -->
+                        <line x1="66" y1="118" x2="79" y2="118" stroke="#0369a1" stroke-width="1.5"/>
+                        <line x1="66" y1="115" x2="66" y2="121" stroke="#0369a1" stroke-width="1.5"/>
+                        <line x1="79" y1="115" x2="79" y2="121" stroke="#0369a1" stroke-width="1.5"/>
+                        <text x="72" y="130" fill="#0369a1" font-size="6" text-anchor="middle">merge</text>
+                        <text x="72" y="137" fill="#0369a1" font-size="5.5" text-anchor="middle">2 min</text>
+
+                        <!-- Device running period label -->
+                        <text x="182" y="28" fill="#888" font-size="7" text-anchor="middle">device running at 1200W</text>
+
+                        <!-- OFF label -->
+                        <text x="298" y="75" fill="#dc3545" font-size="7">OFF</text>
+
+                        <!-- Full activation bracket -->
+                        <line x1="66" y1="145" x2="295" y2="145" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+                        <line x1="66" y1="142" x2="66" y2="148" stroke="#888" stroke-width="1"/>
+                        <line x1="295" y1="142" x2="295" y2="148" stroke="#888" stroke-width="1"/>
+                        <text x="180" y="150" fill="#888" font-size="6" text-anchor="middle">full activation (merge affects only the ON moment)</text>
+                    </svg>
+                </div>
+
+                <!-- Near-threshold -->
+                <div class="event-card">
+                    <h3><span class="badge badge-refine">Near-TH</span> Recovery</h3>
+                    <p>Catches events that miss the threshold by a small margin. Extends the window by 1-3 minutes to include adjacent changes that push the total over the threshold. Example: with a 1300W threshold, an oven drawing 1280W would be missed — but a small fluctuation in the adjacent minute pushes the total over.</p>
+                    <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="270" height="95" fill="#fafbfc" rx="4"/>
+                        <line x1="30" y1="110" x2="300" y2="110" stroke="#aaa" stroke-width="1"/>
+                        <line x1="30" y1="10" x2="30" y2="110" stroke="#aaa" stroke-width="1"/>
+                        <!-- Threshold line -->
+                        <line x1="30" y1="40" x2="300" y2="40" stroke="#dc3545" stroke-width="1" stroke-dasharray="5,3"/>
+                        <text x="285" y="37" fill="#dc3545" font-size="7">TH</text>
+                        <!-- Signal: almost reaches threshold -->
+                        <polyline points="50,90 80,90 100,90 110,88 120,45 160,45 200,45 210,88 220,90 250,90 280,90"
+                                  fill="none" stroke="#aaa" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4,2"/>
+                        <!-- With extension: reaches threshold -->
+                        <polyline points="50,90 80,90 100,88 110,82 120,38 160,38 200,38 210,82 220,88 250,90 280,90"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <!-- Miss annotation -->
+                        <line x1="140" y1="40" x2="140" y2="45" stroke="#dc3545" stroke-width="1.5"/>
+                        <text x="155" y="55" fill="#dc3545" font-size="7">-3W short</text>
+                        <!-- Recovery annotation -->
+                        <text x="160" y="125" fill="#0369a1" font-size="8" text-anchor="middle">extended window recovers the event</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Matching Types -->
+        <section id="matching">
+            <h2>Match Types</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                After detection, ON events are paired with corresponding OFF events through three progressive matching stages.
+                Unmatched events from each stage pass to the next. Progressive time windows: 15 &rarr; 30 &rarr; 60 &rarr; 120 &rarr; 240 &rarr; 360 min.
+            </p>
+
+            <div class="match-grid">
+                <!-- Stage 1: Clean -->
+                <div class="event-card">
+                    <h3><span class="badge badge-clean">Stage 1</span> Clean Match</h3>
+                    <p>Stable power between ON and OFF. No interference from other devices. Magnitudes match within 350W. Example: a boiler running alone on phase w3 for 40 minutes — quiet phase, no other device activity, ON=2000W and OFF=1980W.</p>
+                    <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="270" height="115" fill="#fafbfc" rx="4"/>
+                        <line x1="30" y1="35" x2="300" y2="35" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="60" x2="300" y2="60" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="85" x2="300" y2="85" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="125" x2="300" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <line x1="30" y1="10" x2="30" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <polyline points="40,100 70,100 80,100 85,40 130,40 175,40 220,40 225,100 260,100 290,100"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="85,40 85,100 225,100 225,40" fill="#28a745" fill-opacity="0.12"/>
+                        <text x="85" y="112" fill="#28a745" font-size="9" font-weight="bold">ON</text>
+                        <text x="219" y="112" fill="#dc3545" font-size="9" font-weight="bold">OFF</text>
+                        <text x="155" y="75" fill="#28a745" font-size="9" font-weight="bold" text-anchor="middle">stable</text>
+                        <text x="155" y="145" fill="#666" font-size="8" text-anchor="middle">magnitude diff &lt; 350W</text>
+                    </svg>
+                </div>
+
+                <!-- Stage 2: Noisy -->
+                <div class="event-card">
+                    <h3><span class="badge badge-noisy">Stage 2</span> Noisy Match</h3>
+                    <p>Other devices cause power fluctuations between ON and OFF, but power never drops below baseline - 200W. Example: an AC running for 2 hours on a busy kitchen phase — the kettle and microwave cause spikes, but the total never falls below the AC's own consumption.</p>
+                    <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="270" height="115" fill="#fafbfc" rx="4"/>
+                        <line x1="30" y1="35" x2="300" y2="35" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="60" x2="300" y2="60" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="85" x2="300" y2="85" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="125" x2="300" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <line x1="30" y1="10" x2="30" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <polyline points="40,100 70,100 80,100 85,40 100,35 115,55 130,30 150,50 170,25 185,45 200,35 215,42 225,100 260,100 290,100"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="85,40 100,35 115,55 130,30 150,50 170,25 185,45 200,35 215,42 225,100 85,100" fill="#fd7e14" fill-opacity="0.1"/>
+                        <line x1="85" y1="60" x2="225" y2="60" stroke="#fd7e14" stroke-width="1.5" stroke-dasharray="4,2"/>
+                        <text x="155" y="57" fill="#fd7e14" font-size="8" text-anchor="middle">min allowed</text>
+                        <text x="85" y="112" fill="#28a745" font-size="9" font-weight="bold">ON</text>
+                        <text x="219" y="112" fill="#dc3545" font-size="9" font-weight="bold">OFF</text>
+                        <text x="155" y="145" fill="#666" font-size="8" text-anchor="middle">tolerates interference</text>
+                    </svg>
+                </div>
+
+                <!-- Stage 3: Partial -->
+                <div class="event-card">
+                    <h3><span class="badge badge-partial">Stage 3</span> Partial Match</h3>
+                    <p>ON and OFF magnitudes differ by &gt;350W. Matches the smaller portion and creates a remainder event for the rest. Example: an AC (1500W) and boiler (2000W) turn on together → single +3500W event. The AC turns off first (-1500W), leaving a 2000W remainder for the boiler's OFF.</p>
+                    <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="270" height="115" fill="#fafbfc" rx="4"/>
+                        <line x1="30" y1="35" x2="300" y2="35" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="60" x2="300" y2="60" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="85" x2="300" y2="85" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="30" y1="125" x2="300" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <line x1="30" y1="10" x2="30" y2="125" stroke="#aaa" stroke-width="1"/>
+                        <polyline points="40,100 65,100 75,30 120,30 165,30 175,65 220,65 260,65 270,100 290,100"
+                                  fill="none" stroke="#2d3748" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="75,100 75,65 175,65 175,100" fill="#28a745" fill-opacity="0.12"/>
+                        <polygon points="75,30 75,65 175,65 175,30" fill="#6f42c1" fill-opacity="0.12"/>
+                        <polygon points="175,65 175,100 270,100 270,65" fill="#6f42c1" fill-opacity="0.08"/>
+                        <text x="75" y="112" fill="#28a745" font-size="8" font-weight="bold">ON(A+B)</text>
+                        <text x="170" y="112" fill="#dc3545" font-size="8" font-weight="bold">OFF(B)</text>
+                        <text x="125" y="86" fill="#28a745" font-size="8" text-anchor="middle">B matched</text>
+                        <text x="125" y="50" fill="#6f42c1" font-size="8" text-anchor="middle">A</text>
+                        <text x="222" y="86" fill="#6f42c1" font-size="8" text-anchor="middle">remainder</text>
+                        <text x="155" y="145" fill="#666" font-size="8" text-anchor="middle">splits overlapping devices</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Why iterative matching helps -->
+            <div class="event-card" style="max-width:100%; margin-top:25px; border-color:#2b6cb0; border-width:1.5px;">
+                <h3 style="color:#2b6cb0;">Why iterative peeling improves matching</h3>
+                <p>
+                    The three matching stages above handle increasingly difficult scenarios within a <em>single</em> iteration.
+                    But the real power comes from the <strong>iterative threshold schedule</strong> (2000W &rarr; 1500W &rarr; 1100W &rarr; 800W),
+                    which addresses two fundamental problems:
+                </p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:15px;">
+                    <div style="padding:16px; background:#f0fff4; border-radius:8px; border:1px solid #c6f6d5;">
+                        <h3 style="color:#276749; font-size:0.95em;">Nested events</h3>
+                        <p style="font-size:0.85em;">
+                            When a boiler (2000W) runs while an AC (1200W) cycles on top, the combined signal is hard to decompose.
+                            At TH=2000W the first iteration catches the boiler and removes it.
+                            In the next iteration at TH=1500W, the AC cycles appear cleanly in the remaining signal
+                            — without the boiler's power masking them. Each stage of matching
+                            (clean &rarr; noisy &rarr; partial) gets much higher accuracy when the large device is already gone.
+                        </p>
+                        <svg viewBox="0 0 340 100" xmlns="http://www.w3.org/2000/svg" style="max-width:340px; margin-top:8px;">
+                            <!-- Before: messy signal -->
+                            <rect x="5" y="5" width="155" height="85" fill="#fafbfc" rx="4" stroke="#e2e8f0"/>
+                            <text x="82" y="18" fill="#718096" font-size="7" font-weight="bold" text-anchor="middle">Before (combined)</text>
+                            <polyline points="15,70 30,70 35,35 50,25 65,35 80,25 95,35 110,35 115,70 140,70"
+                                      fill="none" stroke="#2d3748" stroke-width="1.8" stroke-linejoin="round"/>
+                            <text x="75" y="50" fill="#dc3545" font-size="6" text-anchor="middle">boiler+AC mixed</text>
+                            <text x="82" y="82" fill="#dc3545" font-size="6" text-anchor="middle">hard to match</text>
+
+                            <!-- Arrow -->
+                            <text x="170" y="52" fill="#a0aec0" font-size="14" font-weight="bold">&#10132;</text>
+
+                            <!-- After: clean AC cycles -->
+                            <rect x="185" y="5" width="150" height="85" fill="#fafbfc" rx="4" stroke="#e2e8f0"/>
+                            <text x="260" y="18" fill="#718096" font-size="7" font-weight="bold" text-anchor="middle">After boiler removed</text>
+                            <polyline points="195,70 210,70 215,40 230,40 235,70 250,70 255,40 270,40 275,70 290,70 295,40 310,40 315,70 325,70"
+                                      fill="none" stroke="#fd7e14" stroke-width="1.8" stroke-linejoin="round"/>
+                            <text x="260" y="82" fill="#28a745" font-size="6" text-anchor="middle">clean AC cycles</text>
+                        </svg>
+                    </div>
+                    <div style="padding:16px; background:#ebf8ff; border-radius:8px; border:1px solid #bee3f8;">
+                        <h3 style="color:#2c5282; font-size:0.95em;">Lower threshold, higher precision</h3>
+                        <p style="font-size:0.85em;">
+                            A high threshold (2000W) only catches large, unambiguous events — there are few of them but each match
+                            is very reliable (mostly clean Stage 1 matches). Once removed, the remaining signal has less interference,
+                            so the next iteration at a lower threshold (1500W) can detect medium devices with better precision.
+                            By the time we reach 800W, the signal is stripped of all large devices and the small events stand out clearly.
+                        </p>
+                        <div style="margin-top:10px; font-size:0.8em; color:#4a5568;">
+                            <div style="display:flex; align-items:center; gap:6px; margin:4px 0;">
+                                <span style="display:inline-block; width:55px; padding:2px 6px; background:#2d3748; color:white; border-radius:3px; text-align:center; font-weight:600;">2000W</span>
+                                <span>Boilers — few events, very high confidence</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px; margin:4px 0;">
+                                <span style="display:inline-block; width:55px; padding:2px 6px; background:#4a5568; color:white; border-radius:3px; text-align:center; font-weight:600;">1500W</span>
+                                <span>Large ACs — boilers removed, cleaner signal</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px; margin:4px 0;">
+                                <span style="display:inline-block; width:55px; padding:2px 6px; background:#718096; color:white; border-radius:3px; text-align:center; font-weight:600;">1100W</span>
+                                <span>Medium ACs — large ACs also removed</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px; margin:4px 0;">
+                                <span style="display:inline-block; width:55px; padding:2px 6px; background:#a0aec0; color:white; border-radius:3px; text-align:center; font-weight:600;">800W</span>
+                                <span>Small devices — cleanest signal, highest precision</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Validation Gates -->
+        <section id="validation">
+            <h2>Validation Gates</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                Every candidate match passes through quality checks before being accepted. Matches that fail are rejected
+                and their events return to the unmatched pool for the next stage.
+            </p>
+
+            <div class="validation-grid">
+                <div class="validation-card">
+                    <h3><span class="badge badge-validate">CV Stability</span></h3>
+                    <p>The power during the event period must be stable. If the coefficient of variation (standard deviation / mean) exceeds the threshold, the signal is too erratic — likely two different devices overlapping rather than one steady device. Example: power zigzags between 1800W and 200W = multiple devices, not a single boiler.</p>
+                    <div class="threshold">CV &le; 0.30 (30%)</div>
+                    <svg viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg" style="max-width:260px; margin-top:10px;">
+                        <rect x="5" y="5" width="120" height="65" fill="#d4edda" fill-opacity="0.3" rx="4" stroke="#28a745" stroke-width="0.5"/>
+                        <text x="65" y="17" fill="#28a745" font-size="7" text-anchor="middle" font-weight="bold">PASS</text>
+                        <polyline points="15,45 30,42 45,48 60,44 75,46 90,43 105,45 115,44" fill="none" stroke="#28a745" stroke-width="1.5"/>
+                        <text x="65" y="65" fill="#888" font-size="6" text-anchor="middle">stable signal</text>
+
+                        <rect x="135" y="5" width="120" height="65" fill="#f8d7da" fill-opacity="0.3" rx="4" stroke="#dc3545" stroke-width="0.5"/>
+                        <text x="195" y="17" fill="#dc3545" font-size="7" text-anchor="middle" font-weight="bold">REJECT</text>
+                        <polyline points="145,50 155,25 165,55 175,20 185,60 195,30 205,50 215,25 225,55 240,35 245,50" fill="none" stroke="#dc3545" stroke-width="1.5"/>
+                        <text x="195" y="65" fill="#888" font-size="6" text-anchor="middle">spiky signal</text>
+                    </svg>
+                </div>
+
+                <div class="validation-card">
+                    <h3><span class="badge badge-validate">Min Power Ratio</span></h3>
+                    <p>Event power must stay above 50% of the ON magnitude throughout the activation period. A drop below this means the device likely turned off mid-period and the match is spanning across two different activations. Example: ON at 1500W matched with an OFF 3 hours later, but power dropped to 400W in between (ratio 0.27 &lt; 0.50).</p>
+                    <div class="threshold">min(event_power) / magnitude &ge; 0.50</div>
+                    <svg viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg" style="max-width:260px; margin-top:10px;">
+                        <rect x="5" y="5" width="120" height="65" fill="#d4edda" fill-opacity="0.3" rx="4" stroke="#28a745" stroke-width="0.5"/>
+                        <text x="65" y="17" fill="#28a745" font-size="7" text-anchor="middle" font-weight="bold">PASS</text>
+                        <polyline points="15,30 35,33 55,28 75,35 95,30 115,32" fill="none" stroke="#28a745" stroke-width="1.5"/>
+                        <line x1="15" y1="45" x2="115" y2="45" stroke="#aaa" stroke-width="0.5" stroke-dasharray="3"/>
+                        <text x="65" y="52" fill="#888" font-size="5">50% line</text>
+
+                        <rect x="135" y="5" width="120" height="65" fill="#f8d7da" fill-opacity="0.3" rx="4" stroke="#dc3545" stroke-width="0.5"/>
+                        <text x="195" y="17" fill="#dc3545" font-size="7" text-anchor="middle" font-weight="bold">REJECT</text>
+                        <polyline points="145,30 160,32 175,35 185,50 195,58 210,55 225,30 245,32" fill="none" stroke="#dc3545" stroke-width="1.5"/>
+                        <line x1="145" y1="45" x2="245" y2="45" stroke="#aaa" stroke-width="0.5" stroke-dasharray="3"/>
+                        <text x="195" y="65" fill="#888" font-size="5">drops below 50%</text>
+                    </svg>
+                </div>
+
+                <div class="validation-card">
+                    <h3><span class="badge badge-validate">Negative Check</span></h3>
+                    <p>Remaining power after subtracting the device must not go negative. Small negatives (&gt; -10W) trigger automatic magnitude correction instead of rejection. Example: measured ON was 1505W but the device actually draws 1500W — the 5W rounding error would create -5W remaining, so the magnitude is reduced by 5W.</p>
+                    <div class="threshold">remaining &ge; -10W (tolerance)</div>
+                    <svg viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg" style="max-width:260px; margin-top:10px;">
+                        <rect x="5" y="5" width="75" height="65" fill="#d4edda" fill-opacity="0.3" rx="4" stroke="#28a745" stroke-width="0.5"/>
+                        <text x="42" y="17" fill="#28a745" font-size="6" text-anchor="middle" font-weight="bold">PASS</text>
+                        <text x="42" y="42" fill="#28a745" font-size="9" text-anchor="middle">+12W</text>
+
+                        <rect x="92" y="5" width="75" height="65" fill="#fff3cd" fill-opacity="0.5" rx="4" stroke="#fd7e14" stroke-width="0.5"/>
+                        <text x="130" y="17" fill="#fd7e14" font-size="6" text-anchor="middle" font-weight="bold">CORRECT</text>
+                        <text x="130" y="42" fill="#fd7e14" font-size="9" text-anchor="middle">-5W</text>
+                        <text x="130" y="55" fill="#888" font-size="5" text-anchor="middle">reduce mag.</text>
+
+                        <rect x="180" y="5" width="75" height="65" fill="#f8d7da" fill-opacity="0.3" rx="4" stroke="#dc3545" stroke-width="0.5"/>
+                        <text x="217" y="17" fill="#dc3545" font-size="6" text-anchor="middle" font-weight="bold">REJECT</text>
+                        <text x="217" y="42" fill="#dc3545" font-size="9" text-anchor="middle">-50W</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Tag System -->
+        <section id="tags">
+            <h2>Match Tag System</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                Each match receives a descriptive tag combining stage prefix, magnitude quality, and duration:
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                <div>
+                    <h3>Magnitude Quality</h3>
+                    <table class="tags-table">
+                        <tr><th>Tag</th><th>&Delta; Magnitude</th><th>Meaning</th></tr>
+                        <tr><td><span class="tag-badge" style="background:#d4edda;color:#155724;">EXACT</span></td><td>&lt; 50W</td><td>ON and OFF nearly identical — a boiler that turns on at 2010W and off at 1990W</td></tr>
+                        <tr><td><span class="tag-badge" style="background:#cce5ff;color:#004085;">CLOSE</span></td><td>50–100W</td><td>Small variance from measurement noise or background drift during the activation</td></tr>
+                        <tr><td><span class="tag-badge" style="background:#fff3cd;color:#856404;">APPROX</span></td><td>100–200W</td><td>Another small device turned on/off during the event, slightly shifting the measured magnitude</td></tr>
+                        <tr><td><span class="tag-badge" style="background:#f8d7da;color:#721c24;">LOOSE</span></td><td>200–350W</td><td>Significant interference — e.g., a light or fan switched during an AC cycle, distorting the OFF measurement</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h3>Duration Category</h3>
+                    <table class="tags-table">
+                        <tr><th>Tag</th><th>Duration</th><th>Examples</th></tr>
+                        <tr><td><span class="tag-badge" style="background:#e9ecef;color:#495057;">SPIKE</span></td><td>&le; 2 min</td><td>Compressor inrush current that settles within 1-2 minutes, or measurement noise — too brief to be a meaningful device activation</td></tr>
+                        <tr><td><span class="tag-badge" style="background:#e9ecef;color:#495057;">QUICK</span></td><td>2–5 min</td><td>Electric kettle boiling water (3-4 min), microwave heating food, or a very short AC compressor cycle when the room is almost at temperature</td></tr>
+                        <tr><td><span class="tag-badge" style="background:#e9ecef;color:#495057;">MEDIUM</span></td><td>5–30 min</td><td>Single AC compressor cooling cycle (5-20 min), washing machine heating water, or an iron in use</td></tr>
+                        <tr><td><span class="tag-badge" style="background:#e9ecef;color:#495057;">EXTENDED</span></td><td>&gt; 30 min</td><td>Boiler heating the water tank (30-45 min), oven baking, or central AC running continuously during summer peak</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div style="margin-top:20px;">
+                <h3>Suffixes</h3>
+                <table class="tags-table">
+                    <tr><th>Suffix</th><th>Trigger</th><th>Meaning</th></tr>
+                    <tr>
+                        <td><span class="tag-badge" style="background:#fd7e1422;color:#c45d00;">-TAIL</span></td>
+                        <td>OFF event was tail-extended</td>
+                        <td>The OFF event's end time was extended forward to capture residual power decay, increasing the detected magnitude</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-badge" style="background:#dc354522;color:#a71d2a;">-CORRECTED</span></td>
+                        <td>Small negative remaining (&gt; -10W)</td>
+                        <td>Match magnitude was reduced slightly to prevent negative remaining power after segmentation</td>
+                    </tr>
+                </table>
+            </div>
+            <p style="color:#666; margin-top:15px; font-size:0.88em;">
+                <strong>Full format:</strong>
+                <code style="background:#f0f0f0; padding:2px 6px; border-radius:3px;">[NOISY- | PARTIAL-] {EXACT|CLOSE|APPROX|LOOSE} - {SPIKE|QUICK|MEDIUM|EXTENDED} [-CORRECTED] [-TAIL]</code>
+            </p>
+            <p style="color:#888; margin-top:6px; font-size:0.82em;">
+                Examples: <code style="background:#f0f0f0; padding:1px 4px; border-radius:2px;">EXACT-MEDIUM</code>,
+                <code style="background:#f0f0f0; padding:1px 4px; border-radius:2px;">NOISY-APPROX-EXTENDED-CORRECTED</code>,
+                <code style="background:#f0f0f0; padding:1px 4px; border-radius:2px;">CLOSE-MEDIUM-TAIL</code>,
+                <code style="background:#f0f0f0; padding:1px 4px; border-radius:2px;">PARTIAL-EXTENDED-CORRECTED</code>
+            </p>
+        </section>
+
+        <!-- Segmentation -->
+        <section id="segmentation">
+            <h2>Segmentation</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                After matching, device power is extracted from the total signal. Three different extraction strategies are used
+                depending on the match quality, ensuring accurate separation even under noisy or overlapping conditions:
+            </p>
+
+            <div class="seg-grid">
+                <!-- Standard Path -->
+                <div class="event-card">
+                    <h3><span class="badge badge-seg">Standard</span> Clean Extraction</h3>
+                    <p>For Stage 1 matches. Device power follows the actual ON ramp, holds constant during the event, then follows the OFF ramp. Clipped to remaining power to prevent negatives. Example: a boiler at 2000W for 35 minutes on a quiet phase — just subtract its flat 2000W from the total signal.</p>
+                    <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="10" width="255" height="105" fill="#fafbfc" rx="4"/>
+                        <line x1="25" y1="120" x2="280" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="25" y1="10" x2="25" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <!-- Total power -->
+                        <polyline points="35,100 55,100 65,40 110,40 155,40 200,40 210,100 250,100 270,100"
+                                  fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,2"/>
+                        <!-- Extracted device power -->
+                        <polyline points="35,120 55,120 65,60 110,60 155,60 200,60 210,120 250,120 270,120"
+                                  fill="none" stroke="#1e40af" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="65,60 65,120 210,120 210,60" fill="#1e40af" fill-opacity="0.1"/>
+                        <!-- Remaining power -->
+                        <polyline points="35,100 55,100 65,100 110,100 155,100 200,100 210,100 250,100 270,100"
+                                  fill="none" stroke="#28a745" stroke-width="1.5"/>
+                        <!-- Labels -->
+                        <text x="137" y="85" fill="#1e40af" font-size="8" text-anchor="middle">device power</text>
+                        <text x="252" y="95" fill="#28a745" font-size="7">remaining</text>
+                        <text x="137" y="135" fill="#666" font-size="7" text-anchor="middle">constant extraction, clipped to remaining</text>
+                    </svg>
+                </div>
+
+                <!-- Noisy Path -->
+                <div class="event-card">
+                    <h3><span class="badge badge-seg">Noisy</span> Interference-Aware</h3>
+                    <p>For Stage 2 matches. Device power is clipped to min(magnitude, remaining) at each minute. Accounts for other devices interfering during the event period. Example: an AC at 1500W while someone uses the kettle — at some minutes the remaining power is only 1200W, so extraction is capped at 1200W for those minutes.</p>
+                    <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="10" width="255" height="105" fill="#fafbfc" rx="4"/>
+                        <line x1="25" y1="120" x2="280" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="25" y1="10" x2="25" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <!-- Total power (noisy) -->
+                        <polyline points="35,100 55,100 65,40 85,30 105,55 125,35 145,50 165,30 185,45 200,40 210,100 250,100 270,100"
+                                  fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,2"/>
+                        <!-- Extracted device power (variable) -->
+                        <polyline points="35,120 55,120 65,65 85,65 105,65 125,65 145,65 165,65 185,65 200,65 210,120 250,120 270,120"
+                                  fill="none" stroke="#1e40af" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="65,65 65,120 210,120 210,65" fill="#1e40af" fill-opacity="0.1"/>
+                        <!-- Labels -->
+                        <text x="137" y="98" fill="#1e40af" font-size="8" text-anchor="middle">device power</text>
+                        <text x="137" y="135" fill="#666" font-size="7" text-anchor="middle">clipped to min(magnitude, remaining)</text>
+                    </svg>
+                </div>
+
+                <!-- Partial Path -->
+                <div class="event-card">
+                    <h3><span class="badge badge-seg">Partial</span> Split Extraction</h3>
+                    <p>For Stage 3 matches. Only the matched portion (smaller magnitude) is extracted. The remainder continues as a separate event for future matching. Example: a combined 3500W ON (AC + boiler) — only the 1500W AC portion is extracted now, leaving the 2000W boiler portion for a separate match.</p>
+                    <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="10" width="255" height="105" fill="#fafbfc" rx="4"/>
+                        <line x1="25" y1="120" x2="280" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <line x1="25" y1="10" x2="25" y2="120" stroke="#aaa" stroke-width="1"/>
+                        <!-- Total power -->
+                        <polyline points="35,100 55,100 65,30 110,30 155,30 165,65 210,65 250,65 260,100 270,100"
+                                  fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,2"/>
+                        <!-- Extracted: only the matched portion -->
+                        <polyline points="35,120 55,120 65,85 110,85 155,85 165,120 210,120 250,120 270,120"
+                                  fill="none" stroke="#1e40af" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="65,85 65,120 165,120 165,85" fill="#1e40af" fill-opacity="0.1"/>
+                        <!-- Remainder stays -->
+                        <polygon points="65,30 65,85 165,85 165,65 210,65 250,65 260,100 65,100" fill="#6f42c1" fill-opacity="0.06" stroke="#6f42c1" stroke-width="0.5" stroke-dasharray="3"/>
+                        <!-- Labels -->
+                        <text x="110" y="107" fill="#1e40af" font-size="7" text-anchor="middle">matched B</text>
+                        <text x="155" y="55" fill="#6f42c1" font-size="7" text-anchor="middle">A remains</text>
+                        <text x="147" y="135" fill="#666" font-size="7" text-anchor="middle">extracts only matched portion</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- MODULE 2: Rule-Based Device Identification             -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <div class="module-banner module2">
+            <div class="module-number">M2</div>
+            <div class="module-info">
+                <h2>Rule-Based Device Identification</h2>
+                <p>Takes matched ON/OFF pairs from Module 1 and classifies them into specific device types using power magnitude, duration, and cross-phase synchronization rules. No machine learning — purely heuristic classification.</p>
+            </div>
+        </div>
+
+        <!-- Device Classification -->
+        <section id="classification">
+            <h2>Device Classification</h2>
+            <p style="color:#666; margin-bottom:15px;">
+                Module 2 receives the matched activations (with their durations, magnitudes, and phase assignments)
+                from Module 1 and applies deterministic rules to identify the specific device behind each activation.
+                The classification operates on the <code>matches_*.pkl</code> files and adds a <code>device_type</code>
+                column with one of: <strong>boiler</strong>, <strong>central_ac</strong>, <strong>regular_ac</strong>,
+                or <strong>unclassified</strong>.
+            </p>
+
+            <div class="device-grid">
+                <!-- Boiler -->
+                <div class="device-card">
+                    <h3>Boiler / Water Heater</h3>
+                    <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="5" width="240" height="95" fill="#fafbfc" rx="4"/>
+                        <line x1="25" y1="25" x2="265" y2="25" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="25" y1="50" x2="265" y2="50" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="25" y1="100" x2="265" y2="100" stroke="#aaa" stroke-width="1"/>
+                        <line x1="25" y1="5" x2="25" y2="100" stroke="#aaa" stroke-width="1"/>
+                        <polyline points="35,80 55,80 60,25 110,25 160,25 210,25 215,80 245,80 260,80"
+                                  fill="none" stroke="#dc3545" stroke-width="2.5" stroke-linejoin="round"/>
+                        <polygon points="60,25 60,80 215,80 215,25" fill="#dc3545" fill-opacity="0.1"/>
+                        <line x1="60" y1="90" x2="215" y2="90" stroke="#888" stroke-width="1"/>
+                        <line x1="60" y1="87" x2="60" y2="93" stroke="#888" stroke-width="1"/>
+                        <line x1="215" y1="87" x2="215" y2="93" stroke="#888" stroke-width="1"/>
+                        <text x="137" y="112" fill="#888" font-size="8" text-anchor="middle">&ge; 25 min, &ge; 1500W, single phase</text>
+                    </svg>
+                    <p>Israeli storage water heaters draw 2000-3000W continuously for 25-45 minutes on a single phase. They are isolated — no compressor cycling pattern nearby, just a flat high-power block with a clean ON and OFF.</p>
+                </div>
+
+                <!-- Central AC -->
+                <div class="device-card">
+                    <h3>Central AC</h3>
+                    <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="5" width="240" height="95" fill="#fafbfc" rx="4"/>
+                        <line x1="25" y1="100" x2="265" y2="100" stroke="#aaa" stroke-width="1"/>
+                        <line x1="25" y1="5" x2="25" y2="100" stroke="#aaa" stroke-width="1"/>
+                        <text x="35" y="30" fill="#007bff" font-size="9" font-weight="bold">w1</text>
+                        <text x="35" y="55" fill="#28a745" font-size="9" font-weight="bold">w2</text>
+                        <text x="35" y="80" fill="#fd7e14" font-size="9" font-weight="bold">w3</text>
+                        <polyline points="55,30 80,30 90,18 150,18 200,18 210,30 250,30"
+                                  fill="none" stroke="#007bff" stroke-width="2" stroke-linejoin="round"/>
+                        <polyline points="55,55 85,55 95,43 155,43 205,43 215,55 250,55"
+                                  fill="none" stroke="#28a745" stroke-width="2" stroke-linejoin="round"/>
+                        <polyline points="55,80 82,80 92,68 152,68 202,68 212,80 250,80"
+                                  fill="none" stroke="#fd7e14" stroke-width="2" stroke-linejoin="round"/>
+                        <line x1="90" y1="18" x2="92" y2="68" stroke="#aaa" stroke-width="0.8" stroke-dasharray="3"/>
+                        <line x1="210" y1="18" x2="212" y2="68" stroke="#aaa" stroke-width="0.8" stroke-dasharray="3"/>
+                        <text x="145" y="112" fill="#888" font-size="8" text-anchor="middle">synchronized across 2-3 phases (&le;10 min)</text>
+                    </svg>
+                    <p>Ducted or multi-split AC systems connect their compressor across 2-3 electrical phases. Their ON/OFF events appear synchronized across phases within a few minutes — if w1 shows +1200W at 14:00, w2 and w3 will show similar jumps within 2-10 minutes.</p>
+                </div>
+
+                <!-- Regular AC -->
+                <div class="device-card">
+                    <h3>Regular AC</h3>
+                    <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="5" width="240" height="95" fill="#fafbfc" rx="4"/>
+                        <line x1="25" y1="25" x2="265" y2="25" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="25" y1="50" x2="265" y2="50" stroke="#e8e8e8" stroke-dasharray="4"/>
+                        <line x1="25" y1="100" x2="265" y2="100" stroke="#aaa" stroke-width="1"/>
+                        <line x1="25" y1="5" x2="25" y2="100" stroke="#aaa" stroke-width="1"/>
+                        <polyline points="35,75 45,75 50,30 75,30 80,75 95,75 100,30 125,30 130,75 145,75 150,30 175,30 180,75 195,75 200,30 225,30 230,75 260,75"
+                                  fill="none" stroke="#fd7e14" stroke-width="2" stroke-linejoin="round"/>
+                        <text x="65" y="112" fill="#888" font-size="7" text-anchor="middle">cycle 1</text>
+                        <text x="115" y="112" fill="#888" font-size="7" text-anchor="middle">cycle 2</text>
+                        <text x="165" y="112" fill="#888" font-size="7" text-anchor="middle">cycle 3</text>
+                        <text x="215" y="112" fill="#888" font-size="7" text-anchor="middle">cycle 4</text>
+                    </svg>
+                    <p>A wall-mounted split AC runs on a single phase and cycles its compressor on and off to maintain room temperature — typically 800-1500W per cycle, 3-30 minutes each. Multiple cycles within 60 minutes are grouped as one cooling session.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>ElectricPatterns NILM Pipeline &mdash; Hila Khadad</p>
+            <p style="margin-top:5px;">
+                <a href="https://github.com/hilakhadad/ElectricPatterns">GitHub Repository</a>
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
