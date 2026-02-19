@@ -1688,6 +1688,28 @@
         document.getElementById('frame-nan').src = '';
         document.body.style.overflow = '';
     }
+    window.onload = function() {
+    const frame1 = document.getElementById('frame-original');
+    const frame2 = document.getElementById('frame-nan');
+
+    let isSyncing = false;
+
+    const syncScroll = (source, target) => {
+        source.contentWindow.onscroll = function() {
+            if (!isSyncing) {
+                isSyncing = true;
+                target.contentWindow.scrollTo(
+                    source.contentWindow.scrollX, 
+                    source.contentWindow.scrollY
+                )
+                
+                setTimeout(() => { isSyncing = false; }, 10);
+            }
+        }
+    }
+    frame1.onload = () => syncScroll(frame1, frame2);
+    frame2.onload = () => syncScroll(frame2, frame1);
+    }
     </script>
 </body>
 </html>
