@@ -99,33 +99,26 @@
     <div class="container">
         <header>
             <h1>Dynamic Threshold Analysis - House 2067</h1>
-            <div class="subtitle">Generated: 2026-02-19 03:55</div>
+            <div class="subtitle">Generated: 2026-02-19 06:34</div>
             <div class="info-bar">
                 <div class="info-item"><strong>Period:</strong> 2020-12-16 to 2026-01-05 (1846 days)</div>
                 <div class="info-item"><strong>Thresholds:</strong> 2000W -> 1500W -> 1100W -> 800W</div>
-                
+                <div class="info-item"><strong>Pre-Quality:</strong> <span style="color:#6f42c1;font-weight:bold;" title="Phase with >=10% NaN values">High NaN</span></div>
             </div>
         </header>
 
-        <div style="background:#e8daf0;border:1px solid #6f42c1;border-radius:6px;padding:8px 15px;margin-bottom:12px;font-size:0.82em;color:#4a0e6b;">NaN minutes (shown as "No Data"): w1: 1,739,838 min (68%), w2: 1,079,695 min (42%), w3: 234,921 min (9%)</div>
+        <div style="background:#e8daf0;border:1px solid #6f42c1;border-radius:6px;padding:8px 15px;margin-bottom:12px;font-size:0.82em;color:#4a0e6b;">NaN minutes (shown as "No Data"): w1: 1,823,814 min (69%), w2: 1,163,671 min (44%), w3: 318,897 min (12%)</div>
 
         <section>
             <h2>Power Decomposition Summary</h2>
             
-    <p style="color: #555; margin-bottom: 15px; line-height: 1.5; font-size: 0.88em;">
-        Total consumption (31848.72 kWh) = <strong>Explained</strong> (detected devices)
-        + <strong>Background</strong> (always-on baseload)
-        + <strong>Unmatched</strong> (above 800W, not matched)
-        + <strong>Sub-threshold</strong> (below 800W, undetectable by design).
-    </p>
-
     <div style="border: 2px solid #dee2e6; border-radius: 12px; padding: 18px; margin-bottom: 18px;">
         <div style="font-size: 0.82em; font-weight: 600; color: #555; margin-bottom: 12px;">
             Power Decomposition (= 100%)
         </div>
         <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 12px;">
             <div style="background: #d4edda; border-left: 4px solid #28a745; border-radius: 8px; padding: 14px; text-align: center;">
-                <div style="font-size: 1.8em; font-weight: bold; color: #28a745;">11.7%</div>
+                <div style="font-size: 1.8em; font-weight: bold; color: #28a745;">11.3%</div>
                 <div style="font-size: 0.9em; color: #155724; font-weight: 600;">Explained</div>
                 <div style="font-size: 0.8em; color: #666;">6160.58 kWh</div>
                 <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
@@ -133,8 +126,26 @@
                     <em>Per-minute difference: original &minus; remaining.</em>
                 </div>
             </div>
+            <div style="background: #fde8cd; border-left: 4px solid #e67e22; border-radius: 8px; padding: 14px; text-align: center;">
+                <div style="font-size: 1.8em; font-weight: bold; color: #e67e22;">5.2%</div>
+                <div style="font-size: 0.9em; color: #7a4510; font-weight: 600;">Unmatched</div>
+                <div style="font-size: 0.8em; color: #666;">2848.86 kWh</div>
+                <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
+                    Above 800W, not matched. Includes complex-pattern<br>
+                    devices not targeted for detection.
+                </div>
+            </div>
+            <div style="background: #fef9e7; border-left: 4px solid #eab308; border-radius: 8px; padding: 14px; text-align: center;">
+                <div style="font-size: 1.8em; font-weight: bold; color: #a38600;">20.7%</div>
+                <div style="font-size: 0.9em; color: #7a6400; font-weight: 600;">Sub-threshold</div>
+                <div style="font-size: 0.8em; color: #666;">11250.0 kWh</div>
+                <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
+                    Between background and 800W.<br>
+                    Below detection threshold &mdash; undetectable by design.
+                </div>
+            </div>
             <div style="background: #e9ecef; border-left: 4px solid #6c757d; border-radius: 8px; padding: 14px; text-align: center;">
-                <div style="font-size: 1.8em; font-weight: bold; color: #6c757d;">22.2%</div>
+                <div style="font-size: 1.8em; font-weight: bold; color: #6c757d;">21.5%</div>
                 <div style="font-size: 0.9em; color: #495057; font-weight: 600;">Background</div>
                 <div style="font-size: 0.8em; color: #666;">11721.56 kWh</div>
                 <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
@@ -142,42 +153,24 @@
                     <em>P5 (5th percentile) &times; measured minutes.</em>
                 </div>
             </div>
-            <div style="background: #fff3cd; border-left: 4px solid #fd7e14; border-radius: 8px; padding: 14px; text-align: center;">
-                <div style="font-size: 1.8em; font-weight: bold; color: #fd7e14;">5.4%</div>
-                <div style="font-size: 0.9em; color: #856404; font-weight: 600;">Unmatched</div>
-                <div style="font-size: 0.8em; color: #666;">2848.86 kWh</div>
-                <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
-                    Above 800W, not matched. Includes complex-pattern<br>
-                    devices not targeted for detection.
-                </div>
-            </div>
-            <div style="background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 8px; padding: 14px; text-align: center;">
-                <div style="font-size: 1.8em; font-weight: bold; color: #b8860b;">21.4%</div>
-                <div style="font-size: 0.9em; color: #856404; font-weight: 600;">Sub-threshold</div>
-                <div style="font-size: 0.8em; color: #666;">11250.0 kWh</div>
-                <div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">
-                    Between background and 800W.<br>
-                    Below detection threshold &mdash; undetectable by design.
-                </div>
-            </div>
-            <div style="background:#e8daf0; border-left: 4px solid #6f42c1; border-radius: 8px; padding: 14px; text-align: center;"><div style="font-size: 1.8em; font-weight: bold; color: #6f42c1;">39.6%</div><div style="font-size: 0.9em; color: #4a0e6b; font-weight: 600;">No Data</div><div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">Minutes with no power reading (NaN).<br><em>Not included in any calculation.</em></div></div>
+            <div style="background:#e8daf0; border-left: 4px solid #6f42c1; border-radius: 8px; padding: 14px; text-align: center;"><div style="font-size: 1.8em; font-weight: bold; color: #6f42c1;">41.5%</div><div style="font-size: 0.9em; color: #4a0e6b; font-weight: 600;">No Data</div><div style="font-size: 0.75em; color: #888; margin-top: 4px; line-height: 1.4;">Minutes with no power reading (NaN).<br><em>Not included in any calculation.</em></div></div>
         </div>
         <div style="background: #f8f9fa; border-radius: 6px; padding: 8px 15px; text-align: center; font-size: 0.82em; color: #555;">
-            <span style="color:#28a745;">Explained (11.7%)</span> +
-            <span style="color:#6c757d;">Background (22.2%)</span> +
-            <span style="color:#fd7e14;">Unmatched (5.4%)</span> +
-            <span style="color:#b8860b;">Sub-threshold (21.4%)</span>
-             + <span style="color:#6f42c1;">No Data (39.6%)</span>
-            = 100.3%
+            <span style="color:#28a745;">Explained (11.3%)</span> +
+            <span style="color:#e67e22;">Unmatched (5.2%)</span> +
+            <span style="color:#eab308;">Sub-threshold (20.7%)</span> +
+            <span style="color:#6c757d;">Background (21.5%)</span>
+             + <span style="color:#6f42c1;">No Data (41.5%)</span>
+            = 100.2%
         </div>
     </div>
 
-    <div style="background: #fff8e1; border: 2px solid #ffc107; border-radius: 12px; padding: 15px 20px; text-align: center; margin-bottom: 8px;">
-        <div style="font-size: 2.8em; font-weight: bold; color: #ffc107;">68.4%</div>
+    <div style="background: #fff8e1; border: 2px solid #eab308; border-radius: 12px; padding: 15px 20px; text-align: center; margin-bottom: 8px;">
+        <div style="font-size: 2.8em; font-weight: bold; color: #eab308;">68.4%</div>
         <div style="font-size: 1em; font-weight: 700; color: #333;">Detection Efficiency</div>
         <div style="font-size: 0.82em; color: #555; margin-top: 4px; line-height: 1.5;">
             <strong>Efficiency</strong> = 6160.58 / (6160.58 + 2848.86) kWh
-            = <strong style="color:#ffc107;">68.4%</strong><br>
+            = <strong style="color:#eab308;">68.4%</strong><br>
             <em>Scope: only above-threshold (&ge;800W) power. Background and sub-threshold excluded.</em>
         </div>
     </div>
@@ -187,12 +180,12 @@
         <section>
             <h2>Power Breakdown by Phase</h2>
             <p style="color: #666; margin-bottom: 10px; font-size: 0.85em;">
-                Per-phase (w1, w2, w3) decomposition into Explained, Background, Unmatched, and Sub-threshold.
+                Per-phase (w1, w2, w3) decomposition into Explained, Unmatched, Sub-threshold, Background, and No Data.
             </p>
             
-    <div id="power-breakdown-chart" style="width:100%;height:250px;"></div>
+    <div id="power-breakdown-chart" style="width:100%;height:320px;"></div>
     <script>
-        Plotly.newPlot('power-breakdown-chart', [{"y": ["w1", "w2", "w3"], "x": [1.5, 16.1, 17.7], "name": "Explained", "type": "bar", "orientation": "h", "marker": {"color": "#28a745"}, "text": ["1.5%", "16.1%", "17.7%"], "textposition": "inside", "hovertext": ["w1: 270.94 kWh (1.5%)", "w2: 2894.89 kWh (16.1%)", "w3: 2994.76 kWh (17.7%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [12.5, 22.7, 31.4], "name": "Background", "type": "bar", "orientation": "h", "marker": {"color": "#6c757d"}, "text": ["12.5%", "22.7%", "31.4%"], "textposition": "inside", "hovertext": ["w1: 2335.5 kWh (12.5%)", "w2: 4084.28 kWh (22.7%)", "w3: 5301.79 kWh (31.4%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [2.5, 6.3, 7.4], "name": "Unmatched", "type": "bar", "orientation": "h", "marker": {"color": "#fd7e14"}, "text": ["2.5%", "6.3%", "7.4%"], "textposition": "inside", "hovertext": ["w1: 460.45 kWh (2.5%)", "w2: 1134.56 kWh (6.3%)", "w3: 1253.85 kWh (7.4%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [16.1, 13.1, 34.9], "name": "Sub-threshold", "type": "bar", "orientation": "h", "marker": {"color": "#ffc107"}, "text": ["16.1%", "13.1%", "34.9%"], "textposition": "inside", "hovertext": ["w1: 2998.06 kWh (16.1%)", "w2: 2356.42 kWh (13.1%)", "w3: 5895.53 kWh (34.9%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [67.6, 41.9, 9.1], "name": "No Data", "type": "bar", "orientation": "h", "marker": {"color": "#6f42c1"}, "text": ["67.6%", "41.9%", "9.1%"], "textposition": "inside", "hovertext": ["w1: 1,739,838 NaN minutes (67.6%)", "w2: 1,079,695 NaN minutes (41.9%)", "w3: 234,921 NaN minutes (9.1%)"], "hoverinfo": "text"}], {"title": "Power Decomposition by Phase", "barmode": "stack", "xaxis": {"title": "% of Total Period", "range": [0, 105]}, "yaxis": {"title": ""}, "legend": {"orientation": "h", "y": -0.2}, "margin": {"l": 50, "r": 30, "t": 50, "b": 60}, "height": 250});
+        Plotly.newPlot('power-breakdown-chart', [{"y": ["w1", "w2", "w3"], "x": [1.4, 15.6, 17.2], "name": "Explained", "type": "bar", "orientation": "h", "marker": {"color": "#28a745"}, "text": ["1.4%", "15.6%", "17.2%"], "textposition": "inside", "hovertext": ["w1: 270.94 kWh (1.4%)", "w2: 2894.89 kWh (15.6%)", "w3: 2994.76 kWh (17.2%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [2.4, 6.1, 7.2], "name": "Unmatched", "type": "bar", "orientation": "h", "marker": {"color": "#e67e22"}, "text": ["2.4%", "6.1%", "7.2%"], "textposition": "inside", "hovertext": ["w1: 460.45 kWh (2.4%)", "w2: 1134.56 kWh (6.1%)", "w3: 1253.85 kWh (7.2%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [15.6, 12.7, 33.8], "name": "Sub-threshold", "type": "bar", "orientation": "h", "marker": {"color": "#eab308"}, "text": ["15.6%", "12.7%", "33.8%"], "textposition": "inside", "hovertext": ["w1: 2998.06 kWh (15.6%)", "w2: 2356.42 kWh (12.7%)", "w3: 5895.53 kWh (33.8%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [12.1, 22.0, 30.4], "name": "Background", "type": "bar", "orientation": "h", "marker": {"color": "#6c757d"}, "text": ["12.1%", "22.0%", "30.4%"], "textposition": "inside", "hovertext": ["w1: 2335.5 kWh (12.1%)", "w2: 4084.28 kWh (22.0%)", "w3: 5301.79 kWh (30.4%)"], "hoverinfo": "text"}, {"y": ["w1", "w2", "w3"], "x": [68.6, 43.8, 12.0], "name": "No Data", "type": "bar", "orientation": "h", "marker": {"color": "#6f42c1"}, "text": ["68.6%", "43.8%", "12.0%"], "textposition": "inside", "hovertext": ["w1: 1,823,814 NaN minutes (68.6%)", "w2: 1,163,671 NaN minutes (43.8%)", "w3: 318,897 NaN minutes (12.0%)"], "hoverinfo": "text"}], {"title": "Power Decomposition by Phase", "barmode": "stack", "xaxis": {"title": "% of Total Period", "range": [0, 105]}, "yaxis": {"title": ""}, "legend": {"orientation": "h", "y": -0.25}, "margin": {"l": 50, "r": 30, "t": 50, "b": 80}, "height": 320});
     </script>
     
             
@@ -202,9 +195,9 @@
                 <th style="padding: 10px 15px; text-align: left;">Phase</th>
                 <th style="padding: 10px 15px; text-align: right;" title="Total original power consumption">Total</th>
                 <th style="padding: 10px 15px; text-align: right; color: #28a745;" title="Power attributed to detected device activations">Explained</th>
+                <th style="padding: 10px 15px; text-align: right; color: #e67e22;" title="Above minimum threshold, not matched to any device">Unmatched</th>
+                <th style="padding: 10px 15px; text-align: right; color: #a38600;" title="Between background and minimum threshold — undetectable by design">Sub-threshold</th>
                 <th style="padding: 10px 15px; text-align: right; color: #6c757d;" title="Baseline power (5th percentile) - always-on devices">Background</th>
-                <th style="padding: 10px 15px; text-align: right; color: #fd7e14;" title="Above minimum threshold, not matched to any device">Unmatched</th>
-                <th style="padding: 10px 15px; text-align: right; color: #b8860b;" title="Between background and minimum threshold — undetectable by design">Sub-threshold</th>
                 <th style="padding: 10px 15px; text-align: right; color: #6f42c1;" title="% of time with no power reading (NaN)">No Data</th>
                 <th style="padding: 10px 15px; text-align: right;" title="Explained / (Explained + Unmatched) — only detectable power">Efficiency</th>
             </tr>
@@ -214,33 +207,33 @@
         <tr>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; font-weight: 600;">w1</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">6040.83 kWh</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">270.94 kWh (1.5%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">2335.5 kWh (12.5%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">460.45 kWh (2.5%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #b8860b;">2998.06 kWh (16.1%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6f42c1;">67.6%</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">270.94 kWh (1.4%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #e67e22;">460.45 kWh (2.4%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #a38600;">2998.06 kWh (15.6%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">2335.5 kWh (12.1%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6f42c1;">68.6%</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">37.0%</td>
         </tr>
         
         <tr>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; font-weight: 600;">w2</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">10451.87 kWh</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">2894.89 kWh (16.1%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">4084.28 kWh (22.7%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">1134.56 kWh (6.3%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #b8860b;">2356.42 kWh (13.1%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6f42c1;">41.9%</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">2894.89 kWh (15.6%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #e67e22;">1134.56 kWh (6.1%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #a38600;">2356.42 kWh (12.7%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">4084.28 kWh (22.0%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6f42c1;">43.8%</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">71.8%</td>
         </tr>
         
         <tr>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; font-weight: 600;">w3</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">15356.02 kWh</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">2994.76 kWh (17.7%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">5301.79 kWh (31.4%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #fd7e14;">1253.85 kWh (7.4%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #b8860b;">5895.53 kWh (34.9%)</td>
-            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6f42c1;">9.1%</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #28a745;">2994.76 kWh (17.2%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #e67e22;">1253.85 kWh (7.2%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #a38600;">5895.53 kWh (33.8%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6c757d;">5301.79 kWh (30.4%)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right; color: #6f42c1;">12.0%</td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: right;">70.5%</td>
         </tr>
         
@@ -261,7 +254,7 @@
                 270.94 / 3705.33 kWh
             </div>
             <script>
-                Plotly.newPlot('efficiency-gauge-chart-w1', [{"values": [37.0, 63.0], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#fd7e14", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "37%", "showarrow": false, "font": {"size": 24, "color": "#fd7e14", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w1", "font": {"size": 14}}},
+                Plotly.newPlot('efficiency-gauge-chart-w1', [{"values": [37.0, 63.0], "labels": ["Efficiency", ""], "type": "pie", "hole": 0.7, "marker": {"colors": ["#e67e22", "#f0f0f0"]}, "textinfo": "none", "hoverinfo": "skip", "sort": false}], {"showlegend": false, "margin": {"l": 10, "r": 10, "t": 30, "b": 10}, "height": 200, "width": 200, "annotations": [{"text": "37%", "showarrow": false, "font": {"size": 24, "color": "#e67e22", "family": "Arial Black"}, "x": 0.5, "y": 0.5}], "title": {"text": "w1", "font": {"size": 14}}},
                     {displayModeBar: false});
             </script>
         </div>
@@ -296,9 +289,9 @@
                 Each iteration uses a lower threshold (2000W -> 1500W -> 1100W -> 800W) to detect progressively smaller devices.
             </p>
             
-    <div id="threshold-waterfall-chart" style="width:100%;height:350px;"></div>
+    <div id="threshold-waterfall-chart" style="width:100%;height:400px;"></div>
     <script>
-        Plotly.newPlot('threshold-waterfall-chart', [{"type": "waterfall", "x": ["TH=2000W", "TH=1500W", "TH=1100W", "TH=800W", "Total"], "y": [12.2, 2.9, 1.0, 1.1, 17.200000000000003], "measure": ["relative", "relative", "relative", "relative", "total"], "text": ["+12.2%", "+2.9%", "+1.0%", "+1.1%", "17.2%"], "textposition": "outside", "connector": {"line": {"color": "#ccc"}}, "increasing": {"marker": {"color": "#28a745"}}, "totals": {"marker": {"color": "#667eea"}}}], {"title": "Contribution by Threshold Level", "yaxis": {"title": "% of Total Power Explained"}, "xaxis": {"title": ""}, "showlegend": false, "margin": {"t": 50, "b": 50}, "height": 350});
+        Plotly.newPlot('threshold-waterfall-chart', [{"type": "waterfall", "x": ["TH=2000W", "TH=1500W", "TH=1100W", "TH=800W", "Total"], "y": [12.2, 2.9, 1.0, 1.1, 17.200000000000003], "measure": ["relative", "relative", "relative", "relative", "total"], "text": ["+12.2%", "+2.9%", "+1.0%", "+1.1%", "17.2%"], "textposition": "outside", "connector": {"line": {"color": "#ccc"}}, "increasing": {"marker": {"color": "#28a745"}}, "totals": {"marker": {"color": "#667eea"}}}], {"title": "Contribution by Threshold Level", "yaxis": {"title": "% of Total Power Explained"}, "xaxis": {"title": ""}, "showlegend": false, "margin": {"t": 60, "b": 50, "l": 60, "r": 30}, "height": 400});
     </script>
     
         </section>
@@ -312,7 +305,7 @@
                 
     <div id="remaining-analysis-chart" style="width:100%;height:400px;"></div>
     <script>
-        Plotly.newPlot('remaining-analysis-chart', [{"values": [3038015, 1534560, 94803], "labels": ["Noise / Baseload<br>(<200W above base)", "Small Events<br>(200-800W)", "Large Unmatched<br>(>800W)"], "type": "pie", "marker": {"colors": ["#6c757d", "#ffc107", "#fd7e14"]}, "textinfo": "percent+label", "hole": 0.4, "textposition": "outside"}], {"title": "Remaining Power Classification<br><sub>7,721,832 total minutes across all phases</sub>", "showlegend": false, "margin": {"t": 60, "b": 30, "l": 100, "r": 100}, "height": 400});
+        Plotly.newPlot('remaining-analysis-chart', [{"values": [3038015, 1534560, 94803], "labels": ["Noise / Baseload<br>(<200W above base)", "Small Events<br>(200-800W)", "Large Unmatched<br>(>800W)"], "type": "pie", "marker": {"colors": ["#6c757d", "#eab308", "#e67e22"]}, "textinfo": "percent+label", "hole": 0.4, "textposition": "outside"}], {"title": "Remaining Power Classification<br><sub>7,721,832 total minutes across all phases</sub>", "showlegend": false, "margin": {"t": 60, "b": 30, "l": 100, "r": 100}, "height": 400});
     </script>
     
             </section>
